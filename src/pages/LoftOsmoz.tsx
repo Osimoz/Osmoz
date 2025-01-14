@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Users, Euro, Calendar, Coffee, Wifi, Tv, Printer, UtensilsCrossed } from 'lucide-react';
+import { MapPin, Users, Euro, Calendar, Coffee, Wifi, Tv, UtensilsCrossed, Fan, HdmiPort, Box, Presentation } from 'lucide-react';
 import ImageGallery from '../components/ImageGallery';
 import BannerSlideshow from '../components/BannerSlideshow';
 
@@ -72,7 +72,10 @@ const amenities = [
   { icon: Coffee, label: "Machine à café en grains" },
   { icon: Tv, label: "Écrans connectés" },
   { icon: UtensilsCrossed, label: "Cuisine équipée" },
-  { icon: Printer, label: "Imprimante" }
+  { icon: Fan, label: "Ventilateur" }, 
+  { icon: HdmiPort, label: "Cable HDMI" },
+  { icon: Box, label: "Rangement" }, 
+  { icon: Presentation, label: "Paperboard" } 
 ];
 
 export default function LoftOsmoz() {
