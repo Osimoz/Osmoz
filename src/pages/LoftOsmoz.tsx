@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MapPin, Users, Euro, Calendar, Coffee, Wifi, Tv, Printer, UtensilsCrossed } from 'lucide-react';
 import ImageGallery from '../components/ImageGallery';
 import BannerSlideshow from '../components/BannerSlideshow';
