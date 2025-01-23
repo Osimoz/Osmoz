@@ -17,7 +17,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-wide">
-              Des espaces atypiques pour travailler <em className="font-light not-italic tracking-wide" style={{ fontStyle: 'italic' }}>autrement</em>
+              Des espaces à louer pour travailler <em className="font-light not-italic tracking-wide" style={{ fontStyle: 'italic' }}>autrement</em>
             </h1>
             <p className="text-sm font-light tracking-[0.2em] mb-8" style={{ color: '#A8A9AD', textShadow: '0 1px 1px rgba(255, 255, 255, 0.7)' }}>
               Travaillez, créez, connectez.
@@ -49,17 +49,17 @@ export default function Home() {
               {
                 Icon: Castle,
                 title: "Adresses premium et design",
-                description: "Des lieux uniques, mêlant charme et modernité, pour des événements inspirants et mémorables."
+                description: "Des lieux uniques, mêlant charme et modernité, pour des événements inspirants et productifs."
               },
               {
                 Icon: GemIcon,
                 title: "Service sur-mesure",
-                description: "Une prise en charge complète, du concept à l'exécution, pour vous offrir une expérience sans stress."
+                description: "Une prise en charge complète, du concept à l'exécution, pour vous offrir un évenement sans stress."
               },
               {
                 Icon: Warehouse,
                 title: "Espaces modulables et flexibles",
-                description: "Des configurations adaptables à tous vos besoins : réunions, séminaires, déjeuners ou tournages."
+                description: "Des configurations adaptables à tous vos besoins : réunions, séminaires, déjeuners ou showroom."
               }
             ].map((feature, index) => (
               <div 
