@@ -172,7 +172,7 @@ export default function LoftOsmoz() {
                 <span className="font-light text-gray-600">À partir de 850€/jour</span>
               </div>
               <button 
-                onClick={() => window.open("https://qcwzpyu0fgi.typeform.com/to/pK7k123c", "_blank")}
+                onClick={() => window.open("https://tally.so/r/mDx24R", "_blank")}
                 className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition duration-300 flex items-center justify-center gap-2"
               >
                 <Calendar className="h-5 w-5" />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { LogoHorizontal } from './Logo';
 
-const TYPEFORM_URL = "https://osmoz.typeform.com/to/Gg2Yvv0q";
+const TYPEFORM_URL = "https://tally.so/r/mDx24R";
 
 export const Navigation = () => {
   const openTypeform = (e: React.MouseEvent) => {

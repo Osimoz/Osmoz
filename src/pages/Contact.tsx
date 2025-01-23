@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 
-const TYPEFORM_URL = "https://qcwzpyu0fgi.typeform.com/to/pK7k123c";
+const TYPEFORM_URL = "https://tally.so/r/mDx24R";
 
 export default function Contact() {
   return (

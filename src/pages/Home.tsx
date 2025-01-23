@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight, Castle, GemIcon, Warehouse } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const TYPEFORM_URL = "https://qcwzpyu0fgi.typeform.com/to/pK7k123c";
+const TYPEFORM_URL = "https://tally.so/r/mDx24R";
 
 export default function Home() {
   const openTypeform = (e: React.MouseEvent) => {

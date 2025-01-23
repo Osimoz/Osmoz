@@ -10,4 +10,4 @@ export interface Image {
 }
 
 // Constants
-export const TYPEFORM_URL = "https://qcwzpyu0fgi.typeform.com/to/pK7k123c";
+export const TYPEFORM_URL = "https://tally.so/r/mDx24R";
