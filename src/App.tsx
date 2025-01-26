@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import Home from './pages/Home';
 import Spaces from './pages/Spaces';
 import LoftOsmoz from './pages/LoftOsmoz';
+import PatioOsmoz from './pages/PatioOsmoz'; // Add this import
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/spaces" element={<Spaces />} />
             <Route path="/spaces/loft-osmoz" element={<LoftOsmoz />} />
+            <Route path="/spaces/patio-osmoz" element={<PatioOsmoz />} /> {/* Add this route */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />

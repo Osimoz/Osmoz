@@ -101,18 +101,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Loft Osmoz - Salle de travail",
+                title: "Le Loft - Salle de travail",
                 description: "Un espace lumineux et moderne, parfait pour les sessions de travail collaboratif et les réunions créatives.",
                 image: "/images/1_DSC4725-HDR OK.jpg"
               },
               {
-                title: "Loft Osmoz - Cuisine",
+                title: "Le Loft - Cuisine",
                 description: "Une cuisine professionnelle équipée, idéale pour les événements culinaires et les pauses conviviales.",
                 image: "/images/3_DSC4743-HDR.jpg"
               },
               {
-                title: "Loft Osmoz - Salle de réunion",
-                description: "Une salle de réunion élégante avec équipement audiovisuel de pointe pour des présentations impactantes.",
+                title: "Le Patio",
+                description: "Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.",
                 image: "/images/22_DSC4641-HDR.jpg"
               }
             ].map((space, index) => (
