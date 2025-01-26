@@ -8,7 +8,7 @@ interface BannerSlideshowProps {
 
 export default function BannerSlideshow({ 
   images, 
-  interval = 3000,
+  interval = 2000,
   onImageClick 
 }: BannerSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
