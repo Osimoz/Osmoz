@@ -5,15 +5,15 @@ import BannerSlideshow from '../components/BannerSlideshow';
 
 const bannerImages = [
   {
-    url: "/images/22_DSC4641-HDR.jpg",
+    url: "",
     alt: "Le Patio - Vue principale"
   },
   {
-    url: "/images/23_DSC4647-HDR.jpg",
+    url: "",
     alt: "Le Patio - Entrée"
   },
   {
-    url: "/images/24_DSC4650-HDR.jpg",
+    url: "",
     alt: "Le Patio - Espace de travail"
   },
   {
@@ -25,10 +25,10 @@ const bannerImages = [
 // All available images in ascending order
 const allImages = [
   // Add all Patio images here
-  { url: "/images/22_DSC4641-HDR.jpg", alt: "Le Patio - Vue 1" },
-  { url: "/images/23_DSC4647-HDR.jpg", alt: "Le Patio - Vue 2" },
-  { url: "/images/24_DSC4650-HDR.jpg", alt: "Le Patio - Vue 3" },
-  { url: "/images/25_DSC4653-HDR.jpg", alt: "Le Patio - Vue 4" },
+  { url: "", alt: "Le Patio - Vue 1" },
+  { url: "", alt: "Le Patio - Vue 2" },
+  { url: "", alt: "Le Patio - Vue 3" },
+  { url: "", alt: "Le Patio - Vue 4" },
   // Add more images as needed
 ];
 

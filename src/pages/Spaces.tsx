@@ -13,7 +13,7 @@ const spaces = [
     id: 'patio-osmoz',
     title: "Le Patio",
     description: "Découvrez notre espace lumineux avec verrières, idéalement situé au calme dans une cour privée. Parfait pour vos événements d'entreprise, séminaires et ateliers dans un cadre unique et inspirant.",
-    image: "/images/22_DSC4641-HDR.jpg",
+    image: "",
     capacity: "30 personnes",
     price: "À partir de 850€/jour"
   }
