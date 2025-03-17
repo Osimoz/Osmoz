@@ -5,36 +5,26 @@ interface LogoProps {
   color?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = "h-8 w-8", color = "currentColor" }) => {
+export const Logo: React.FC<LogoProps> = ({ className = "h-8 w-auto", color = "#862637" }) => {
   return (
-    <svg
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <circle cx="50" cy="50" r="45" stroke={color} strokeWidth="6"/>
-      <circle cx="50" cy="50" r="20" stroke={color} strokeWidth="6"/>
-      <circle cx="50" cy="85" r="3" fill={color}/>
-    </svg>
+    <img 
+      src="/images/osmoz-logo.png" 
+      alt="OSMOZ" 
+      className={className} 
+      style={{ filter: `brightness(0) saturate(100%) invert(19%) sepia(27%) saturate(2202%) hue-rotate(311deg) brightness(90%) contrast(95%)` }}
+    />
   );
 }
 
-export const LogoHorizontal: React.FC<LogoProps> = ({ className, color = "currentColor" }) => {
+export const LogoHorizontal: React.FC<LogoProps> = ({ className, color = "#862637" }) => {
   return (
     <div className={`flex items-center ${className}`}>
-      <Logo className="h-8 w-8" color={color} />
-      <span 
-        className="ml-2 tracking-[0.2em] uppercase text-lg font-medium" 
-        style={{ 
-          color,
-          letterSpacing: '0.2em',
-          fontFeatureSettings: "'ss01' on, 'liga' off",
-          fontVariantCaps: 'all-small-caps'
-        }}
-      >
-        Osmoz
-      </span>
+      <img 
+        src="/images/osmoz-logo.png" 
+        alt="OSMOZ" 
+        className="h-8 w-auto" 
+        style={{ filter: `brightness(0) saturate(100%) invert(19%) sepia(27%) saturate(2202%) hue-rotate(311deg) brightness(90%) contrast(95%)` }}
+      />
     </div>
   );
 }

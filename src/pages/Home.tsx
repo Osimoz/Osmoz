@@ -1,10 +1,23 @@
-import React from 'react';
-import { ArrowRight, Castle, GemIcon, Warehouse } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { ArrowRight, Castle, GemIcon, Warehouse, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const TYPEFORM_URL = "https://tally.so/r/mDx24R";
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
   const openTypeform = (e: React.MouseEvent) => {
     e.preventDefault();
     window.open(TYPEFORM_URL, '_blank');
@@ -13,34 +26,53 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 sm:pt-40 sm:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-6xl font-light mb-8 leading-tight tracking-wide" style={{ color: '#01142a' }}>
-              Des espaces à louer pour travailler <em className="font-light not-italic tracking-wide" style={{ fontStyle: 'italic', color: '#01142a' }}>autrement</em>
+      <section className="relative h-screen w-full overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video 
+            ref={videoRef}
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/Osmoz Office_Horizontal.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          
+          {/* Dark Overlay to improve text visibility */}
+          <div className="absolute inset-0 bg-black/30"></div>
+          
+          {/* Play/Pause Button */}
+          <button 
+            onClick={togglePlayPause}
+            className="absolute bottom-8 right-8 bg-white/20 backdrop-blur-sm p-3 rounded-full hover:bg-white/30 transition-all duration-300 z-10"
+          >
+            {isPlaying ? 
+              <Pause className="h-6 w-6 text-white" /> : 
+              <Play className="h-6 w-6 text-white" />
+            }
+          </button>
+        </div>
+        
+        {/* Content Overlay */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-5xl sm:text-7xl font-light mb-6 leading-tight tracking-wide text-white drop-shadow-lg">
+              Des espaces à louer pour travailler <em className="font-light not-italic tracking-wide" style={{ fontStyle: 'italic' }}>autrement</em>
             </h1>
-            <p className="text-sm font-light tracking-[0.2em] mb-8" style={{ color: '#01142a', textShadow: '0 1px 1px rgba(255, 255, 255, 0.7)' }}>
+            <p className="text-lg font-light tracking-[0.2em] mb-12 text-white/90 drop-shadow-md">
               Travaillez, créez, connectez.
             </p>
             <div className="flex justify-center gap-4">
               <button 
                 onClick={openTypeform}
-                className="bg-[#01142a] text-[#5c9d7a] px-8 py-4 rounded-lg hover:bg-[#5c9d7a] hover:text-[#01142a] border border-[#01142a] transition-all duration-300 text-sm tracking-widest font-light"
+                className="bg-[#862637] text-[#fee1d4] px-10 py-5 rounded-lg hover:bg-[#fee1d4] hover:text-[#862637] border-2 border-[#fee1d4] transition-all duration-300 text-lg tracking-widest font-light shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Réservez <ArrowRight className="ml-2 h-5 w-5 inline-block" />
               </button>
             </div>
-          </div>
-          <div className="mt-16 aspect-[16/9] rounded-xl overflow-hidden">
-            <video 
-              autoPlay 
-              muted 
-              loop 
-              className="w-full h-full object-cover"
-            >
-              <source src="/Assets/Video/video/Osmoz Office_Horizontal.mp4" type="video/mp4" />
-              Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
           </div>
         </div>
       </section>
@@ -95,7 +127,7 @@ export default function Home() {
             </div>
             <Link 
               to="/spaces"
-              className="bg-[#01142a] text-[#5c9d7a] px-6 py-2.5 text-sm tracking-widest font-light hover:bg-[#5c9d7a] hover:text-[#01142a] border border-[#01142a] transition duration-300 rounded-lg flex items-center"
+              className="bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-sm tracking-widest font-light hover:bg-[#fee1d4] hover:text-[#862637] border border-[#01142a] transition duration-300 rounded-lg flex items-center"
             >
               Voir nos espaces
               <ArrowRight className="ml-2 h-4 w-4" />
