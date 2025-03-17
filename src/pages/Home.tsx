@@ -68,7 +68,7 @@ export default function Home() {
             <div className="flex justify-center gap-4">
               <button 
                 onClick={openTypeform}
-                className="bg-[#862637] text-[#fee1d4] px-10 py-5 rounded-lg hover:bg-[#fee1d4] hover:text-[#862637] border-2 border-[#fee1d4] transition-all duration-300 text-lg tracking-widest font-light shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="bg-[#862637] text-[#fee1d4] px-10 py-5 rounded-lg hover:bg-[#fee1d4] hover:text-[#862637] border-2 border-[#00000000] transition-all duration-300 text-lg tracking-widest font-light shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Réservez <ArrowRight className="ml-2 h-5 w-5 inline-block" />
               </button>
@@ -127,7 +127,7 @@ export default function Home() {
             </div>
             <Link 
               to="/spaces"
-              className="bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-sm tracking-widest font-light hover:bg-[#fee1d4] hover:text-[#862637] border border-[#01142a] transition duration-300 rounded-lg flex items-center"
+              className="bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-sm tracking-widest font-light hover:bg-[#fee1d4] hover:text-[#862637] border border-[#00000000] transition duration-300 rounded-lg flex items-center"
             >
               Voir nos espaces
               <ArrowRight className="ml-2 h-4 w-4" />
