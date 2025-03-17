@@ -16,27 +16,31 @@ export default function Home() {
       <section className="pt-32 pb-16 sm:pt-40 sm:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-wide">
-              Des espaces à louer pour travailler <em className="font-light not-italic tracking-wide" style={{ fontStyle: 'italic' }}>autrement</em>
+            <h1 className="text-4xl sm:text-6xl font-light mb-8 leading-tight tracking-wide" style={{ color: '#01142a' }}>
+              Des espaces à louer pour travailler <em className="font-light not-italic tracking-wide" style={{ fontStyle: 'italic', color: '#01142a' }}>autrement</em>
             </h1>
-            <p className="text-sm font-light tracking-[0.2em] mb-8" style={{ color: '#A8A9AD', textShadow: '0 1px 1px rgba(255, 255, 255, 0.7)' }}>
+            <p className="text-sm font-light tracking-[0.2em] mb-8" style={{ color: '#01142a', textShadow: '0 1px 1px rgba(255, 255, 255, 0.7)' }}>
               Travaillez, créez, connectez.
             </p>
             <div className="flex justify-center gap-4">
               <button 
                 onClick={openTypeform}
-                className="bg-black text-white px-8 py-4 rounded-lg hover:bg-white hover:text-black border border-black transition-all duration-300 text-sm tracking-widest font-light"
+                className="bg-[#01142a] text-[#5c9d7a] px-8 py-4 rounded-lg hover:bg-[#5c9d7a] hover:text-[#01142a] border border-[#01142a] transition-all duration-300 text-sm tracking-widest font-light"
               >
                 Réservez <ArrowRight className="ml-2 h-5 w-5 inline-block" />
               </button>
             </div>
           </div>
           <div className="mt-16 aspect-[16/9] rounded-xl overflow-hidden">
-            <img 
-              src="/images/19_DSC4632-HDR.jpg"
-              alt="Loft Osmoz - Vue Principale"
+            <video 
+              autoPlay 
+              muted 
+              loop 
               className="w-full h-full object-cover"
-            />
+            >
+              <source src="/Assets/Video/video/Osmoz Office_Horizontal.mp4" type="video/mp4" />
+              Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
           </div>
         </div>
       </section>
@@ -66,11 +70,11 @@ export default function Home() {
                 key={index} 
                 className="text-center px-4 group cursor-pointer"
               >
-                <feature.Icon className="w-10 h-10 mx-auto mb-2 text-gray-900 stroke-[1.5] transition-all duration-300 group-hover:scale-110 group-hover:text-black" />
-                <h3 className="text-base font-light tracking-wide mb-1 transition-all duration-300 group-hover:text-black">
+                <feature.Icon className="w-10 h-10 mx-auto mb-2 stroke-[1.5] transition-all duration-300 group-hover:scale-110" style={{ color: '#01142a' }} />
+                <h3 className="text-base font-light tracking-wide mb-1 transition-all duration-300" style={{ color: '#01142a' }}>
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 font-light leading-relaxed text-xs transition-all duration-300 group-hover:text-gray-900">
+                <p className="font-light leading-relaxed text-xs transition-all duration-300" style={{ color: '#01142a' }}>
                   {feature.description}
                 </p>
               </div>
@@ -84,14 +88,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-12">
             <div>
-              <p className="text-sm font-light tracking-[0.2em] text-gray-500 mb-2">NOS ESPACES</p>
-              <h2 className="text-3xl font-light">
-                Découvrez nos <em className="font-light not-italic" style={{ fontStyle: 'italic' }}>espaces</em>
+              <p className="text-sm font-light tracking-[0.2em] mb-2" style={{ color: '#01142a' }}>NOS ESPACES</p>
+              <h2 className="text-3xl font-light" style={{ color: '#01142a' }}>
+                Découvrez nos <em className="font-light not-italic" style={{ fontStyle: 'italic', color: '#01142a' }}>espaces</em>
               </h2>
             </div>
             <Link 
               to="/spaces"
-              className="bg-black text-white px-6 py-2.5 text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition duration-300 rounded-lg flex items-center"
+              className="bg-[#01142a] text-[#5c9d7a] px-6 py-2.5 text-sm tracking-widest font-light hover:bg-[#5c9d7a] hover:text-[#01142a] border border-[#01142a] transition duration-300 rounded-lg flex items-center"
             >
               Voir nos espaces
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -129,8 +133,8 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-light mb-2 group-hover:text-gray-600 transition-colors">{space.title}</h3>
-                  <p className="text-sm text-gray-600 font-light leading-relaxed">
+                  <h3 className="text-lg font-light mb-2 transition-colors" style={{ color: '#01142a' }}>{space.title}</h3>
+                  <p className="text-sm font-light leading-relaxed" style={{ color: '#01142a' }}>
                     {space.description}
                   </p>
                 </div>
