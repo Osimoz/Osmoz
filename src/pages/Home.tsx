@@ -37,7 +37,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/Osmoz Office_Horizontal.mp4" type="video/mp4" />
+            <source src="/Osmoz Office_Horizontal.mp4.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la lecture de vidéos.
           </video>
           
