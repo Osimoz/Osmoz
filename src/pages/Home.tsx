@@ -2,8 +2,6 @@ import React, { useRef, useState } from 'react';
 import { ArrowRight, Castle, GemIcon, Warehouse, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const TYPEFORM_URL = "https://tally.so/r/mDx24R";
-
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -17,10 +15,6 @@ export default function Home() {
       }
       setIsPlaying(!isPlaying);
     }
-  };
-  const openTypeform = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.open(TYPEFORM_URL, '_blank');
   };
 
   return (
@@ -66,12 +60,12 @@ export default function Home() {
               Travaillez, créez, connectez.
             </p>
             <div className="flex justify-center gap-4">
-              <button 
-                onClick={openTypeform}
+             <Link 
+                to="/contact"
                 className="bg-[#862637] text-[#fee1d4] px-10 py-5 rounded-lg hover:bg-[#fee1d4] hover:text-[#862637] border-2 border-[#00000000] transition-all duration-300 text-lg tracking-widest font-light shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
+               >
                 Réservez <ArrowRight className="ml-2 h-5 w-5 inline-block" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
