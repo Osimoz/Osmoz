@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { LogoHorizontal } from './Logo';
 
-const TYPEFORM_URL = "https://tally.so/r/mDx24R";
-
 export const Navigation = () => {
-  const openTypeform = (e: React.MouseEvent) => {
+  const navigate = useNavigate();
+
+  const handleReservationClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open(TYPEFORM_URL, '_blank');
+    navigate('/contact');
   };
 
   return (
@@ -38,7 +38,7 @@ export const Navigation = () => {
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
             <button 
-              onClick={openTypeform}
+              onClick={handleReservationClick}
               className="bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-sm tracking-widest font-light hover:bg-[#fee1d4] hover:text-[#862637] border border-[#fee1d4] transition duration-300 rounded-lg"
             >
               Réservez

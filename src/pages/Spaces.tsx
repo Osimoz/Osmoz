@@ -6,16 +6,16 @@ const spaces = [
     title: "Le Loft",
     description: "Louez cet espace élégant pour vos réunions, séminaires, ateliers ou événements d'entreprise ! Avec son design contemporain et ses équipements de pointe, il s'adapte à toutes vos exigences professionnelles.",
     image: "/images/6_DSC4719-HDR.jpg",
-    capacity: "30 personnes",
-    price: "À partir de 850€/jour"
+    capacity: "35 personnes",
+    price: "À partir de 500€/jour"
   },
   {
     id: 'patio-osmoz',
     title: "Le Patio",
     description: "Découvrez notre espace lumineux avec verrières, idéalement situé au calme dans une cour privée. Parfait pour vos événements d'entreprise, séminaires et ateliers dans un cadre unique et inspirant.",
-    image: "",
-    capacity: "30 personnes",
-    price: "À partir de 850€/jour"
+    image: "/images/patio/patio.salon-vue-complete.jpeg",
+    capacity: "25 personnes",
+    price: "À partir de 500€/jour"
   }
 ];
 

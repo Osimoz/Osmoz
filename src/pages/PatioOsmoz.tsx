@@ -2,35 +2,47 @@ import { useState } from 'react';
 import { MapPin, Users, Euro, Calendar, Coffee, Wifi, Tv, UtensilsCrossed, Fan, HdmiPort, Box, Presentation } from 'lucide-react';
 import ImageGallery from '../components/ImageGallery';
 import BannerSlideshow from '../components/BannerSlideshow';
+import { useNavigate } from 'react-router-dom';
 
+const navigate = useNavigate();
 const bannerImages = [
   {
-    url: "",
+    url: "/images/patio/patio.salon-vue-complete.jpeg",
     alt: "Le Patio - Vue principale"
   },
   {
-    url: "",
-    alt: "Le Patio - Entrée"
+    url: "public/images/patio/patio-escalier-haut.jpg",
+    alt: "Le Patio - Escalier haut"
   },
   {
-    url: "",
-    alt: "Le Patio - Espace de travail"
+    url: "/images/patio/patio-salon1-vueVerriere.jpg",
+    alt: "Le Patio - Vue verrière"
   },
   {
-    url: "/images/25_DSC4653-HDR.jpg",
-    alt: "Le Patio - Vue d'ensemble"
+    url: "/images/patio/patio-cuisine1.jpg",
+    alt: "Le Patio - Cuisine"
   }
 ];
 
 // All available images in ascending order
 const allImages = [
-  // Add all Patio images here
-  { url: "", alt: "Le Patio - Vue 1" },
-  { url: "", alt: "Le Patio - Vue 2" },
-  { url: "", alt: "Le Patio - Vue 3" },
-  { url: "", alt: "Le Patio - Vue 4" },
-  // Add more images as needed
+  { url: "/images/patio/patio-cuisine-3.jpg", alt: "Le Patio - Cuisine 3" },
+  { url: "/images/patio/patio-cuisine1.jpg", alt: "Le Patio - Cuisine 1" },
+  { url: "/images/patio/patio-cuisine2.jpg", alt: "Le Patio - Cuisine 2" },
+  { url: "/images/patio/patio-escalier-haut1.jpg", alt: "Le Patio - Escalier haut 1" },
+  { url: "/images/patio/patio-escalier-haut2.jpg", alt: "Le Patio - Escalier haut 2" },
+  { url: "/images/patio/patio-escalierbas.jpg", alt: "Le Patio - Escalier bas" },
+  { url: "/images/patio/patio-escalierbas2.jpg", alt: "Le Patio - Escalier bas 2" },
+  { url: "/images/patio/patio-salledebain.jpg", alt: "Le Patio - Salle de bain" },
+  { url: "/images/patio/patio-salon-vue-dos.jpg", alt: "Le Patio - Salon vue dos" },
+  { url: "/images/patio/patio-salon-vuecuisine.jpg", alt: "Le Patio - Salon vue cuisine" },
+  { url: "/images/patio/patio-salon-vuetele.jpeg", alt: "Le Patio - Salon vue télé" },
+  { url: "/images/patio/patio-salon1-vueVerriere.jpg", alt: "Le Patio - Salon 1 vue verrière" },
+  { url: "/images/patio/patio-salon2-vueCuisine.jpg", alt: "Le Patio - Salon 2 vue cuisine" },
+  { url: "/images/patio/patio-salon2.vueverriere.jpg.jpg", alt: "Le Patio - Salon 2 vue verrière" },
+  { url: "/images/patio/patio.salon-vue-complete.jpeg", alt: "Le Patio - Vue complète" }
 ];
+  // Add more images as needed
 
 // Random selection for grid display
 const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
@@ -59,6 +71,7 @@ export default function PatioOsmoz() {
     <div className="pt-24">
       <BannerSlideshow 
         images={bannerImages}
+        title="Le Patio"
         onImageClick={() => openGallery(0)}
       />
 
@@ -134,14 +147,14 @@ export default function PatioOsmoz() {
             <div className="bg-white p-8 rounded-lg shadow-sm sticky top-24">
               <div className="flex items-center gap-2 mb-4">
                 <Users className="h-5 w-5 text-gray-600" />
-                <span className="font-light text-gray-600">Jusqu'à 30 personnes</span>
+                <span className="font-light text-gray-600">Jusqu'à 35 personnes</span>
               </div>
               <div className="flex items-center gap-2 mb-8">
                 <Euro className="h-5 w-5 text-gray-600" />
-                <span className="font-light text-gray-600">À partir de 850€/jour</span>
+                <span className="font-light text-gray-600">À partir de 500€/jour</span>
               </div>
               <button 
-                onClick={() => window.open("https://tally.so/r/mDx24R", "_blank")}
+                onClick={() => navigate("/contact")}
                 className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition duration-300 flex items-center justify-center gap-2"
               >
                 <Calendar className="h-5 w-5" />

@@ -4,12 +4,14 @@ interface BannerSlideshowProps {
   images: { url: string; alt: string }[];
   interval?: number;
   onImageClick?: () => void;
+  title?: string;
 }
 
 export default function BannerSlideshow({ 
   images, 
   interval = 2000,
-  onImageClick 
+  onImageClick,
+  title = "osmoz"
 }: BannerSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -27,7 +29,7 @@ export default function BannerSlideshow({
       onClick={onImageClick}
     >
       <div className="absolute inset-0 bg-black/20 z-10 flex items-center justify-center">
-        <h1 className="text-white text-6xl font-light tracking-wide">Loft Osmoz</h1>
+        <h1 className="text-white text-6xl font-light tracking-wide">{title}</h1>
       </div>
       {images.map((image, index) => (
         <div

@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { MapPin, Users, Euro, Calendar, Coffee, Wifi, Tv, UtensilsCrossed, Fan, HdmiPort, Box, Presentation } from 'lucide-react';
 import ImageGallery from '../components/ImageGallery';
 import BannerSlideshow from '../components/BannerSlideshow';
+import { useNavigate } from 'react-router-dom';
 
+const navigate = useNavigate();
 const bannerImages = [
   {
     url: "/images/2_DSC4734-HDR OK.jpg",
@@ -91,6 +93,7 @@ export default function LoftOsmoz() {
     <div className="pt-24">
       <BannerSlideshow 
         images={bannerImages}
+        title="Loft"
         onImageClick={() => openGallery(0)}
       />
 
@@ -172,7 +175,7 @@ export default function LoftOsmoz() {
                 <span className="font-light text-gray-600">À partir de 850€/jour</span>
               </div>
               <button 
-                onClick={() => window.open("https://tally.so/r/mDx24R", "_blank")}
+                onClick={() => navigate("/contact")}
                 className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition duration-300 flex items-center justify-center gap-2"
               >
                 <Calendar className="h-5 w-5" />

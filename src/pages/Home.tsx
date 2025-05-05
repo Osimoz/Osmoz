@@ -133,22 +133,25 @@ export default function Home() {
               {
                 title: "Le Loft - Salle de travail",
                 description: "Un espace lumineux et moderne, parfait pour les sessions de travail collaboratif et les réunions créatives.",
-                image: "/images/1_DSC4725-HDR OK.jpg"
+                image: "/images/1_DSC4725-HDR OK.jpg",
+                link: "/spaces/loft-osmoz"
               },
               {
                 title: "Le Loft - Cuisine",
                 description: "Une cuisine professionnelle équipée, idéale pour les événements culinaires et les pauses conviviales.",
-                image: "/images/3_DSC4743-HDR.jpg"
+                image: "/images/3_DSC4743-HDR.jpg",
+                link: "/spaces/loft-osmoz"
               },
               {
                 title: "Le Patio",
                 description: "Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.",
-                image: "/images/22_DSC4641-HDR.jpg"
+                image: "/images/patio/patio.salon-vue-complete.jpeg",
+                link: "/spaces/patio-osmoz"
               }
             ].map((space, index) => (
               <Link 
                 key={index}
-                to="/spaces/loft-osmoz"
+                to={space.link}
                 className="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <div className="aspect-[4/3] overflow-hidden">
