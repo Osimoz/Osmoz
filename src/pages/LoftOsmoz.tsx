@@ -4,7 +4,6 @@ import ImageGallery from '../components/ImageGallery';
 import BannerSlideshow from '../components/BannerSlideshow';
 import { useNavigate } from 'react-router-dom';
 
-const navigate = useNavigate();
 const bannerImages = [
   {
     url: "/images/2_DSC4734-HDR OK.jpg",
@@ -24,7 +23,6 @@ const bannerImages = [
   }
 ];
 
-// All available images in ascending order
 const allImages = [
   { url: "/images/1_DSC4725-HDR OK.jpg", alt: "Loft Osmoz - Vue 1" },
   { url: "/images/2_DSC4734-HDR OK.jpg", alt: "Loft Osmoz - Vue 2" },
@@ -66,7 +64,6 @@ const allImages = [
   { url: "/images/36_Verlomme13.jpeg", alt: "Loft Osmoz - Vue 38" }
 ];
 
-// Random selection for grid display
 const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
 
 const amenities = [
@@ -81,6 +78,7 @@ const amenities = [
 ];
 
 export default function LoftOsmoz() {
+  const navigate = useNavigate();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
@@ -93,7 +91,7 @@ export default function LoftOsmoz() {
     <div className="pt-24">
       <BannerSlideshow 
         images={bannerImages}
-        title="Loft"
+        title="Loft Osmoz"
         onImageClick={() => openGallery(0)}
       />
 
@@ -111,7 +109,6 @@ export default function LoftOsmoz() {
               </p>
             </div>
 
-            {/* Image Grid */}
             <div className="grid grid-cols-2 gap-4 mb-12">
               {gridImages.map((img, index) => (
                 <div 

@@ -4,14 +4,13 @@ import ImageGallery from '../components/ImageGallery';
 import BannerSlideshow from '../components/BannerSlideshow';
 import { useNavigate } from 'react-router-dom';
 
-const navigate = useNavigate();
 const bannerImages = [
   {
     url: "/images/patio/patio.salon-vue-complete.jpeg",
     alt: "Le Patio - Vue principale"
   },
   {
-    url: "public/images/patio/patio-escalier-haut.jpg",
+    url: "/images/patio/patio-escalier-haut.jpg",
     alt: "Le Patio - Escalier haut"
   },
   {
@@ -24,17 +23,16 @@ const bannerImages = [
   }
 ];
 
-// All available images in ascending order
 const allImages = [
   { url: "/images/patio/patio-cuisine-3.jpg", alt: "Le Patio - Cuisine 3" },
   { url: "/images/patio/patio-cuisine1.jpg", alt: "Le Patio - Cuisine 1" },
   { url: "/images/patio/patio-cuisine2.jpg", alt: "Le Patio - Cuisine 2" },
-  { url: "/images/patio/patio-escalier-haut1.jpg", alt: "Le Patio - Escalier haut 1" },
+  { url: "/images/patio/patio-escalier-haut.jpg", alt: "Le Patio - Escalier haut 1" },
   { url: "/images/patio/patio-escalier-haut2.jpg", alt: "Le Patio - Escalier haut 2" },
   { url: "/images/patio/patio-escalierbas.jpg", alt: "Le Patio - Escalier bas" },
   { url: "/images/patio/patio-escalierbas2.jpg", alt: "Le Patio - Escalier bas 2" },
   { url: "/images/patio/patio-salledebain.jpg", alt: "Le Patio - Salle de bain" },
-  { url: "/images/patio/patio-salon-vue-dos.jpg", alt: "Le Patio - Salon vue dos" },
+  { url: "/images/patio/patio-salon-vue-dos.jpeg", alt: "Le Patio - Salon vue dos" },
   { url: "/images/patio/patio-salon-vuecuisine.jpg", alt: "Le Patio - Salon vue cuisine" },
   { url: "/images/patio/patio-salon-vuetele.jpeg", alt: "Le Patio - Salon vue télé" },
   { url: "/images/patio/patio-salon1-vueVerriere.jpg", alt: "Le Patio - Salon 1 vue verrière" },
@@ -42,10 +40,8 @@ const allImages = [
   { url: "/images/patio/patio-salon2.vueverriere.jpg.jpg", alt: "Le Patio - Salon 2 vue verrière" },
   { url: "/images/patio/patio.salon-vue-complete.jpeg", alt: "Le Patio - Vue complète" }
 ];
-  // Add more images as needed
 
-// Random selection for grid display
-const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
+const previewImages = allImages.slice(0, 4); // ⚡ n'affiche que 4 images dans la grille initiale
 
 const amenities = [
   { icon: Wifi, label: "Wifi haut débit" },
@@ -59,6 +55,7 @@ const amenities = [
 ];
 
 export default function PatioOsmoz() {
+  const navigate = useNavigate();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
@@ -71,7 +68,7 @@ export default function PatioOsmoz() {
     <div className="pt-24">
       <BannerSlideshow 
         images={bannerImages}
-        title="Le Patio"
+        title="Patio Osmoz"
         onImageClick={() => openGallery(0)}
       />
 
@@ -89,9 +86,8 @@ export default function PatioOsmoz() {
               </p>
             </div>
 
-            {/* Image Grid */}
             <div className="grid grid-cols-2 gap-4 mb-12">
-              {gridImages.map((img, index) => (
+              {previewImages.map((img, index) => (
                 <div 
                   key={index}
                   className="aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"
@@ -100,6 +96,7 @@ export default function PatioOsmoz() {
                   <img 
                     src={img.url} 
                     alt={img.alt}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:rotate-1"
                   />
                 </div>
@@ -118,9 +115,7 @@ export default function PatioOsmoz() {
                   L'espace se compose d'une grande salle principale lumineuse, d'une cuisine équipée et 
                   d'espaces de travail modulables pouvant accueillir jusqu'à 30 personnes.
                 </p>
-                <p>
-                  Idéal pour :
-                </p>
+                <p>Idéal pour :</p>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>Réunions d'équipe et séminaires</li>
                   <li>Ateliers créatifs et formations</li>
@@ -147,11 +142,11 @@ export default function PatioOsmoz() {
             <div className="bg-white p-8 rounded-lg shadow-sm sticky top-24">
               <div className="flex items-center gap-2 mb-4">
                 <Users className="h-5 w-5 text-gray-600" />
-                <span className="font-light text-gray-600">Jusqu'à 35 personnes</span>
+                <span className="font-light text-gray-600">Jusqu'à 30 personnes</span>
               </div>
               <div className="flex items-center gap-2 mb-8">
                 <Euro className="h-5 w-5 text-gray-600" />
-                <span className="font-light text-gray-600">À partir de 500€/jour</span>
+                <span className="font-light text-gray-600">À partir de 850€/jour</span>
               </div>
               <button 
                 onClick={() => navigate("/contact")}
