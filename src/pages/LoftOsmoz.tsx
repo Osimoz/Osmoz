@@ -91,7 +91,7 @@ export default function LoftOsmoz() {
     <div className="pt-24">
       <BannerSlideshow 
         images={bannerImages}
-        title="Loft Osmoz"
+        title="Loft OSMOZ"
         onImageClick={() => openGallery(0)}
       />
 
@@ -129,7 +129,7 @@ export default function LoftOsmoz() {
               <h2 className="text-2xl font-light mb-6">Description</h2>
               <div className="space-y-4 text-gray-600 font-light leading-relaxed">
                 <p>
-                  Situé dans un quartier historique de Paris, le Loft Osmoz offre un cadre unique pour vos événements professionnels. 
+                  Situé dans un quartier historique de Paris, le Loft OSMOZ offre un cadre unique pour vos événements professionnels. 
                   Cet espace de 110m² allie le charme de l'ancien avec des équipements modernes, créant une atmosphère à la fois élégante et fonctionnelle.
                 </p>
                 <p>
@@ -169,7 +169,7 @@ export default function LoftOsmoz() {
               </div>
               <div className="flex items-center gap-2 mb-8">
                 <Euro className="h-5 w-5 text-gray-600" />
-                <span className="font-light text-gray-600">À partir de 850€/jour</span>
+                <span className="font-light text-gray-600">À partir de 500€</span>
               </div>
               <button 
                 onClick={() => navigate("/contact")}

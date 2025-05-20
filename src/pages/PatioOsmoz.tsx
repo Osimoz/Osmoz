@@ -68,7 +68,7 @@ export default function PatioOsmoz() {
     <div className="pt-24">
       <BannerSlideshow 
         images={bannerImages}
-        title="Patio Osmoz"
+        title="Patio OSMOZ"
         onImageClick={() => openGallery(0)}
       />
 
@@ -107,7 +107,7 @@ export default function PatioOsmoz() {
               <h2 className="text-2xl font-light mb-6">Description</h2>
               <div className="space-y-4 text-gray-600 font-light leading-relaxed">
                 <p>
-                  Le Patio Osmoz est un espace exceptionnel de 120m² baigné de lumière naturelle grâce à ses 
+                  Le Patio OSMOZ est un espace exceptionnel de 120m² baigné de lumière naturelle grâce à ses 
                   magnifiques verrières. Situé dans une cour privée au calme, il offre un cadre idéal pour 
                   vos événements professionnels.
                 </p>
@@ -146,7 +146,7 @@ export default function PatioOsmoz() {
               </div>
               <div className="flex items-center gap-2 mb-8">
                 <Euro className="h-5 w-5 text-gray-600" />
-                <span className="font-light text-gray-600">À partir de 850€/jour</span>
+                <span className="font-light text-gray-600">À partir de 500€</span>
               </div>
               <button 
                 onClick={() => navigate("/contact")}
