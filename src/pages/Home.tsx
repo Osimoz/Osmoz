@@ -1,7 +1,7 @@
 // @ts-expect-error: React import needed for JSX (even if unused in strict TS)
 import React, { useRef, useState, useEffect } from 'react';
 import { ArrowRight, Castle, GemIcon, Warehouse } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import posthog from 'posthog-js';
 
 posthog.init('phc_5Ji4D4oRaqsu6fJijIcdmvwPyZLxRaYua4MUqqZ0FOc', {
@@ -14,6 +14,7 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (window.innerWidth < 768) {
@@ -39,6 +40,10 @@ export default function Home() {
       page: location.pathname,
       location: 'hero landing',
     });
+
+    setTimeout(() => {
+      navigate('/contact');
+    }, 200); // assez de temps pour que l’event soit capté
   };
 
   return (
@@ -91,13 +96,12 @@ export default function Home() {
               Travaillez, créez, connectez.
             </p>
             <div className="flex justify-center gap-4">
-              <Link
-                to="/contact"
+              <button
                 onClick={handleClickReserve}
                 className="bg-[#862637] text-[#fee1d4] px-10 py-5 rounded-lg hover:bg-[#fee1d4] hover:text-[#862637] border-2 border-transparent transition duration-300 text-lg tracking-widest font-light shadow-lg hover:shadow-xl"
               >
                 Réservez <ArrowRight className="ml-2 h-5 w-5 inline-block" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -111,30 +115,23 @@ export default function Home() {
               {
                 Icon: Castle,
                 title: "Adresses premium et design",
-                description: "Des lieux uniques, mêlant charme et modernité, pour des événements inspirants et productifs."
+                description: "Des lieux uniques, mêlant charme et modernité, pour des événements inspirants et productifs.",
               },
               {
                 Icon: GemIcon,
                 title: "Service sur-mesure",
-                description: "Une prise en charge complète, du concept à l'exécution, pour vous offrir un évenement sans stress."
+                description: "Une prise en charge complète, du concept à l'exécution, pour vous offrir un évenement sans stress.",
               },
               {
                 Icon: Warehouse,
                 title: "Espaces modulables et flexibles",
-                description: "Des configurations adaptables à tous vos besoins : réunions, séminaires, déjeuners ou showroom."
-              }
+                description: "Des configurations adaptables à tous vos besoins : réunions, séminaires, déjeuners ou showroom.",
+              },
             ].map((feature, index) => (
-              <div
-                key={index}
-                className="text-center px-4 group cursor-pointer"
-              >
+              <div key={index} className="text-center px-4 group cursor-pointer">
                 <feature.Icon className="w-10 h-10 mx-auto mb-2 stroke-[1.5] text-[#01142a]" />
-                <h3 className="text-base font-light tracking-wide mb-1 text-[#01142a]">
-                  {feature.title}
-                </h3>
-                <p className="font-light leading-relaxed text-xs text-[#01142a]">
-                  {feature.description}
-                </p>
+                <h3 className="text-base font-light tracking-wide mb-1 text-[#01142a]">{feature.title}</h3>
+                <p className="font-light leading-relaxed text-xs text-[#01142a]">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -164,22 +161,25 @@ export default function Home() {
             {[
               {
                 title: "Le Loft - Salle de travail",
-                description: "Un espace lumineux et moderne, parfait pour les sessions de travail collaboratif et les réunions créatives.",
+                description:
+                  "Un espace lumineux et moderne, parfait pour les sessions de travail collaboratif et les réunions créatives.",
                 image: "/images/1_DSC4725-HDR OK.jpg",
-                link: "/spaces/loft-osmoz"
+                link: "/spaces/loft-osmoz",
               },
               {
                 title: "Le Loft - Cuisine",
-                description: "Une cuisine professionnelle équipée, idéale pour les événements culinaires et les pauses conviviales.",
+                description:
+                  "Une cuisine professionnelle équipée, idéale pour les événements culinaires et les pauses conviviales.",
                 image: "/images/3_DSC4743-HDR.jpg",
-                link: "/spaces/loft-osmoz"
+                link: "/spaces/loft-osmoz",
               },
               {
                 title: "Le Patio",
-                description: "Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.",
+                description:
+                  "Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.",
                 image: "/images/patio/patio.salon-vue-complete.jpeg",
-                link: "/spaces/patio-osmoz"
-              }
+                link: "/spaces/patio-osmoz",
+              },
             ].map((space, index) => (
               <Link
                 key={index}
@@ -196,9 +196,7 @@ export default function Home() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-light mb-2 text-[#01142a]">{space.title}</h3>
-                  <p className="text-sm font-light leading-relaxed text-[#01142a]">
-                    {space.description}
-                  </p>
+                  <p className="text-sm font-light leading-relaxed text-[#01142a]">{space.description}</p>
                 </div>
               </Link>
             ))}
