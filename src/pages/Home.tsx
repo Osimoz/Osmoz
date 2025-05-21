@@ -1,5 +1,5 @@
-import React, { useRef, useState, Suspense, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+import { ArrowRight, Castle, GemIcon, Warehouse } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import posthog from 'posthog-js';
 
@@ -17,6 +17,12 @@ export default function Home() {
   useEffect(() => {
     if (window.innerWidth < 768) setIsMobile(true);
   }, []);
+
+  useEffect(() => {
+    if (!isMobile && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, [isMobile]);
 
   const togglePlayPause = () => {
     if (videoRef.current) {
@@ -44,6 +50,7 @@ export default function Home() {
               muted
               loop
               playsInline
+              poster="/fallback-hero.jpg"
               className="w-full h-full object-cover"
             >
               <source src="/Osmoz-Optimized.webm" type="video/webm" />
@@ -100,26 +107,26 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               {
+                Icon: Castle,
                 title: "Adresses premium et design",
-                description: "Des lieux uniques, mêlant charme et modernité, pour des événements inspirants et productifs.",
-                icon: '/icons/castle.svg'
+                description: "Des lieux uniques, mêlant charme et modernité, pour des événements inspirants et productifs."
               },
               {
+                Icon: GemIcon,
                 title: "Service sur-mesure",
-                description: "Une prise en charge complète, du concept à l'exécution, pour vous offrir un évenement sans stress.",
-                icon: '/icons/gem.svg'
+                description: "Une prise en charge complète, du concept à l'exécution, pour vous offrir un évenement sans stress."
               },
               {
+                Icon: Warehouse,
                 title: "Espaces modulables et flexibles",
-                description: "Des configurations adaptables à tous vos besoins : réunions, séminaires, déjeuners ou showroom.",
-                icon: '/icons/warehouse.svg'
+                description: "Des configurations adaptables à tous vos besoins : réunions, séminaires, déjeuners ou showroom."
               }
             ].map((feature, index) => (
               <div
                 key={index}
                 className="text-center px-4 group cursor-pointer"
               >
-                <img src={feature.icon} alt="" className="w-10 h-10 mx-auto mb-2" loading="lazy" />
+                <feature.Icon className="w-10 h-10 mx-auto mb-2 stroke-[1.5] text-[#01142a]" />
                 <h3 className="text-base font-light tracking-wide mb-1 text-[#01142a]">
                   {feature.title}
                 </h3>
