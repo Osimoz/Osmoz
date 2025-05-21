@@ -4,7 +4,7 @@ import { ArrowRight, Castle, GemIcon, Warehouse } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import posthog from 'posthog-js';
 
-posthog.init('VOTRE_CLE_API_POSTHOG', {
+posthog.init('phc_5Ji4D4oRaqsu6fJijIcdmvwPyZLxRaYua4MUqqZ0FOc', {
   api_host: 'https://app.posthog.com',
   capture_pageview: true,
 });
