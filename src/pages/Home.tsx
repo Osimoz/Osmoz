@@ -1,3 +1,4 @@
+// @ts-expect-error: React import needed for JSX (even if unused in strict TS)
 import React, { useRef, useState, useEffect } from 'react';
 import { ArrowRight, Castle, GemIcon, Warehouse } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -15,18 +16,20 @@ export default function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    if (window.innerWidth < 768) setIsMobile(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isMobile && videoRef.current) {
-      videoRef.current.play().catch(() => {});
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
     }
-  }, [isMobile]);
+  }, []);
 
   const togglePlayPause = () => {
     if (videoRef.current) {
-      isPlaying ? videoRef.current.pause() : videoRef.current.play();
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
       setIsPlaying(!isPlaying);
     }
   };
@@ -50,10 +53,9 @@ export default function Home() {
               muted
               loop
               playsInline
-              poster="/fallback-hero.jpg"
               className="w-full h-full object-cover"
             >
-              <source src="/Osmoz-Optimized.webm" type="video/webm" />
+              <source src="/Osmoz Office_Horizontal.mp4.mp4" type="video/mp4" />
               Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
           ) : (
