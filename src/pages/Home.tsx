@@ -43,7 +43,7 @@ export default function Home() {
 
     setTimeout(() => {
       navigate('/contact');
-    }, 200); // assez de temps pour que l’event soit capté
+    }, 200); // assez de temps pour que l'event soit capté
   };
 
   return (
@@ -114,8 +114,8 @@ export default function Home() {
             {[
               {
                 Icon: Castle,
-                title: "Adresses premium et design",
-                description: "Des lieux uniques, mêlant charme et modernité, pour des événements inspirants et productifs.",
+                title: "Comme à la maison mais en mieux",
+                description: "Des lieux uniques pour sortir du bureau sans perdre en efficacité",
               },
               {
                 Icon: GemIcon,
@@ -165,6 +165,7 @@ export default function Home() {
                   "Un espace lumineux et moderne, parfait pour les sessions de travail collaboratif et les réunions créatives.",
                 image: "/images/1_DSC4725-HDR OK.jpg",
                 link: "/spaces/loft-osmoz",
+                isComingSoon: false,
               },
               {
                 title: "Le Loft - Cuisine",
@@ -172,33 +173,63 @@ export default function Home() {
                   "Une cuisine professionnelle équipée, idéale pour les événements culinaires et les pauses conviviales.",
                 image: "/images/3_DSC4743-HDR.jpg",
                 link: "/spaces/loft-osmoz",
+                isComingSoon: false,
               },
               {
-                title: "Le Patio",
+                title: "L'Orangerie",
                 description:
                   "Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.",
                 image: "/images/patio/patio.salon-vue-complete.jpeg",
                 link: "/spaces/patio-osmoz",
+                isComingSoon: true,
               },
             ].map((space, index) => (
-              <Link
-                key={index}
-                to={space.link}
-                className="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={space.image}
-                    alt={space.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-light mb-2 text-[#01142a]">{space.title}</h3>
-                  <p className="text-sm font-light leading-relaxed text-[#01142a]">{space.description}</p>
-                </div>
-              </Link>
+              <div key={index} className="relative">
+                {space.isComingSoon ? (
+                  // Coming Soon Card (no link)
+                  <div className="block group bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={space.image}
+                        alt={space.title}
+                        className="w-full h-full object-cover blur-sm"
+                        loading="lazy"
+                      />
+                      {/* Coming Soon Overlay */}
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <div className="text-center">
+                          <span className="text-white text-xl font-light tracking-widest">
+                            COMING SOON
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-6 opacity-60">
+                      <h3 className="text-lg font-light mb-2 text-[#01142a]">{space.title}</h3>
+                      <p className="text-sm font-light leading-relaxed text-[#01142a]">{space.description}</p>
+                    </div>
+                  </div>
+                ) : (
+                  // Regular Card (with link)
+                  <Link
+                    to={space.link}
+                    className="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={space.image}
+                        alt={space.title}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-lg font-light mb-2 text-[#01142a]">{space.title}</h3>
+                      <p className="text-sm font-light leading-relaxed text-[#01142a]">{space.description}</p>
+                    </div>
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
         </div>
