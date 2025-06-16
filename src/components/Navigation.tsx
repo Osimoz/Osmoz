@@ -29,8 +29,8 @@ export const Navigation = () => {
               <span className="font-light text-sm tracking-widest">Espaces</span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
-            <Link to="/blog" className="hover:opacity-80 tracking-wide relative group py-2" style={{ color: '#862637' }}>
-              <span className="font-light text-sm tracking-widest">Blog</span>
+            <Link to="/Questions-Frequentes" className="hover:opacity-80 tracking-wide relative group py-2" style={{ color: '#862637' }}>
+              <span className="font-light text-sm tracking-widest">FAQ</span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
             <Link to="/contact" className="hover:opacity-80 tracking-wide relative group py-2" style={{ color: '#862637' }}>

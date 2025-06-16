@@ -9,6 +9,46 @@ posthog.init('phc_5Ji4D4oRaqsu6fJijIcdmvwPyZLxRaYua4MUqqZ0FOc', {
   capture_pageview: true,
 });
 
+function ClientLogos() {
+  const logos = [
+    "/logos/google.svg",
+    "/logos/sncf.svg",
+    "/logos/generali.svg",
+    "/logos/swisslife.svg",
+    "/logos/arkema.svg",
+    "/logos/smartbox.svg",
+    "/logos/dataiku.svg",
+    "/logos/quicksign.svg",
+    "/logos/pickup.svg",
+    "/logos/bayard.svg",
+    "/logos/mnstr.svg",
+    "/logos/veesion.svg",
+    "/logos/lavie.svg",
+  ];
+
+  return (
+    <section className="bg-[#fbfbf3] py-10 border-t border-[#e5e5e5] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-center text-xs font-light uppercase text-[#01142a] tracking-widest mb-6">
+          Ils nous font confiance
+        </p>
+        <div className="relative w-full overflow-hidden">
+          <div className="flex gap-12 animate-marquee whitespace-nowrap">
+            {logos.concat(logos).map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`Logo ${idx}`}
+                className="h-10 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition duration-300"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -186,7 +226,6 @@ export default function Home() {
             ].map((space, index) => (
               <div key={index} className="relative">
                 {space.isComingSoon ? (
-                  // Coming Soon Card (no link)
                   <div className="block group bg-white rounded-lg overflow-hidden shadow-sm relative">
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
@@ -195,7 +234,6 @@ export default function Home() {
                         className="w-full h-full object-cover blur-sm"
                         loading="lazy"
                       />
-                      {/* Coming Soon Overlay */}
                       <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                         <div className="text-center">
                           <span className="text-white text-xl font-light tracking-widest">
@@ -210,7 +248,6 @@ export default function Home() {
                     </div>
                   </div>
                 ) : (
-                  // Regular Card (with link)
                   <Link
                     to={space.link}
                     className="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
@@ -234,6 +271,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Bandeau Logos Clients */}
+      <ClientLogos />
     </>
   );
 }
