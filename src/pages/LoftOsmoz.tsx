@@ -4,22 +4,43 @@ import ImageGallery from '../components/ImageGallery';
 import BannerSlideshow from '../components/BannerSlideshow';
 import { useNavigate } from 'react-router-dom';
 
-// Logos des plateformes
-import kactusLogo from '../assets/Logo/kactus.png';
-import officeridersLogo from '../assets/Logo/or.png';
-import abcLogo from '../assets/Logo/abcsalles.png';
-import nabooLogo from '../assets/Logo/naboo.jpeg';
-import giggsterLogo from '../assets/Logo/giggster.png';
-import peerspaceLogo from '../assets/Logo/peerspace.png';
 
 const platforms = [
-  { name: "Kactus", url: "https://www.kactus.com/fr/lieux/loft-osmoz-place-des-vosges", Logo: kactusLogo },
-  { name: "Officeriders", url: "https://www.officeriders.com/fr/salles/loft-lumineux-moderne-industriel?category=meeting", Logo: officeridersLogo },
-  { name: "We Are Scene", url: "https://www.wearescene.com/fr/lieu/tournage-shooting-paris-marais-loft-prestigieux", Logo: null },
-  { name: "ABC Salles", url: "https://www.abcsalles.com/lieu/loft-osmoz", Logo: abcLogo },
-  { name: "Naboo", url: "https://www.naboo.app/explorer/houses/loft-osmoz", Logo: nabooLogo },
-  { name: "Giggster", url: "https://giggster.com/listing-preview/loft-osmoz-meeting-room-and-showroom-in-marais", Logo: giggsterLogo },
-  { name: "Peerspace", url: "https://www.peerspace.com/fr/pages/listings/67223aec8687373c1c672007?utm_source=copy_link&utm_campaign=listing_sharing", Logo: peerspaceLogo },
+  {
+    name: "Kactus",
+    url: "https://www.kactus.com/fr/lieux/loft-osmoz-place-des-vosges",
+    Logo: "/images/logos/kactus.png",
+  },
+  {
+    name: "Officeriders",
+    url: "https://www.officeriders.com/fr/salles/loft-lumineux-moderne-industriel?category=meeting",
+    Logo: "/images/logos/or.png",
+  },
+  {
+    name: "We Are Scene",
+    url: "https://www.wearescene.com/fr/lieu/tournage-shooting-paris-marais-loft-prestigieux",
+    Logo: null,
+  },
+  {
+    name: "ABC Salles",
+    url: "https://www.abcsalles.com/lieu/loft-osmoz",
+    Logo: "/images/logos/abcsalles.png",
+  },
+  {
+    name: "Naboo",
+    url: "https://www.naboo.app/explorer/houses/loft-osmoz",
+    Logo: "/images/logos/naboo.jpeg",
+  },
+  {
+    name: "Giggster",
+    url: "https://giggster.com/listing-preview/loft-osmoz-meeting-room-and-showroom-in-marais",
+    Logo: "/images/logos/giggster.png",
+  },
+  {
+    name: "Peerspace",
+    url: "https://www.peerspace.com/fr/pages/listings/67223aec8687373c1c672007?utm_source=copy_link&utm_campaign=listing_sharing",
+    Logo: "/images/logos/peerspace.png",
+  },
 ];
 
 const amenities = [
