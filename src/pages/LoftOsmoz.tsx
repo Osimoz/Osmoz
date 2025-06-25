@@ -208,11 +208,18 @@ const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
                     className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full border border-gray-300 hover:border-black bg-white hover:bg-[#fce9de] transition-colors"
                     title={`Voir sur ${platform.name}`}
                   >
-                    {platform.Logo ? (
-                      <img src={platform.Logo} alt={platform.name} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+                   {platform.Logo ? (
+                     <img
+                      src={platform.Logo}
+                      alt={platform.name}
+                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                    />
                     ) : (
-                      <span className="text-xs font-semibold text-gray-700 group-hover:text-white">W</span>
+                    <span className="text-xs font-semibold text-gray-700 group-hover:text-white">
+                      {platform.name[0]}
+                    </span>
                     )}
+
                   </a>
                 ))}
               </div>
