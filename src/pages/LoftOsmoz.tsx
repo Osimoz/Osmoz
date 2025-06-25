@@ -5,21 +5,21 @@ import BannerSlideshow from '../components/BannerSlideshow';
 import { useNavigate } from 'react-router-dom';
 
 // Logos des plateformes
-import kactusLogo from '../assets/logo/kactus.png';
-import officeridersLogo from '../assets/logo/or.png';
-import abcLogo from '../assets/logo/abcsalles.png';
-import nabooLogo from '../assets/logo/naboo.jpeg';
-import giggsterLogo from '../assets/logo/giggster.png';
-import peerspaceLogo from '../assets/logo/peerspace.png';
+import kactusLogo from '../assets/Logo/kactus.png';
+import officeridersLogo from '../assets/Logo/or.png';
+import abcLogo from '../assets/Logo/abcsalles.png';
+import nabooLogo from '../assets/Logo/naboo.jpeg';
+import giggsterLogo from '../assets/Logo/giggster.png';
+import peerspaceLogo from '../assets/Logo/peerspace.png';
 
 const platforms = [
-  { name: "Kactus", url: "https://www.kactus.com/fr/lieux/loft-osmoz-place-des-vosges", logo: kactusLogo },
-  { name: "Officeriders", url: "https://www.officeriders.com/fr/salles/loft-lumineux-moderne-industriel?category=meeting", logo: officeridersLogo },
-  { name: "We Are Scene", url: "https://www.wearescene.com/fr/lieu/tournage-shooting-paris-marais-loft-prestigieux", logo: null },
-  { name: "ABC Salles", url: "https://www.abcsalles.com/lieu/loft-osmoz", logo: abcLogo },
-  { name: "Naboo", url: "https://www.naboo.app/explorer/houses/loft-osmoz", logo: nabooLogo },
-  { name: "Giggster", url: "https://giggster.com/listing-preview/loft-osmoz-meeting-room-and-showroom-in-marais", logo: giggsterLogo },
-  { name: "Peerspace", url: "https://www.peerspace.com/fr/pages/listings/67223aec8687373c1c672007?utm_source=copy_link&utm_campaign=listing_sharing", logo: peerspaceLogo },
+  { name: "Kactus", url: "https://www.kactus.com/fr/lieux/loft-osmoz-place-des-vosges", Logo: kactusLogo },
+  { name: "Officeriders", url: "https://www.officeriders.com/fr/salles/loft-lumineux-moderne-industriel?category=meeting", Logo: officeridersLogo },
+  { name: "We Are Scene", url: "https://www.wearescene.com/fr/lieu/tournage-shooting-paris-marais-loft-prestigieux", Logo: null },
+  { name: "ABC Salles", url: "https://www.abcsalles.com/lieu/loft-osmoz", Logo: abcLogo },
+  { name: "Naboo", url: "https://www.naboo.app/explorer/houses/loft-osmoz", Logo: nabooLogo },
+  { name: "Giggster", url: "https://giggster.com/listing-preview/loft-osmoz-meeting-room-and-showroom-in-marais", Logo: giggsterLogo },
+  { name: "Peerspace", url: "https://www.peerspace.com/fr/pages/listings/67223aec8687373c1c672007?utm_source=copy_link&utm_campaign=listing_sharing", Logo: peerspaceLogo },
 ];
 
 const amenities = [
@@ -187,8 +187,8 @@ const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
                     className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full border border-gray-300 hover:border-black bg-white hover:bg-[#fce9de] transition-colors"
                     title={`Voir sur ${platform.name}`}
                   >
-                    {platform.logo ? (
-                      <img src={platform.logo} alt={platform.name} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+                    {platform.Logo ? (
+                      <img src={platform.Logo} alt={platform.name} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
                     ) : (
                       <span className="text-xs font-semibold text-gray-700 group-hover:text-white">W</span>
                     )}
