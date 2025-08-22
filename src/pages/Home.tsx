@@ -1,5 +1,5 @@
 // @ts-expect-error: React import needed for JSX (even if unused in strict TS)
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ArrowRight, Castle, GemIcon, Warehouse } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import posthog from 'posthog-js';
@@ -51,39 +51,30 @@ function ClientLogos() {
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Ensure mobile inline autoplay (iOS/Android)
   useEffect(() => {
-    if (window.innerWidth < 768) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    // extra safety for older iOS
+    v.setAttribute('playsinline', 'true');
+    const p = v.play?.();
+    if (p && typeof (p as Promise<void>).catch === 'function') {
+      (p as Promise<void>).catch(() => {
+        // If autoplay is blocked, poster will show; no UI needed.
+      });
     }
   }, []);
-
-  const togglePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
   const handleClickReserve = () => {
     posthog.capture('Click Réservez Home', {
       page: location.pathname,
       location: 'hero landing',
     });
-
-    setTimeout(() => {
-      navigate('/contact');
-    }, 200); // assez de temps pour que l'event soit capté
+    setTimeout(() => navigate('/contact'), 200);
   };
 
   return (
@@ -91,40 +82,22 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
-          {!isMobile ? (
-            <video
-              ref={videoRef}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            >
-              <source src="/Osmoz Office_Horizontal.mp4.mp4" type="video/mp4" />
-              Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-          ) : (
-            <img
-              src="/fallback-hero.jpg"
-              alt="Hero fallback"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          )}
-          <div className="absolute inset-0 bg-black/30"></div>
-
-          {!isMobile && (
-            <button
-              onClick={togglePlayPause}
-              className="absolute bottom-8 right-8 bg-white/20 backdrop-blur-sm p-3 rounded-full hover:bg-white/30 transition-opacity duration-300 z-10"
-            >
-              {isPlaying ? (
-                <span className="text-white">||</span>
-              ) : (
-                <span className="text-white">▶</span>
-              )}
-            </button>
-          )}
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/fallback-hero.jpg"
+            className="w-full h-full object-cover"
+          >
+            {/* Keep MP4 (H.264) for iOS; WebM optional if you have it */}
+            <source src="/Osmoz Office_Horizontal.mp4.mp4" type="video/mp4" />
+            {/* <source src="/Osmoz Office_Horizontal.webm" type="video/webm" /> */}
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          <div className="absolute inset-0 bg-black/30" />
         </div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center">
@@ -200,19 +173,19 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Le Loft - Salle de travail",
+                title: "Le Loft",
                 description:
-                  "Un espace lumineux et moderne, parfait pour les sessions de travail collaboratif et les réunions créatives.",
+                  "Un espace lumineux et moderne, parfait pour des sessions de travail et des réunions créatives.",
                 image: "/images/1_DSC4725-HDR OK.jpg",
                 link: "/spaces/loft-osmoz",
                 isComingSoon: false,
               },
               {
-                title: "Le Loft - Cuisine",
+                title: "Le Duplex Haussmannien",
                 description:
-                  "Une cuisine professionnelle équipée, idéale pour les événements culinaires et les pauses conviviales.",
-                image: "/images/3_DSC4743-HDR.jpg",
-                link: "/spaces/loft-osmoz",
+                  "Élégant et lumineux, idéal pour réunions, ateliers, tournages, moulures parquet au cœur de Paris.",
+                image: "images/Duplex Haussmannien/1 Salon Normal 3.jpg",
+                link: "/spaces/duplex-osmoz",
                 isComingSoon: false,
               },
               {
@@ -220,7 +193,7 @@ export default function Home() {
                 description:
                   "Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.",
                 image: "/images/patio/patio.salon-vue-complete.jpeg",
-                link: "/spaces/patio-osmoz",
+                link: "/spaces/duplex-osmoz",
                 isComingSoon: true,
               },
             ].map((space, index) => (

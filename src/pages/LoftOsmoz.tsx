@@ -4,7 +4,6 @@ import ImageGallery from '../components/ImageGallery';
 import BannerSlideshow from '../components/BannerSlideshow';
 import { useNavigate } from 'react-router-dom';
 
-
 const platforms = [
   {
     name: "Kactus",
@@ -64,59 +63,62 @@ export default function LoftOsmoz() {
     setIsGalleryOpen(true);
   };
 
+  // Use BASE_URL so paths work locally AND when deployed under a subpath
+  const base = import.meta.env.BASE_URL;
+
   const bannerImages = [
-    { url: "/images/2_DSC4734-HDR OK.jpg", alt: "Loft Osmoz - Vue principale" },
-    { url: "/images/17Vue Pleiniere Verriere.jpg", alt: "Loft Osmoz - Entrée" },
-    { url: "/images/13_DSC4713-HDR.jpg", alt: "Loft Osmoz - Espace de travail" },
-    { url: "/images/12BVerlomme08.jpeg", alt: "Loft Osmoz - Vue d'ensemble" }
+    { url: encodeURI(`${base}images/Loft/1 SdR.jpg`), alt: "Loft Osmoz - Salle de réunion" },
+    { url: encodeURI(`${base}images/Loft/2 Salon pleiniere 2.jpg`), alt: "Loft Osmoz - Salon plénière" },
+    { url: encodeURI(`${base}images/Loft/3 salle a manger.jpg`), alt: "Loft Osmoz - Salle à manger" },
+    { url: encodeURI(`${base}images/Loft/4 Cuisine 5.jpg`), alt: "Loft Osmoz - Cuisine" },
   ];
 
-const allImages = [
-  { url: "/images/1_DSC4725-HDR OK.jpg", alt: "Loft Osmoz - Vue 1" },
-  { url: "/images/2_DSC4734-HDR OK.jpg", alt: "Loft Osmoz - Vue 2" },
-  { url: "/images/3_DSC4743-HDR.jpg", alt: "Loft Osmoz - Vue 3" },
-  { url: "/images/4_DSC4710-HDR.jpg", alt: "Loft Osmoz - Vue 4" },
-  { url: "/images/5_DSC3713-HDR.jpg", alt: "Loft Osmoz - Vue 5" },
-  { url: "/images/6_DSC4719-HDR.jpg", alt: "Loft Osmoz - Vue 6" },
-  { url: "/images/7_DSC4722-HDR.jpg", alt: "Loft Osmoz - Vue 7" },
-  { url: "/images/8_DSC4701-HDR.jpg", alt: "Loft Osmoz - Vue 8" },
-  { url: "/images/9_DSC4704-HDR.jpg", alt: "Loft Osmoz - Vue 9" },
-  { url: "/images/10_DSC4731-HDR.jpg", alt: "Loft Osmoz - Vue 10" },
-  { url: "/images/11_DSC4737-HDR.jpg", alt: "Loft Osmoz - Vue 11" },
-  { url: "/images/12_DSC4740-HDR.jpg", alt: "Loft Osmoz - Vue 12" },
-  { url: "/images/12BVerlomme08.jpeg", alt: "Loft Osmoz - Vue 13" },
-  { url: "/images/12CVerlomme07.jpeg", alt: "Loft Osmoz - Vue 14" },
-  { url: "/images/13_DSC4713-HDR.jpg", alt: "Loft Osmoz - Vue 15" },
-  { url: "/images/14_DSC4716-HDR.jpg", alt: "Loft Osmoz - Vue 16" },
-  { url: "/images/15Vue Pleiniere Cuisine.jpg", alt: "Loft Osmoz - Vue 17" },
-  { url: "/images/16Vue Pleiniere Entrée.jpg", alt: "Loft Osmoz - Vue 18" },
-  { url: "/images/17Vue Pleiniere Verriere.jpg", alt: "Loft Osmoz - Vue 19" },
-  { url: "/images/18_DSC4629-HDR.jpg", alt: "Loft Osmoz - Vue 20" },
-  { url: "/images/19_DSC4632-HDR.jpg", alt: "Loft Osmoz - Vue 21" },
-  { url: "/images/20_DSC4635-HDR OK.jpg", alt: "Loft Osmoz - Vue 22" },
-  { url: "/images/21_DSC4638-HDR.jpg", alt: "Loft Osmoz - Vue 23" },
-  { url: "/images/22_DSC4641-HDR.jpg", alt: "Loft Osmoz - Vue 24" },
-  { url: "/images/23_DSC4647-HDR.jpg", alt: "Loft Osmoz - Vue 25" },
-  { url: "/images/24_DSC4650-HDR.jpg", alt: "Loft Osmoz - Vue 26" },
-  { url: "/images/25_DSC4653-HDR.jpg", alt: "Loft Osmoz - Vue 27" },
-  { url: "/images/26_DSC4656-HDR.jpg", alt: "Loft Osmoz - Vue 28" },
-  { url: "/images/27_DSC4659-HDR.jpg", alt: "Loft Osmoz - Vue 29" },
-  { url: "/images/28_DSC4662-HDR.jpg", alt: "Loft Osmoz - Vue 30" },
-  { url: "/images/29_DSC4668-HDR.jpg", alt: "Loft Osmoz - Vue 31" },
-  { url: "/images/30_DSC4689-HDR.jpg", alt: "Loft Osmoz - Vue 32" },
-  { url: "/images/31_DSC4692-HDR.jpg", alt: "Loft Osmoz - Vue 33" },
-  { url: "/images/32_DSC4695-HDR.jpg", alt: "Loft Osmoz - Vue 34" },
-  { url: "/images/33_DSC4698-HDR OK .jpg", alt: "Loft Osmoz - Vue 35" },
-  { url: "/images/34Verlomme11.jpeg", alt: "Loft Osmoz - Vue 36" },
-  { url: "/images/35Verlomme12.jpeg", alt: "Loft Osmoz - Vue 37" },
-  { url: "/images/36_Verlomme13.jpeg", alt: "Loft Osmoz - Vue 38" }
-];
+  const allImages = [
+    { url: "/images/1_DSC4725-HDR OK.jpg", alt: "Loft Osmoz - Vue 1" },
+    { url: "/images/2_DSC4734-HDR OK.jpg", alt: "Loft Osmoz - Vue 2" },
+    { url: "/images/3_DSC4743-HDR.jpg", alt: "Loft Osmoz - Vue 3" },
+    { url: "/images/4_DSC4710-HDR.jpg", alt: "Loft Osmoz - Vue 4" },
+    { url: "/images/5_DSC3713-HDR.jpg", alt: "Loft Osmoz - Vue 5" },
+    { url: "/images/6_DSC4719-HDR.jpg", alt: "Loft Osmoz - Vue 6" },
+    { url: "/images/7_DSC4722-HDR.jpg", alt: "Loft Osmoz - Vue 7" },
+    { url: "/images/8_DSC4701-HDR.jpg", alt: "Loft Osmoz - Vue 8" },
+    { url: "/images/9_DSC4704-HDR.jpg", alt: "Loft Osmoz - Vue 9" },
+    { url: "/images/10_DSC4731-HDR.jpg", alt: "Loft Osmoz - Vue 10" },
+    { url: "/images/11_DSC4737-HDR.jpg", alt: "Loft Osmoz - Vue 11" },
+    { url: "/images/12_DSC4740-HDR.jpg", alt: "Loft Osmoz - Vue 12" },
+    { url: "/images/12BVerlomme08.jpeg", alt: "Loft Osmoz - Vue 13" },
+    { url: "/images/12CVerlomme07.jpeg", alt: "Loft Osmoz - Vue 14" },
+    { url: "/images/13_DSC4713-HDR.jpg", alt: "Loft Osmoz - Vue 15" },
+    { url: "/images/14_DSC4716-HDR.jpg", alt: "Loft Osmoz - Vue 16" },
+    { url: "/images/15Vue Pleiniere Cuisine.jpg", alt: "Loft Osmoz - Vue 17" },
+    { url: "/images/16Vue Pleiniere Entrée.jpg", alt: "Loft Osmoz - Vue 18" },
+    { url: "/images/17Vue Pleiniere Verriere.jpg", alt: "Loft Osmoz - Vue 19" },
+    { url: "/images/18_DSC4629-HDR.jpg", alt: "Loft Osmoz - Vue 20" },
+    { url: "/images/19_DSC4632-HDR.jpg", alt: "Loft Osmoz - Vue 21" },
+    { url: "/images/20_DSC4635-HDR OK.jpg", alt: "Loft Osmoz - Vue 22" },
+    { url: "/images/21_DSC4638-HDR.jpg", alt: "Loft Osmoz - Vue 23" },
+    { url: "/images/22_DSC4641-HDR.jpg", alt: "Loft Osmoz - Vue 24" },
+    { url: "/images/23_DSC4647-HDR.jpg", alt: "Loft Osmoz - Vue 25" },
+    { url: "/images/24_DSC4650-HDR.jpg", alt: "Loft Osmoz - Vue 26" },
+    { url: "/images/25_DSC4653-HDR.jpg", alt: "Loft Osmoz - Vue 27" },
+    { url: "/images/26_DSC4656-HDR.jpg", alt: "Loft Osmoz - Vue 28" },
+    { url: "/images/27_DSC4659-HDR.jpg", alt: "Loft Osmoz - Vue 29" },
+    { url: "/images/28_DSC4662-HDR.jpg", alt: "Loft Osmoz - Vue 30" },
+    { url: "/images/29_DSC4668-HDR.jpg", alt: "Loft Osmoz - Vue 31" },
+    { url: "/images/30_DSC4689-HDR.jpg", alt: "Loft Osmoz - Vue 32" },
+    { url: "/images/31_DSC4692-HDR.jpg", alt: "Loft Osmoz - Vue 33" },
+    { url: "/images/32_DSC4695-HDR.jpg", alt: "Loft Osmoz - Vue 34" },
+    { url: "/images/33_DSC4698-HDR OK .jpg", alt: "Loft Osmoz - Vue 35" },
+    { url: "/images/34Verlomme11.jpeg", alt: "Loft Osmoz - Vue 36" },
+    { url: "/images/35Verlomme12.jpeg", alt: "Loft Osmoz - Vue 37" },
+    { url: "/images/36_Verlomme13.jpeg", alt: "Loft Osmoz - Vue 38" }
+  ];
 
-const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
+  const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
 
   return (
     <div className="pt-24">
-      <BannerSlideshow 
+      <BannerSlideshow
         images={bannerImages}
         title="Loft OSMOZ"
         onImageClick={() => openGallery(0)}
@@ -138,13 +140,13 @@ const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
 
             <div className="grid grid-cols-2 gap-4 mb-12">
               {gridImages.map((img, index) => (
-                <div 
+                <div
                   key={index}
                   className="aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"
                   onClick={() => openGallery(index)}
                 >
-                  <img 
-                    src={img.url} 
+                  <img
+                    src={img.url}
                     alt={img.alt}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:rotate-1"
                   />
@@ -189,7 +191,7 @@ const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
                 <Euro className="h-5 w-5 text-gray-600" />
                 <span className="font-light text-gray-600">À partir de 500€</span>
               </div>
-              <button 
+              <button
                 onClick={() => navigate("/contact")}
                 className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition duration-300 flex items-center justify-center gap-2"
               >
@@ -208,18 +210,17 @@ const gridImages = [...allImages].sort(() => 0.5 - Math.random()).slice(0, 2);
                     className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full border border-gray-300 hover:border-black bg-white hover:bg-[#fce9de] transition-colors"
                     title={`Voir sur ${platform.name}`}
                   >
-                   {platform.Logo ? (
-                     <img
-                      src={platform.Logo}
-                      alt={platform.name}
-                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
-                    />
+                    {platform.Logo ? (
+                      <img
+                        src={platform.Logo}
+                        alt={platform.name}
+                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                      />
                     ) : (
-                    <span className="text-xs font-semibold text-gray-700 group-hover:text-white">
-                      {platform.name[0]}
-                    </span>
+                      <span className="text-xs font-semibold text-gray-700 group-hover:text-white">
+                        {platform.name[0]}
+                      </span>
                     )}
-
                   </a>
                 ))}
               </div>

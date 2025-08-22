@@ -5,19 +5,19 @@ const spaces = [
     id: 'loft-osmoz',
     title: "Le Loft",
     description: "Louez cet espace élégant pour vos réunions, séminaires, ateliers ou événements d'entreprise ! Avec son design contemporain et ses équipements de pointe, il s'adapte à toutes vos exigences professionnelles.",
-    image: "/images/6_DSC4719-HDR.jpg",
-    capacity: "35 personnes",
-    price: "À partir de 500€",
+    image: "/images/Loft/6 Salon pleiniere 6.jpg",
+    capacity: "25 personnes",
+    price: "À partir de 750€",
     isComingSoon: false
   },
   {
-    id: 'patio-osmoz',
-    title: "L'Orangerie",
-    description: "Découvrez notre espace lumineux avec verrières, idéalement situé au calme dans une cour privée. Parfait pour vos événements d'entreprise, séminaires et ateliers dans un cadre unique et inspirant.",
-    image: "/images/patio/patio.salon-vue-complete.jpeg",
-    capacity: "25 personnes",
-    price: "À partir de 500€",
-    isComingSoon: true
+    id: 'duplex-osmoz',
+    title: "Duplex Haussmannien",
+    description: "Duplex haussmannien lumineux au cœur du 2e, verrières, moulures et parquet. Espaces modulables pour réunions, séminaires et ateliers. Cuisine équipée, salle TV, cour privée au calme. Service clé en main, équipements pro, ambiance chic pour expériences d’entreprise mémorables et productives.",
+    image: "/images/Duplex Haussmannien/1 Salon Normal 3.jpg",
+    capacity: "40 personnes",
+    price: "À partir de 2000€",
+    isComingSoon: false
   }
 ];
 
