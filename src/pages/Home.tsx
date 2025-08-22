@@ -9,21 +9,22 @@ posthog.init('phc_5Ji4D4oRaqsu6fJijIcdmvwPyZLxRaYua4MUqqZ0FOc', {
   capture_pageview: true,
 });
 
+// paths safe for dev + prod (handles subpath + spaces)
+const base = import.meta.env.BASE_URL;
+const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
+
 function ClientLogos() {
-  const logos = [
-    "/logos/google.svg",
-    "/logos/sncf.svg",
-    "/logos/generali.svg",
-    "/logos/swisslife.svg",
-    "/logos/arkema.svg",
-    "/logos/smartbox.svg",
-    "/logos/dataiku.svg",
-    "/logos/quicksign.svg",
-    "/logos/pickup.svg",
-    "/logos/bayard.svg",
-    "/logos/mnstr.svg",
-    "/logos/veesion.svg",
-    "/logos/lavie.svg",
+  const logos: string[] = [
+    u('images/logos/google.svg'),
+    u('images/logos/sncf.svg'),
+    u('images/logos/generali.svg'),
+    u('images/logos/swisslife.svg'),
+    u('images/logos/arkema.svg'),
+    u('images/logos/bayard.svg'),
+    u('images/logos/dataiku.svg'),
+    u('images/logos/quicksign.svg'),
+    u('images/logos/kactus.png'),
+    u('images/logos/lavie.svg'),
   ];
 
   return (
@@ -38,7 +39,8 @@ function ClientLogos() {
               <img
                 key={idx}
                 src={src}
-                alt={`Logo ${idx}`}
+                alt={`Logo partenaire ${idx + 1}`}
+                loading="lazy"
                 className="h-10 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition duration-300"
               />
             ))}
@@ -59,12 +61,11 @@ export default function Home() {
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
-    // extra safety for older iOS
     v.setAttribute('playsinline', 'true');
-    const p = v.play?.();
-    if (p && typeof (p as Promise<void>).catch === 'function') {
-      (p as Promise<void>).catch(() => {
-        // If autoplay is blocked, poster will show; no UI needed.
+    const playPromise = v.play?.();
+    if (playPromise && typeof (playPromise as Promise<void>).catch === 'function') {
+      (playPromise as Promise<void>).catch(() => {
+        /* autoplay blocked: ignore, poster shows */
       });
     }
   }, []);
@@ -92,9 +93,7 @@ export default function Home() {
             poster="/fallback-hero.jpg"
             className="w-full h-full object-cover"
           >
-            {/* Keep MP4 (H.264) for iOS; WebM optional if you have it */}
             <source src="/Osmoz Office_Horizontal.mp4.mp4" type="video/mp4" />
-            {/* <source src="/Osmoz Office_Horizontal.webm" type="video/webm" /> */}
             Votre navigateur ne supporte pas la lecture de vidéos.
           </video>
           <div className="absolute inset-0 bg-black/30" />
@@ -127,18 +126,20 @@ export default function Home() {
             {[
               {
                 Icon: Castle,
-                title: "Comme à la maison mais en mieux",
-                description: "Des lieux uniques pour sortir du bureau sans perdre en efficacité",
+                title: 'Comme à la maison mais en mieux',
+                description: 'Des lieux uniques pour sortir du bureau sans perdre en efficacité',
               },
               {
                 Icon: GemIcon,
-                title: "Service sur-mesure",
-                description: "Une prise en charge complète, du concept à l'exécution, pour vous offrir un évenement sans stress.",
+                title: 'Service sur-mesure',
+                description:
+                  "Une prise en charge complète, du concept à l'exécution, pour vous offrir un évenement sans stress.",
               },
               {
                 Icon: Warehouse,
-                title: "Espaces modulables et flexibles",
-                description: "Des configurations adaptables à tous vos besoins : réunions, séminaires, déjeuners ou showroom.",
+                title: 'Espaces modulables et flexibles',
+                description:
+                  'Des configurations adaptables à tous vos besoins : réunions, séminaires, déjeuners ou showroom.',
               },
             ].map((feature, index) => (
               <div key={index} className="text-center px-4 group cursor-pointer">
@@ -173,27 +174,27 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Le Loft",
+                title: 'Le Loft',
                 description:
-                  "Un espace lumineux et moderne, parfait pour des sessions de travail et des réunions créatives.",
-                image: "/images/1_DSC4725-HDR OK.jpg",
-                link: "/spaces/loft-osmoz",
+                  'Un espace lumineux et moderne, parfait pour des sessions de travail et des réunions créatives.',
+                image: u('images/1_DSC4725-HDR OK.jpg'),
+                link: '/spaces/loft-osmoz',
                 isComingSoon: false,
               },
               {
-                title: "Le Duplex Haussmannien",
+                title: 'Le Duplex Haussmannien',
                 description:
-                  "Élégant et lumineux, idéal pour réunions, ateliers, tournages, moulures parquet au cœur de Paris.",
-                image: "images/Duplex Haussmannien/1 Salon Normal 3.jpg",
-                link: "/spaces/duplex-osmoz",
+                  'Élégant et lumineux, idéal pour réunions, ateliers, tournages, moulures parquet au cœur de Paris.',
+                image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'),
+                link: '/spaces/duplex-osmoz',
                 isComingSoon: false,
               },
               {
                 title: "L'Orangerie",
                 description:
-                  "Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.",
-                image: "/images/patio/patio.salon-vue-complete.jpeg",
-                link: "/spaces/duplex-osmoz",
+                  'Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.',
+                image: u('images/patio/patio.salon-vue-complete.jpeg'),
+                link: '/spaces/duplex-osmoz',
                 isComingSoon: true,
               },
             ].map((space, index) => (
@@ -209,9 +210,7 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                         <div className="text-center">
-                          <span className="text-white text-xl font-light tracking-widest">
-                            COMING SOON
-                          </span>
+                          <span className="text-white text-xl font-light tracking-widest">COMING SOON</span>
                         </div>
                       </div>
                     </div>
