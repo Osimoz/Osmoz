@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { PostHogProvider } from 'posthog-js/react';
+import { HelmetProvider } from 'react-helmet-async';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import App from './App';
 import './index.css';
@@ -20,9 +21,11 @@ createRoot(root).render(
         debug: import.meta.env.MODE === 'development',
       }}
     >
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
+      <HelmetProvider>
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
+      </HelmetProvider>
     </PostHogProvider>
   </StrictMode>
 );

@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { ArrowRight, Castle, GemIcon, Warehouse } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import posthog from 'posthog-js';
+import { Helmet } from 'react-helmet-async';
 
 posthog.init('phc_5Ji4D4oRaqsu6fJijIcdmvwPyZLxRaYua4MUqqZ0FOc', {
   api_host: 'https://app.posthog.com',
@@ -80,6 +81,14 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>OSMOZ — Des espaces pour travailler autrement</title>
+        <meta
+          name="description"
+          content="Des lieux atypiques et modulables à Paris pour réunions, séminaires, déjeuners et showrooms. Service sur-mesure, ambiance comme à la maison."
+        />
+        <link rel="canonical" href="https://osmoz.work/" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
@@ -194,12 +203,13 @@ export default function Home() {
                 description:
                   'Un espace lumineux et élégant, mêlant verrières et design atypique, idéal pour vos réunions haut de gamme et sessions créatives.',
                 image: u('images/patio/patio.salon-vue-complete.jpeg'),
-                link: '/spaces/duplex-osmoz',
+                // pas de link pour le moment
                 isComingSoon: true,
               },
             ].map((space, index) => (
               <div key={index} className="relative">
-                {space.isComingSoon ? (
+                {space.isComingSoon || !('link' in space) || !space.link ? (
+                  // ---- Branche non cliquable (coming soon OU pas de lien)
                   <div className="block group bg-white rounded-lg overflow-hidden shadow-sm relative">
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
@@ -220,8 +230,9 @@ export default function Home() {
                     </div>
                   </div>
                 ) : (
+                  // ---- Branche cliquable (link défini et pas coming soon)
                   <Link
-                    to={space.link}
+                    to={space.link!}
                     className="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
                   >
                     <div className="aspect-[4/3] overflow-hidden">
