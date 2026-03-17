@@ -3,7 +3,7 @@ import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
-import Home from './pages/Home';
+import HomeV2 from './pages/HomeV2';
 import Spaces from './pages/Spaces';
 import LoftOsmozV2 from './pages/LoftOsmozV2';
 import DuplexOsmozV2 from './pages/DuplexOsmozV2';
@@ -18,7 +18,7 @@ export default function App() {
         <Navigation />
         <main className="flex-1">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<HomeV2 />} />
             <Route path="/spaces" element={<Spaces />} />
             <Route path="/spaces/loft-osmoz" element={<LoftOsmozV2 />} />
             <Route path="/spaces/duplex-osmoz" element={<DuplexOsmozV2 />} />
