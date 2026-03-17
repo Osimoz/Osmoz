@@ -215,6 +215,11 @@ export default function DuplexOsmozV2() {
         <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        {/* Preload above-the-fold images */}
+        <link rel="preload" as="image" href={u(`${D}1 Salon Normal 3.jpg`)} />
+        <link rel="preload" as="image" href={u(`${D}4 Escalier.jpg`)} />
+        <link rel="preload" as="image" href={u(`${D}3 Cuisine 5.jpg`)} />
+        <link rel="preload" as="image" href={u(`${D}8 Reunion Salon 1.jpg`)} />
       </Helmet>
 
       {/* ── 1. HERO ── */}
@@ -338,7 +343,7 @@ export default function DuplexOsmozV2() {
                       <img
                         src={img.url}
                         alt={img.alt}
-                        loading="lazy"
+                        loading="eager"
                         decoding="async"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
