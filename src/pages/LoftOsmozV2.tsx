@@ -59,7 +59,7 @@ const configurations = [
     capacity: 20,
     description: 'Tables modulables en îlots, mobilier déplaçable.',
     images: [
-      u('images/Loft/12 Salle de réunion 4.jpg'),
+      u('images/Loft/12 Salle de reunion 4.jpg'),
       u('images/Loft/13 Salle de reunion 5.jpg'),
     ],
   },
@@ -94,7 +94,7 @@ const galleryItems = [
   { url: u('images/Loft/7 Salon pleiniere 1.jpg'),    label: 'Verrière',          alt: 'Verrière Loft Osmoz – lumière naturelle' },
   { url: u('images/Loft/6 Salon pleiniere 6.jpg'),    label: 'Plénière',          alt: 'Configuration plénière Loft Osmoz – écran OSMOZ' },
   { url: u('images/Loft/11 Salle de reunion 2.jpg'),  label: 'Réunion',           alt: 'Configuration réunion Loft Osmoz' },
-  { url: u('images/Loft/12 Salle de réunion 4.jpg'),  label: 'Réunion – U',       alt: 'Salle de réunion Loft Osmoz – configuration en U' },
+  { url: u('images/Loft/12 Salle de reunion 4.jpg'),  label: 'Réunion – U',       alt: 'Salle de réunion Loft Osmoz – configuration en U' },
   { url: u('images/Loft/9 salle a manger.jpg'),       label: 'Salle à manger',    alt: 'Salle à manger Loft Osmoz – vue 2' },
   { url: u('images/Loft/21 Cuisine 3.jpg'),           label: 'Bar',               alt: 'Bar Loft Osmoz – espace lounge et cocktail' },
   { url: u('images/Loft/18 Cocktail 3.jpg'),          label: 'Cocktail',          alt: 'Espace cocktail Loft Osmoz' },
