@@ -5,7 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 import Home from './pages/Home';
 import Spaces from './pages/Spaces';
-import LoftOsmoz from './pages/LoftOsmoz';
+import LoftOsmozV2 from './pages/LoftOsmozV2';
 import DuplexOsmoz from './pages/DuplexOsmoz';
 import Contact from './pages/Contact';
 import QuestionsFrequentes from './pages/Questions-Frequentes';
@@ -20,7 +20,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/spaces" element={<Spaces />} />
-            <Route path="/spaces/loft-osmoz" element={<LoftOsmoz />} />
+            <Route path="/spaces/loft-osmoz" element={<LoftOsmozV2 />} />
             <Route path="/spaces/duplex-osmoz" element={<DuplexOsmoz />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/questions-frequentes" element={<QuestionsFrequentes />} />

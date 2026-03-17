@@ -35,7 +35,7 @@ function ClientLogos() {
           Ils nous font confiance
         </p>
         <div className="relative w-full overflow-hidden">
-          <div className="flex gap-12 animate-marquee whitespace-nowrap">
+          <div className="flex gap-12 animate-marquee-fast whitespace-nowrap">
             {logos.concat(logos).map((src, idx) => (
               <img
                 key={idx}
