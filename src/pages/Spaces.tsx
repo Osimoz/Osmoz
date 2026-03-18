@@ -1,111 +1,169 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { ArrowRight, Users } from 'lucide-react';
+
+const base = import.meta.env.BASE_URL;
+const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
 
 const spaces = [
   {
     id: 'loft-osmoz',
-    title: "Le Loft",
-    description: "Louez cet espace élégant pour vos réunions, séminaires, ateliers ou événements d'entreprise ! Avec son design contemporain et ses équipements de pointe, il s'adapte à toutes vos exigences professionnelles.",
-    image: "/images/Loft/6 Salon pleiniere 6.jpg",
-    capacity: "25 personnes",
-    price: "À partir de 750€",
-    isComingSoon: false
+    slug: 'loft',
+    title: 'Le Loft Osmoz',
+    eyebrow: 'Marais · Paris 3e',
+    description: 'Un loft contemporain de 120 m² au cœur du Marais. Volumes épurés, lumière zénithale et mobilier modulable pour vos réunions et ateliers d\'exception.',
+    image: u('images/Loft/7 Salon pleiniere 1.jpg'),
+    capacity: '25 personnes',
+    price: 'À partir de 750 €',
+    tags: ['Réunion', 'Atelier', 'Séminaire'],
   },
   {
     id: 'duplex-osmoz',
-    title: "Duplex Haussmannien",
-    description: "Duplex haussmannien lumineux au cœur du 2e, verrières, moulures et parquet. Espaces modulables pour réunions, séminaires et ateliers. Cuisine équipée, salle TV, cour privée au calme. Service clé en main, équipements pro, ambiance chic pour expériences d'entreprise mémorables et productives.",
-    image: "/images/Duplex Haussmannien/1 Salon Normal 3.jpg",
-    capacity: "50 personnes",
-    price: "À partir de 1 999€",
-    isComingSoon: false
+    slug: 'duplex',
+    title: 'Le Duplex Haussmannien',
+    eyebrow: 'Montmartre · Paris 2e',
+    description: 'Duplex haussmannien lumineux avec verrières, moulures et parquet. Deux niveaux modulables, cuisine équipée et cour privée pour des journées de travail mémorables.',
+    image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'),
+    capacity: '50 personnes',
+    price: 'À partir de 1 999 €',
+    tags: ['Séminaire', 'Cocktail', 'Workshop'],
   },
   {
     id: 'penthouse-osmoz',
-    title: "Le Penthouse",
-    description: "Penthouse confidentiel de 150 m² avec jardin suspendu de 350 m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel. Esthétique 70's, salle de réunion privative, espaces modulables. Un lieu rare pour vos moments d'exception.",
-    image: "/images/Penthouse/2 - Salon.jpg",
-    capacity: "40 personnes",
-    price: "À partir de 1 499€",
-    isComingSoon: false
-  }
+    slug: 'penthouse',
+    title: 'Le Penthouse',
+    eyebrow: 'La Défense · Vue panoramique',
+    description: 'Penthouse confidentiel de 150 m² avec jardin suspendu de 350 m² au dernier étage d\'une tour de La Défense. Vue sur Paris et la Tour Eiffel. Un lieu rare.',
+    image: u('images/Penthouse/1 - AI Modified View.png'),
+    capacity: '40 personnes',
+    price: 'À partir de 1 499 €',
+    tags: ['Privatisation', 'Événement', 'Rooftop'],
+  },
 ];
 
 export default function Spaces() {
   return (
-    <div className="pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl font-light mb-4">Nos <em className="not-italic" style={{ fontStyle: 'italic' }}>Espaces</em></h1>
-          <p className="text-gray-600 font-light">
-            Des lieux uniques pour vos évenements, réunions et conférence
+    <>
+      <Helmet>
+        <title>Nos Espaces — OSMOZ | Lieux privatisés à Paris pour entreprises</title>
+        <meta name="description" content="Découvrez les trois espaces OSMOZ à Paris : Le Loft Osmoz, le Duplex Haussmannien et le Penthouse. Privatisation à la journée pour séminaires, réunions et événements d'entreprise." />
+        <link rel="canonical" href="https://osmoz.work/spaces" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
+      <div className="pt-32 pb-24 bg-[#fbfbf3]">
+        {/* Header */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
+          <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-4">
+            Nos espaces
+          </p>
+          <h1
+            className="font-light text-[#01142a] max-w-2xl mb-5"
+            style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+          >
+            Trois lieux. Une seule promesse.
+          </h1>
+          <p className="text-base font-light text-gray-500 max-w-xl leading-relaxed">
+            Des espaces uniques à Paris, privatisés exclusivement pour vos équipes. Chaque lieu est pensé pour le travail, la créativité et le bien-être.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {spaces.map((space) => (
-            <div key={space.id} className="relative">
-              {space.isComingSoon ? (
-                // Coming Soon Card (no link, heavily blurred)
-                <div className="group cursor-default bg-white rounded-lg overflow-hidden relative">
-                  <div className="aspect-[16/9] overflow-hidden relative">
-                    <img 
-                      src={space.image}
-                      alt={space.title}
-                      className="w-full h-full object-cover blur-[20px] grayscale"
-                    />
-                    {/* Heavy Coming Soon Overlay */}
-                    <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="bg-white/90 backdrop-blur-sm px-8 py-4 rounded-lg">
-                          <span className="text-black text-2xl font-light tracking-[0.3em] block mb-2">
-                            COMING SOON
-                          </span>
-                          <span className="text-gray-600 text-sm font-light tracking-wide">
-                            Bientôt disponible
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-8 opacity-40 pointer-events-none">
-                    <h3 className="text-2xl font-light mb-3 text-gray-400">{space.title}</h3>
-                    <p className="text-gray-400 font-light leading-relaxed mb-6">
-                      {space.description}
-                    </p>
-                    <div className="flex justify-between items-center text-sm text-gray-400 font-light">
-                      <span>{space.capacity}</span>
-                      <span>{space.price}</span>
-                    </div>
+        {/* Space cards */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
+          {spaces.map((space, i) => (
+            <Link
+              key={space.id}
+              to={`/spaces/${space.id}`}
+              className="group block"
+            >
+              <div className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-0 rounded-3xl overflow-hidden border border-[#e5e5e5] bg-white hover:shadow-2xl transition-all duration-500`}>
+                {/* Image */}
+                <div className="relative lg:w-[55%] aspect-[4/3] lg:aspect-auto overflow-hidden">
+                  <img
+                    src={space.image}
+                    alt={space.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Tags */}
+                  <div className="absolute top-5 left-5 flex gap-2 flex-wrap">
+                    {space.tags.map(tag => (
+                      <span key={tag} className="bg-white/90 backdrop-blur-sm text-[#01142a] text-[10px] font-light uppercase tracking-[0.18em] px-3 py-1.5 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ) : (
-                // Regular Card (with link)
-                <Link to={`/spaces/${space.id}`}>
-                  <div className="group cursor-pointer bg-white rounded-lg overflow-hidden relative before:absolute before:inset-0 before:z-10 before:bg-black/0 before:transition-colors hover:before:bg-black/5">
-                    <div className="aspect-[16/9] overflow-hidden">
-                      <img 
-                        src={space.image}
-                        alt={space.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                      />
+
+                {/* Content */}
+                <div className="lg:w-[45%] flex flex-col justify-center p-8 sm:p-12 lg:p-14">
+                  <p className="text-[10px] font-light uppercase tracking-[0.3em] text-[#862637] mb-3">
+                    {space.eyebrow}
+                  </p>
+                  <h2
+                    className="font-light text-[#01142a] mb-5"
+                    style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}
+                  >
+                    {space.title}
+                  </h2>
+                  <p className="text-sm font-light text-gray-500 leading-loose mb-8 max-w-sm">
+                    {space.description}
+                  </p>
+
+                  {/* Meta row */}
+                  <div className="flex items-center gap-6 mb-10">
+                    <div className="flex items-center gap-2 text-sm font-light text-[#01142a]">
+                      <Users className="h-4 w-4 text-[#862637]" />
+                      {space.capacity}
                     </div>
-                    <div className="p-8">
-                      <h3 className="text-2xl font-light mb-3">{space.title}</h3>
-                      <p className="text-gray-600 font-light leading-relaxed mb-6">
-                        {space.description}
-                      </p>
-                      <div className="flex justify-between items-center text-sm text-gray-500 font-light">
-                        <span>{space.capacity}</span>
-                        <span>{space.price}</span>
-                      </div>
+                    <div className="text-sm font-light text-[#01142a]">
+                      {space.price}
                     </div>
                   </div>
-                </Link>
-              )}
-            </div>
+
+                  {/* CTAs */}
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <span className="inline-flex items-center gap-2 bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-light group-hover:bg-[#01142a] group-hover:text-white transition-all duration-300">
+                      Découvrir
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                    <Link
+                      to={`/reservation?space=${space.slug}`}
+                      onClick={e => e.stopPropagation()}
+                      className="text-xs font-light tracking-[0.18em] uppercase text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors duration-200"
+                    >
+                      Réserver ce lieu
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
+
+        {/* Bottom CTA band */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+          <div className="bg-[#01142a] rounded-3xl p-10 sm:p-16 flex flex-col sm:flex-row items-center justify-between gap-8">
+            <div>
+              <p className="text-xs font-light uppercase tracking-[0.3em] text-white/40 mb-3">Privatisation clé en main</p>
+              <h3
+                className="font-light text-white max-w-md"
+                style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}
+              >
+                Pas encore sûr de quel espace vous convient ?
+              </h3>
+            </div>
+            <Link
+              to="/contact"
+              className="flex-shrink-0 border border-white/30 text-white px-8 py-4 rounded-xl text-xs tracking-[0.2em] uppercase font-light hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
+            >
+              Nous contacter
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

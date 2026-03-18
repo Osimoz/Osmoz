@@ -9,6 +9,7 @@ import LoftOsmozV2 from './pages/LoftOsmozV2';
 import DuplexOsmozV2 from './pages/DuplexOsmozV2';
 import PenthouseOsmoz from './pages/PenthouseOsmoz';
 import Contact from './pages/Contact';
+import Reservation from './pages/Reservation';
 import QuestionsFrequentes from './pages/Questions-Frequentes';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/spaces/duplex-osmoz" element={<DuplexOsmozV2 />} />
             <Route path="/spaces/penthouse-osmoz" element={<PenthouseOsmoz />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/reservation" element={<Reservation />} />
             <Route path="/questions-frequentes" element={<QuestionsFrequentes />} />
           </Routes>
         </main>

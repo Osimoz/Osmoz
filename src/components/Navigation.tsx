@@ -10,7 +10,7 @@ export const Navigation = () => {
 
   const handleReservationClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    navigate('/contact');
+    navigate('/reservation');
   };
 
   // Scroll detection

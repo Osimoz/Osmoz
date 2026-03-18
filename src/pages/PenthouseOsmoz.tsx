@@ -244,7 +244,7 @@ export default function PenthouseOsmoz() {
           </div>
 
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/reservation?space=penthouse')}
             className="bg-white text-[#01142a] px-12 py-4 rounded-lg text-xs tracking-[0.2em] font-light uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition-all duration-300"
           >
             Réserver ce lieu
@@ -271,7 +271,7 @@ export default function PenthouseOsmoz() {
             </span>
           </div>
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/reservation?space=penthouse')}
             className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-light uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
             Demander un devis
@@ -286,7 +286,7 @@ export default function PenthouseOsmoz() {
           <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>1 499€</p>
         </div>
         <button
-          onClick={() => navigate('/contact')}
+          onClick={() => navigate('/reservation?space=penthouse')}
           className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-light flex-1 max-w-[200px]"
         >
           Réserver ce lieu
@@ -460,7 +460,7 @@ export default function PenthouseOsmoz() {
                 <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
               </div>
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/reservation?space=penthouse')}
                 className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-light hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
               >
                 Réserver ce lieu

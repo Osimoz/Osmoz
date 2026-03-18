@@ -214,7 +214,7 @@ export default function HomeV2() {
           </p>
           <div>
             <button
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate('/reservation')}
               className="bg-[#862637] text-[#fee1d4] px-8 sm:px-10 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
             >
               Voir les disponibilités
@@ -385,7 +385,7 @@ export default function HomeV2() {
             Disponibilités, devis et confirmation en moins de 24h.
           </p>
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/reservation')}
             className="bg-white text-[#01142a] px-10 sm:px-12 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
           >
             Voir les disponibilités
@@ -444,7 +444,7 @@ export default function HomeV2() {
             Prêt à sortir du bureau ?
           </h2>
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/reservation')}
             className="bg-[#862637] text-[#fee1d4] px-10 sm:px-12 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-[#01142a] transition-all duration-300"
           >
             Réserver un espace
