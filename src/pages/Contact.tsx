@@ -62,7 +62,7 @@ export default function Contact() {
 
           {/* Header */}
           <div className="max-w-2xl mb-16">
-            <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-4">
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-4">
               Nous écrire
             </p>
             <h1
@@ -71,7 +71,7 @@ export default function Contact() {
             >
               Contact
             </h1>
-            <p className="text-base font-light text-gray-500 leading-relaxed">
+            <p className="text-base font-normal text-gray-500 leading-relaxed">
               Une question, une demande particulière ? Écrivez-nous. Pour une réservation, utilisez{' '}
               <Link to="/reservation" className="text-[#862637] underline underline-offset-4 hover:text-[#01142a] transition-colors">
                 notre formulaire dédié
@@ -88,20 +88,20 @@ export default function Contact() {
                   <svg className="h-14 w-14 mx-auto mb-5" viewBox="0 0 20 20" fill="currentColor" style={{ color: '#862637' }}>
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <h3 className="text-xl font-light text-[#01142a] mb-3">Message envoyé</h3>
+                  <h3 className="text-xl font-normal text-[#01142a] mb-3">Message envoyé</h3>
                   <p className="text-sm font-light text-gray-500 mb-6">
                     Merci ! Nous vous répondrons dans les plus brefs délais.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-light hover:bg-[#01142a] hover:text-white transition-all duration-300"
+                    className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300"
                   >
                     Nouveau message
                   </button>
                 </div>
               ) : (
                 <div className="space-y-6">
-                  <h2 className="text-lg font-light text-[#01142a] mb-2">Votre message</h2>
+                  <h2 className="text-lg font-normal text-[#01142a] mb-2">Votre message</h2>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
@@ -158,7 +158,7 @@ export default function Contact() {
                     type="button"
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="bg-[#862637] text-[#fee1d4] px-7 py-3.5 rounded-xl text-xs tracking-[0.2em] uppercase font-light hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60"
+                    className="bg-[#862637] text-[#fee1d4] px-7 py-3.5 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60"
                   >
                     {isSubmitting ? 'Envoi…' : 'Envoyer'}
                     <ArrowRight className="h-4 w-4" />
@@ -170,7 +170,7 @@ export default function Contact() {
             {/* Coordonnées */}
             <div className="flex flex-col justify-center space-y-10">
               <div>
-                <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-6">Nos coordonnées</p>
+                <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-6">Nos coordonnées</p>
                 <div className="space-y-5">
                   <a href="mailto:contact@osmoz.work" className="flex items-center gap-4 text-[#01142a] hover:text-[#862637] transition-colors">
                     <Mail className="h-5 w-5 flex-shrink-0" />
@@ -184,13 +184,13 @@ export default function Contact() {
               </div>
 
               <div className="border border-[#e5e5e5] rounded-2xl p-7 bg-white">
-                <p className="text-xs font-light uppercase tracking-[0.3em] text-gray-400 mb-3">Réserver un espace</p>
+                <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">Réserver un espace</p>
                 <p className="text-sm font-light text-gray-500 leading-relaxed mb-5">
                   Pour une demande de réservation, de devis ou de disponibilité, utilisez notre formulaire dédié.
                 </p>
                 <Link
                   to="/reservation"
-                  className="inline-flex items-center gap-2 bg-[#01142a] text-white px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-light hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
+                  className="inline-flex items-center gap-2 bg-[#01142a] text-white px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
                 >
                   Formulaire de réservation
                   <ArrowRight className="h-3.5 w-3.5" />

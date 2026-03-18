@@ -32,10 +32,10 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
           <div className="text-center p-8 max-w-md">
-            <h1 className="text-2xl font-light mb-4 text-gray-800">
+            <h1 className="text-2xl font-normal mb-4 text-gray-800">
               Une erreur est survenue
             </h1>
-            <p className="text-gray-600 mb-6 font-light">
+            <p className="text-gray-600 mb-6 font-normal">
               Nous nous excusons pour la gêne occasionnée. Veuillez réessayer ou contacter le support si le problème persiste.
             </p>
             <button
@@ -43,7 +43,7 @@ export class ErrorBoundary extends Component<Props, State> {
                 this.setState({ hasError: false, error: null });
                 window.location.href = '/';
               }}
-              className="bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition-all duration-300"
+              className="bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-normal hover:bg-white hover:text-black border border-black transition-all duration-300"
             >
               Retour à l'accueil
             </button>

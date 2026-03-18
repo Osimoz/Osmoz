@@ -122,7 +122,7 @@ export default function DuplexOsmoz() {
             </div>
 
             <div className="mb-12">
-              <h2 className="text-2xl font-light mb-6">Description</h2>
+              <h2 className="text-2xl font-normal mb-6">Description</h2>
               <div className="space-y-4 text-gray-600 font-light leading-relaxed">
                 <p>
                   Pensé dans l’esprit des maisons de réunions haut de gamme, l’espace combine
@@ -140,7 +140,7 @@ export default function DuplexOsmoz() {
             </div>
 
             <div className="mb-12">
-              <h2 className="text-2xl font-light mb-6">Équipements</h2>
+              <h2 className="text-2xl font-normal mb-6">Équipements</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                 {amenities.map((amenity, index) => (
                   <div key={index} className="flex items-center gap-3">
@@ -164,7 +164,7 @@ export default function DuplexOsmoz() {
               </div>
               <button
                 onClick={() => navigate('/contact')}
-                className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition duration-300 flex items-center justify-center gap-2"
+                className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-normal hover:bg-white hover:text-black border border-black transition duration-300 flex items-center justify-center gap-2"
               >
                 <Calendar className="h-5 w-5" />
                 Réserver

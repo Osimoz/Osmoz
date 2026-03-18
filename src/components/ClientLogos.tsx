@@ -14,7 +14,7 @@ export default function ClientLogos() {
     return (
       <section className="bg-[#fbfbf3] py-10 border-t border-[#e5e5e5] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-light uppercase text-[#01142a] tracking-widest mb-6">
+          <p className="text-center text-xs font-normal uppercase text-[#01142a] tracking-widest mb-6">
             Ils nous font confiance
           </p>
           <div className="relative w-full overflow-hidden">

@@ -63,7 +63,7 @@ export const Navigation = () => {
                 to={to}
                 className="relative group py-1"
               >
-                <span className="text-[#01142a] font-light text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">
+                <span className="text-[#01142a] font-normal text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">
                   {label}
                 </span>
                 <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -72,7 +72,7 @@ export const Navigation = () => {
 
             <button
               onClick={handleReservationClick}
-              className="ml-2 bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-light rounded-lg hover:bg-[#01142a] hover:text-white transition-all duration-300 border border-transparent"
+              className="ml-2 bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-normal rounded-lg hover:bg-[#01142a] hover:text-white transition-all duration-300 border border-transparent"
             >
               Réserver
             </button>
@@ -117,7 +117,7 @@ export const Navigation = () => {
               key={to}
               to={to}
               onClick={() => setOpen(false)}
-              className="block px-4 py-3 rounded-xl text-[#01142a] font-light text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150"
+              className="block px-4 py-3 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150"
             >
               {label}
             </Link>
@@ -125,7 +125,7 @@ export const Navigation = () => {
           <div className="pt-2 pb-1 px-1">
             <button
               onClick={(e) => { handleReservationClick(e); setOpen(false); }}
-              className="w-full bg-[#862637] text-[#fee1d4] px-4 py-3 text-xs tracking-[0.2em] uppercase font-light rounded-xl hover:bg-[#01142a] transition-all duration-300"
+              className="w-full bg-[#862637] text-[#fee1d4] px-4 py-3 text-xs tracking-[0.2em] uppercase font-normal rounded-xl hover:bg-[#01142a] transition-all duration-300"
             >
               Réserver un espace
             </button>

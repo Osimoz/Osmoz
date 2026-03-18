@@ -53,8 +53,8 @@ export default function QuestionsFrequentes() {
     <div className="pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-12">
-          <h1 className="text-3xl font-light mb-4 text-[#00142A]">FAQ</h1>
-          <p className="text-gray-600 font-light leading-relaxed max-w-2xl">
+          <h1 className="text-3xl font-normal mb-4 text-[#00142A]">FAQ</h1>
+          <p className="text-gray-600 font-normal leading-relaxed max-w-2xl">
             Vous préparez une réunion, un séminaire ou une journée de travail chez OSMOZ ? Voici les questions les plus fréquentes qu’on nous pose, avec des réponses simples.
           </p>
         </div>

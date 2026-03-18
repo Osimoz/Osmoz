@@ -31,7 +31,7 @@ function ClientLogos() {
   return (
     <section className="bg-[#fbfbf3] py-10 border-t border-[#e5e5e5] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-light uppercase text-[#01142a] tracking-widest mb-6">
+        <p className="text-center text-xs font-normal uppercase text-[#01142a] tracking-widest mb-6">
           Ils nous font confiance
         </p>
         <div className="relative w-full overflow-hidden">
@@ -119,7 +119,7 @@ export default function Home() {
             <div className="flex justify-center gap-4">
               <button
                 onClick={handleClickReserve}
-                className="bg-[#862637] text-[#fee1d4] px-10 py-5 rounded-lg hover:bg-[#fee1d4] hover:text-[#862637] border-2 border-transparent transition duration-300 text-lg tracking-widest font-light shadow-lg hover:shadow-xl"
+                className="bg-[#862637] text-[#fee1d4] px-10 py-5 rounded-lg hover:bg-[#fee1d4] hover:text-[#862637] border-2 border-transparent transition duration-300 text-lg tracking-widest font-normal shadow-lg hover:shadow-xl"
               >
                 Réservez <ArrowRight className="ml-2 h-5 w-5 inline-block" />
               </button>
@@ -153,7 +153,7 @@ export default function Home() {
             ].map((feature, index) => (
               <div key={index} className="text-center px-4 group cursor-pointer">
                 <feature.Icon className="w-10 h-10 mx-auto mb-2 stroke-[1.5] text-[#01142a]" />
-                <h3 className="text-base font-light tracking-wide mb-1 text-[#01142a]">{feature.title}</h3>
+                <h3 className="text-base font-normal tracking-wide mb-1 text-[#01142a]">{feature.title}</h3>
                 <p className="font-light leading-relaxed text-xs text-[#01142a]">{feature.description}</p>
               </div>
             ))}
@@ -166,14 +166,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-12">
             <div>
-              <p className="text-sm font-light tracking-[0.2em] mb-2 text-[#01142a]">NOS ESPACES</p>
-              <h2 className="text-3xl font-light text-[#01142a]">
+              <p className="text-sm font-normal tracking-[0.2em] mb-2 text-[#01142a]">NOS ESPACES</p>
+              <h2 className="text-3xl font-normal text-[#01142a]">
                 Découvrez nos <em className="font-light italic text-[#01142a]">espaces</em>
               </h2>
             </div>
             <Link
               to="/spaces"
-              className="bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-sm tracking-widest font-light hover:bg-[#fee1d4] hover:text-[#862637] border border-transparent transition duration-300 rounded-lg flex items-center"
+              className="bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-sm tracking-widest font-normal hover:bg-[#fee1d4] hover:text-[#862637] border border-transparent transition duration-300 rounded-lg flex items-center"
             >
               Voir nos espaces
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -225,7 +225,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="p-6 opacity-60">
-                      <h3 className="text-lg font-light mb-2 text-[#01142a]">{space.title}</h3>
+                      <h3 className="text-lg font-normal mb-2 text-[#01142a]">{space.title}</h3>
                       <p className="text-sm font-light leading-relaxed text-[#01142a]">{space.description}</p>
                     </div>
                   </div>
@@ -244,7 +244,7 @@ export default function Home() {
                       />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-lg font-light mb-2 text-[#01142a]">{space.title}</h3>
+                      <h3 className="text-lg font-normal mb-2 text-[#01142a]">{space.title}</h3>
                       <p className="text-sm font-light leading-relaxed text-[#01142a]">{space.description}</p>
                     </div>
                   </Link>

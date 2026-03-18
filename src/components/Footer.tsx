@@ -69,10 +69,10 @@ export function Footer() {
           </div>
 
           <div className="flex gap-6">
-            <Link to="/contact" className="text-sm font-light text-gray-400 hover:text-[#01142a] transition-colors">
+            <Link to="/contact" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               Contact
             </Link>
-            <Link to="/questions-frequentes" className="text-sm font-light text-gray-400 hover:text-[#01142a] transition-colors">
+            <Link to="/questions-frequentes" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               FAQ
             </Link>
           </div>

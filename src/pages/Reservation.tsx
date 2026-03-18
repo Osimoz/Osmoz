@@ -114,7 +114,7 @@ export default function Reservation() {
           <p className="text-sm font-light text-gray-500 leading-relaxed mb-8">
             Notre équipe vous contacte sous <strong className="font-normal text-[#01142a]">24h</strong> pour confirmer les disponibilités.
           </p>
-          <a href="/" className="inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-light hover:bg-[#862637] transition-all duration-300">
+          <a href="/" className="inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] transition-all duration-300">
             Retour à l'accueil
           </a>
         </div>
@@ -124,7 +124,7 @@ export default function Reservation() {
 
   /* ── label helper ── */
   const L = ({ t, opt }: { t: string; opt?: boolean }) => (
-    <p className="text-[10px] font-light uppercase tracking-[0.18em] text-gray-400 mb-1.5">
+    <p className="text-[10px] font-normal uppercase tracking-[0.18em] text-gray-400 mb-1.5">
       {t}{opt ? <span className="normal-case tracking-normal ml-1 text-gray-300">(optionnel)</span> : <span className="text-[#862637] ml-0.5">*</span>}
     </p>
   );
@@ -143,7 +143,7 @@ export default function Reservation() {
       {/* Mobile sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t border-[#e5e5e5] px-4 py-3">
         <button type="button" onClick={handleSubmit} disabled={submitting}
-          className="w-full bg-[#862637] text-[#fee1d4] py-3.5 rounded-xl text-xs tracking-[0.2em] uppercase font-light hover:bg-[#01142a] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60">
+          className="w-full bg-[#862637] text-[#fee1d4] py-3.5 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60">
           {submitting ? 'Envoi…' : 'Envoyer ma demande'}
           {!submitting && <ChevronRight className="h-3.5 w-3.5" />}
         </button>
@@ -154,7 +154,7 @@ export default function Reservation() {
 
           {/* Header — ultra compact */}
           <div className="text-center mb-6">
-            <p className="text-[10px] font-light uppercase tracking-[0.3em] text-[#862637] mb-1.5">Osmoz · Paris</p>
+            <p className="text-[10px] font-normal uppercase tracking-[0.3em] text-[#862637] mb-1.5">Osmoz · Paris</p>
             <h1 className="font-light text-[#01142a]" style={{ fontFamily:'Playfair Display', fontSize:'clamp(1.6rem,3.5vw,2.4rem)' }}>
               Réserver un espace
             </h1>
@@ -167,7 +167,7 @@ export default function Reservation() {
 
               {/* LEFT: Coordonnées */}
               <div className="space-y-4 pb-5 sm:pb-0 border-b sm:border-b-0 sm:border-r border-[#f0f0e8] sm:pr-8">
-                <p className="text-[10px] font-light uppercase tracking-[0.25em] text-gray-300">Vos coordonnées</p>
+                <p className="text-[10px] font-normal uppercase tracking-[0.25em] text-gray-300">Vos coordonnées</p>
 
                 <div className="grid grid-cols-2 gap-x-3">
                   <div data-error={errors.firstName ? true : undefined}>
@@ -223,7 +223,7 @@ export default function Reservation() {
 
               {/* RIGHT: Événement */}
               <div className="space-y-4 pt-5 sm:pt-0 sm:pl-0">
-                <p className="text-[10px] font-light uppercase tracking-[0.25em] text-gray-300">Votre événement</p>
+                <p className="text-[10px] font-normal uppercase tracking-[0.25em] text-gray-300">Votre événement</p>
 
                 {/* Espace — 3 compact text buttons */}
                 <div>
@@ -297,7 +297,7 @@ export default function Reservation() {
                 Champs <span className="text-[#862637]">*</span> obligatoires · Les autres peuvent être précisés plus tard
               </p>
               <button type="button" onClick={handleSubmit} disabled={submitting}
-                className="bg-[#862637] text-[#fee1d4] px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-light hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60">
+                className="bg-[#862637] text-[#fee1d4] px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60">
                 {submitting ? 'Envoi…' : 'Envoyer ma demande'}
                 {!submitting && <ChevronRight className="h-3.5 w-3.5" />}
               </button>

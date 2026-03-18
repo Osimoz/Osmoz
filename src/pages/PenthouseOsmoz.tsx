@@ -219,7 +219,7 @@ export default function PenthouseOsmoz() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
 
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-16 px-4 text-center">
-          <p className="text-white/60 font-light tracking-[0.3em] text-xs mb-4 uppercase">
+          <p className="text-white/60 font-normal tracking-[0.3em] text-xs mb-4 uppercase">
             Osmoz · La Défense
           </p>
           <h1
@@ -245,7 +245,7 @@ export default function PenthouseOsmoz() {
 
           <button
             onClick={() => navigate('/reservation?space=penthouse')}
-            className="bg-white text-[#01142a] px-12 py-4 rounded-lg text-xs tracking-[0.2em] font-light uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition-all duration-300"
+            className="bg-white text-[#01142a] px-12 py-4 rounded-lg text-xs tracking-[0.2em] font-normal uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition-all duration-300"
           >
             Réserver ce lieu
           </button>
@@ -272,7 +272,7 @@ export default function PenthouseOsmoz() {
           </div>
           <button
             onClick={() => navigate('/reservation?space=penthouse')}
-            className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-light uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
+            className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-normal uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
             Demander un devis
           </button>
@@ -287,7 +287,7 @@ export default function PenthouseOsmoz() {
         </div>
         <button
           onClick={() => navigate('/reservation?space=penthouse')}
-          className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-light flex-1 max-w-[200px]"
+          className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-normal flex-1 max-w-[200px]"
         >
           Réserver ce lieu
         </button>
@@ -346,7 +346,7 @@ export default function PenthouseOsmoz() {
 
             <button
               onClick={() => openGallery(0)}
-              className="mt-6 text-sm font-light text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors"
+              className="mt-6 text-sm font-normal text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors"
             >
               Voir toutes les photos ({allImages.length})
             </button>
@@ -354,8 +354,8 @@ export default function PenthouseOsmoz() {
 
           {/* ── 4. CONFIGURATIONS ── */}
           <section>
-            <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Configurations</p>
-            <h2 className="text-2xl font-light text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Configurations</p>
+            <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
               Comment aménager l'espace ?
             </h2>
 
@@ -364,7 +364,7 @@ export default function PenthouseOsmoz() {
                 <button
                   key={c.label}
                   onClick={() => setActiveConfig(i)}
-                  className={`px-5 py-2 rounded-full text-xs font-light tracking-widest uppercase transition-all duration-200 ${
+                  className={`px-5 py-2 rounded-full text-xs font-normal tracking-widest uppercase transition-all duration-200 ${
                     activeConfig === i
                       ? 'bg-[#01142a] text-white'
                       : 'bg-white border border-[#01142a]/15 text-[#01142a] hover:border-[#01142a]/40'
@@ -402,8 +402,8 @@ export default function PenthouseOsmoz() {
 
           {/* ── 5. ÉQUIPEMENTS ── */}
           <section>
-            <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Services</p>
-            <h2 className="text-2xl font-light text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Services</p>
+            <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
               Équipements & services
             </h2>
 
@@ -429,8 +429,8 @@ export default function PenthouseOsmoz() {
 
           {/* ── 6. TARIFS ── */}
           <section>
-            <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Tarification</p>
-            <h2 className="text-2xl font-light text-[#01142a] mb-2" style={{ fontFamily: 'Playfair Display' }}>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Tarification</p>
+            <h2 className="text-2xl font-normal text-[#01142a] mb-2" style={{ fontFamily: 'Playfair Display' }}>
               Tarifs — location seule
             </h2>
             <p className="text-xs font-light text-gray-400 mb-8 uppercase tracking-widest">Hors taxes · Services en supplément</p>
@@ -461,7 +461,7 @@ export default function PenthouseOsmoz() {
               </div>
               <button
                 onClick={() => navigate('/reservation?space=penthouse')}
-                className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-light hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
+                className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
               >
                 Réserver ce lieu
               </button>
@@ -491,8 +491,8 @@ export default function PenthouseOsmoz() {
 
           {/* ── 7. ACCÈS ── */}
           <section>
-            <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Localisation</p>
-            <h2 className="text-2xl font-light text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Localisation</p>
+            <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
               Comment venir ?
             </h2>
 
@@ -541,7 +541,7 @@ export default function PenthouseOsmoz() {
                     <div className="w-10 h-10 rounded-full bg-[#862637]/10 flex items-center justify-center">
                       <MapPin className="h-5 w-5 text-[#862637]" strokeWidth={1.5} />
                     </div>
-                    <span className="text-xs font-light text-[#01142a] tracking-widest uppercase">
+                    <span className="text-xs font-normal text-[#01142a] tracking-widest uppercase">
                       Voir sur la carte
                     </span>
                   </div>
@@ -556,9 +556,9 @@ export default function PenthouseOsmoz() {
       {/* ── 8. CROSS-SELL ── */}
       <section className="bg-white border-t border-[#e5e5e5] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Nos espaces</p>
+          <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Nos espaces</p>
           <h2
-            className="text-2xl font-light text-[#01142a] mb-10"
+            className="text-2xl font-normal text-[#01142a] mb-10"
             style={{ fontFamily: 'Playfair Display' }}
           >
             Découvrir nos autres espaces
@@ -583,7 +583,7 @@ export default function PenthouseOsmoz() {
                 </div>
                 <div className="p-6 flex items-center justify-between">
                   <div>
-                    <h3 className="text-base font-light text-[#01142a] mb-1">{s.title}</h3>
+                    <h3 className="text-base font-normal text-[#01142a] mb-1">{s.title}</h3>
                     <p className="text-xs font-light text-gray-400">{s.location} · {s.surface} · {s.capacity}</p>
                   </div>
                   <ChevronRight className="h-4 w-4 text-[#862637] group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />

@@ -54,7 +54,7 @@ export default function Spaces() {
       <div className="pt-32 pb-24 bg-[#fbfbf3]">
         {/* Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
-          <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-4">
+          <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-4">
             Nos espaces
           </p>
           <h1
@@ -63,7 +63,7 @@ export default function Spaces() {
           >
             Trois lieux. Une seule promesse.
           </h1>
-          <p className="text-base font-light text-gray-500 max-w-xl leading-relaxed">
+          <p className="text-base font-normal text-gray-500 max-w-xl leading-relaxed">
             Des lieux privatifs, chaleureux et authentiques où vos équipes se retrouvent vraiment.
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function Spaces() {
 
                 {/* Content */}
                 <div className="lg:w-[45%] flex flex-col justify-center p-8 sm:p-12 lg:p-14">
-                  <p className="text-[10px] font-light uppercase tracking-[0.3em] text-[#862637] mb-3">
+                  <p className="text-[10px] font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">
                     {space.eyebrow}
                   </p>
                   <h2
@@ -124,14 +124,14 @@ export default function Spaces() {
 
                   {/* CTAs */}
                   <div className="flex items-center gap-4 flex-wrap">
-                    <span className="inline-flex items-center gap-2 bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-light group-hover:bg-[#01142a] group-hover:text-white transition-all duration-300">
+                    <span className="inline-flex items-center gap-2 bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-normal group-hover:bg-[#01142a] group-hover:text-white transition-all duration-300">
                       Découvrir
                       <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                     <Link
                       to={`/reservation?space=${space.slug}`}
                       onClick={e => e.stopPropagation()}
-                      className="text-xs font-light tracking-[0.18em] uppercase text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors duration-200"
+                      className="text-xs font-normal tracking-[0.18em] uppercase text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors duration-200"
                     >
                       Réserver ce lieu
                     </Link>
@@ -146,7 +146,7 @@ export default function Spaces() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
           <div className="bg-[#01142a] rounded-3xl p-10 sm:p-16 flex flex-col sm:flex-row items-center justify-between gap-8">
             <div>
-              <p className="text-xs font-light uppercase tracking-[0.3em] text-white/40 mb-3">Privatisation clé en main</p>
+              <p className="text-xs font-normal uppercase tracking-[0.3em] text-white/40 mb-3">Privatisation clé en main</p>
               <h3
                 className="font-light text-white max-w-md"
                 style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}
@@ -156,7 +156,7 @@ export default function Spaces() {
             </div>
             <Link
               to="/contact"
-              className="flex-shrink-0 border border-white/30 text-white px-8 py-4 rounded-xl text-xs tracking-[0.2em] uppercase font-light hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
+              className="flex-shrink-0 border border-white/30 text-white px-8 py-4 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
             >
               Nous contacter
               <ArrowRight className="h-3.5 w-3.5" />

@@ -24,7 +24,7 @@ function ClientLogos() {
   return (
     <section className="bg-[#fbfbf3] py-12 border-t border-b border-[#e5e5e5] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-light uppercase text-gray-400 tracking-[0.3em] mb-8">
+        <p className="text-center text-xs font-normal uppercase text-gray-400 tracking-[0.3em] mb-8">
           Ils nous font confiance
         </p>
         <div className="relative w-full overflow-hidden">
@@ -206,7 +206,7 @@ export default function HomeV2() {
           >
             Vos lieux. Votre journée.
           </h1>
-          <p className="text-white/70 font-light text-base sm:text-lg mb-10 max-w-xl leading-relaxed">
+          <p className="text-white/70 font-normal text-base sm:text-lg mb-10 max-w-xl leading-relaxed">
             Séminaires, réunions, workshops.
             <br className="hidden sm:block" />
             Privatisation à la journée, exclusivement pour les entreprises.
@@ -231,11 +231,11 @@ export default function HomeV2() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-14 sm:mb-16">
-            <p className="text-xs font-light uppercase tracking-[0.3em] text-gray-400 mb-3">
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">
               Nos espaces
             </p>
             <h2
-              className="font-light text-[#01142a] max-w-xl"
+              className="font-normal text-[#01142a] max-w-xl"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
             >
               Trois lieux. Une seule promesse.
@@ -274,7 +274,7 @@ export default function HomeV2() {
                 <div className="p-6">
                   <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">{space.tag}</p>
                   <h3
-                    className="text-xl font-light text-[#01142a] mb-1"
+                    className="text-xl font-normal text-[#01142a] mb-1"
                     style={{ fontFamily: 'Playfair Display' }}
                   >
                     {space.title}
@@ -315,7 +315,7 @@ export default function HomeV2() {
               <div className="p-6">
                 <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">Paris · 2026</p>
                 <h3
-                  className="text-xl font-light text-[#01142a] mb-3"
+                  className="text-xl font-normal text-[#01142a] mb-3"
                   style={{ fontFamily: 'Playfair Display' }}
                 >
                   Prochain espace Osmoz
@@ -340,11 +340,11 @@ export default function HomeV2() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-14 sm:mb-16">
-            <p className="text-xs font-light uppercase tracking-[0.3em] text-gray-400 mb-3">
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">
               Pour quels moments
             </p>
             <h2
-              className="font-light text-[#01142a]"
+              className="font-normal text-[#01142a]"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
             >
               Chaque espace s'adapte à votre format.
@@ -359,7 +359,7 @@ export default function HomeV2() {
               >
                 <item.Icon className="h-6 w-6 text-[#862637] mb-6" strokeWidth={1.5} />
                 <h3
-                  className="text-lg font-light text-[#01142a] mb-3"
+                  className="text-lg font-normal text-[#01142a] mb-3"
                   style={{ fontFamily: 'Playfair Display' }}
                 >
                   {item.title}
@@ -397,11 +397,11 @@ export default function HomeV2() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-14 sm:mb-16">
-            <p className="text-xs font-light uppercase tracking-[0.3em] text-gray-400 mb-3">
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">
               Simple & rapide
             </p>
             <h2
-              className="font-light text-[#01142a]"
+              className="font-normal text-[#01142a]"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
             >
               Comment ça marche ?
@@ -424,7 +424,7 @@ export default function HomeV2() {
                 >
                   {step.number}
                 </p>
-                <h3 className="text-base font-light text-[#01142a] mb-2">{step.title}</h3>
+                <h3 className="text-base font-normal text-[#01142a] mb-2">{step.title}</h3>
                 <p className="text-sm font-light text-gray-400 leading-loose">{step.description}</p>
               </div>
             ))}
@@ -435,9 +435,9 @@ export default function HomeV2() {
       {/* ── 8. FINAL CTA ── */}
       <section className="py-24 sm:py-32 bg-white border-t border-[#e5e5e5] text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-light uppercase tracking-[0.3em] text-gray-400 mb-4">Osmoz</p>
+          <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-4">Osmoz</p>
           <h2
-            className="font-light text-[#01142a] max-w-2xl mx-auto mb-10"
+            className="font-normal text-[#01142a] max-w-2xl mx-auto mb-10"
             style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
           >
             Prêt à sortir du bureau ?
