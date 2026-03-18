@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const faqItems = [
   {
@@ -27,7 +28,28 @@ export default function QuestionsFrequentes() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
+    <>
+    <Helmet>
+      <title>FAQ — OSMOZ | Questions fréquentes sur la location d'espaces à Paris</title>
+      <meta name="description" content="Toutes vos questions sur la location d'espaces Osmoz à Paris : accueil, réservation, prestations incluses, flexibilité horaire. Réponses claires et transparentes." />
+      <link rel="canonical" href="https://osmoz.work/questions-frequentes" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+    </Helmet>
     <div className="pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-12">
@@ -57,5 +79,6 @@ export default function QuestionsFrequentes() {
         </div>
       </div>
     </div>
+    </>
   );
 }

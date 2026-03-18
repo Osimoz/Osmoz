@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);

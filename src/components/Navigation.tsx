@@ -55,7 +55,7 @@ export const Navigation = () => {
             {[
               { to: '/', label: 'Accueil' },
               { to: '/spaces', label: 'Espaces' },
-              { to: '/Questions-Frequentes', label: 'FAQ' },
+              { to: '/questions-frequentes', label: 'FAQ' },
               { to: '/contact', label: 'Contact' },
             ].map(({ to, label }) => (
               <Link
@@ -80,8 +80,8 @@ export const Navigation = () => {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-1"
-            aria-label="Ouvrir le menu"
+            className="md:hidden p-3 -mr-1"
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={open}
             onClick={() => setOpen(v => !v)}
           >
@@ -110,7 +110,7 @@ export const Navigation = () => {
           {[
             { to: '/', label: 'Accueil' },
             { to: '/spaces', label: 'Espaces' },
-            { to: '/Questions-Frequentes', label: 'FAQ' },
+            { to: '/questions-frequentes', label: 'FAQ' },
             { to: '/contact', label: 'Contact' },
           ].map(({ to, label }) => (
             <Link

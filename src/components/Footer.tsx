@@ -12,11 +12,11 @@ export function Footer() {
             © {currentYear} Osmoz. Tous droits réservés.
           </div>
           <div className="flex gap-8">
-            <Link to="/legal/privacy" className="text-sm text-gray-500 hover:text-black transition-colors">
-              Politique de confidentialité
+            <Link to="/contact" className="text-sm text-gray-500 hover:text-black transition-colors">
+              Contact
             </Link>
-            <Link to="/legal/terms" className="text-sm text-gray-500 hover:text-black transition-colors">
-              Mentions légales
+            <Link to="/questions-frequentes" className="text-sm text-gray-500 hover:text-black transition-colors">
+              FAQ
             </Link>
           </div>
         </div>

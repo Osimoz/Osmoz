@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, ArrowRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { Helmet } from 'react-helmet-async';
 
 // EmailJS functionality simulated for demo purposes
 // In your actual implementation, you would import and use EmailJS
@@ -28,10 +29,10 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   // Handle form input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -59,12 +60,6 @@ export default function Contact() {
         }
       );
       
-      // Simulated success for demo
-      console.log('Form data that would be sent:', formData);
-      
-      // Simulate delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
       // Success
       setIsSubmitted(true);
       setFormData({ 
@@ -78,13 +73,19 @@ export default function Contact() {
       });
     } catch (err) {
       setError('Une erreur s\'est produite lors de l\'envoi de votre message. Veuillez réessayer.');
-      console.error('Form submission error:', err);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Contact — OSMOZ | Réserver un espace à Paris</title>
+      <meta name="description" content="Contactez Osmoz pour réserver un espace atypique à Paris. Réunions, séminaires, workshops. Réponse sous 24h." />
+      <link rel="canonical" href="https://osmoz.work/contact" />
+      <meta name="robots" content="index, follow" />
+    </Helmet>
     <div className="pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -116,7 +117,7 @@ export default function Contact() {
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition duration-300"
+                  className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-[#01142a] hover:text-white border border-transparent transition duration-300"
                 >
                   Nouveau message
                 </button>
@@ -140,7 +141,7 @@ export default function Contact() {
                         value={formData.lastName}
                         onChange={handleChange}
                         required
-                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-gray-900 focus:border-black focus:ring-0 transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-base text-gray-900 focus:border-black focus:ring-0 transition-colors"
                         style={{ outline: 'none', boxShadow: 'none' }}
                       />
                     </div>
@@ -155,7 +156,7 @@ export default function Contact() {
                         value={formData.firstName}
                         onChange={handleChange}
                         required
-                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-gray-900 focus:border-black focus:ring-0 transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-base text-gray-900 focus:border-black focus:ring-0 transition-colors"
                         style={{ outline: 'none', boxShadow: 'none' }}
                       />
                     </div>
@@ -174,7 +175,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         required
-                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-gray-900 focus:border-black focus:ring-0 transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-base text-gray-900 focus:border-black focus:ring-0 transition-colors"
                         style={{ outline: 'none', boxShadow: 'none' }}
                       />
                     </div>
@@ -189,7 +190,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-gray-900 focus:border-black focus:ring-0 transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-base text-gray-900 focus:border-black focus:ring-0 transition-colors"
                         style={{ outline: 'none', boxShadow: 'none' }}
                       />
                     </div>
@@ -208,7 +209,7 @@ export default function Contact() {
                         value={formData.company}
                         onChange={handleChange}
                         required
-                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-gray-900 focus:border-black focus:ring-0 transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-base text-gray-900 focus:border-black focus:ring-0 transition-colors"
                         style={{ outline: 'none', boxShadow: 'none' }}
                       />
                     </div>
@@ -221,7 +222,7 @@ export default function Contact() {
                           name="subject"
                           value={formData.subject}
                           onChange={handleChange}
-                          className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-gray-900 focus:border-black focus:ring-0 appearance-none cursor-pointer transition-colors"
+                          className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-base text-gray-900 focus:border-black focus:ring-0 appearance-none cursor-pointer transition-colors"
                           style={{ outline: 'none', boxShadow: 'none' }}
                         >
                           <option value="Je souhaite">Je souhaite</option>
@@ -253,7 +254,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-gray-900 focus:border-black focus:ring-0 resize-none transition-colors"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 px-0 py-2 text-base text-gray-900 focus:border-black focus:ring-0 resize-none transition-colors"
                       style={{ outline: 'none', boxShadow: 'none' }}
                     />
                   </div>
@@ -268,7 +269,7 @@ export default function Contact() {
                     type="button"
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-white hover:text-black border border-black transition duration-300 inline-flex items-center gap-2"
+                    className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-sm tracking-widest font-light hover:bg-[#01142a] hover:text-white border border-transparent transition duration-300 inline-flex items-center gap-2"
                   >
                     {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
                     <ArrowRight className="h-4 w-4" />
@@ -299,5 +300,6 @@ export default function Contact() {
         </div>
       </div>
     </div>
+    </>
   );
 }

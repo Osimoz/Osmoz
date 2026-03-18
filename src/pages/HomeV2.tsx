@@ -69,9 +69,9 @@ const spaces = [
   {
     tag: 'La Défense · Puteaux',
     title: 'Le Penthouse',
-    stats: '150 m² + jardin 350 m² · 50 personnes',
+    stats: '150 m² + jardin 350 m² · 40 personnes',
     pills: ['Réunion', 'Cocktail', 'Séminaire', 'Vue panoramique'],
-    image: u('images/patio/patio-salon1-vueVerriere.jpg'),
+    image: u('images/Penthouse/2 - Salon.jpg'),
     alt: 'Le Penthouse Osmoz – espace panoramique La Défense Puteaux',
     link: '/spaces/penthouse-osmoz',
   },
@@ -172,6 +172,7 @@ export default function HomeV2() {
           content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg"
         />
         <meta property="og:url" content="https://osmoz.work/" />
+        <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
@@ -186,8 +187,7 @@ export default function HomeV2() {
             muted
             loop
             playsInline
-            preload="auto"
-            poster="/fallback-hero.jpg"
+            preload="metadata"
             className="w-full h-full object-cover"
           >
             <source src="/Osmoz Office_Horizontal.mp4.mp4" type="video/mp4" />

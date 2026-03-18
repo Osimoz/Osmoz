@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  MapPin, Users, Maximize2, Calendar, Coffee,
+  MapPin, Users, Maximize2, Coffee,
   Wifi, Tv, UtensilsCrossed, Presentation, ChevronRight
 } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -75,7 +75,7 @@ const configurations = [
   },
 ];
 
-// ─── GALERIE PREVIEW 2x2 ─────────────────────────────────────────────────────
+// ─── GALERIE PREVIEW ─────────────────────────────────────────────────────────
 const galleryItems = [
   { url: u(`${D}1 Salon Normal 3.jpg`),     label: 'Salon principal',    alt: 'Salon principal Duplex Haussmannien Osmoz - moulures parquet lumiere naturelle Paris 2e' },
   { url: u(`${D}4 Escalier.jpg`),           label: 'Escalier sculptural', alt: 'Escalier sculptural Duplex Osmoz - deux niveaux charme haussmannien' },
@@ -156,8 +156,8 @@ const otherSpaces = [
     title: 'Le Penthouse',
     location: 'La Défense, Puteaux',
     surface: '150 m²',
-    capacity: '50 pers.',
-    image: u('images/Penthouse/penthouse-hero.jpg'),
+    capacity: '40 pers.',
+    image: u('images/Penthouse/2 - Salon.jpg'),
     link: '/spaces/penthouse-osmoz',
   },
 ];
@@ -215,7 +215,6 @@ export default function DuplexOsmozV2() {
         <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        {/* Preload above-the-fold images */}
         <link rel="preload" as="image" href={u(`${D}1 Salon Normal 3.jpg`)} />
         <link rel="preload" as="image" href={u(`${D}4 Escalier.jpg`)} />
         <link rel="preload" as="image" href={u(`${D}3 Cuisine 5.jpg`)} />
@@ -242,7 +241,7 @@ export default function DuplexOsmozV2() {
           </p>
           <h1
             className="text-white font-light mb-4 leading-tight"
-            style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.8rem, 6vw, 5.5rem)' }}
+            style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(3rem, 6vw, 5.5rem)' }}
           >
             Le Duplex Haussmannien
           </h1>
@@ -297,345 +296,317 @@ export default function DuplexOsmozV2() {
         </div>
       </div>
 
+      {/* ── MOBILE STICKY CTA ── */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-[#e5e5e5] px-4 py-3 flex items-center justify-between gap-3 shadow-lg">
+        <div>
+          <p className="text-xs font-light text-gray-400 uppercase tracking-widest">À partir de</p>
+          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>1 999€</p>
+        </div>
+        <button
+          onClick={() => navigate('/contact')}
+          className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-light flex-1 max-w-[200px]"
+        >
+          Réserver ce lieu
+        </button>
+      </div>
+
       {/* ── MAIN CONTENT ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-28 lg:pb-20">
+        <div className="space-y-24">
 
-          {/* ── LEFT COLUMN ── */}
-          <div className="lg:col-span-2 space-y-24">
-
-            {/* ── 3. DESCRIPTION + GALERIE ── */}
-            <section>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
-
-                <div>
-                  <p
-                    className="text-2xl italic font-light text-[#01142a] mb-6 leading-relaxed"
-                    style={{ fontFamily: 'Playfair Display' }}
-                  >
-                    Deux niveaux. Un escalier sculptural. Le cœur du 2e.
-                  </p>
-                  <p className="text-sm font-light leading-loose text-gray-500 mb-8">
-                    Derrière sa façade discrète, ce duplex haussmannien de 300m² s'ouvre sur deux
-                    niveaux reliés par un escalier d'exception. Moulures, parquet et lumière naturelle
-                    composent un cadre entièrement privatisé pour votre journée — avec une cuisine
-                    professionnelle pour orchestrer déjeuners et pauses sur mesure.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Réunion', 'Séminaire', 'Workshop', 'Conférence', 'Cocktail', "Déjeuner d'affaires"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="border border-[#01142a]/15 text-[#01142a] text-xs font-light px-3 py-1.5 rounded-full hover:border-[#01142a]/40 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {galleryItems.slice(0, 4).map((img, i) => (
-                    <div
-                      key={i}
-                      className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"
-                      onClick={() => openGallery(i)}
-                    >
-                      <img
-                        src={img.url}
-                        alt={img.alt}
-                        loading="eager"
-                        decoding="async"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                      <span className="absolute bottom-2 left-2 bg-black/50 text-white text-xs font-light px-2 py-0.5 rounded">
-                        {img.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <button
-                onClick={() => openGallery(0)}
-                className="mt-8 inline-flex items-center gap-2 text-xs font-light text-[#01142a] tracking-widest uppercase underline underline-offset-4 hover:text-[#862637] transition-colors"
-              >
-                Voir toutes les photos
-                <span className="text-gray-400">({allImages.length})</span>
-              </button>
-            </section>
-
-            {/* ── 4. CONFIGURATIONS ── */}
-            <section>
-              <div className="mb-10">
-                <p className="text-xs font-light uppercase tracking-[0.2em] text-gray-400 mb-2">Flexibilité</p>
-                <h2
-                  className="text-2xl font-light text-[#01142a]"
+          {/* ── 3. DESCRIPTION + GALERIE ── */}
+          <section>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-start mb-8">
+              <div>
+                <p
+                  className="text-2xl italic font-light text-[#01142a] mb-6 leading-loose"
                   style={{ fontFamily: 'Playfair Display' }}
                 >
-                  Comment aménager l'espace ?
-                </h2>
-              </div>
-
-              <div className="flex gap-2 mb-10 flex-wrap">
-                {configurations.map((c, i) => (
-                  <button
-                    key={c.label}
-                    onClick={() => setActiveConfig(i)}
-                    className={`px-5 py-2 rounded-full text-xs font-light tracking-widest uppercase transition-all duration-200 ${
-                      activeConfig === i
-                        ? 'bg-[#01142a] text-white'
-                        : 'bg-white border border-[#01142a]/15 text-[#01142a] hover:border-[#01142a]/40'
-                    }`}
-                  >
-                    {c.label}
-                  </button>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#f5f5f0]">
-                  <img
-                    src={configurations[activeConfig].image}
-                    alt={`Duplex Osmoz configuration ${configurations[activeConfig].label} Paris 2e`}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-opacity duration-300"
-                  />
-                </div>
-                <div>
-                  <p
-                    className="text-5xl font-light text-[#01142a] mb-1 leading-none"
-                    style={{ fontFamily: 'Playfair Display' }}
-                  >
-                    {configurations[activeConfig].capacity}
-                  </p>
-                  <p className="text-xs font-light text-gray-400 mb-6 uppercase tracking-widest">
-                    personnes · {configurations[activeConfig].label}
-                  </p>
-                  <p className="text-sm font-light text-gray-500 leading-loose">
-                    {configurations[activeConfig].description}
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* ── 5. ÉQUIPEMENTS ── */}
-            <section>
-              <div className="mb-10">
-                <p className="text-xs font-light uppercase tracking-[0.2em] text-gray-400 mb-2">Tout est prévu</p>
-                <h2
-                  className="text-2xl font-light text-[#01142a]"
-                  style={{ fontFamily: 'Playfair Display' }}
-                >
-                  Équipements & services
-                </h2>
-              </div>
-
-              <p className="text-xs font-light uppercase tracking-widest text-gray-300 mb-5">Inclus</p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-                {amenities.map((a, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <a.icon className="h-4 w-4 text-[#862637] flex-shrink-0" strokeWidth={1.5} />
-                    <span className="text-sm font-light text-[#01142a]">{a.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              <p className="text-xs font-light uppercase tracking-widest text-gray-300 mb-5">Sur demande</p>
-              <div className="flex flex-wrap gap-2">
-                {amenitiesOnDemand.map((item) => (
-                  <span
-                    key={item}
-                    className="border border-[#01142a]/15 text-[#01142a] text-xs font-light px-4 py-2 rounded-full"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </section>
-
-            {/* ── 6. TARIFS ── */}
-            <section>
-              <div className="mb-10">
-                <p className="text-xs font-light uppercase tracking-[0.2em] text-gray-400 mb-2">Tarification</p>
-                <h2
-                  className="text-2xl font-light text-[#01142a]"
-                  style={{ fontFamily: 'Playfair Display' }}
-                >
-                  Tarifs — location seule
-                </h2>
-                <p className="text-xs font-light text-gray-400 mt-2 tracking-wide">
-                  Hors taxes · Services traiteur et activités en supplément
+                  Deux niveaux. Un escalier sculptural. Le cœur du 2e.
                 </p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {tarifs.map((t) => (
-                  <div
-                    key={t.label}
-                    className="border border-[#e5e5e5] rounded-xl p-6 bg-white hover:border-[#01142a]/40 hover:shadow-sm transition-all duration-200 group"
-                  >
-                    <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-3">{t.label}</p>
-                    <p
-                      className="text-2xl font-light text-[#01142a] mb-2 group-hover:text-[#862637] transition-colors"
-                      style={{ fontFamily: 'Playfair Display' }}
+                <p className="text-sm font-light leading-loose text-gray-500 mb-8">
+                  Derrière sa façade discrète, ce duplex haussmannien de 300m² s'ouvre sur deux
+                  niveaux reliés par un escalier d'exception. Moulures, parquet et lumière naturelle
+                  composent un cadre entièrement privatisé pour votre journée — avec une cuisine
+                  professionnelle pour orchestrer déjeuners et pauses sur mesure.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Réunion', 'Séminaire', 'Workshop', 'Conférence', 'Cocktail', "Déjeuner d'affaires"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="border border-[#01142a]/15 text-[#01142a] text-xs font-light px-3 py-1.5 rounded-full hover:border-[#01142a]/40 transition-colors"
                     >
-                      {t.price}
-                    </p>
-                    <p className="text-xs font-light text-gray-400 leading-relaxed">{t.hours}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center mt-10">
-                <button
-                  onClick={() => navigate('/contact')}
-                  className="bg-[#862637] text-[#fee1d4] px-12 py-4 rounded-lg text-xs tracking-[0.2em] font-light uppercase hover:bg-[#fee1d4] hover:text-[#862637] border border-transparent transition-all duration-300"
-                >
-                  Demander un devis
-                </button>
-              </div>
-            </section>
-
-            {/* ── 7. ACCÈS ── */}
-            <section>
-              <div className="mb-10">
-                <p className="text-xs font-light uppercase tracking-[0.2em] text-gray-400 mb-2">Localisation</p>
-                <h2
-                  className="text-2xl font-light text-[#01142a]"
-                  style={{ fontFamily: 'Playfair Display' }}
-                >
-                  Comment venir ?
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-                <div>
-                  <div className="flex items-start gap-3 mb-8">
-                    <MapPin className="h-4 w-4 text-[#862637] mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                    <div>
-                      <p className="text-sm font-light text-[#01142a]">146 rue Montmartre</p>
-                      <p className="text-sm font-light text-gray-400">75002 Paris</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    {[
-                      { station: 'Bourse',           line: '3',    time: '3 min à pied' },
-                      { station: 'Grands Boulevards', line: '8, 9', time: '5 min à pied' },
-                      { station: 'Sentier',           line: '3',    time: '5 min à pied' },
-                    ].map((t) => (
-                      <div key={t.station} className="flex items-center gap-3">
-                        <span className="bg-[#01142a] text-white text-xs px-2.5 py-0.5 rounded font-light tracking-wide flex-shrink-0">
-                          M
-                        </span>
-                        <div className="flex items-baseline gap-2">
-                          <span className="text-sm font-light text-[#01142a]">{t.station}</span>
-                          <span className="text-xs text-gray-400">ligne {t.line}</span>
-                          <span className="text-xs text-gray-400">· {t.time}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div
-                  className="aspect-[4/3] rounded-xl overflow-hidden bg-[#f0ede8] relative group cursor-pointer border border-[#e5e5e5]"
-                  onClick={() => setMapLoaded(true)}
-                >
-                  {mapLoaded ? (
-                    <iframe
-                      src="https://maps.google.com/maps?q=146+rue+Montmartre+75002+Paris&output=embed"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      title="Localisation Duplex Osmoz"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 group-hover:bg-black/5 transition-colors">
-                      <div className="w-10 h-10 rounded-full bg-[#862637]/10 flex items-center justify-center">
-                        <MapPin className="h-5 w-5 text-[#862637]" strokeWidth={1.5} />
-                      </div>
-                      <span className="text-xs font-light text-[#01142a] tracking-widest uppercase">
-                        Voir sur la carte
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </section>
-          </div>
-
-          {/* ── RIGHT SIDEBAR ── */}
-          <div className="lg:col-span-1">
-            <div className="bg-[#faf9f7] rounded-2xl border border-[#e8e6e1] p-8 sticky top-24">
-
-              <div className="space-y-3 mb-8 text-sm font-light text-[#01142a]">
-                <div className="flex items-center gap-3">
-                  <Maximize2 className="h-4 w-4 text-gray-300 flex-shrink-0" strokeWidth={1.5} />
-                  <span>300 m² sur 2 niveaux</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Users className="h-4 w-4 text-gray-300 flex-shrink-0" strokeWidth={1.5} />
-                  <span>Jusqu'à 50 personnes</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="h-4 w-4 text-gray-300 flex-shrink-0" strokeWidth={1.5} />
-                  <span>Montmartre, Paris 2e</span>
-                </div>
-              </div>
-
-              <div className="border-t border-[#e5e5e5] pt-6 mb-8">
-                <p className="text-xs font-light uppercase tracking-[0.2em] text-gray-400 mb-4">Tarifs HT</p>
-                <div className="space-y-2.5">
-                  {tarifs.map((t) => (
-                    <div key={t.label} className="flex justify-between items-baseline text-sm font-light">
-                      <span className="text-gray-400">{t.label}</span>
-                      <span className="text-[#01142a]">{t.price}</span>
-                    </div>
+                      {tag}
+                    </span>
                   ))}
                 </div>
-              </div>
-
-              <button
-                onClick={() => navigate('/contact')}
-                className="w-full bg-[#862637] text-[#fee1d4] px-6 py-4 rounded-xl text-xs tracking-[0.2em] font-light uppercase hover:bg-[#fee1d4] hover:text-[#862637] border border-transparent transition-all duration-300 flex items-center justify-center gap-2 mb-6"
-              >
-                <Calendar className="h-4 w-4" strokeWidth={1.5} />
-                Réserver ce lieu
-              </button>
-
-              <p className="text-xs font-light text-center text-gray-300 mb-4 tracking-widest uppercase">
-                Aussi disponible sur
-              </p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {platforms.map((p) => (
-                  <a
-                    key={p.name}
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={`Voir sur ${p.name}`}
-                    className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e5e5e5] hover:border-[#01142a] bg-white hover:bg-[#fce9de] transition-all duration-200"
-                  >
-                    {p.logo ? (
-                      <img
-                        src={p.logo}
-                        alt={p.name}
-                        className="w-5 h-5 object-contain"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <span className="text-xs font-light text-gray-500">{p.name[0]}</span>
-                    )}
-                  </a>
-                ))}
               </div>
             </div>
-          </div>
+
+            {/* ── Horizontal gallery strip ── */}
+            <div className="flex overflow-x-auto gap-3 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+              {galleryItems.map((img, i) => (
+                <div
+                  key={i}
+                  className="relative flex-shrink-0 w-64 sm:w-80 aspect-[4/3] overflow-hidden rounded-xl cursor-pointer group snap-start"
+                  onClick={() => openGallery(i)}
+                >
+                  <img
+                    src={img.url}
+                    alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                  <span className="absolute bottom-2 left-2 bg-black/50 text-white text-xs font-light px-2 py-0.5 rounded">
+                    {img.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={() => openGallery(0)}
+              className="mt-8 inline-flex items-center gap-2 text-xs font-light text-[#01142a] tracking-widest uppercase underline underline-offset-4 hover:text-[#862637] transition-colors"
+            >
+              Voir toutes les photos
+              <span className="text-gray-400">({allImages.length})</span>
+            </button>
+          </section>
+
+          {/* ── 4. CONFIGURATIONS ── */}
+          <section>
+            <div className="mb-10">
+              <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Flexibilité</p>
+              <h2
+                className="text-2xl font-light text-[#01142a]"
+                style={{ fontFamily: 'Playfair Display' }}
+              >
+                Comment aménager l'espace ?
+              </h2>
+            </div>
+
+            <div className="flex gap-2 mb-10 flex-wrap">
+              {configurations.map((c, i) => (
+                <button
+                  key={c.label}
+                  onClick={() => setActiveConfig(i)}
+                  className={`px-5 py-2 rounded-full text-xs font-light tracking-widest uppercase transition-all duration-200 ${
+                    activeConfig === i
+                      ? 'bg-[#01142a] text-white'
+                      : 'bg-white border border-[#01142a]/15 text-[#01142a] hover:border-[#01142a]/40'
+                  }`}
+                >
+                  {c.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+              <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#f5f5f0]">
+                <img
+                  src={configurations[activeConfig].image}
+                  alt={`Duplex Osmoz configuration ${configurations[activeConfig].label} Paris 2e`}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-opacity duration-300"
+                />
+              </div>
+              <div>
+                <p
+                  className="text-5xl font-light text-[#01142a] mb-1 leading-none"
+                  style={{ fontFamily: 'Playfair Display' }}
+                >
+                  {configurations[activeConfig].capacity}
+                </p>
+                <p className="text-xs font-light text-gray-400 mb-6 uppercase tracking-widest">
+                  personnes · {configurations[activeConfig].label}
+                </p>
+                <p className="text-sm font-light text-gray-500 leading-loose">
+                  {configurations[activeConfig].description}
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* ── 5. ÉQUIPEMENTS ── */}
+          <section>
+            <div className="mb-10">
+              <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Tout est prévu</p>
+              <h2
+                className="text-2xl font-light text-[#01142a]"
+                style={{ fontFamily: 'Playfair Display' }}
+              >
+                Équipements & services
+              </h2>
+            </div>
+
+            <p className="text-xs font-light uppercase tracking-widest text-gray-300 mb-5">Inclus</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+              {amenities.map((a, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <a.icon className="h-4 w-4 text-[#862637] flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-sm font-light text-[#01142a]">{a.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xs font-light uppercase tracking-widest text-gray-300 mb-5">Sur demande</p>
+            <div className="flex flex-wrap gap-2">
+              {amenitiesOnDemand.map((item) => (
+                <span
+                  key={item}
+                  className="border border-[#01142a]/15 text-[#01142a] text-xs font-light px-4 py-2 rounded-full"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          {/* ── 6. TARIFS ── */}
+          <section>
+            <div className="mb-10">
+              <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Tarification</p>
+              <h2
+                className="text-2xl font-light text-[#01142a]"
+                style={{ fontFamily: 'Playfair Display' }}
+              >
+                Tarifs — location seule
+              </h2>
+              <p className="text-xs font-light text-gray-400 mt-2 tracking-wide">
+                Hors taxes · Services traiteur et activités en supplément
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {tarifs.map((t) => (
+                <div
+                  key={t.label}
+                  className="border border-[#e5e5e5] rounded-xl p-6 bg-white hover:border-[#01142a]/40 hover:shadow-sm transition-all duration-200 group"
+                >
+                  <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-3">{t.label}</p>
+                  <p
+                    className="text-2xl font-light text-[#01142a] mb-2 group-hover:text-[#862637] transition-colors"
+                    style={{ fontFamily: 'Playfair Display' }}
+                  >
+                    {t.price}
+                  </p>
+                  <p className="text-xs font-light text-gray-400">{t.hours}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ── CTA BAND ── */}
+          <section className="bg-[#01142a] rounded-2xl p-10 sm:p-14">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
+              <div className="text-center sm:text-left">
+                <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">À partir de</p>
+                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>1 999€</p>
+                <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
+              </div>
+              <button
+                onClick={() => navigate('/contact')}
+                className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-light hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
+              >
+                Réserver ce lieu
+              </button>
+              <div className="text-center">
+                <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">Ou réserver via</p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {platforms.map((p) => (
+                    <a
+                      key={p.name}
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`Voir sur ${p.name}`}
+                      className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
+                    >
+                      {p.logo ? (
+                        <img src={p.logo} alt={p.name} className="w-5 h-5 object-contain" loading="lazy" />
+                      ) : (
+                        <span className="text-xs font-light text-white">{p.name[0]}</span>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ── 7. ACCÈS ── */}
+          <section>
+            <div className="mb-10">
+              <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Localisation</p>
+              <h2
+                className="text-2xl font-light text-[#01142a]"
+                style={{ fontFamily: 'Playfair Display' }}
+              >
+                Comment venir ?
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+              <div>
+                <div className="flex items-start gap-3 mb-8">
+                  <MapPin className="h-4 w-4 text-[#862637] mt-0.5 flex-shrink-0" strokeWidth={1.5} />
+                  <div>
+                    <p className="text-sm font-light text-[#01142a]">146 rue Montmartre</p>
+                    <p className="text-sm font-light text-gray-400">75002 Paris</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    { station: 'Bourse',           line: '3',    time: '3 min à pied' },
+                    { station: 'Grands Boulevards', line: '8, 9', time: '5 min à pied' },
+                    { station: 'Sentier',           line: '3',    time: '5 min à pied' },
+                  ].map((t) => (
+                    <div key={t.station} className="flex items-center gap-3">
+                      <span className="bg-[#01142a] text-white text-xs px-2.5 py-0.5 rounded font-light tracking-wide flex-shrink-0">
+                        M
+                      </span>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-sm font-light text-[#01142a]">{t.station}</span>
+                        <span className="text-xs text-gray-400">ligne {t.line}</span>
+                        <span className="text-xs text-gray-400">· {t.time}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className="aspect-[4/3] rounded-xl overflow-hidden bg-[#f0ede8] relative group cursor-pointer border border-[#e5e5e5]"
+                onClick={() => setMapLoaded(true)}
+              >
+                {mapLoaded ? (
+                  <iframe
+                    src="https://maps.google.com/maps?q=146+rue+Montmartre+75002+Paris&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    title="Localisation Duplex Osmoz"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 group-hover:bg-black/5 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-[#862637]/10 flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-[#862637]" strokeWidth={1.5} />
+                    </div>
+                    <span className="text-xs font-light text-[#01142a] tracking-widest uppercase">
+                      Voir sur la carte
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+
         </div>
       </div>
 
@@ -643,7 +614,7 @@ export default function DuplexOsmozV2() {
       <section className="bg-white border-t border-[#e5e5e5] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-light uppercase tracking-[0.2em] text-gray-400 mb-2">Osmoz</p>
+            <p className="text-xs font-light uppercase tracking-[0.3em] text-[#862637] mb-2">Osmoz</p>
             <h2
               className="text-2xl font-light text-[#01142a]"
               style={{ fontFamily: 'Playfair Display' }}
