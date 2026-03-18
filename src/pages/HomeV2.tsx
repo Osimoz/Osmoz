@@ -94,7 +94,7 @@ const useCases = [
     Icon: UtensilsCrossed,
     title: 'Cocktails & déjeuners',
     description:
-      'Cuisine équipée, chef privé sur demande. Pour des moments qui prolongent la journée.',
+      'Un panel de services sur mesure\u00a0: traiteur, chef privé, activités pour que chaque journée soit vraiment la vôtre.',
   },
 ];
 
@@ -115,7 +115,7 @@ const steps = [
     number: '03',
     title: 'Profitez de votre journée',
     description:
-      "Vous arrivez, on a tout préparé. Mobilier, équipements, accueil — il ne vous reste qu'à travailler.",
+      "Vous arrivez, on a tout préparé. Échangez, créez, formez-vous, célébrez.",
   },
 ];
 
@@ -204,8 +204,7 @@ export default function HomeV2() {
             className="text-white font-light leading-tight mb-6 max-w-3xl"
             style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
           >
-            Des espaces atypiques
-            <br className="hidden sm:block" /> pour vos équipes
+            Vos lieux. Votre journée.
           </h1>
           <p className="text-white/70 font-light text-base sm:text-lg mb-10 max-w-xl leading-relaxed">
             Séminaires, réunions, workshops.

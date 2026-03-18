@@ -64,7 +64,7 @@ export default function Spaces() {
             Trois lieux. Une seule promesse.
           </h1>
           <p className="text-base font-light text-gray-500 max-w-xl leading-relaxed">
-            Des espaces uniques à Paris, privatisés exclusivement pour vos équipes. Chaque lieu est pensé pour le travail, la créativité et le bien-être.
+            Des lieux privatifs, chaleureux et authentiques où vos équipes se retrouvent vraiment.
           </p>
         </div>
 
