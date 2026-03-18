@@ -13,10 +13,19 @@ const spaces = [
   {
     id: 'duplex-osmoz',
     title: "Duplex Haussmannien",
-    description: "Duplex haussmannien lumineux au cœur du 2e, verrières, moulures et parquet. Espaces modulables pour réunions, séminaires et ateliers. Cuisine équipée, salle TV, cour privée au calme. Service clé en main, équipements pro, ambiance chic pour expériences d’entreprise mémorables et productives.",
+    description: "Duplex haussmannien lumineux au cœur du 2e, verrières, moulures et parquet. Espaces modulables pour réunions, séminaires et ateliers. Cuisine équipée, salle TV, cour privée au calme. Service clé en main, équipements pro, ambiance chic pour expériences d'entreprise mémorables et productives.",
     image: "/images/Duplex Haussmannien/1 Salon Normal 3.jpg",
+    capacity: "50 personnes",
+    price: "À partir de 1 999€",
+    isComingSoon: false
+  },
+  {
+    id: 'penthouse-osmoz',
+    title: "Le Penthouse",
+    description: "Penthouse confidentiel de 150 m² avec jardin suspendu de 350 m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel. Esthétique 70's, salle de réunion privative, espaces modulables. Un lieu rare pour vos moments d'exception.",
+    image: "/images/Penthouse/2 - Salon.jpg",
     capacity: "40 personnes",
-    price: "À partir de 2000€",
+    price: "À partir de 1 499€",
     isComingSoon: false
   }
 ];
