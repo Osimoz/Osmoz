@@ -69,7 +69,7 @@ const configurations = [
   },
   {
     label: 'Cocktail',
-    capacity: 50,
+    capacity: 40,
     description: 'Deux niveaux ouverts, cuisine équipée, bar. Ambiance conviviale pour cocktails, déjeuners et afterworks.',
     image: u(`${D}1 Salon Normal 3.jpg`),
   },
@@ -186,7 +186,7 @@ export default function DuplexOsmozV2() {
     '@context': 'https://schema.org',
     '@type': 'EventVenue',
     name: 'Duplex Haussmannien Osmoz',
-    description: "Espace premium 300m² au cœur de Paris 2e. Duplex haussmannien sur deux niveaux avec escalier sculptural, moulures et parquet. Idéal pour réunions, séminaires et événements entreprise jusqu'à 50 personnes.",
+    description: "Espace premium 300m² au cœur de Paris 2e. Duplex haussmannien sur deux niveaux avec escalier sculptural, moulures et parquet. Idéal pour réunions, séminaires et événements entreprise jusqu'à 40 personnes.",
     url: 'https://osmoz.work/spaces/duplex-osmoz',
     address: {
       '@type': 'PostalAddress',
@@ -195,7 +195,7 @@ export default function DuplexOsmozV2() {
       postalCode: '75002',
       addressCountry: 'FR',
     },
-    maximumAttendeeCapacity: 50,
+    maximumAttendeeCapacity: 40,
     photo: 'https://osmoz.work/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg',
     priceRange: '1999€ - 2999€',
   };
@@ -206,10 +206,10 @@ export default function DuplexOsmozV2() {
       {/* ── SEO ── */}
       <Helmet>
         <title>Duplex Haussmannien Osmoz — Location espace premium Paris 2e Montmartre</title>
-        <meta name="description" content="Louez le Duplex Haussmannien Osmoz : 300m² sur 2 niveaux au cœur de Paris 2e. Moulures, escalier sculptural, cuisine équipée. Idéal pour réunions, séminaires et conférences jusqu'à 50 personnes. À partir de 1 999€ HT." />
+        <meta name="description" content="Louez le Duplex Haussmannien Osmoz : 300m² sur 2 niveaux au cœur de Paris 2e. Moulures, escalier sculptural, cuisine équipée. Idéal pour réunions, séminaires et conférences jusqu'à 40 personnes. À partir de 1 999€ HT." />
         <link rel="canonical" href="https://osmoz.work/spaces/duplex-osmoz" />
         <meta property="og:title" content="Duplex Haussmannien Osmoz — Espace premium Paris 2e" />
-        <meta property="og:description" content="300m² haussmanniens sur 2 niveaux. Moulures, escalier sculptural, cuisine équipée. Jusqu'à 50 personnes. À partir de 1 999€ HT." />
+        <meta property="og:description" content="300m² haussmanniens sur 2 niveaux. Moulures, escalier sculptural, cuisine équipée. Jusqu'à 40 personnes. À partir de 1 999€ HT." />
         <meta property="og:image" content="https://osmoz.work/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg" />
         <meta property="og:url" content="https://osmoz.work/spaces/duplex-osmoz" />
         <meta property="og:type" content="website" />
@@ -250,7 +250,7 @@ export default function DuplexOsmozV2() {
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center mb-10">
-            {['300 m²', '2 niveaux', '50 pers. max', 'À partir de 1 999€ HT'].map((pill) => (
+            {['300 m²', '2 niveaux', '40 pers. max', 'À partir de 1 999€ HT'].map((pill) => (
               <span
                 key={pill}
                 className="bg-white/10 backdrop-blur-sm text-white border border-white/25 px-4 py-1.5 rounded-full text-xs font-light tracking-widest uppercase"
@@ -281,7 +281,7 @@ export default function DuplexOsmozV2() {
               <Maximize2 className="h-3 w-3" />300 m²
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
-              <Users className="h-3 w-3" />50 personnes max
+              <Users className="h-3 w-3" />40 personnes max
             </span>
             <span className="hidden md:flex items-center gap-1.5">
               <MapPin className="h-3 w-3" />146 rue Montmartre, Paris 2e

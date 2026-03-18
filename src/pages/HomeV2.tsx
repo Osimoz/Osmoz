@@ -60,7 +60,7 @@ const spaces = [
   {
     tag: 'Montmartre · Paris 2e',
     title: 'Le Duplex',
-    stats: '300 m² · 50 personnes',
+    stats: '300 m² · 40 personnes',
     pills: ['Réunion', 'Conférence', 'Cocktail', 'Séminaire'],
     image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'),
     alt: 'Le Duplex Haussmannien Osmoz – salon moulures parquet Paris 2e',
@@ -82,7 +82,7 @@ const useCases = [
     Icon: Users,
     title: 'Réunions & séminaires',
     description:
-      "De 5 à 50 personnes, dans un cadre qui sort de l'ordinaire. Mobilier modulable, équipements pro inclus.",
+      "De 5 à 40 personnes, dans un cadre qui sort de l'ordinaire. Mobilier modulable, équipements pro inclus.",
   },
   {
     Icon: Lightbulb,
