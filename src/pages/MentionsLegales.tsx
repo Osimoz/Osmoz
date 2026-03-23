@@ -72,23 +72,13 @@ export default function MentionsLegales() {
               <p className="text-base font-light text-gray-600 leading-relaxed mb-5">
                 Le site est hébergé par :
               </p>
-              <div className="pl-5 border-l border-[#e5e5e5] space-y-1 mb-6">
-                <p className="text-base font-normal text-[#01142a]">Netlify, Inc. (hébergement web)</p>
+              <div className="pl-5 border-l border-[#e5e5e5] space-y-1">
+                <p className="text-base font-normal text-[#01142a]">Netlify, Inc.</p>
                 <p className="text-base font-light text-gray-600">Adresse : 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis</p>
                 <p className="text-base font-light text-gray-600">
                   Site web :{' '}
                   <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" className="text-[#862637] hover:text-[#01142a] transition-colors">
                     https://www.netlify.com
-                  </a>
-                </p>
-              </div>
-              <div className="pl-5 border-l border-[#e5e5e5] space-y-1">
-                <p className="text-base font-normal text-[#01142a]">GoDaddy LLC (registrar du nom de domaine)</p>
-                <p className="text-base font-light text-gray-600">Adresse : 2155 E. GoDaddy Way, Tempe, AZ 85284, États-Unis</p>
-                <p className="text-base font-light text-gray-600">
-                  Site web :{' '}
-                  <a href="https://www.godaddy.com" target="_blank" rel="noopener noreferrer" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                    https://www.godaddy.com
                   </a>
                 </p>
               </div>
