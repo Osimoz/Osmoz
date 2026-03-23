@@ -68,12 +68,18 @@ export function Footer() {
             ))}
           </div>
 
-          <div className="flex gap-6">
+          <div className="flex gap-6 flex-wrap justify-center">
             <Link to="/contact" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               Contact
             </Link>
             <Link to="/questions-frequentes" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               FAQ
+            </Link>
+            <Link to="/mentions-legales" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              Mentions légales
+            </Link>
+            <Link to="/politique-de-confidentialite" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              Politique de confidentialité
             </Link>
           </div>
 
