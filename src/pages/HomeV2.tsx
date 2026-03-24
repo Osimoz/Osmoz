@@ -198,7 +198,7 @@ export default function HomeV2() {
         {/* Content — left-aligned, bottom */}
         <div className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-12 pb-16 sm:pb-20 max-w-7xl mx-auto w-full">
           <p className="text-white/50 text-xs tracking-[0.3em] uppercase mb-4">
-            Paris · Marais · Paris 2e · La Défense
+            Paris · Marais · La Défense
           </p>
           <h1
             className="text-white font-light leading-tight mb-6 max-w-3xl"
