@@ -78,20 +78,19 @@ export default function Reservation() {
     const spaceLabel  = spaces.find(s=>s.id===form.space)?.label || (form.space ? form.space : 'Non précisé');
     const timeLabel   = timeSlots.find(t=>t.id===form.timeSlot)?.label || '';
     const timeHours   = timeSlots.find(t=>t.id===form.timeSlot)?.hours || '';
-    const msg = [
-      `DEMANDE DE RÉSERVATION OSMOZ`,
-      `Contact : ${form.firstName} ${form.lastName} | ${form.phone} | ${form.email} | ${form.company}`,
-      `Espace : ${spaceLabel}`,
-      `Date : ${form.date || 'Non précisée'} | Créneau : ${timeLabel ? `${timeLabel} (${timeHours})` : 'Non précisé'} | Personnes : ${form.guests || 'Non précisé'}`,
-      `Services : ${form.services.length ? form.services.join(', ') : 'Aucun'}`,
-      `Commentaires : ${form.comments || 'Aucun'}`,
-    ].join('\n');
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: `${form.firstName} ${form.lastName}`,
-        reply_to: form.email, phone: form.phone, company: form.company,
+        reply_to: form.email,
+        phone: form.phone,
+        company: form.company,
         subject: `Réservation — ${spaceLabel}`,
-        message: msg, to_email: 'contact@osmoz.work',
+        space: spaceLabel || 'Non précisé',
+        date: form.date || 'Non précisée',
+        time_slot: timeLabel ? `${timeLabel} (${timeHours})` : 'Non précisé',
+        guests: form.guests ? `${form.guests} pers.` : 'Non précisé',
+        services: form.services.length ? form.services.join(', ') : 'Aucun',
+        comments: form.comments || 'Aucun',
       });
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
