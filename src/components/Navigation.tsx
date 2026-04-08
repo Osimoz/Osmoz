@@ -56,6 +56,7 @@ export const Navigation = () => {
               { to: '/', label: 'Accueil' },
               { to: '/spaces', label: 'Espaces' },
               { to: '/questions-frequentes', label: 'FAQ' },
+              { to: '/rse', label: 'RSE' },
               { to: '/contact', label: 'Contact' },
             ].map(({ to, label }) => (
               <Link
@@ -111,6 +112,7 @@ export const Navigation = () => {
             { to: '/', label: 'Accueil' },
             { to: '/spaces', label: 'Espaces' },
             { to: '/questions-frequentes', label: 'FAQ' },
+            { to: '/rse', label: 'RSE' },
             { to: '/contact', label: 'Contact' },
           ].map(({ to, label }) => (
             <Link

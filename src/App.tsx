@@ -14,6 +14,7 @@ import Reservation from './pages/Reservation';
 import QuestionsFrequentes from './pages/Questions-Frequentes';
 import MentionsLegales from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
+import RSE from './pages/RSE';
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/questions-frequentes" element={<QuestionsFrequentes />} />
+            <Route path="/rse" element={<RSE />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
           </Routes>

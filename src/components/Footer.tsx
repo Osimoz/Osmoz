@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const socials = [
@@ -74,6 +73,9 @@ export function Footer() {
             </Link>
             <Link to="/questions-frequentes" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               FAQ
+            </Link>
+            <Link to="/rse" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              RSE
             </Link>
             <Link to="/mentions-legales" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               Mentions légales
