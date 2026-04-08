@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 const EMAILJS_SERVICE_ID = 'service_5dizo3p';
-const EMAILJS_TEMPLATE_ID = 'template_ffl7k88';
+const EMAILJS_TEMPLATE_ID = 'template_ttklrxv';
 const EMAILJS_PUBLIC_KEY = '1Q_BLfh61Y9oi6ls_';
 
 export default function Contact() {
