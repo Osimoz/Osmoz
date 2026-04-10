@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Users, Lightbulb, UtensilsCrossed, ChevronRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import NewsletterSection from '../components/NewsletterSection';
 
 const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
@@ -334,6 +335,8 @@ export default function HomeV2() {
           </div>
         </div>
       </section>
+
+      <NewsletterSection />
 
       {/* ── 5. USE CASES ── */}
       <section className="py-24 sm:py-32 bg-white border-t border-[#e5e5e5]">

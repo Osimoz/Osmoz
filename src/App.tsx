@@ -3,6 +3,7 @@ import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import CookieBanner from './components/CookieBanner';
+import NewsletterPopup from './components/NewsletterPopup';
 
 import HomeV2 from './pages/HomeV2';
 import Spaces from './pages/Spaces';
@@ -23,6 +24,7 @@ export default function App() {
       <ScrollToTop />
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#fbfbf3' }}>
         <Navigation />
+        <NewsletterPopup />
         <CookieBanner />
         <main className="flex-1">
           <Routes>
