@@ -55,6 +55,7 @@ export const Navigation = () => {
             {[
               { to: '/', label: 'Accueil' },
               { to: '/spaces', label: 'Espaces' },
+              { to: '/experience', label: 'Expérience' },
               { to: '/questions-frequentes', label: 'FAQ' },
               { to: '/rse', label: 'RSE' },
               { to: '/contact', label: 'Contact' },
@@ -111,6 +112,7 @@ export const Navigation = () => {
           {[
             { to: '/', label: 'Accueil' },
             { to: '/spaces', label: 'Espaces' },
+            { to: '/experience', label: 'Expérience' },
             { to: '/questions-frequentes', label: 'FAQ' },
             { to: '/rse', label: 'RSE' },
             { to: '/contact', label: 'Contact' },
