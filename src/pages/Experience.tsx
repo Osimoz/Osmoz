@@ -456,7 +456,7 @@ export default function Experience() {
               width: '100%',
               height: '120%',
               objectFit: 'cover',
-              objectPosition: 'center 25%',
+              objectPosition: '60% 5%',
               transform: `translateY(${immersiveProgress * 12}%)`,
               willChange: 'transform',
             }}
