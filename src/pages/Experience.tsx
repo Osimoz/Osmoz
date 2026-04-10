@@ -135,7 +135,7 @@ const menus = [
         items: [
           'Rouleau de printemps frais, sauce cacahuète onctueuse',
           'Brioche tiède au porc effiloché, crème légère au curry doux & concombre croquant',
-          'Mini feuilletés de pomme de terre, crème fouettée & œufs de lompe',
+          'Bouchées feuilletées, crème fouettée et œufs de lompe',
           "Mini croque-monsieur jambon blanc & sel au piment d'Espelette",
           "Œuf mimosa, mayonnaise à l'estragon frais",
         ],
