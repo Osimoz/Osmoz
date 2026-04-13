@@ -2,7 +2,7 @@ const API_KEY = import.meta.env.VITE_BREVO_API_KEY as string;
 const LIST_ID = Number(import.meta.env.VITE_BREVO_LIST_ID);
 
 export async function subscribeToNewsletter(email: string): Promise<void> {
-  const res = await fetch('https://api.brevo.com/v3/contacts/createDoiContact', {
+  const res = await fetch('https://api.brevo.com/v3/contacts', {
     method: 'POST',
     headers: {
       'accept': 'application/json',
@@ -11,9 +11,8 @@ export async function subscribeToNewsletter(email: string): Promise<void> {
     },
     body: JSON.stringify({
       email,
-      includeListIds: [LIST_ID],
-      templateId: 14,
-      redirectionUrl: 'https://osmoz.work/confirmation',
+      listIds: [LIST_ID],
+      updateEnabled: true,
     }),
   });
 
