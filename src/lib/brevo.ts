@@ -13,7 +13,7 @@ export async function subscribeToNewsletter(email: string): Promise<void> {
       email,
       includeListIds: [LIST_ID],
       templateId: 14,
-      redirectionUrl: 'https://osmoz-parfums.com/confirmation',
+      redirectionUrl: 'https://osmoz.work/confirmation',
     }),
   });
 
