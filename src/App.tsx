@@ -17,6 +17,7 @@ import MentionsLegales from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import RSE from './pages/RSE';
 import Experience from './pages/Experience';
+import Confirmation from './pages/Confirmation';
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/rse" element={<RSE />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
+            <Route path="/confirmation" element={<Confirmation />} />
           </Routes>
         </main>
         <Footer />
