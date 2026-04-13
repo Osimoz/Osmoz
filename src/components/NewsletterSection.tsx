@@ -20,7 +20,7 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section style={{ borderTop: '1px solid rgba(28,28,26,0.08)', background: '#01142a' }}>
+    <section id="newsletter" style={{ borderTop: '1px solid rgba(28,28,26,0.08)', background: '#01142a' }}>
       <div
         className="max-w-7xl mx-auto"
         style={{ padding: 'clamp(72px, 9vw, 120px) clamp(24px, 5vw, 60px)' }}
