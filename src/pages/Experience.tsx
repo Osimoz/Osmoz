@@ -9,7 +9,7 @@ const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
 
 const heroImg     = u('images/Fleur/f13dfe88-1af9-42d7-a56c-4721a5ca37d7.JPG'); // Fleur coupe asperges — hero
 const fleurPortrait = u('images/Fleur/fleur-site.png'); // portrait Fleur — photo cadrée pour le site
-const petitDej    = u('images/journee-petitdej.png');
+const petitDej    = u('images/journee-petitdej.jpg');
 const dejImg      = u('images/journee-dejeuner.jpg');
 const pauseImg    = u('images/journee-pause.jpg');
 const dinerImg    = u('images/journee-diner.jpg');
@@ -164,7 +164,7 @@ const moments = [
   {
     num: '02',
     temps: 'Déjeuner',
-    tags: ['Adar', 'Les Cuistots Migrateurs', 'Cheffe Fleur'],
+    tags: ['Adar', 'Les Cuistots Migrateurs', 'Cheffe Fleur', 'Karmama'],
     desc: "Des prestataires engagés dans une cuisine de qualité, préparée sur place. Plats à partager, buffet ou lunchbox : trois formats selon le rythme de votre événement.",
     image: dejImg,
     alt: 'Déjeuner OSMOZ — cuisine de qualité',
@@ -782,21 +782,13 @@ export default function Experience() {
             {moments.map((m) => (
               <div key={m.temps} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 {/* Photo — ratio fixe identique pour tous */}
-                <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', background: '#e8e4dc' }}>
+                <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', background: '#e8e4dc' }}>
                   <img
                     src={m.image}
                     alt={m.alt}
                     loading="lazy"
                     style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                   />
-                  {/* Numéro overlay */}
-                  <span style={{
-                    position: 'absolute', top: '20px', left: '20px',
-                    fontFamily: 'Playfair Display', fontWeight: 300, fontSize: '0.8rem',
-                    color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em',
-                  }}>
-                    {m.num}
-                  </span>
                 </div>
 
                 {/* Texte sous l'image */}
