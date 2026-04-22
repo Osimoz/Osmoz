@@ -63,7 +63,7 @@ const spaces = [
     title: 'Le Duplex',
     stats: '300 m² · 40 personnes',
     pills: ['Réunion', 'Conférence', 'Cocktail', 'Séminaire'],
-    image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'),
+    image: u('images/Duplex Haussmannien/duplex-salon-01.png'),
     alt: 'Le Duplex Haussmannien Osmoz – salon moulures parquet Paris 2e',
     link: '/spaces/duplex-osmoz',
   },
