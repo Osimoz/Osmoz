@@ -23,7 +23,7 @@ const spaces = [
     title: 'Le Duplex Haussmannien',
     eyebrow: 'Montmartre · Paris 2e',
     description: 'Duplex haussmannien lumineux avec verrières, moulures et parquet. Deux niveaux modulables, cuisine équipée et cour privée pour des journées de travail mémorables.',
-    image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'),
+    image: u('images/Duplex Haussmannien/webp/duplex-salon-01.webp'),
     capacity: '40 personnes',
     price: 'À partir de 1 999 €',
     tags: ['Séminaire', 'Cocktail', 'Workshop'],

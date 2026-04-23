@@ -9,10 +9,10 @@ const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
 
 const heroImg     = u('images/Fleur/f13dfe88-1af9-42d7-a56c-4721a5ca37d7.JPG'); // Fleur coupe asperges — hero
 const fleurPortrait = u('images/Fleur/fleur-site.png'); // portrait Fleur — photo cadrée pour le site
-const petitDej    = u('images/journee-petitdej.jpg');
-const dejImg      = u('images/journee-dejeuner.jpg');
-const pauseImg    = u('images/journee-pause.jpg');
-const dinerImg    = u('images/journee-diner.jpg');
+const petitDej    = u('images/journee-petitdej.webp');
+const dejImg      = u('images/journee-dejeuner.webp');
+const pauseImg    = u('images/journee-pause.webp');
+const dinerImg    = u('images/journee-diner.webp');
 
 const mosaiqueImg = u('images/Fleur/mosaique-plats-1.png');
 

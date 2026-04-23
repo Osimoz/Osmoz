@@ -9,7 +9,7 @@ import ImageGallery from '../components/ImageGallery';
 
 const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
-const D = 'images/Duplex Haussmannien/';
+const D = 'images/Duplex Haussmannien/webp/';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -53,89 +53,89 @@ const configurations = [
     label: 'Réunion',
     capacity: 20,
     description: 'Grande table centrale dans le salon haussmannien, écran TV, paperboard. Idéal pour réunions de direction et comités.',
-    image: u(`${D}duplex-reunion-01.jpg`),
+    image: u(`${D}duplex-reunion-01.webp`),
   },
   {
     label: 'Conférence',
     capacity: 30,
     description: "Disposition en conférence face à l'écran pour présentations, formations et ateliers stratégiques.",
-    image: u(`${D}duplex-salon-06.png`),
+    image: u(`${D}duplex-salon-06.webp`),
   },
   {
     label: 'Rectangle',
     capacity: 25,
     description: 'Tables en rectangle pour favoriser les échanges et la collaboration en groupe.',
-    image: u(`${D}duplex-reunion-04.png`),
+    image: u(`${D}duplex-reunion-04.webp`),
   },
   {
     label: 'Cocktail',
     capacity: 40,
     description: 'Deux niveaux ouverts, cuisine équipée, bar. Ambiance conviviale pour cocktails, déjeuners et afterworks.',
-    image: u(`${D}duplex-salon-01.png`),
+    image: u(`${D}duplex-salon-01.webp`),
   },
 ];
 
 // ─── GALERIE PREVIEW ─────────────────────────────────────────────────────────
 const galleryItems = [
-  { url: u(`${D}duplex-salon-01.png`),          label: 'Salon',           alt: 'Salon Duplex Osmoz - Paris' },
-  { url: u(`${D}duplex-cuisine-01.png`),         label: 'Cuisine',         alt: 'Cuisine équipée Duplex Osmoz - Paris' },
-  { url: u(`${D}duplex-salle-reunion-01.png`),   label: 'Salle de réunion', alt: 'Salle de réunion Duplex Osmoz' },
-  { url: u(`${D}duplex-reunion-01.jpg`),         label: 'Salle de réunion', alt: 'Configuration réunion Duplex Osmoz' },
-  { url: u(`${D}duplex-diner-01.png`),           label: 'Dîner & Déjeuner', alt: 'Dîner et déjeuner Duplex Osmoz' },
-  { url: u(`${D}duplex-entree-01.jpg`),          label: 'Entrée',          alt: 'Entrée Duplex Osmoz' },
-  { url: u(`${D}duplex-ambiance-01.png`),        label: 'Ambiance',        alt: 'Ambiance Duplex Osmoz' },
-  { url: u(`${D}duplex-facade-01.jpg`),          label: 'Façade',          alt: 'Façade extérieure Duplex Osmoz' },
+  { url: u(`${D}duplex-salon-01.webp`),          label: 'Salon',           alt: 'Salon Duplex Osmoz - Paris' },
+  { url: u(`${D}duplex-cuisine-01.webp`),         label: 'Cuisine',         alt: 'Cuisine équipée Duplex Osmoz - Paris' },
+  { url: u(`${D}duplex-salle-reunion-01.webp`),   label: 'Salle de réunion', alt: 'Salle de réunion Duplex Osmoz' },
+  { url: u(`${D}duplex-reunion-01.webp`),         label: 'Salle de réunion', alt: 'Configuration réunion Duplex Osmoz' },
+  { url: u(`${D}duplex-diner-01.webp`),           label: 'Dîner & Déjeuner', alt: 'Dîner et déjeuner Duplex Osmoz' },
+  { url: u(`${D}duplex-entree-01.webp`),          label: 'Entrée',          alt: 'Entrée Duplex Osmoz' },
+  { url: u(`${D}duplex-ambiance-01.webp`),        label: 'Ambiance',        alt: 'Ambiance Duplex Osmoz' },
+  { url: u(`${D}duplex-facade-01.webp`),          label: 'Façade',          alt: 'Façade extérieure Duplex Osmoz' },
 ];
 
 // ─── TOUTES LES IMAGES LIGHTBOX ──────────────────────────────────────────────
 const allImages = [
   // Salon
-  { url: u(`${D}duplex-salon-01.png`),        alt: 'Salon vue 1' },
-  { url: u(`${D}duplex-salon-02.jpg`),        alt: 'Salon vue 2' },
-  { url: u(`${D}duplex-salon-03.png`),        alt: 'Salon vue 3' },
-  { url: u(`${D}duplex-salon-04.png`),        alt: 'Salon vue 4' },
-  { url: u(`${D}duplex-salon-05.png`),        alt: 'Salon vue 5' },
-  { url: u(`${D}duplex-salon-06.png`),        alt: 'Salon vue 6' },
-  { url: u(`${D}duplex-salon-07.png`),        alt: 'Salon vue 7' },
-  { url: u(`${D}duplex-salon-08.jpg`),        alt: 'Salon vue 8' },
-  { url: u(`${D}duplex-salon-09.png`),        alt: 'Salon vue 9' },
-  { url: u(`${D}duplex-salon-etage-01.png`),  alt: 'Salon étage vue 1' },
-  { url: u(`${D}duplex-salon-etage-02.png`),  alt: 'Salon étage vue 2' },
+  { url: u(`${D}duplex-salon-01.webp`),        alt: 'Salon vue 1' },
+  { url: u(`${D}duplex-salon-02.webp`),        alt: 'Salon vue 2' },
+  { url: u(`${D}duplex-salon-03.webp`),        alt: 'Salon vue 3' },
+  { url: u(`${D}duplex-salon-04.webp`),        alt: 'Salon vue 4' },
+  { url: u(`${D}duplex-salon-05.webp`),        alt: 'Salon vue 5' },
+  { url: u(`${D}duplex-salon-06.webp`),        alt: 'Salon vue 6' },
+  { url: u(`${D}duplex-salon-07.webp`),        alt: 'Salon vue 7' },
+  { url: u(`${D}duplex-salon-08.webp`),        alt: 'Salon vue 8' },
+  { url: u(`${D}duplex-salon-09.webp`),        alt: 'Salon vue 9' },
+  { url: u(`${D}duplex-salon-etage-01.webp`),  alt: 'Salon étage vue 1' },
+  { url: u(`${D}duplex-salon-etage-02.webp`),  alt: 'Salon étage vue 2' },
   // Cuisine
-  { url: u(`${D}duplex-cuisine-01.png`),      alt: 'Cuisine vue 1' },
-  { url: u(`${D}duplex-cuisine-02.jpg`),      alt: 'Cuisine vue 2' },
-  { url: u(`${D}duplex-cuisine-03.png`),      alt: 'Cuisine vue 3' },
-  { url: u(`${D}duplex-cuisine-04.jpg`),      alt: 'Cuisine vue 4' },
-  { url: u(`${D}duplex-cuisine-05.png`),      alt: 'Cuisine vue 5' },
-  { url: u(`${D}duplex-cuisine-06.jpg`),      alt: 'Cuisine vue 6' },
-  { url: u(`${D}duplex-cuisine-07.png`),      alt: 'Cuisine vue 7' },
-  { url: u(`${D}duplex-cuisine-08.png`),      alt: 'Cuisine vue 8' },
+  { url: u(`${D}duplex-cuisine-01.webp`),      alt: 'Cuisine vue 1' },
+  { url: u(`${D}duplex-cuisine-02.webp`),      alt: 'Cuisine vue 2' },
+  { url: u(`${D}duplex-cuisine-03.webp`),      alt: 'Cuisine vue 3' },
+  { url: u(`${D}duplex-cuisine-04.webp`),      alt: 'Cuisine vue 4' },
+  { url: u(`${D}duplex-cuisine-05.webp`),      alt: 'Cuisine vue 5' },
+  { url: u(`${D}duplex-cuisine-06.webp`),      alt: 'Cuisine vue 6' },
+  { url: u(`${D}duplex-cuisine-07.webp`),      alt: 'Cuisine vue 7' },
+  { url: u(`${D}duplex-cuisine-08.webp`),      alt: 'Cuisine vue 8' },
   // Salle de réunion
-  { url: u(`${D}duplex-salle-reunion-01.png`), alt: 'Salle de réunion vue 1' },
-  { url: u(`${D}duplex-salle-reunion-02.jpg`), alt: 'Salle de réunion vue 2' },
-  { url: u(`${D}duplex-salle-reunion-03.png`), alt: 'Salle de réunion vue 3' },
-  { url: u(`${D}duplex-salle-reunion-04.jpg`), alt: 'Salle de réunion vue 4' },
-  { url: u(`${D}duplex-salle-reunion-05.png`), alt: 'Salle de réunion vue 5' },
+  { url: u(`${D}duplex-salle-reunion-01.webp`), alt: 'Salle de réunion vue 1' },
+  { url: u(`${D}duplex-salle-reunion-02.webp`), alt: 'Salle de réunion vue 2' },
+  { url: u(`${D}duplex-salle-reunion-03.webp`), alt: 'Salle de réunion vue 3' },
+  { url: u(`${D}duplex-salle-reunion-04.webp`), alt: 'Salle de réunion vue 4' },
+  { url: u(`${D}duplex-salle-reunion-05.webp`), alt: 'Salle de réunion vue 5' },
   // Réunion
-  { url: u(`${D}duplex-reunion-01.jpg`),      alt: 'Réunion vue 1' },
-  { url: u(`${D}duplex-reunion-02.jpg`),      alt: 'Réunion vue 2' },
-  { url: u(`${D}duplex-reunion-03.jpg`),      alt: 'Réunion vue 3' },
-  { url: u(`${D}duplex-reunion-04.png`),      alt: 'Réunion vue 4' },
-  { url: u(`${D}duplex-reunion-05.png`),      alt: 'Réunion vue 5' },
-  { url: u(`${D}duplex-reunion-06.jpg`),      alt: 'Réunion vue 6' },
+  { url: u(`${D}duplex-reunion-01.webp`),      alt: 'Réunion vue 1' },
+  { url: u(`${D}duplex-reunion-02.webp`),      alt: 'Réunion vue 2' },
+  { url: u(`${D}duplex-reunion-03.webp`),      alt: 'Réunion vue 3' },
+  { url: u(`${D}duplex-reunion-04.webp`),      alt: 'Réunion vue 4' },
+  { url: u(`${D}duplex-reunion-05.webp`),      alt: 'Réunion vue 5' },
+  { url: u(`${D}duplex-reunion-06.webp`),      alt: 'Réunion vue 6' },
   // Dîner & Déjeuner
-  { url: u(`${D}duplex-diner-01.png`),        alt: 'Dîner Déjeuner vue 1' },
-  { url: u(`${D}duplex-diner-02.png`),        alt: 'Dîner Déjeuner vue 2' },
-  { url: u(`${D}duplex-diner-03.jpg`),        alt: 'Dîner Déjeuner vue 3' },
-  { url: u(`${D}duplex-diner-04.png`),        alt: 'Dîner Déjeuner vue 4' },
-  { url: u(`${D}duplex-diner-05.png`),        alt: 'Dîner Déjeuner vue 5' },
+  { url: u(`${D}duplex-diner-01.webp`),        alt: 'Dîner Déjeuner vue 1' },
+  { url: u(`${D}duplex-diner-02.webp`),        alt: 'Dîner Déjeuner vue 2' },
+  { url: u(`${D}duplex-diner-03.webp`),        alt: 'Dîner Déjeuner vue 3' },
+  { url: u(`${D}duplex-diner-04.webp`),        alt: 'Dîner Déjeuner vue 4' },
+  { url: u(`${D}duplex-diner-05.webp`),        alt: 'Dîner Déjeuner vue 5' },
   // Entrée
-  { url: u(`${D}duplex-entree-01.jpg`),       alt: 'Entrée vue 1' },
-  { url: u(`${D}duplex-entree-02.jpg`),       alt: 'Entrée vue 2' },
+  { url: u(`${D}duplex-entree-01.webp`),       alt: 'Entrée vue 1' },
+  { url: u(`${D}duplex-entree-02.webp`),       alt: 'Entrée vue 2' },
   // Ambiance
-  { url: u(`${D}duplex-ambiance-01.png`),     alt: 'Ambiance' },
+  { url: u(`${D}duplex-ambiance-01.webp`),     alt: 'Ambiance' },
   // Façade
-  { url: u(`${D}duplex-facade-01.jpg`),       alt: 'Façade extérieure' },
+  { url: u(`${D}duplex-facade-01.webp`),       alt: 'Façade extérieure' },
 ];
 
 // ─── CROSS-SELL ──────────────────────────────────────────────────────────────
@@ -192,7 +192,7 @@ export default function DuplexOsmozV2() {
       addressCountry: 'FR',
     },
     maximumAttendeeCapacity: 40,
-    photo: 'https://osmoz.work/images/Duplex%20Haussmannien/duplex-salon-01.png',
+    photo: 'https://osmoz.work/images/Duplex%20Haussmannien/duplex-salon-01.webp',
     priceRange: '1999€ - 2999€',
   };
 
@@ -206,21 +206,20 @@ export default function DuplexOsmozV2() {
         <link rel="canonical" href="https://osmoz.work/spaces/duplex-osmoz" />
         <meta property="og:title" content="Duplex Haussmannien Osmoz — Espace premium Paris 2e" />
         <meta property="og:description" content="300m² haussmanniens sur 2 niveaux. Moulures, escalier sculptural, cuisine équipée. Jusqu'à 40 personnes. À partir de 1 999€ HT." />
-        <meta property="og:image" content="https://osmoz.work/images/Duplex%20Haussmannien/duplex-salon-01.png" />
+        <meta property="og:image" content="https://osmoz.work/images/Duplex%20Haussmannien/duplex-salon-01.webp" />
         <meta property="og:url" content="https://osmoz.work/spaces/duplex-osmoz" />
         <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <link rel="preload" as="image" href={u(`${D}duplex-salon-01.png`)} />
-        <link rel="preload" as="image" href={u(`${D}4 Escalier.jpg`)} />
-        <link rel="preload" as="image" href={u(`${D}3 Cuisine 5.jpg`)} />
-        <link rel="preload" as="image" href={u(`${D}8 Reunion Salon 1.jpg`)} />
+        <link rel="preload" as="image" href={u(`${D}duplex-salon-01.webp`)} />
+        <link rel="preload" as="image" href={u(`${D}duplex-cuisine-01.webp`)} />
+        <link rel="preload" as="image" href={u(`${D}duplex-reunion-01.webp`)} />
       </Helmet>
 
       {/* ── 1. HERO ── */}
       <section className="relative h-[90vh] w-full overflow-hidden">
         <img
-          src={u(`${D}duplex-salon-01.png`)}
+          src={u(`${D}duplex-salon-01.webp`)}
           alt="Duplex Haussmannien Osmoz - salon principal lumineux moulures parquet Paris 2e"
           fetchPriority="high"
           loading="eager"
