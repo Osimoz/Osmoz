@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { subscribeToNewsletter } from '../lib/brevo';
 import { Check, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
@@ -94,11 +95,7 @@ export default function Reservation() {
         comments: form.comments || 'Aucun',
       });
       if (newsletterOptIn) {
-        fetch('/.netlify/functions/subscribe-newsletter', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: form.email }),
-        }).catch(err => console.error('Erreur inscription newsletter:', err));
+        subscribeToNewsletter(form.email).catch(err => console.error('Erreur inscription newsletter:', err));
       }
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });

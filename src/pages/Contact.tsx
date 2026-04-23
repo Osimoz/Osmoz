@@ -3,6 +3,7 @@ import { Mail, Phone, ArrowRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { subscribeToNewsletter } from '../lib/brevo';
 
 const EMAILJS_SERVICE_ID = 'service_5dizo3p';
 const EMAILJS_TEMPLATE_ID = 'template_ttklrxv';
@@ -41,11 +42,7 @@ export default function Contact() {
         to_email: 'contact@osmoz.work',
       });
       if (newsletterOptIn) {
-        fetch('/.netlify/functions/subscribe-newsletter', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: form.email }),
-        }).catch(err => console.error('Erreur inscription newsletter:', err));
+        subscribeToNewsletter(form.email).catch(err => console.error('Erreur inscription newsletter:', err));
       }
       setIsSubmitted(true);
       setForm({ firstName: '', lastName: '', email: '', message: '' });
