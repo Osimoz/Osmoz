@@ -2,6 +2,39 @@
   publish = "dist"
   command = "npm run build"
 
+# ── Force HTTPS non-www ───────────────────────────────────────────────
+[[redirects]]
+  from = "https://www.osmoz.work/*"
+  to = "https://osmoz.work/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://osmoz.work/*"
+  to = "https://osmoz.work/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.osmoz.work/*"
+  to = "https://osmoz.work/:splat"
+  status = 301
+  force = true
+
+# ── Legacy / removed URLs ────────────────────────────────────────────
+[[redirects]]
+  from = "/legal/privacy"
+  to = "/politique-de-confidentialite"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/spaces/patio-osmoz"
+  to = "/spaces"
+  status = 301
+  force = true
+
+# ── SPA catch-all (must be last) ─────────────────────────────────────
 [[redirects]]
   from = "/*"
   to = "/index.html"
