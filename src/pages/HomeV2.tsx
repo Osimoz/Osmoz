@@ -142,16 +142,34 @@ export default function HomeV2() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Osmoz',
-    description:
-      "Location d'espaces atypiques à Paris pour séminaires, réunions et workshops. Exclusivement pour les entreprises.",
+    name: 'OSMOZ',
+    description: "OSMOZ propose trois espaces privatisables authentiques et chaleureux à Paris et La Défense pour les entreprises. Séminaires, réunions de direction, workshops, cocktails et tournages. Le Loft (Marais, 110m²), Le Duplex Haussmannien (Paris 2e, 300m²), Le Penthouse (La Défense, 150m² + jardin 350m²).",
     url: 'https://osmoz.work',
+    logo: 'https://osmoz.work/logo.png',
+    image: 'https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg',
+    telephone: '+33675186932',
+    email: 'contact@osmoz.work',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',
+      addressRegion: 'Île-de-France',
       addressCountry: 'FR',
     },
+    geo: { '@type': 'GeoCoordinates', latitude: 48.8566, longitude: 2.3522 },
+    openingHours: 'Mo-Fr 08:00-22:00',
     priceRange: '€€€',
+    currenciesAccepted: 'EUR',
+    paymentAccepted: 'Virement bancaire, Carte bancaire',
+    hasMap: 'https://maps.google.com/?q=Paris+France',
+    sameAs: [
+      'https://www.instagram.com/osmoz_space',
+      'https://www.linkedin.com/company/osmoz',
+    ],
+    makesOffer: [
+      { '@type': 'Offer', name: 'Le Loft OSMOZ', description: 'Espace privatif 110m², Place des Vosges, Paris 3e. Jusqu\'à 25 personnes.', url: 'https://osmoz.work/spaces/loft-osmoz' },
+      { '@type': 'Offer', name: 'Le Duplex Haussmannien OSMOZ', description: 'Appartement haussmannien 300m², Paris 2e. Jusqu\'à 40 personnes.', url: 'https://osmoz.work/spaces/duplex-osmoz' },
+      { '@type': 'Offer', name: 'Le Penthouse OSMOZ', description: 'Penthouse 150m² + jardin 350m², La Défense. Jusqu\'à 50 personnes.', url: 'https://osmoz.work/spaces/penthouse-osmoz' },
+    ],
   };
 
   return (
