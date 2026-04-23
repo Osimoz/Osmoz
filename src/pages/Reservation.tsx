@@ -40,6 +40,7 @@ export default function Reservation() {
     space: sp, date:'', timeSlot:'', guests:'', services:[], comments:'',
   });
   const [errors, setErrors] = useState<Err>({});
+  const [newsletterOptIn, setNewsletterOptIn] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitErr, setSubmitErr] = useState<string|null>(null);
@@ -92,6 +93,13 @@ export default function Reservation() {
         services: form.services.length ? form.services.join(', ') : 'Aucun',
         comments: form.comments || 'Aucun',
       });
+      if (newsletterOptIn) {
+        fetch('/.netlify/functions/subscribe-newsletter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: form.email }),
+        }).catch(err => console.error('Erreur inscription newsletter:', err));
+      }
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
@@ -289,6 +297,24 @@ export default function Reservation() {
 
             {/* Submit error */}
             {submitErr && <p className="text-xs text-red-500 font-light mt-4">{submitErr}</p>}
+
+            {/* Newsletter opt-in */}
+            <div className="mt-5 pt-4 border-t border-[#f0f0e8]">
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  checked={newsletterOptIn}
+                  onChange={e => setNewsletterOptIn(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-gray-300 text-[#862637] focus:ring-[#862637] cursor-pointer"
+                />
+                <span className="text-sm font-light text-[#01142a] leading-snug group-hover:text-[#862637] transition-colors">
+                  Je souhaite recevoir des idées d'événements et des offres exclusives par email
+                </span>
+              </label>
+              <p className="text-[10px] font-light text-gray-400 mt-1.5 ml-7">
+                1 à 2 emails par mois – désinscription en un clic
+              </p>
+            </div>
 
             {/* Desktop CTA */}
             <div className="hidden sm:flex items-center justify-between mt-6 pt-5 border-t border-[#f0f0e8]">
