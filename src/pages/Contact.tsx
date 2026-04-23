@@ -161,7 +161,7 @@ export default function Contact() {
                   {error && <p className="text-red-500 text-sm font-light">{error}</p>}
 
                   {/* Newsletter opt-in */}
-                  <div className="pt-1">
+                  <div className="rounded-xl border border-[#e5e5e5] bg-[#fafaf8] p-4">
                     <label className="flex items-start gap-3 cursor-pointer group">
                       <input
                         type="checkbox"
@@ -169,13 +169,15 @@ export default function Contact() {
                         onChange={e => setNewsletterOptIn(e.target.checked)}
                         className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-gray-300 text-[#862637] focus:ring-[#862637] cursor-pointer"
                       />
-                      <span className="text-sm font-light text-[#01142a] leading-snug group-hover:text-[#862637] transition-colors">
-                        Je souhaite recevoir des idées d'événements et des offres exclusives par email
-                      </span>
+                      <div>
+                        <span className="text-sm font-normal text-[#01142a] leading-snug group-hover:text-[#862637] transition-colors">
+                          Je souhaite recevoir des idées d'événements et des offres exclusives par email
+                        </span>
+                        <p className="text-[10px] font-light text-gray-400 mt-1">
+                          1 à 2 emails par mois – désinscription en un clic
+                        </p>
+                      </div>
                     </label>
-                    <p className="text-[10px] font-light text-gray-400 mt-1.5 ml-7">
-                      1 à 2 emails par mois – désinscription en un clic
-                    </p>
                   </div>
 
                   <button
