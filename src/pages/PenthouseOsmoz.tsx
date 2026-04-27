@@ -171,7 +171,7 @@ export default function PenthouseOsmoz() {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'EventVenue',
+    '@type': 'LocalBusiness',
     name: 'Le Penthouse OSMOZ',
     description: "Penthouse de 150m² avec jardin suspendu de 350m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel, esthétique 70's, salle de réunion confidentielle. Idéal pour séminaires, cocktails, réunions de direction et événements outdoor jusqu'à 50 personnes. Privatisation exclusive à la journée pour les entreprises.",
     url: 'https://osmoz.work/spaces/penthouse-osmoz',
@@ -201,14 +201,6 @@ export default function PenthouseOsmoz() {
       { '@type': 'Offer', name: 'Journée complète', price: '2499', priceCurrency: 'EUR', description: 'Privatisation journée complète — 08h30-18h30' },
       { '@type': 'Offer', name: 'Soirée', price: '1999', priceCurrency: 'EUR', description: 'Privatisation soirée — 18h30-22h' },
       { '@type': 'Offer', name: 'Journée + soirée', price: '2999', priceCurrency: 'EUR', description: 'Privatisation journée complète + soirée — 08h30-22h' },
-    ],
-    event: [
-      { '@type': 'Event', name: "Séminaire d'entreprise" },
-      { '@type': 'Event', name: "Cocktail d'entreprise" },
-      { '@type': 'Event', name: 'Réunion de direction' },
-      { '@type': 'Event', name: 'Événement outdoor' },
-      { '@type': 'Event', name: "Soirée d'entreprise" },
-      { '@type': 'Event', name: 'Comité de direction' },
     ],
     telephone: '+33675186932',
     email: 'contact@osmoz.work',

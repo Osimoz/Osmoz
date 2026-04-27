@@ -149,7 +149,7 @@ export default function LoftOsmozV2() {
   // ── structured data JSON-LD ──
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'EventVenue',
+    '@type': 'LocalBusiness',
     name: 'Le Loft OSMOZ',
     description: "Espace privatif de 110m² situé à deux pas de la Place des Vosges dans le Marais. Grande verrière lumineuse, ambiance contemporaine et chaleureuse. Idéal pour séminaires, réunions de direction, workshops, déjeuners d'affaires et tournages. Privatisation exclusive à la journée pour les entreprises.",
     url: 'https://osmoz.work/spaces/loft-osmoz',
@@ -175,14 +175,6 @@ export default function LoftOsmozV2() {
     offers: [
       { '@type': 'Offer', name: 'Demi-journée', price: '750', priceCurrency: 'EUR', description: 'Privatisation demi-journée — 08h30-12h ou 14h-18h' },
       { '@type': 'Offer', name: 'Journée complète', price: '1200', priceCurrency: 'EUR', description: 'Privatisation journée complète — 08h30-18h30' },
-    ],
-    event: [
-      { '@type': 'Event', name: "Séminaire d'entreprise" },
-      { '@type': 'Event', name: 'Réunion de direction' },
-      { '@type': 'Event', name: 'Workshop' },
-      { '@type': 'Event', name: "Déjeuner d'affaires" },
-      { '@type': 'Event', name: 'Tournage et shooting photo' },
-      { '@type': 'Event', name: "Journée d'étude" },
     ],
     telephone: '+33675186932',
     email: 'contact@osmoz.work',

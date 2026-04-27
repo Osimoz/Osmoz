@@ -180,7 +180,7 @@ export default function DuplexOsmozV2() {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'EventVenue',
+    '@type': 'LocalBusiness',
     name: 'Le Duplex Haussmannien OSMOZ',
     description: "Appartement haussmannien de 300m² sur deux étages au cœur du 2e arrondissement de Paris. Esprit résidentiel chic, escalier en ferronnerie, parquet ancien. Idéal pour séminaires, conférences, cocktails, dîners de direction et journées d'équipe jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",
     url: 'https://osmoz.work/spaces/duplex-osmoz',
@@ -207,14 +207,6 @@ export default function DuplexOsmozV2() {
     offers: [
       { '@type': 'Offer', name: 'Journée — moins de 15 personnes', price: '1500', priceCurrency: 'EUR', description: "Privatisation journée complète jusqu'à 15 personnes" },
       { '@type': 'Offer', name: 'Journée — plus de 15 personnes', price: '2500', priceCurrency: 'EUR', description: 'Privatisation journée complète de 15 à 40 personnes' },
-    ],
-    event: [
-      { '@type': 'Event', name: "Séminaire d'entreprise" },
-      { '@type': 'Event', name: 'Conférence' },
-      { '@type': 'Event', name: "Cocktail d'entreprise" },
-      { '@type': 'Event', name: 'Dîner de direction' },
-      { '@type': 'Event', name: "Journée d'équipe" },
-      { '@type': 'Event', name: 'Comité de direction' },
     ],
     telephone: '+33675186932',
     email: 'contact@osmoz.work',
