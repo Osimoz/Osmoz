@@ -41,7 +41,7 @@ const amenitiesOnDemand = [
 ];
 
 const tarifs = [
-  { label: 'Demi-journée',      hours: '08h30 - 12h  ou  14h - 18h', price: '1 999€' },
+  { label: 'Demi-journée',      hours: '08h30 - 12h  ou  14h - 18h', price: '1 499€' },
   { label: 'Journée',           hours: '08h30 - 18h30',               price: '2 499€' },
   { label: 'Soirée',            hours: '18h30 - 22h',                 price: '1 999€' },
   { label: 'Journée + soirée',  hours: '08h30 - 22h',                 price: '2 999€' },
@@ -225,10 +225,10 @@ export default function DuplexOsmozV2() {
       {/* ── SEO ── */}
       <Helmet>
         <title>Duplex Haussmannien Osmoz — Location espace premium Paris 2e Montmartre</title>
-        <meta name="description" content="Louez le Duplex Haussmannien Osmoz : 300m² sur 2 niveaux au cœur de Paris 2e. Moulures, escalier sculptural, cuisine équipée. Idéal pour réunions, séminaires et conférences jusqu'à 40 personnes. À partir de 1 999€ HT." />
+        <meta name="description" content="Louez le Duplex Haussmannien Osmoz : 300m² sur 2 niveaux au cœur de Paris 2e. Moulures, escalier sculptural, cuisine équipée. Idéal pour réunions, séminaires et conférences jusqu'à 40 personnes. À partir de 1 499€ HT." />
         <link rel="canonical" href="https://osmoz.work/spaces/duplex-osmoz" />
         <meta property="og:title" content="Duplex Haussmannien Osmoz — Espace premium Paris 2e" />
-        <meta property="og:description" content="300m² haussmanniens sur 2 niveaux. Moulures, escalier sculptural, cuisine équipée. Jusqu'à 40 personnes. À partir de 1 999€ HT." />
+        <meta property="og:description" content="300m² haussmanniens sur 2 niveaux. Moulures, escalier sculptural, cuisine équipée. Jusqu'à 40 personnes. À partir de 1 499€ HT." />
         <meta property="og:image" content="https://osmoz.work/images/Duplex%20Haussmannien/duplex-salon-01.webp" />
         <meta property="og:url" content="https://osmoz.work/spaces/duplex-osmoz" />
         <meta property="og:type" content="website" />
@@ -268,7 +268,7 @@ export default function DuplexOsmozV2() {
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center mb-10">
-            {['300 m²', '2 niveaux', '40 pers. max', 'À partir de 1 999€ HT'].map((pill) => (
+            {['300 m²', '2 niveaux', '40 pers. max', 'À partir de 1 499€ HT'].map((pill) => (
               <span
                 key={pill}
                 className="bg-white/10 backdrop-blur-sm text-white border border-white/25 px-4 py-1.5 rounded-full text-xs font-light tracking-widest uppercase"
@@ -318,7 +318,7 @@ export default function DuplexOsmozV2() {
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-[#e5e5e5] px-4 py-3 flex items-center justify-between gap-3 shadow-lg">
         <div>
           <p className="text-xs font-light text-gray-400 uppercase tracking-widest">À partir de</p>
-          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>1 999€</p>
+          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>1 499€</p>
         </div>
         <button
           onClick={() => navigate('/reservation?space=duplex')}
@@ -522,7 +522,7 @@ export default function DuplexOsmozV2() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
                 <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">À partir de</p>
-                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>1 999€</p>
+                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>1 499€</p>
                 <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
               </div>
               <button
