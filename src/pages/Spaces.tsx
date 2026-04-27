@@ -14,7 +14,7 @@ const spaces = [
     description: 'Un loft contemporain de 120 m² au cœur du Marais. Volumes épurés, lumière zénithale et mobilier modulable pour vos réunions et ateliers d\'exception.',
     image: u('images/Loft/7 Salon pleiniere 1.jpg'),
     capacity: '25 personnes',
-    price: 'À partir de 750 €',
+    price: 'À partir de 649 €',
     tags: ['Réunion', 'Atelier', 'Séminaire'],
   },
   {

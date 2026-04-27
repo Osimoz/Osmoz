@@ -38,8 +38,8 @@ const amenitiesOnDemand = [
 ];
 
 const tarifs = [
-  { label: 'Demi-journée', hours: '08h30 - 12h  ou  14h - 18h', price: '749€' },
-  { label: 'Journée',      hours: '08h30 - 18h30',               price: '1 099€' },
+  { label: 'Demi-journée', hours: '08h30 - 12h  ou  14h - 18h', price: '649€' },
+  { label: 'Journée',      hours: '08h30 - 18h30',               price: '999€' },
   { label: 'Soirée',       hours: '18h30 - 22h',                 price: '849€' },
   { label: 'Journée + soirée', hours: '08h30 - 22h',             price: '1 499€' },
 ];
@@ -195,7 +195,7 @@ export default function LoftOsmozV2() {
         <meta name="description" content="Louez le Loft Osmoz, 110m² au cœur du Marais près de la Place des Vosges. Idéal pour réunions, séminaires, workshops et shootings. Cuisine équipée, verrière, ambiance unique." />
         <link rel="canonical" href="https://osmoz.work/spaces/loft-osmoz" />
         <meta property="og:title" content="Loft Osmoz — Espace atypique Marais Paris 3e" />
-        <meta property="og:description" content="110m² au cœur du Marais, verrière, cuisine équipée, modulable. À partir de 749€." />
+        <meta property="og:description" content="110m² au cœur du Marais, verrière, cuisine équipée, modulable. À partir de 649€." />
         <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:url" content="https://osmoz.work/spaces/loft-osmoz" />
         <meta property="og:type" content="website" />
@@ -228,7 +228,7 @@ export default function LoftOsmozV2() {
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center mb-10">
-            {['110 m²', '25 pers. max', 'À partir de 749€'].map((pill) => (
+            {['110 m²', '25 pers. max', 'À partir de 649€'].map((pill) => (
               <span
                 key={pill}
                 className="bg-white/15 backdrop-blur-sm text-white border border-white/30 px-4 py-1.5 rounded-full text-sm font-light tracking-wide"
@@ -272,7 +272,7 @@ export default function LoftOsmozV2() {
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-[#e5e5e5] px-4 py-3 flex items-center justify-between gap-3 shadow-lg">
         <div>
           <p className="text-xs font-light text-gray-400 uppercase tracking-widest">À partir de</p>
-          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>749€</p>
+          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>649€</p>
         </div>
         <button
           onClick={() => navigate('/reservation?space=loft')}
@@ -442,7 +442,7 @@ export default function LoftOsmozV2() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
                 <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">À partir de</p>
-                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>749€</p>
+                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>649€</p>
                 <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
               </div>
               <button
