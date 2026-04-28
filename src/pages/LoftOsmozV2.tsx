@@ -173,8 +173,8 @@ export default function LoftOsmozV2() {
       { '@type': 'LocationFeatureSpecification', name: 'Privatisation totale', value: true },
     ],
     offers: [
-      { '@type': 'Offer', name: 'Demi-journée', price: '750', priceCurrency: 'EUR', description: 'Privatisation demi-journée — 08h30-12h ou 14h-18h' },
-      { '@type': 'Offer', name: 'Journée complète', price: '1200', priceCurrency: 'EUR', description: 'Privatisation journée complète — 08h30-18h30' },
+      { '@type': 'Offer', name: 'Demi-journée', price: '649', priceCurrency: 'EUR', description: 'Privatisation demi-journée — 08h30-12h ou 14h-18h' },
+      { '@type': 'Offer', name: 'Journée complète', price: '999', priceCurrency: 'EUR', description: 'Privatisation journée complète — 08h30-18h30' },
     ],
     telephone: '+33675186932',
     email: 'contact@osmoz.work',
@@ -222,7 +222,7 @@ export default function LoftOsmozV2() {
             name: 'Quel est le tarif de location du Loft OSMOZ ?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Le Loft OSMOZ est disponible à partir de 750€ HT pour une demi-journée et 1200€ HT pour une journée complète. Devis personnalisé sous 24h.',
+              text: 'Le Loft OSMOZ est disponible à partir de 649€ HT pour une demi-journée et 999€ HT pour une journée complète. Devis personnalisé sous 24h.',
             },
           },
         ],
