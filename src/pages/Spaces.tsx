@@ -42,13 +42,53 @@ const spaces = [
 ];
 
 export default function Spaces() {
+  const spacesBreadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz.work/' },
+          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz.work/spaces' },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Espaces privatifs authentiques OSMOZ à Paris',
+        description: 'Sélection d\'espaces authentiques privatisables à Paris et La Défense pour événements corporate',
+        numberOfItems: 3,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Le Loft OSMOZ — Marais Paris 3e',
+            url: 'https://osmoz.work/spaces/loft-osmoz',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Le Duplex Haussmannien OSMOZ — Paris 2e',
+            url: 'https://osmoz.work/spaces/duplex-osmoz',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Le Penthouse OSMOZ — La Défense Puteaux',
+            url: 'https://osmoz.work/spaces/penthouse-osmoz',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
       <Helmet>
-        <title>Nos Espaces — OSMOZ | Lieux privatisés à Paris pour entreprises</title>
-        <meta name="description" content="Découvrez les trois espaces OSMOZ à Paris : Le Loft Osmoz, le Duplex Haussmannien et le Penthouse. Privatisation à la journée pour séminaires, réunions et événements d'entreprise." />
+        <title>Nos Espaces — Location d'Espaces Authentiques Paris | OSMOZ</title>
+        <meta name="description" content="Trois espaces privatifs authentiques à Paris pour vos événements d'entreprise. Le Loft au Marais, Le Duplex Paris 2e, Le Penthouse La Défense. De 5 à 40 personnes. Privatisation exclusive. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/spaces" />
         <meta name="robots" content="index, follow" />
+        <script type="application/ld+json">{JSON.stringify(spacesBreadcrumbLd)}</script>
       </Helmet>
 
       <div className="pt-32 pb-24 bg-[#fbfbf3]">

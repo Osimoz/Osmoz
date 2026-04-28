@@ -219,13 +219,56 @@ export default function DuplexOsmozV2() {
     smokingAllowed: false,
   };
 
+  const duplexBreadcrumbFaqLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz.work/' },
+          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz.work/spaces' },
+          { '@type': 'ListItem', position: 3, name: 'Le Duplex', item: 'https://osmoz.work/spaces/duplex-osmoz' },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Combien de personnes peut accueillir Le Duplex OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Le Duplex Haussmannien OSMOZ accueille jusqu'à 40 personnes sur 300m² répartis sur deux étages. L'appartement est entièrement privatisé.",
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Où se trouve Le Duplex OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Le Duplex OSMOZ est situé au 146 rue Montmartre, Paris 2e, au cœur du 2e arrondissement de Paris.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Quel est le tarif de location du Duplex OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Le Duplex OSMOZ est disponible à partir de 1500€ HT pour une journée jusqu'à 15 personnes, et 2500€ HT au-delà. Devis personnalisé sous 24h.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="pt-0">
 
       {/* ── SEO ── */}
       <Helmet>
-        <title>Duplex Haussmannien Osmoz — Location espace premium Paris 2e Montmartre</title>
-        <meta name="description" content="Louez le Duplex Haussmannien Osmoz : 300m² sur 2 niveaux au cœur de Paris 2e. Moulures, escalier sculptural, cuisine équipée. Idéal pour réunions, séminaires et conférences jusqu'à 40 personnes. À partir de 1 499€ HT." />
+        <title>Le Duplex OSMOZ — Appartement Haussmannien Privatif Paris 2e | 300m² · 40 personnes</title>
+        <meta name="description" content="Le Duplex Haussmannien OSMOZ Paris 2e : 300m² sur deux étages dans un appartement authentique au cœur de Paris. Réunions, séminaires, cocktails. Jusqu'à 40 personnes. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/spaces/duplex-osmoz" />
         <meta property="og:title" content="Duplex Haussmannien Osmoz — Espace premium Paris 2e" />
         <meta property="og:description" content="300m² haussmanniens sur 2 niveaux. Moulures, escalier sculptural, cuisine équipée. Jusqu'à 40 personnes. À partir de 1 499€ HT." />
@@ -234,6 +277,7 @@ export default function DuplexOsmozV2() {
         <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(duplexBreadcrumbFaqLd)}</script>
         <link rel="preload" as="image" href={u(`${D}duplex-salon-01.webp`)} />
         <link rel="preload" as="image" href={u(`${D}duplex-cuisine-01.webp`)} />
         <link rel="preload" as="image" href={u(`${D}duplex-reunion-01.webp`)} />

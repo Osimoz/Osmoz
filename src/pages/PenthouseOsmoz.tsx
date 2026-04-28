@@ -173,7 +173,7 @@ export default function PenthouseOsmoz() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Le Penthouse OSMOZ',
-    description: "Penthouse de 150m² avec jardin suspendu de 350m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel, esthétique 70's, salle de réunion confidentielle. Idéal pour séminaires, cocktails, réunions de direction et événements outdoor jusqu'à 50 personnes. Privatisation exclusive à la journée pour les entreprises.",
+    description: "Penthouse de 150m² avec jardin suspendu de 350m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel, esthétique 70's, salle de réunion confidentielle. Idéal pour séminaires, cocktails, réunions de direction et événements outdoor jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",
     url: 'https://osmoz.work/spaces/penthouse-osmoz',
     image: 'https://osmoz.work/images/Penthouse/2%20-%20Salon.jpg',
     address: {
@@ -185,7 +185,7 @@ export default function PenthouseOsmoz() {
       addressCountry: 'FR',
     },
     geo: { '@type': 'GeoCoordinates', latitude: 48.8924, longitude: 2.2384 },
-    maximumAttendeeCapacity: 50,
+    maximumAttendeeCapacity: 40,
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Wifi haut débit', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Écran connecté', value: true },
@@ -213,12 +213,55 @@ export default function PenthouseOsmoz() {
     smokingAllowed: false,
   };
 
+  const penthouseBreadcrumbFaqLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz.work/' },
+          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz.work/spaces' },
+          { '@type': 'ListItem', position: 3, name: 'Le Penthouse', item: 'https://osmoz.work/spaces/penthouse-osmoz' },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Combien de personnes peut accueillir Le Penthouse OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Le Penthouse OSMOZ accueille jusqu'à 40 personnes en intérieur et jusqu'à 40 personnes sur le rooftop suspendu de 350m² avec vue sur Paris.",
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Où se trouve Le Penthouse OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Le Penthouse OSMOZ est situé Tour Cofonca, 6-8 rue Jean Jaurès, Puteaux 92800. Accès depuis le métro La Défense ligne 1 en 5 minutes à pied.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Quel est le tarif de location du Penthouse OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Le Penthouse OSMOZ est disponible à partir de 1499€ HT pour une demi-journée, 2499€ HT pour une journée complète et 1999€ HT pour une soirée. Devis personnalisé sous 24h.',
+            },
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="pt-0">
       {/* ── SEO ── */}
       <Helmet>
-        <title>Penthouse Osmoz — Location espace vue panoramique Paris La Défense | Séminaires & Réunions</title>
-        <meta name="description" content="Privatisez le Penthouse Osmoz : 150m² + jardin suspendu 350m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel. Réunions, séminaires, cocktails jusqu'à 40 personnes." />
+        <title>Le Penthouse OSMOZ — Rooftop Privatif 350m² Vue Paris La Défense | 40 personnes</title>
+        <meta name="description" content="Le Penthouse OSMOZ à La Défense : 150m² intérieur + rooftop suspendu 350m² avec vue panoramique sur Paris et la Tour Eiffel. Un lieu rare et authentique pour vos séminaires, cocktails et réunions confidentielles. Jusqu'à 40 personnes. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/spaces/penthouse-osmoz" />
         <meta property="og:title" content="Penthouse Osmoz — Espace vue panoramique Paris La Défense" />
         <meta property="og:description" content="150m² + jardin suspendu 350m² au dernier étage de La Défense. Vue panoramique sur Paris et la Tour Eiffel. À partir de 1 499€ HT." />
@@ -227,6 +270,7 @@ export default function PenthouseOsmoz() {
         <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(penthouseBreadcrumbFaqLd)}</script>
       </Helmet>
 
       {/* ── 1. HERO ── */}

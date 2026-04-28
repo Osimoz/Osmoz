@@ -168,23 +168,54 @@ export default function HomeV2() {
     makesOffer: [
       { '@type': 'Offer', name: 'Le Loft OSMOZ', description: 'Espace privatif 110m², Place des Vosges, Paris 3e. Jusqu\'à 25 personnes.', url: 'https://osmoz.work/spaces/loft-osmoz' },
       { '@type': 'Offer', name: 'Le Duplex Haussmannien OSMOZ', description: 'Appartement haussmannien 300m², Paris 2e. Jusqu\'à 40 personnes.', url: 'https://osmoz.work/spaces/duplex-osmoz' },
-      { '@type': 'Offer', name: 'Le Penthouse OSMOZ', description: 'Penthouse 150m² + jardin 350m², La Défense. Jusqu\'à 50 personnes.', url: 'https://osmoz.work/spaces/penthouse-osmoz' },
+      { '@type': 'Offer', name: 'Le Penthouse OSMOZ', description: 'Penthouse 150m² + jardin 350m², La Défense. Jusqu\'à 40 personnes.', url: 'https://osmoz.work/spaces/penthouse-osmoz' },
+    ],
+  };
+
+  const homeFaqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Qu'est-ce qu'OSMOZ ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "OSMOZ est une société parisienne spécialisée dans la location d'espaces privatifs authentiques exclusivement pour les entreprises. Nous proposons trois lieux à Paris et La Défense : Le Loft au Marais (110m², 25 personnes), Le Duplex Haussmannien Paris 2e (300m², 40 personnes) et Le Penthouse La Défense (150m² + rooftop 350m², 40 personnes).",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'OSMOZ est-il ouvert aux particuliers ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Non, OSMOZ loue ses espaces exclusivement aux entreprises. Nos lieux accueillent des séminaires, réunions de direction, workshops, cocktails et journées d'équipe.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Comment réserver un espace OSMOZ ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Envoyez-nous votre demande via le formulaire de contact sur osmoz.work. Nous revenons vers vous sous 24h avec les disponibilités et un devis personnalisé.',
+        },
+      },
     ],
   };
 
   return (
     <>
       <Helmet>
-        <title>OSMOZ — Location d'espaces atypiques à Paris | Séminaires, Réunions, Workshops</title>
+        <title>OSMOZ — Espaces Privatifs Authentiques à Paris | Séminaires, Réunions & Événements Corporate</title>
         <meta
           name="description"
-          content="Privatisez un espace atypique à Paris pour vos réunions, séminaires et workshops. Le Loft (Marais), Le Duplex (Paris 2e), Le Penthouse (La Défense). Exclusivement pour les entreprises."
+          content="OSMOZ propose 3 espaces privatifs authentiques à Paris pour vos réunions, séminaires et événements d'entreprise. Le Loft au Marais, Le Duplex Paris 2e, Le Penthouse La Défense. Exclusivement pour les entreprises. Devis sous 24h."
         />
         <link rel="canonical" href="https://osmoz.work/" />
-        <meta property="og:title" content="OSMOZ — Location d'espaces atypiques à Paris" />
+        <meta property="og:title" content="OSMOZ — Location d'espaces authentiques à Paris" />
         <meta
           property="og:description"
-          content="Privatisez un espace atypique à Paris pour vos réunions, séminaires et workshops. Exclusivement pour les entreprises."
+          content="Privatisez un espace authentique à Paris pour vos réunions, séminaires et workshops. Exclusivement pour les entreprises."
         />
         <meta
           property="og:image"
@@ -194,6 +225,7 @@ export default function HomeV2() {
         <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(homeFaqLd)}</script>
       </Helmet>
 
       {/* ── 1. HERO ── */}

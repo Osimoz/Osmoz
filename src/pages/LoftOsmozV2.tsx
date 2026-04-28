@@ -187,20 +187,64 @@ export default function LoftOsmozV2() {
     smokingAllowed: false,
   };
 
+  const loftBreadcrumbFaqLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz.work/' },
+          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz.work/spaces' },
+          { '@type': 'ListItem', position: 3, name: 'Le Loft', item: 'https://osmoz.work/spaces/loft-osmoz' },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Combien de personnes peut accueillir Le Loft OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Le Loft OSMOZ accueille jusqu'à 25 personnes. L'espace fait 110m² et est entièrement privatisé pour votre événement — vous êtes seuls.",
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Où se trouve Le Loft OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Le Loft OSMOZ est situé au 10 rue Roger Verlomme, Paris 3e, à deux pas de la Place des Vosges dans le Marais.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Quel est le tarif de location du Loft OSMOZ ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Le Loft OSMOZ est disponible à partir de 750€ HT pour une demi-journée et 1200€ HT pour une journée complète. Devis personnalisé sous 24h.',
+            },
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="pt-0">
       {/* ── SEO ── */}
       <Helmet>
-        <title>Loft Osmoz — Location espace atypique Marais Paris 3e</title>
-        <meta name="description" content="Louez le Loft Osmoz, 110m² au cœur du Marais près de la Place des Vosges. Idéal pour réunions, séminaires, workshops et shootings. Cuisine équipée, verrière, ambiance unique." />
+        <title>Le Loft OSMOZ — Espace Privatif Authentique Paris Marais | 110m² · 25 personnes</title>
+        <meta name="description" content="Le Loft OSMOZ dans le Marais : 110m² de verrière lumineuse à deux pas de la Place des Vosges. Un lieu privatif authentique pour vos séminaires, workshops et déjeuners d'affaires. Jusqu'à 25 personnes. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/spaces/loft-osmoz" />
-        <meta property="og:title" content="Loft Osmoz — Espace atypique Marais Paris 3e" />
+        <meta property="og:title" content="Loft Osmoz — Espace authentique Marais Paris 3e" />
         <meta property="og:description" content="110m² au cœur du Marais, verrière, cuisine équipée, modulable. À partir de 649€." />
         <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:url" content="https://osmoz.work/spaces/loft-osmoz" />
         <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(loftBreadcrumbFaqLd)}</script>
       </Helmet>
 
       {/* ── 1. HERO ── */}
