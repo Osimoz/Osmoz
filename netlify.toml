@@ -29,6 +29,12 @@
   force = true
 
 [[redirects]]
+  from = "/legal/terms"
+  to = "/mentions-legales"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/spaces/patio-osmoz"
   to = "/spaces"
   status = 301
