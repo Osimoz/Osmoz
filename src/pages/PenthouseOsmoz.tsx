@@ -11,6 +11,7 @@ import ImageGallery from '../components/ImageGallery';
 const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
 const P = 'images/Penthouse/';
+const PW = 'images/Penthouse/webp/';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -65,20 +66,20 @@ const configurations = [
     label: 'Cocktail / Lounge',
     capacity: 40,
     description: 'Séjour ouvert sur le jardin suspendu. Ambiance unique perchée au-dessus de Paris.',
-    image: u(`${P}2 - Salon.jpg`),
+    image: u(`${PW}penthouse-cocktail.webp`),
   },
   {
     label: 'Jardin suspendu',
     capacity: 40,
     description: '350 m² de gazon privatif au dernier étage. Vue panoramique sur Paris, la Tour Eiffel et La Défense.',
-    image: u(`${P}7 - AI Modified Jardin.jpg`),
+    image: u(`${PW}penthouse-jardin.webp`),
   },
 ];
 
 const galleryItems = [
   { url: u(`${P}1 - AI Modified View.jpg`),   label: 'Vue panoramique',  alt: 'Vue panoramique Paris depuis le Penthouse Osmoz La Défense' },
   { url: u(`${P}4 - Salle de Reunion.jpg`),   label: 'Salle de réunion', alt: 'Salle de réunion confidentielle Penthouse Osmoz – table en cuir vue Paris' },
-  { url: u(`${P}3 - AI modified Jardin.jpg`), label: 'Jardin suspendu',  alt: 'Jardin suspendu 350m² Penthouse Osmoz La Défense' },
+  { url: u(`${PW}penthouse-jardin.webp`),      label: 'Jardin suspendu',  alt: 'Jardin suspendu 350m² Penthouse Osmoz La Défense' },
   { url: u(`${P}5 - Salon.jpg`),              label: 'Séjour 70\'s',     alt: 'Séjour 70\'s Penthouse Osmoz – ambiance vintage lumineuse' },
   { url: u(`${P}2 - Salon.jpg`),              label: 'Salon',            alt: 'Salon Penthouse Osmoz – vue sur Paris' },
   { url: u(`${P}7 - AI Modified Jardin.jpg`), label: 'Jardin – vue 2',   alt: 'Jardin suspendu Penthouse Osmoz – vue 2' },
@@ -89,7 +90,7 @@ const galleryItems = [
 const allImages = [
   { url: u(`${P}1 - AI Modified View.jpg`),   alt: 'Vue panoramique Paris – Penthouse Osmoz La Défense' },
   { url: u(`${P}2 - Salon.jpg`),              alt: 'Salon principal Penthouse Osmoz' },
-  { url: u(`${P}3 - AI modified Jardin.jpg`), alt: 'Jardin suspendu Penthouse Osmoz – vue aérienne' },
+  { url: u(`${PW}penthouse-jardin.webp`),      alt: 'Jardin suspendu Penthouse Osmoz' },
   { url: u(`${P}4 - Salle de Reunion.jpg`),   alt: 'Salle de réunion Penthouse Osmoz – table cuir noir' },
   { url: u(`${P}5 - Salon.jpg`),              alt: 'Séjour Penthouse Osmoz – esthétique 70\'s' },
   { url: u(`${P}6 - Escalier .jpg`),          alt: 'Escalier Penthouse Osmoz' },
@@ -276,7 +277,7 @@ export default function PenthouseOsmoz() {
       {/* ── 1. HERO ── */}
       <section className="relative h-[90vh] w-full overflow-hidden">
         <img
-          src={u(`${P}2 - Salon.jpg`)}
+          src={u(`${PW}penthouse-hero.webp`)}
           alt="Penthouse Osmoz – salon vue panoramique sur Paris, La Défense"
           fetchPriority="high"
           loading="eager"
@@ -378,7 +379,7 @@ export default function PenthouseOsmoz() {
                   Au dernier étage d'une tour de La Défense, perché au-dessus de Paris.
                 </p>
                 <p className="text-sm font-light leading-loose text-gray-600 mb-6">
-                  Un penthouse confidentiel de 150 m², entièrement privatisé, avec jardin suspendu de 350 m² et vue panoramique sur tout Paris. Lieu rare et inattendu — esthétique 70's, espaces baignés de lumière, salle de réunion confidentielle et jardin ouvert sur le ciel. L'ensemble compose un cadre pensé pour alterner temps de travail et moments plus informels, dans une atmosphère unique.
+                  Un penthouse confidentiel de 150 m², entièrement privatisé, avec jardin suspendu de 350 m² et vue panoramique sur tout Paris. Lieu rare et inattendu, esthétique 70's, espaces baignés de lumière, salle de réunion confidentielle et jardin ouvert sur le ciel. L'ensemble compose un cadre pensé pour alterner temps de travail et moments plus informels, dans une atmosphère unique.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['Réunion', 'Séminaire', 'Workshop', 'Cocktail', 'Vue panoramique', 'Outdoor'].map((tag) => (
