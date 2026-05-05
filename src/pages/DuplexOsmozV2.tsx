@@ -267,15 +267,17 @@ export default function DuplexOsmozV2() {
 
       {/* ── SEO ── */}
       <Helmet>
-        <title>Le Duplex OSMOZ — Appartement Haussmannien Privatif Paris 2e | 300m² · 40 personnes</title>
-        <meta name="description" content="Le Duplex Haussmannien OSMOZ Paris 2e : 300m² sur deux étages dans un appartement authentique au cœur de Paris. Réunions, séminaires, cocktails. Jusqu'à 40 personnes. Devis sous 24h." />
+        <title>Le Duplex OSMOZ — Paris 2e | 300m² · 40 personnes</title>
+        <meta name="description" content="Le Duplex Haussmannien OSMOZ Paris 2e : 300m² sur deux étages, jusqu'à 40 personnes. Privatisation entreprises. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/spaces/duplex-osmoz" />
-        <meta property="og:title" content="Duplex Haussmannien Osmoz — Espace premium Paris 2e" />
-        <meta property="og:description" content="300m² haussmanniens sur 2 niveaux. Moulures, escalier sculptural, cuisine équipée. Jusqu'à 40 personnes. À partir de 1 499€ HT." />
-        <meta property="og:image" content="https://osmoz.work/images/Duplex%20Haussmannien/duplex-salon-01.webp" />
-        <meta property="og:url" content="https://osmoz.work/spaces/duplex-osmoz" />
-        <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/spaces/duplex-osmoz" />
+        <meta property="og:title" content="Le Duplex OSMOZ — Paris 2e | 300m² · 40 personnes" />
+        <meta property="og:description" content="Le Duplex Haussmannien OSMOZ Paris 2e : 300m² sur deux étages, jusqu'à 40 personnes. Privatisation entreprises. Devis sous 24h." />
+        <meta property="og:image" content="https://osmoz.work/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(duplexBreadcrumbFaqLd)}</script>
         <link rel="preload" as="image" href={u(`${D}duplex-salon-01.webp`)} />

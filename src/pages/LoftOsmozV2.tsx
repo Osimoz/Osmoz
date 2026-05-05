@@ -234,15 +234,17 @@ export default function LoftOsmozV2() {
     <div className="pt-0">
       {/* ── SEO ── */}
       <Helmet>
-        <title>Le Loft OSMOZ — Espace Privatif Authentique Paris Marais | 110m² · 25 personnes</title>
-        <meta name="description" content="Le Loft OSMOZ dans le Marais : 110m² de verrière lumineuse à deux pas de la Place des Vosges. Un lieu privatif authentique pour vos séminaires, workshops et déjeuners d'affaires. Jusqu'à 25 personnes. Devis sous 24h." />
+        <title>Le Loft OSMOZ — Paris Marais | 110m² · 25 personnes</title>
+        <meta name="description" content="Le Loft OSMOZ dans le Marais : 110m² de verrière lumineuse, jusqu'à 25 personnes. Privatisation entreprises. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/spaces/loft-osmoz" />
-        <meta property="og:title" content="Loft Osmoz — Espace authentique Marais Paris 3e" />
-        <meta property="og:description" content="110m² au cœur du Marais, verrière, cuisine équipée, modulable. À partir de 649€." />
-        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
-        <meta property="og:url" content="https://osmoz.work/spaces/loft-osmoz" />
-        <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/spaces/loft-osmoz" />
+        <meta property="og:title" content="Le Loft OSMOZ — Paris Marais | 110m² · 25 personnes" />
+        <meta property="og:description" content="Le Loft OSMOZ dans le Marais : 110m² de verrière lumineuse, jusqu'à 25 personnes. Privatisation entreprises. Devis sous 24h." />
+        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(loftBreadcrumbFaqLd)}</script>
       </Helmet>

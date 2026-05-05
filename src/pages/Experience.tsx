@@ -312,12 +312,16 @@ export default function Experience() {
     <>
       <Helmet>
         <title>Expérience — OSMOZ | Cuisine & moments culinaires à Paris</title>
-        <meta
-          name="description"
-          content="L'expérience culinaire OSMOZ : cuisine sur place par Fleur, petit déjeuner, déjeuner, pause gourmande et dîner. Des prestations pensées pour vos équipes à Paris."
-        />
+        <meta name="description" content="L'expérience culinaire OSMOZ : Cheffe privée Fleur, traiteurs partenaires, animations team-building pour vos journées à Paris." />
         <link rel="canonical" href="https://osmoz.work/experience" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/experience" />
+        <meta property="og:title" content="Expérience — OSMOZ | Cuisine & moments culinaires à Paris" />
+        <meta property="og:description" content="L'expérience culinaire OSMOZ : Cheffe privée Fleur, traiteurs partenaires, animations team-building pour vos journées à Paris." />
+        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
       </Helmet>
 
       {/* ── 1. HERO ── */}

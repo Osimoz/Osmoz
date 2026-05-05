@@ -261,15 +261,17 @@ export default function PenthouseOsmoz() {
     <div className="pt-0">
       {/* ── SEO ── */}
       <Helmet>
-        <title>Le Penthouse OSMOZ — Rooftop Privatif 350m² Vue Paris La Défense | 40 personnes</title>
-        <meta name="description" content="Le Penthouse OSMOZ à La Défense : 150m² intérieur + rooftop suspendu 350m² avec vue panoramique sur Paris et la Tour Eiffel. Un lieu rare et authentique pour vos séminaires, cocktails et réunions confidentielles. Jusqu'à 40 personnes. Devis sous 24h." />
+        <title>Le Penthouse OSMOZ — Rooftop 350m² | La Défense</title>
+        <meta name="description" content="Le Penthouse OSMOZ La Défense : 150m² + rooftop 350m² vue panoramique Paris. Jusqu'à 40 personnes. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/spaces/penthouse-osmoz" />
-        <meta property="og:title" content="Penthouse Osmoz — Espace vue panoramique Paris La Défense" />
-        <meta property="og:description" content="150m² + jardin suspendu 350m² au dernier étage de La Défense. Vue panoramique sur Paris et la Tour Eiffel. À partir de 1 499€ HT." />
-        <meta property="og:image" content="https://osmoz.work/images/Penthouse/2%20-%20Salon.jpg" />
-        <meta property="og:url" content="https://osmoz.work/spaces/penthouse-osmoz" />
-        <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/spaces/penthouse-osmoz" />
+        <meta property="og:title" content="Le Penthouse OSMOZ — Rooftop 350m² | La Défense" />
+        <meta property="og:description" content="Le Penthouse OSMOZ La Défense : 150m² + rooftop 350m² vue panoramique Paris. Jusqu'à 40 personnes. Devis sous 24h." />
+        <meta property="og:image" content="https://osmoz.work/images/Penthouse/2%20-%20Salon.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(penthouseBreadcrumbFaqLd)}</script>
       </Helmet>

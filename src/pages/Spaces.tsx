@@ -84,10 +84,17 @@ export default function Spaces() {
   return (
     <>
       <Helmet>
-        <title>Nos Espaces — Location d'Espaces Authentiques Paris | OSMOZ</title>
-        <meta name="description" content="Trois espaces privatifs authentiques à Paris pour vos événements d'entreprise. Le Loft au Marais, Le Duplex Paris 2e, Le Penthouse La Défense. De 5 à 40 personnes. Privatisation exclusive. Devis sous 24h." />
+        <title>Nos Espaces — Location Authentique Paris | OSMOZ</title>
+        <meta name="description" content="Le Loft (Marais), Le Duplex (Paris 2e), Le Penthouse (La Défense). 3 espaces authentiques. De 5 à 40 personnes. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/spaces" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/spaces" />
+        <meta property="og:title" content="Nos Espaces — Location Authentique Paris | OSMOZ" />
+        <meta property="og:description" content="Le Loft (Marais), Le Duplex (Paris 2e), Le Penthouse (La Défense). 3 espaces authentiques. De 5 à 40 personnes. Devis sous 24h." />
+        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(spacesBreadcrumbLd)}</script>
       </Helmet>
 

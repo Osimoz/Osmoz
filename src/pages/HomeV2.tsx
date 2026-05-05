@@ -206,24 +206,17 @@ export default function HomeV2() {
   return (
     <>
       <Helmet>
-        <title>OSMOZ — Espaces Privatifs Authentiques à Paris | Séminaires, Réunions & Événements Corporate</title>
-        <meta
-          name="description"
-          content="OSMOZ propose 3 espaces privatifs authentiques à Paris pour vos réunions, séminaires et événements d'entreprise. Le Loft au Marais, Le Duplex Paris 2e, Le Penthouse La Défense. Exclusivement pour les entreprises. Devis sous 24h."
-        />
+        <title>OSMOZ — Espaces Privatifs Authentiques Paris</title>
+        <meta name="description" content="OSMOZ : 3 espaces privatifs authentiques à Paris pour vos réunions, séminaires et événements d'entreprise. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz.work/" />
-        <meta property="og:title" content="OSMOZ — Location d'espaces authentiques à Paris" />
-        <meta
-          property="og:description"
-          content="Privatisez un espace authentique à Paris pour vos réunions, séminaires et workshops. Exclusivement pour les entreprises."
-        />
-        <meta
-          property="og:image"
-          content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg"
-        />
-        <meta property="og:url" content="https://osmoz.work/" />
-        <meta property="og:type" content="website" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/" />
+        <meta property="og:title" content="OSMOZ — Espaces Privatifs Authentiques Paris" />
+        <meta property="og:description" content="OSMOZ : 3 espaces privatifs authentiques à Paris pour vos réunions, séminaires et événements d'entreprise. Devis sous 24h." />
+        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(homeFaqLd)}</script>
       </Helmet>

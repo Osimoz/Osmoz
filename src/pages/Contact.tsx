@@ -61,6 +61,13 @@ export default function Contact() {
         <meta name="description" content="Une question sur nos espaces ? Contactez l'équipe Osmoz. Pour une réservation, utilisez notre formulaire dédié." />
         <link rel="canonical" href="https://osmoz.work/contact" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/contact" />
+        <meta property="og:title" content="Contact — OSMOZ | Nous écrire" />
+        <meta property="og:description" content="Une question sur nos espaces ? Contactez l'équipe Osmoz. Pour une réservation, utilisez notre formulaire dédié." />
+        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
       </Helmet>
 
       <div className="pt-32 pb-24 bg-[#fbfbf3]">

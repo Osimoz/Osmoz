@@ -142,6 +142,13 @@ export default function Reservation() {
         <meta name="description" content="Réservez votre espace Osmoz à Paris pour séminaires, réunions et événements d'entreprise. Réponse sous 24h." />
         <link rel="canonical" href="https://osmoz.work/reservation" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/reservation" />
+        <meta property="og:title" content="Réserver — OSMOZ | Paris" />
+        <meta property="og:description" content="Réservez votre espace Osmoz à Paris pour séminaires, réunions et événements d'entreprise. Réponse sous 24h." />
+        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
       </Helmet>
 
       {/* Mobile sticky CTA */}

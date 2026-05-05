@@ -174,10 +174,17 @@ export default function QuestionsFrequentes() {
   return (
     <>
       <Helmet>
-        <title>FAQ — OSMOZ | Questions fréquentes sur la location d'espaces à Paris</title>
-        <meta name="description" content="Toutes vos questions sur la location d'espaces Osmoz à Paris : événements, tarifs, restauration, équipements, RSE. Réponses claires et transparentes." />
+        <title>FAQ — OSMOZ | Questions fréquentes sur nos espaces</title>
+        <meta name="description" content="Toutes vos questions sur la location d'espaces OSMOZ à Paris : événements, tarifs, restauration, équipements, RSE." />
         <link rel="canonical" href="https://osmoz.work/questions-frequentes" />
         <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://osmoz.work/questions-frequentes" />
+        <meta property="og:title" content="FAQ — OSMOZ | Questions fréquentes sur nos espaces" />
+        <meta property="og:description" content="Toutes vos questions sur la location d'espaces OSMOZ à Paris : événements, tarifs, restauration, équipements, RSE." />
+        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
