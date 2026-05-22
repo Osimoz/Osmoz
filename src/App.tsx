@@ -17,6 +17,7 @@ import MentionsLegales from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import RSE from './pages/RSE';
 import Experience from './pages/Experience';
+import Articles from './pages/Articles';
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/questions-frequentes" element={<QuestionsFrequentes />} />
             <Route path="/experience" element={<Experience />} />
+            <Route path="/articles" element={<Articles />} />
             <Route path="/rse" element={<RSE />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
