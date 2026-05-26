@@ -39,7 +39,7 @@ export default function Contact() {
         company: '',
         subject: 'Message via page Contact',
         message: form.message,
-        to_email: 'contact@osmoz.work',
+        to_email: 'contact@osmoz-space.com',
       });
       if (newsletterOptIn) {
         subscribeToNewsletter(form.email).catch(err => console.error('Erreur inscription newsletter:', err));
@@ -205,9 +205,9 @@ export default function Contact() {
               <div>
                 <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-6">Nos coordonnées</p>
                 <div className="space-y-5">
-                  <a href="mailto:contact@osmoz.work" className="flex items-center gap-4 text-[#01142a] hover:text-[#862637] transition-colors">
+                  <a href="mailto:contact@osmoz-space.com" className="flex items-center gap-4 text-[#01142a] hover:text-[#862637] transition-colors">
                     <Mail className="h-5 w-5 flex-shrink-0" />
-                    <span className="font-light text-sm">contact@osmoz.work</span>
+                    <span className="font-light text-sm">contact@osmoz-space.com</span>
                   </a>
                   <a href="tel:+33675186932" className="flex items-center gap-4 text-[#01142a] hover:text-[#862637] transition-colors">
                     <Phone className="h-5 w-5 flex-shrink-0" />

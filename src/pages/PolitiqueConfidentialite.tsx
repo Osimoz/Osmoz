@@ -60,8 +60,8 @@ export default function PolitiqueConfidentialite() {
                 <p className="text-base font-light text-gray-600">SIREN : 930 149 273, RCS Paris</p>
                 <p className="text-base font-light text-gray-600">
                   Email :{' '}
-                  <a href="mailto:contact@osmoz.work" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                    contact@osmoz.work
+                  <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
+                    contact@osmoz-space.com
                   </a>
                 </p>
               </div>
@@ -183,8 +183,8 @@ export default function PolitiqueConfidentialite() {
               </div>
               <p className="text-base font-light text-gray-600 leading-relaxed mt-5 mb-4">
                 Pour exercer l'un de ces droits, adressez votre demande par email à :{' '}
-                <a href="mailto:contact@osmoz.work" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                  contact@osmoz.work
+                <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
+                  contact@osmoz-space.com
                 </a>
                 . Nous nous engageons à vous répondre dans un délai d'un (1) mois à compter de la réception de votre demande.
               </p>
@@ -256,8 +256,8 @@ export default function PolitiqueConfidentialite() {
                 <p className="text-base font-light text-gray-600">OSMOZ, 19 avenue Rapp, 75007 Paris</p>
                 <p className="text-base font-light text-gray-600">
                   Email :{' '}
-                  <a href="mailto:contact@osmoz.work" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                    contact@osmoz.work
+                  <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
+                    contact@osmoz-space.com
                   </a>
                 </p>
               </div>

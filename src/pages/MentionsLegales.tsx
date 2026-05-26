@@ -58,8 +58,8 @@ export default function MentionsLegales() {
                 <p className="text-base font-light text-gray-600">Président : Edouard Courtois dit Duverger</p>
                 <p className="text-base font-light text-gray-600">
                   Email :{' '}
-                  <a href="mailto:contact@osmoz.work" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                    contact@osmoz.work
+                  <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
+                    contact@osmoz-space.com
                   </a>
                 </p>
               </div>
@@ -107,8 +107,8 @@ export default function MentionsLegales() {
               </p>
               <p className="text-base font-light text-gray-600 leading-relaxed mb-4">
                 Pour exercer ces droits ou pour toute question relative au traitement de vos données, vous pouvez contacter OSMOZ à l'adresse suivante :{' '}
-                <a href="mailto:contact@osmoz.work" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                  contact@osmoz.work
+                <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
+                  contact@osmoz-space.com
                 </a>
               </p>
               <p className="text-base font-light text-gray-600 leading-relaxed">
@@ -162,8 +162,8 @@ export default function MentionsLegales() {
                 <p className="text-base font-light text-gray-600">OSMOZ, 19 avenue Rapp, 75007 Paris</p>
                 <p className="text-base font-light text-gray-600">
                   Email :{' '}
-                  <a href="mailto:contact@osmoz.work" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                    contact@osmoz.work
+                  <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
+                    contact@osmoz-space.com
                   </a>
                 </p>
               </div>

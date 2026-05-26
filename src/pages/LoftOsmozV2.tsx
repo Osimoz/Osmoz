@@ -177,7 +177,7 @@ export default function LoftOsmozV2() {
       { '@type': 'Offer', name: 'Journée complète', price: '999', priceCurrency: 'EUR', description: 'Privatisation journée complète — 08h30-18h30' },
     ],
     telephone: '+33675186932',
-    email: 'contact@osmoz.work',
+    email: 'contact@osmoz-space.com',
     openingHours: 'Mo-Fr 08:00-22:00',
     priceRange: '€€€',
     currenciesAccepted: 'EUR',

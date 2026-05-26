@@ -100,7 +100,7 @@ export default function Reservation() {
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
-      setSubmitErr("Erreur d'envoi. Écrivez-nous à contact@osmoz.work");
+      setSubmitErr("Erreur d'envoi. Écrivez-nous à contact@osmoz-space.com");
     } finally { setSubmitting(false); }
   };
 

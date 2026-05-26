@@ -204,7 +204,7 @@ export default function PenthouseOsmoz() {
       { '@type': 'Offer', name: 'Journée + soirée', price: '2999', priceCurrency: 'EUR', description: 'Privatisation journée complète + soirée — 08h30-22h' },
     ],
     telephone: '+33675186932',
-    email: 'contact@osmoz.work',
+    email: 'contact@osmoz-space.com',
     openingHours: 'Mo-Fr 08:00-22:00',
     priceRange: '€€€',
     currenciesAccepted: 'EUR',

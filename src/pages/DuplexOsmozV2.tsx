@@ -209,7 +209,7 @@ export default function DuplexOsmozV2() {
       { '@type': 'Offer', name: 'Journée — plus de 15 personnes', price: '2500', priceCurrency: 'EUR', description: 'Privatisation journée complète de 15 à 40 personnes' },
     ],
     telephone: '+33675186932',
-    email: 'contact@osmoz.work',
+    email: 'contact@osmoz-space.com',
     openingHours: 'Mo-Fr 08:00-22:00',
     priceRange: '€€€',
     currenciesAccepted: 'EUR',

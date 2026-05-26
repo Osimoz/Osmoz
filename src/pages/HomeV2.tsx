@@ -148,7 +148,7 @@ export default function HomeV2() {
     logo: 'https://osmoz-space.com/logo.png',
     image: 'https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg',
     telephone: '+33675186932',
-    email: 'contact@osmoz.work',
+    email: 'contact@osmoz-space.com',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',
