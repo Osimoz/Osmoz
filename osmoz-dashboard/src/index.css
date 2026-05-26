@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    font-feature-settings: 'ss01', 'ss02';
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-bordeaux;
+    letter-spacing: -0.01em;
+  }
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-card border border-border;
+  }
+  .pill {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium transition-colors;
+  }
+  .pill-active {
+    @apply bg-navy text-white;
+  }
+  .pill-inactive {
+    @apply bg-white text-muted hover:text-ink border border-border;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors;
+  }
+  .btn-primary {
+    @apply bg-bordeaux text-white hover:bg-bordeauxHover;
+  }
+  .btn-ghost {
+    @apply text-muted hover:text-ink hover:bg-cream;
+  }
+  .input {
+    @apply w-full bg-white border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bordeaux/30 focus:border-bordeaux/40;
+  }
+  .label-muted {
+    @apply text-xs uppercase tracking-wider text-muted font-medium;
+  }
+}
+
+.shake {
+  animation: shake 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
