@@ -2,22 +2,16 @@
   publish = "dist"
   command = "npm run build"
 
-# ── Force HTTPS non-www ───────────────────────────────────────────────
+# ── Domain migration: osmoz.work → osmoz-space.com ───────────────────
+[[redirects]]
+  from = "https://osmoz.work/*"
+  to = "https://osmoz-space.com/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "https://www.osmoz.work/*"
-  to = "https://osmoz.work/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://osmoz.work/*"
-  to = "https://osmoz.work/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.osmoz.work/*"
-  to = "https://osmoz.work/:splat"
+  to = "https://osmoz-space.com/:splat"
   status = 301
   force = true
 

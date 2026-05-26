@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://osmoz.work',
+      hostname: 'https://osmoz-space.com',
       dynamicRoutes: [
         '/spaces',
         '/spaces/loft-osmoz',

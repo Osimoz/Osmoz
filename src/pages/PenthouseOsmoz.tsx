@@ -175,8 +175,8 @@ export default function PenthouseOsmoz() {
     '@type': 'LocalBusiness',
     name: 'Le Penthouse OSMOZ',
     description: "Penthouse de 150m² avec jardin suspendu de 350m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel, esthétique 70's, salle de réunion confidentielle. Idéal pour séminaires, cocktails, réunions de direction et événements outdoor jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",
-    url: 'https://osmoz.work/spaces/penthouse-osmoz',
-    image: 'https://osmoz.work/images/Penthouse/2%20-%20Salon.jpg',
+    url: 'https://osmoz-space.com/spaces/penthouse-osmoz',
+    image: 'https://osmoz-space.com/images/Penthouse/2%20-%20Salon.jpg',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '6-8 rue Jean Jaurès, Tour Cofonca',
@@ -220,9 +220,9 @@ export default function PenthouseOsmoz() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz.work/' },
-          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz.work/spaces' },
-          { '@type': 'ListItem', position: 3, name: 'Le Penthouse', item: 'https://osmoz.work/spaces/penthouse-osmoz' },
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz-space.com/' },
+          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz-space.com/spaces' },
+          { '@type': 'ListItem', position: 3, name: 'Le Penthouse', item: 'https://osmoz-space.com/spaces/penthouse-osmoz' },
         ],
       },
       {
@@ -263,13 +263,13 @@ export default function PenthouseOsmoz() {
       <Helmet>
         <title>Le Penthouse OSMOZ — Rooftop 350m² | La Défense</title>
         <meta name="description" content="Le Penthouse OSMOZ La Défense : 150m² + rooftop 350m² vue panoramique Paris. Jusqu'à 40 personnes. Devis sous 24h." />
-        <link rel="canonical" href="https://osmoz.work/spaces/penthouse-osmoz" />
+        <link rel="canonical" href="https://osmoz-space.com/spaces/penthouse-osmoz" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz.work/spaces/penthouse-osmoz" />
+        <meta property="og:url" content="https://osmoz-space.com/spaces/penthouse-osmoz" />
         <meta property="og:title" content="Le Penthouse OSMOZ — Rooftop 350m² | La Défense" />
         <meta property="og:description" content="Le Penthouse OSMOZ La Défense : 150m² + rooftop 350m² vue panoramique Paris. Jusqu'à 40 personnes. Devis sous 24h." />
-        <meta property="og:image" content="https://osmoz.work/images/Penthouse/2%20-%20Salon.jpg" />
+        <meta property="og:image" content="https://osmoz-space.com/images/Penthouse/2%20-%20Salon.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

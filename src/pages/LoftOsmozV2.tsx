@@ -152,8 +152,8 @@ export default function LoftOsmozV2() {
     '@type': 'LocalBusiness',
     name: 'Le Loft OSMOZ',
     description: "Espace privatif de 110m² situé à deux pas de la Place des Vosges dans le Marais. Grande verrière lumineuse, ambiance contemporaine et chaleureuse. Idéal pour séminaires, réunions de direction, workshops, déjeuners d'affaires et tournages. Privatisation exclusive à la journée pour les entreprises.",
-    url: 'https://osmoz.work/spaces/loft-osmoz',
-    image: 'https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg',
+    url: 'https://osmoz-space.com/spaces/loft-osmoz',
+    image: 'https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '10 rue Roger Verlomme',
@@ -193,9 +193,9 @@ export default function LoftOsmozV2() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz.work/' },
-          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz.work/spaces' },
-          { '@type': 'ListItem', position: 3, name: 'Le Loft', item: 'https://osmoz.work/spaces/loft-osmoz' },
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz-space.com/' },
+          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz-space.com/spaces' },
+          { '@type': 'ListItem', position: 3, name: 'Le Loft', item: 'https://osmoz-space.com/spaces/loft-osmoz' },
         ],
       },
       {
@@ -236,13 +236,13 @@ export default function LoftOsmozV2() {
       <Helmet>
         <title>Le Loft OSMOZ — Paris Marais | 110m² · 25 personnes</title>
         <meta name="description" content="Le Loft OSMOZ dans le Marais : 110m² de verrière lumineuse, jusqu'à 25 personnes. Privatisation entreprises. Devis sous 24h." />
-        <link rel="canonical" href="https://osmoz.work/spaces/loft-osmoz" />
+        <link rel="canonical" href="https://osmoz-space.com/spaces/loft-osmoz" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz.work/spaces/loft-osmoz" />
+        <meta property="og:url" content="https://osmoz-space.com/spaces/loft-osmoz" />
         <meta property="og:title" content="Le Loft OSMOZ — Paris Marais | 110m² · 25 personnes" />
         <meta property="og:description" content="Le Loft OSMOZ dans le Marais : 110m² de verrière lumineuse, jusqu'à 25 personnes. Privatisation entreprises. Devis sous 24h." />
-        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

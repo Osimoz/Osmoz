@@ -59,7 +59,7 @@ export default function Articles() {
           name="description"
           content="Découvrez nos articles OSMOZ : insights sur les leviers des événements réussis, l'importance du contexte en formation, et le ROI des séminaires."
         />
-        <link rel="canonical" href="https://osmoz.work/articles" />
+        <link rel="canonical" href="https://osmoz-space.com/articles" />
         <meta name="robots" content="index, follow" />
       </Helmet>
 

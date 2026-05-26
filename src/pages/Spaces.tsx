@@ -48,8 +48,8 @@ export default function Spaces() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz.work/' },
-          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz.work/spaces' },
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz-space.com/' },
+          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz-space.com/spaces' },
         ],
       },
       {
@@ -62,19 +62,19 @@ export default function Spaces() {
             '@type': 'ListItem',
             position: 1,
             name: 'Le Loft OSMOZ — Marais Paris 3e',
-            url: 'https://osmoz.work/spaces/loft-osmoz',
+            url: 'https://osmoz-space.com/spaces/loft-osmoz',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Le Duplex Haussmannien OSMOZ — Paris 2e',
-            url: 'https://osmoz.work/spaces/duplex-osmoz',
+            url: 'https://osmoz-space.com/spaces/duplex-osmoz',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Le Penthouse OSMOZ — La Défense Puteaux',
-            url: 'https://osmoz.work/spaces/penthouse-osmoz',
+            url: 'https://osmoz-space.com/spaces/penthouse-osmoz',
           },
         ],
       },
@@ -86,13 +86,13 @@ export default function Spaces() {
       <Helmet>
         <title>Nos Espaces — Location Authentique Paris | OSMOZ</title>
         <meta name="description" content="Le Loft (Marais), Le Duplex (Paris 2e), Le Penthouse (La Défense). 3 espaces authentiques. De 5 à 40 personnes. Devis sous 24h." />
-        <link rel="canonical" href="https://osmoz.work/spaces" />
+        <link rel="canonical" href="https://osmoz-space.com/spaces" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz.work/spaces" />
+        <meta property="og:url" content="https://osmoz-space.com/spaces" />
         <meta property="og:title" content="Nos Espaces — Location Authentique Paris | OSMOZ" />
         <meta property="og:description" content="Le Loft (Marais), Le Duplex (Paris 2e), Le Penthouse (La Défense). 3 espaces authentiques. De 5 à 40 personnes. Devis sous 24h." />
-        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(spacesBreadcrumbLd)}</script>

@@ -144,9 +144,9 @@ export default function HomeV2() {
     '@type': 'LocalBusiness',
     name: 'OSMOZ',
     description: "OSMOZ propose trois espaces privatisables authentiques et chaleureux à Paris et La Défense pour les entreprises. Séminaires, réunions de direction, workshops, cocktails et tournages. Le Loft (Marais, 110m²), Le Duplex Haussmannien (Paris 2e, 300m²), Le Penthouse (La Défense, 150m² + jardin 350m²).",
-    url: 'https://osmoz.work',
-    logo: 'https://osmoz.work/logo.png',
-    image: 'https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg',
+    url: 'https://osmoz-space.com',
+    logo: 'https://osmoz-space.com/logo.png',
+    image: 'https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg',
     telephone: '+33675186932',
     email: 'contact@osmoz.work',
     address: {
@@ -166,9 +166,9 @@ export default function HomeV2() {
       'https://www.linkedin.com/company/osmoz',
     ],
     makesOffer: [
-      { '@type': 'Offer', name: 'Le Loft OSMOZ', description: 'Espace privatif 110m², Place des Vosges, Paris 3e. Jusqu\'à 25 personnes.', url: 'https://osmoz.work/spaces/loft-osmoz' },
-      { '@type': 'Offer', name: 'Le Duplex Haussmannien OSMOZ', description: 'Appartement haussmannien 300m², Paris 2e. Jusqu\'à 40 personnes.', url: 'https://osmoz.work/spaces/duplex-osmoz' },
-      { '@type': 'Offer', name: 'Le Penthouse OSMOZ', description: 'Penthouse 150m² + jardin 350m², La Défense. Jusqu\'à 40 personnes.', url: 'https://osmoz.work/spaces/penthouse-osmoz' },
+      { '@type': 'Offer', name: 'Le Loft OSMOZ', description: 'Espace privatif 110m², Place des Vosges, Paris 3e. Jusqu\'à 25 personnes.', url: 'https://osmoz-space.com/spaces/loft-osmoz' },
+      { '@type': 'Offer', name: 'Le Duplex Haussmannien OSMOZ', description: 'Appartement haussmannien 300m², Paris 2e. Jusqu\'à 40 personnes.', url: 'https://osmoz-space.com/spaces/duplex-osmoz' },
+      { '@type': 'Offer', name: 'Le Penthouse OSMOZ', description: 'Penthouse 150m² + jardin 350m², La Défense. Jusqu\'à 40 personnes.', url: 'https://osmoz-space.com/spaces/penthouse-osmoz' },
     ],
   };
 
@@ -208,13 +208,13 @@ export default function HomeV2() {
       <Helmet>
         <title>OSMOZ — Espaces Privatifs Authentiques Paris</title>
         <meta name="description" content="OSMOZ : 3 espaces privatifs authentiques à Paris pour vos réunions, séminaires et événements d'entreprise. Devis sous 24h." />
-        <link rel="canonical" href="https://osmoz.work/" />
+        <link rel="canonical" href="https://osmoz-space.com/" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz.work/" />
+        <meta property="og:url" content="https://osmoz-space.com/" />
         <meta property="og:title" content="OSMOZ — Espaces Privatifs Authentiques Paris" />
         <meta property="og:description" content="OSMOZ : 3 espaces privatifs authentiques à Paris pour vos réunions, séminaires et événements d'entreprise. Devis sous 24h." />
-        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

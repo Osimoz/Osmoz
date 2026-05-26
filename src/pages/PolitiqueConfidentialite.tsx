@@ -7,13 +7,13 @@ export default function PolitiqueConfidentialite() {
       <Helmet>
         <title>Politique de Confidentialité | OSMOZ</title>
         <meta name="description" content="Politique de confidentialité d'OSMOZ : collecte, utilisation et protection de vos données personnelles conformément au RGPD." />
-        <link rel="canonical" href="https://osmoz.work/politique-de-confidentialite" />
+        <link rel="canonical" href="https://osmoz-space.com/politique-de-confidentialite" />
         <meta name="robots" content="noindex, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz.work/politique-de-confidentialite" />
+        <meta property="og:url" content="https://osmoz-space.com/politique-de-confidentialite" />
         <meta property="og:title" content="Politique de Confidentialité | OSMOZ" />
         <meta property="og:description" content="Politique de confidentialité d'OSMOZ : collecte, utilisation et protection de vos données personnelles conformément au RGPD." />
-        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
       </Helmet>

@@ -124,13 +124,13 @@ export default function RSE() {
       <Helmet>
         <title>Démarche RSE — OSMOZ | Événementiel responsable à Paris</title>
         <meta name="description" content="La démarche RSE d'OSMOZ : zéro déchet, cuisine locale, réhabilitation, mobilité douce. Événementiel responsable à Paris." />
-        <link rel="canonical" href="https://osmoz.work/rse" />
+        <link rel="canonical" href="https://osmoz-space.com/rse" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz.work/rse" />
+        <meta property="og:url" content="https://osmoz-space.com/rse" />
         <meta property="og:title" content="Démarche RSE — OSMOZ | Événementiel responsable à Paris" />
         <meta property="og:description" content="La démarche RSE d'OSMOZ : zéro déchet, cuisine locale, réhabilitation, mobilité douce. Événementiel responsable à Paris." />
-        <meta property="og:image" content="https://osmoz.work/images/Loft/2%20Salon%20pleiniere%202.jpg" />
+        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
       </Helmet>

@@ -183,8 +183,8 @@ export default function DuplexOsmozV2() {
     '@type': 'LocalBusiness',
     name: 'Le Duplex Haussmannien OSMOZ',
     description: "Appartement haussmannien de 300m² sur deux étages au cœur du 2e arrondissement de Paris. Esprit résidentiel chic, escalier en ferronnerie, parquet ancien. Idéal pour séminaires, conférences, cocktails, dîners de direction et journées d'équipe jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",
-    url: 'https://osmoz.work/spaces/duplex-osmoz',
-    image: 'https://osmoz.work/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg',
+    url: 'https://osmoz-space.com/spaces/duplex-osmoz',
+    image: 'https://osmoz-space.com/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '146 rue Montmartre',
@@ -225,9 +225,9 @@ export default function DuplexOsmozV2() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz.work/' },
-          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz.work/spaces' },
-          { '@type': 'ListItem', position: 3, name: 'Le Duplex', item: 'https://osmoz.work/spaces/duplex-osmoz' },
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz-space.com/' },
+          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz-space.com/spaces' },
+          { '@type': 'ListItem', position: 3, name: 'Le Duplex', item: 'https://osmoz-space.com/spaces/duplex-osmoz' },
         ],
       },
       {
@@ -269,13 +269,13 @@ export default function DuplexOsmozV2() {
       <Helmet>
         <title>Le Duplex OSMOZ — Paris 2e | 300m² · 40 personnes</title>
         <meta name="description" content="Le Duplex Haussmannien OSMOZ Paris 2e : 300m² sur deux étages, jusqu'à 40 personnes. Privatisation entreprises. Devis sous 24h." />
-        <link rel="canonical" href="https://osmoz.work/spaces/duplex-osmoz" />
+        <link rel="canonical" href="https://osmoz-space.com/spaces/duplex-osmoz" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz.work/spaces/duplex-osmoz" />
+        <meta property="og:url" content="https://osmoz-space.com/spaces/duplex-osmoz" />
         <meta property="og:title" content="Le Duplex OSMOZ — Paris 2e | 300m² · 40 personnes" />
         <meta property="og:description" content="Le Duplex Haussmannien OSMOZ Paris 2e : 300m² sur deux étages, jusqu'à 40 personnes. Privatisation entreprises. Devis sous 24h." />
-        <meta property="og:image" content="https://osmoz.work/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg" />
+        <meta property="og:image" content="https://osmoz-space.com/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
