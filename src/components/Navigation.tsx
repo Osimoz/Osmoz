@@ -58,7 +58,6 @@ export const Navigation = () => {
               { to: '/spaces', label: 'Espaces' },
               { to: '/experience', label: 'Expérience' },
               { to: '/articles', label: 'Articles' },
-              { to: '/contact', label: 'Contact' },
             ].map(({ to, label }) => (
               <Link
                 key={to}
@@ -110,6 +109,11 @@ export const Navigation = () => {
               </div>
             </div>
 
+            <Link to="/contact" className="relative group py-1">
+              <span className="text-[#01142a] font-normal text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">Contact</span>
+              <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+            </Link>
+
             <button
               onClick={handleReservationClick}
               className="ml-2 bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-normal rounded-lg hover:bg-[#01142a] hover:text-white transition-all duration-300 border border-transparent"
@@ -152,7 +156,6 @@ export const Navigation = () => {
             { to: '/spaces', label: 'Espaces' },
             { to: '/experience', label: 'Expérience' },
             { to: '/articles', label: 'Articles' },
-            { to: '/contact', label: 'Contact' },
           ].map(({ to, label }) => (
             <Link
               key={to}
@@ -169,6 +172,9 @@ export const Navigation = () => {
           </Link>
           <Link to="/questions-frequentes" onClick={() => setOpen(false)} className="block pl-8 pr-4 py-2.5 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
             FAQ
+          </Link>
+          <Link to="/contact" onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
+            Contact
           </Link>
           <div className="pt-2 pb-1 px-1">
             <button
