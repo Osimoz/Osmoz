@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import AProposTabs from '../components/AProposTabs';
 
 type FaqItem = {
   question: string;
@@ -188,7 +189,9 @@ export default function QuestionsFrequentes() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <div className="pt-24 pb-24 bg-[#fbfbf3]">
+      <AProposTabs />
+
+      <div className="pt-0 pb-24 bg-[#fbfbf3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
           <div className="mb-14">

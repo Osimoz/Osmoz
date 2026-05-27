@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import type { CSSProperties } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import AProposTabs from '../components/AProposTabs';
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -135,10 +136,12 @@ export default function RSE() {
         <meta property="og:site_name" content="OSMOZ" />
       </Helmet>
 
+      <AProposTabs />
+
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section
         className="min-h-screen grid grid-cols-1 lg:grid-cols-2 overflow-hidden"
-        style={{ paddingTop: '72px' }}
+        style={{ paddingTop: '0' }}
       >
         {/* Left — text */}
         <div

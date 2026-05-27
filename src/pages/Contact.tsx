@@ -3,7 +3,6 @@ import { Mail, Phone, ArrowRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { subscribeToNewsletter } from '../lib/brevo';
 
 const EMAILJS_SERVICE_ID = 'service_5dizo3p';
 const EMAILJS_TEMPLATE_ID = 'template_ttklrxv';
@@ -15,7 +14,6 @@ export default function Contact() {
   }, []);
 
   const [form, setForm] = useState({ firstName: '', lastName: '', email: '', message: '' });
-  const [newsletterOptIn, setNewsletterOptIn] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,12 +39,8 @@ export default function Contact() {
         message: form.message,
         to_email: 'contact@osmoz-space.com',
       });
-      if (newsletterOptIn) {
-        subscribeToNewsletter(form.email).catch(err => console.error('Erreur inscription newsletter:', err));
-      }
       setIsSubmitted(true);
       setForm({ firstName: '', lastName: '', email: '', message: '' });
-      setNewsletterOptIn(false);
     } catch {
       setError("Une erreur s'est produite lors de l'envoi. Veuillez réessayer.");
     } finally {
@@ -167,25 +161,7 @@ export default function Contact() {
 
                   {error && <p className="text-red-500 text-sm font-light">{error}</p>}
 
-                  {/* Newsletter opt-in */}
-                  <div className="rounded-xl border border-[#e5e5e5] bg-[#fafaf8] p-4">
-                    <label className="flex items-start gap-3 cursor-pointer group">
-                      <input
-                        type="checkbox"
-                        checked={newsletterOptIn}
-                        onChange={e => setNewsletterOptIn(e.target.checked)}
-                        className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-gray-300 text-[#862637] focus:ring-[#862637] cursor-pointer"
-                      />
-                      <div>
-                        <span className="text-sm font-normal text-[#01142a] leading-snug group-hover:text-[#862637] transition-colors">
-                          Je souhaite recevoir des idées d'événements et des offres exclusives par email
-                        </span>
-                        <p className="text-[10px] font-light text-gray-400 mt-1">
-                          1 à 2 emails par mois – désinscription en un clic
-                        </p>
-                      </div>
-                    </label>
-                  </div>
+
 
                   <button
                     type="button"

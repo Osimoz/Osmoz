@@ -25,6 +25,7 @@ export default function App() {
       <ScrollToTop />
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#fbfbf3' }}>
         <Navigation />
+
         <NewsletterPopup />
         <CookieBanner />
         <main className="flex-1">
