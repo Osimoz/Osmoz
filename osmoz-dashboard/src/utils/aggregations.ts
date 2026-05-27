@@ -1,10 +1,9 @@
-import { Deal, WON_STAGES, LOST_STAGES, PIPELINE_STAGES, LEAD_STAGES, NON_RENSEIGNE, DATA_START } from '../types';
+import { Deal, WON_STAGES, LOST_STAGES, PIPELINE_STAGES, NON_RENSEIGNE, DATA_START } from '../types';
 import { monthKey } from './formatters';
 
 export const isWon = (d: Deal) => WON_STAGES.includes(d.stage);
 export const isLost = (d: Deal) => LOST_STAGES.includes(d.stage);
 export const isPipeline = (d: Deal) => PIPELINE_STAGES.includes(d.stage);
-export const isLead = (d: Deal) => LEAD_STAGES.includes(d.stage);
 
 export const sumValue = (deals: Deal[]): number =>
   deals.reduce((s, d) => s + (d.value || 0), 0);

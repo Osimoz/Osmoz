@@ -1,5 +1,5 @@
 import { Deal, Filters } from '../../types';
-import { isWon, isLost, isLead, isPipeline, sumValue, calcWinRate, calcLostRate } from '../../utils/aggregations';
+import { isWon, isLost, isPipeline, sumValue, calcWinRate, calcLostRate } from '../../utils/aggregations';
 import { applyOwnerFilter, dateFieldForView } from '../../hooks/useFilters';
 import { formatCurrency, formatPercent } from '../../utils/formatters';
 
@@ -21,25 +21,43 @@ export function KpiSection({ deals, filters }: Props) {
     return t >= period.start.getTime() && t <= period.end.getTime();
   };
 
-  // Snapshot stages (current status) — leads + pipeline (NOT period-filtered;
-  // these represent the current state of the funnel)
-  const leads = scoped.filter(isLead);
-  const pipeline = scoped.filter(isPipeline);
+  // Pipeline (Inbound Lead + Decision Pending) :
+  // - Vue Comptable : filtré sur la période via end_booking_date
+  //   (« combien de CA reste à confirmer pour ce mois »).
+  // - Vue Commerciale : snapshot complet, sans filtre date
+  //   (« le pipe total en ce moment, peu importe la date de l'événement »).
+  const allPipeline = scoped.filter(isPipeline);
+  const pipeline =
+    filters.view === 'comptable'
+      ? allPipeline.filter((d) => {
+          const ref = d.endBookingDate;
+          if (!ref) return false;
+          if (period.mode === 'all' || !period.start || !period.end) return true;
+          const t = ref.getTime();
+          return t >= period.start.getTime() && t <= period.end.getTime();
+        })
+      : allPipeline;
 
-  // Period-based — won/lost referenced by view's date field, filtered to period
+  // Confirmés / Perdus : filtrés sur la période via le date field de la vue
   const won = scoped.filter((d) => isWon(d) && inPeriod(d));
   const lost = scoped.filter((d) => isLost(d) && inPeriod(d));
 
   const winRate = calcWinRate([...won, ...lost]);
   const lostRate = calcLostRate([...won, ...lost]);
 
+  const pipelineHint =
+    filters.view === 'comptable'
+      ? 'Restant à confirmer sur la période'
+      : 'Snapshot global · tous les leads ouverts';
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <KPICard
-        label="Leads entrants"
-        primary={String(leads.length)}
+        label="Pipeline"
+        primary={String(pipeline.length)}
         primarySuffix="deals"
-        secondary={formatCurrency(sumValue(leads))}
+        secondary={formatCurrency(sumValue(pipeline))}
+        footer={pipelineHint}
         tone="navy"
       />
       <KPICard
@@ -47,7 +65,11 @@ export function KpiSection({ deals, filters }: Props) {
         primary={String(won.length)}
         primarySuffix="deals"
         secondary={formatCurrency(sumValue(won))}
-        footer={<>Taux conversion · <span className="text-ink font-medium">{formatPercent(winRate)}</span></>}
+        footer={
+          <>
+            Taux conversion · <span className="text-ink font-medium">{formatPercent(winRate)}</span>
+          </>
+        }
         tone="success"
       />
       <KPICard
@@ -55,14 +77,12 @@ export function KpiSection({ deals, filters }: Props) {
         primary={String(lost.length)}
         primarySuffix="deals"
         secondary={formatCurrency(sumValue(lost))}
-        footer={<>Taux perte · <span className="text-ink font-medium">{formatPercent(lostRate)}</span></>}
+        footer={
+          <>
+            Taux de perte · <span className="text-ink font-medium">{formatPercent(lostRate)}</span>
+          </>
+        }
         tone="danger"
-      />
-      <KPICard
-        label="Pipeline actif"
-        primary={String(pipeline.length)}
-        primarySuffix="deals"
-        secondary={formatCurrency(sumValue(pipeline))}
       />
     </div>
   );

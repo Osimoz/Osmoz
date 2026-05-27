@@ -51,8 +51,10 @@ export const OWNERS: Record<string, string> = {
 
 export const WON_STAGES = ['Confirmed', 'Invoiced', 'Paid'];
 export const LOST_STAGES = ['Fail'];
-export const LEAD_STAGES = ['Inbound Lead', 'Decision Pending'];
-export const PIPELINE_STAGES = ['Prospect', 'Inbound Lead', 'Decision Pending'];
+// "Pipeline" = leads entrants en attente d'action commerciale (le sommet du funnel).
+// Volontairement, Prospect n'est pas inclus ici : si tu veux le réintroduire un jour,
+// ajoute-le simplement à ce tableau.
+export const PIPELINE_STAGES = ['Inbound Lead', 'Decision Pending'];
 
 export const SPACE_COLORS: Record<string, string> = {
   Loft: '#6B1228',
