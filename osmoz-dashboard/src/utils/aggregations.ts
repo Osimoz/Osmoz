@@ -55,17 +55,50 @@ export function groupByMonth(
 }
 
 /**
- * Build month keys from January 2026 through the current month.
+ * Build month keys from January 2026 through the given end date (inclusive on month).
  */
-export function monthKeysFromStart(now = new Date()): string[] {
+export function monthKeysFromStart(through = new Date()): string[] {
   const keys: string[] = [];
   const cursor = new Date(DATA_START.getFullYear(), DATA_START.getMonth(), 1);
-  const end = new Date(now.getFullYear(), now.getMonth(), 1);
+  const end = new Date(through.getFullYear(), through.getMonth(), 1);
   while (cursor <= end) {
     keys.push(monthKey(cursor));
     cursor.setMonth(cursor.getMonth() + 1);
   }
   return keys;
+}
+
+/**
+ * Build month keys covering a period (start..end inclusive), defaulting to the
+ * full data range when the period is "all" or unbounded. This is the function
+ * to call when you need the X-axis range for the bar chart.
+ */
+export function monthKeysForPeriod(period: {
+  mode: 'month' | 'all' | 'custom';
+  start: Date | null;
+  end: Date | null;
+}): string[] {
+  if (period.mode === 'all' || !period.start || !period.end) {
+    return monthKeysFromStart();
+  }
+  const through = period.end >= new Date() ? period.end : new Date();
+  // Bound the lower end at DATA_START so we never produce pre-2026 keys.
+  const startSource = period.start < DATA_START ? DATA_START : period.start;
+  const keys: string[] = [];
+  const cursor = new Date(startSource.getFullYear(), startSource.getMonth(), 1);
+  const last = new Date(through.getFullYear(), through.getMonth(), 1);
+  while (cursor <= last) {
+    keys.push(monthKey(cursor));
+    cursor.setMonth(cursor.getMonth() + 1);
+  }
+  // Also clip to the period's own month range (in case `through` extended past
+  // period.end because today > period.end).
+  return keys.filter((k) => {
+    const [y, m] = k.split('-').map(Number);
+    const monthStart = new Date(y, m - 1, 1);
+    const monthEnd = new Date(y, m, 0);
+    return monthEnd >= (period.start as Date) && monthStart <= (period.end as Date);
+  });
 }
 
 export function prevMonthKey(key: string): string {

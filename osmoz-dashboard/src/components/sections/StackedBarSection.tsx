@@ -17,7 +17,7 @@ import {
   isLost,
   sumValue,
   groupByMonth,
-  monthKeysFromStart,
+  monthKeysForPeriod,
   uniqueSpaces,
 } from '../../utils/aggregations';
 import { applyOwnerFilter, dateFieldForView } from '../../hooks/useFilters';
@@ -44,17 +44,10 @@ export function StackedBarSection({ deals, filters }: Props) {
 
   const visibleSpaces = spaces.filter((s) => !hidden.has(s));
 
-  // Restrict month axis to the selected period (or to all months since 2026 when period.mode === 'all').
-  const months = useMemo(() => {
-    const all = monthKeysFromStart();
-    if (period.mode === 'all' || !period.start || !period.end) return all;
-    return all.filter((k) => {
-      const [y, m] = k.split('-').map(Number);
-      const monthStart = new Date(y, m - 1, 1);
-      const monthEnd = new Date(y, m, 0);
-      return monthEnd >= (period.start as Date) && monthStart <= (period.end as Date);
-    });
-  }, [period]);
+  // Month range = either the full data range ("Tout") or the months covered by the
+  // selected period (including future months — important when the user navigates to
+  // a month past today).
+  const months = useMemo(() => monthKeysForPeriod(period), [period]);
 
   const wonByMonth = useMemo(() => groupByMonth(scoped.filter(isWon), dateField), [scoped, dateField]);
   const lostByMonth = useMemo(() => groupByMonth(scoped.filter(isLost), dateField), [scoped, dateField]);

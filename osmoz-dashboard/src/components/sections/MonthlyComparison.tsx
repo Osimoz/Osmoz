@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { ArrowUp, ArrowDown, Minus } from 'lucide-react';
 import { Deal, Filters } from '../../types';
-import { isWon, sumValue, groupByMonth, monthKeysFromStart, prevMonthKey, prevYearKey } from '../../utils/aggregations';
+import { isWon, sumValue, groupByMonth, monthKeysForPeriod, prevMonthKey, prevYearKey } from '../../utils/aggregations';
 import { applyOwnerFilter, dateFieldForView } from '../../hooks/useFilters';
 import { formatCurrency, formatPercent, monthKeyToLabel } from '../../utils/formatters';
 
@@ -18,16 +18,7 @@ export function MonthlyComparison({ deals, filters }: Props) {
 
   const byMonth = useMemo(() => groupByMonth(scoped.filter(isWon), dateField), [scoped, dateField]);
 
-  const months = useMemo(() => {
-    const all = monthKeysFromStart();
-    if (period.mode === 'all' || !period.start || !period.end) return all;
-    return all.filter((k) => {
-      const [y, m] = k.split('-').map(Number);
-      const monthStart = new Date(y, m - 1, 1);
-      const monthEnd = new Date(y, m, 0);
-      return monthEnd >= (period.start as Date) && monthStart <= (period.end as Date);
-    });
-  }, [period]);
+  const months = useMemo(() => monthKeysForPeriod(period), [period]);
 
   const valueOf = (key: string) => {
     const arr = byMonth.get(key) ?? [];
