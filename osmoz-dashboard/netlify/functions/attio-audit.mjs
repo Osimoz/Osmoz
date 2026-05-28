@@ -32,9 +32,11 @@ export default async (request) => {
     );
   }
 
-  const attioToken = process.env.ATTIO_TOKEN;
+  // Réutilise la même clé Attio que le proxy du dashboard (ATTIO_API_KEY déjà
+  // configurée dans Netlify). ATTIO_TOKEN reste accepté comme alias.
+  const attioToken = process.env.ATTIO_API_KEY || process.env.ATTIO_TOKEN;
   if (!attioToken) {
-    return json({ error: 'ATTIO_TOKEN non configuré côté serveur' }, 500);
+    return json({ error: 'ATTIO_API_KEY/ATTIO_TOKEN non configuré côté serveur' }, 500);
   }
 
   // Conserve les autres query params éventuels (ex: ?path=/...&limit=10)
