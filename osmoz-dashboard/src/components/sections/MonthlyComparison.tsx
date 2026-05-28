@@ -49,7 +49,8 @@ export function MonthlyComparison({ deals, filters }: Props) {
       <div className="flex items-baseline justify-between mb-3">
         <h2 className="font-display text-xl">Comparaison mensuelle</h2>
         <span className="text-xs text-muted">
-          CA confirmé · {filters.view === 'comptable' ? 'Comptable' : 'Commerciale'}
+          {mode === 'value' ? 'CA confirmé' : 'Nombre de réservations confirmées'} ·{' '}
+          {filters.view === 'comptable' ? 'Comptable' : 'Commerciale'}
         </span>
       </div>
       <table className="w-full text-sm">

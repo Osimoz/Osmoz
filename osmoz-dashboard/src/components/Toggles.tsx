@@ -3,9 +3,15 @@ import { Filters } from '../types';
 interface Props {
   filters: Filters;
   onChange: (f: Filters) => void;
+  availableSpaces: string[];
 }
 
-export function Toggles({ filters, onChange }: Props) {
+export function Toggles({ filters, onChange, availableSpaces }: Props) {
+  const spaceOptions = [
+    { value: 'all', label: 'Tout' },
+    ...availableSpaces.map((s) => ({ value: s, label: s })),
+  ];
+
   return (
     <div className="flex flex-wrap items-center gap-5">
       <ToggleGroup
@@ -35,6 +41,12 @@ export function Toggles({ filters, onChange }: Props) {
           { value: 'Edouard', label: 'Edouard' },
           { value: 'Emma', label: 'Emma' },
         ]}
+      />
+      <ToggleGroup
+        label="Espace"
+        value={filters.space}
+        onChange={(v) => onChange({ ...filters, space: v })}
+        options={spaceOptions}
       />
     </div>
   );

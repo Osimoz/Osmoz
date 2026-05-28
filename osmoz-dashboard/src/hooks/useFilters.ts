@@ -21,6 +21,7 @@ export function defaultFilters(): Filters {
     view: 'comptable',
     metric: 'value',
     owner: 'all',
+    space: 'all',
     period: monthPeriod(new Date()),
   };
 }
@@ -31,8 +32,14 @@ export function useFilters() {
 }
 
 export function applyOwnerFilter(deals: Deal[], filters: Filters): Deal[] {
-  if (filters.owner === 'all') return deals;
-  return deals.filter((d) => d.owner === filters.owner);
+  let out = deals;
+  if (filters.owner !== 'all') {
+    out = out.filter((d) => d.owner === filters.owner);
+  }
+  if (filters.space && filters.space !== 'all') {
+    out = out.filter((d) => d.space === filters.space);
+  }
+  return out;
 }
 
 export function dateFieldForView(view: Filters['view']): 'endBookingDate' | 'stageChangedAt' {

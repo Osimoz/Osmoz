@@ -1,5 +1,14 @@
 import { Deal, Filters } from '../../types';
-import { isWon, isLost, isPipeline, sumValue, calcWinRate, calcLostRate } from '../../utils/aggregations';
+import {
+  isWon,
+  isLost,
+  isPipeline,
+  sumValue,
+  calcWinRate,
+  calcLostRate,
+  calcWinRateValue,
+  calcLostRateValue,
+} from '../../utils/aggregations';
 import { applyOwnerFilter, dateFieldForView } from '../../hooks/useFilters';
 import { formatCurrency, formatPercent } from '../../utils/formatters';
 
@@ -21,11 +30,7 @@ export function KpiSection({ deals, filters }: Props) {
     return t >= period.start.getTime() && t <= period.end.getTime();
   };
 
-  // Pipeline (Inbound Lead + Decision Pending) :
-  // - Vue Comptable : filtré sur la période via end_booking_date
-  //   (« combien de CA reste à confirmer pour ce mois »).
-  // - Vue Commerciale : snapshot complet, sans filtre date
-  //   (« le pipe total en ce moment, peu importe la date de l'événement »).
+  // Pipeline (Inbound Lead + Decision Pending)
   const allPipeline = scoped.filter(isPipeline);
   const pipeline =
     filters.view === 'comptable'
@@ -38,12 +43,16 @@ export function KpiSection({ deals, filters }: Props) {
         })
       : allPipeline;
 
-  // Confirmés / Perdus : filtrés sur la période via le date field de la vue
   const won = scoped.filter((d) => isWon(d) && inPeriod(d));
   const lost = scoped.filter((d) => isLost(d) && inPeriod(d));
 
-  const winRate = calcWinRate([...won, ...lost]);
-  const lostRate = calcLostRate([...won, ...lost]);
+  const combined = [...won, ...lost];
+  const winRateVol = calcWinRate(combined);
+  const winRateVal = calcWinRateValue(combined);
+  const lostRateVol = calcLostRate(combined);
+  const lostRateVal = calcLostRateValue(combined);
+
+  const isValueMode = filters.metric === 'value';
 
   const pipelineHint =
     filters.view === 'comptable'
@@ -66,9 +75,12 @@ export function KpiSection({ deals, filters }: Props) {
         primarySuffix="deals"
         secondary={formatCurrency(sumValue(won))}
         footer={
-          <>
-            Taux conversion · <span className="text-ink font-medium">{formatPercent(winRate)}</span>
-          </>
+          <DualRate
+            primary={isValueMode ? winRateVal : winRateVol}
+            primaryLabel={isValueMode ? 'Conv. valeur' : 'Conv. volume'}
+            secondary={isValueMode ? winRateVol : winRateVal}
+            secondaryLabel={isValueMode ? 'Conv. volume' : 'Conv. valeur'}
+          />
         }
         tone="success"
       />
@@ -78,12 +90,40 @@ export function KpiSection({ deals, filters }: Props) {
         primarySuffix="deals"
         secondary={formatCurrency(sumValue(lost))}
         footer={
-          <>
-            Taux de perte · <span className="text-ink font-medium">{formatPercent(lostRate)}</span>
-          </>
+          <DualRate
+            primary={isValueMode ? lostRateVal : lostRateVol}
+            primaryLabel={isValueMode ? 'Perte valeur' : 'Perte volume'}
+            secondary={isValueMode ? lostRateVol : lostRateVal}
+            secondaryLabel={isValueMode ? 'Perte volume' : 'Perte valeur'}
+          />
         }
         tone="danger"
       />
+    </div>
+  );
+}
+
+function DualRate({
+  primary,
+  primaryLabel,
+  secondary,
+  secondaryLabel,
+}: {
+  primary: number;
+  primaryLabel: string;
+  secondary: number;
+  secondaryLabel: string;
+}) {
+  return (
+    <div className="flex items-baseline gap-3 flex-wrap">
+      <span>
+        {primaryLabel} ·{' '}
+        <span className="text-ink font-semibold text-sm">{formatPercent(primary)}</span>
+      </span>
+      <span className="text-[11px] text-muted/80">
+        {secondaryLabel} ·{' '}
+        <span className="text-muted font-medium">{formatPercent(secondary)}</span>
+      </span>
     </div>
   );
 }

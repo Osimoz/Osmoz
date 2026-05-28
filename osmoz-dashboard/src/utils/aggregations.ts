@@ -25,6 +25,23 @@ export function calcLostRate(deals: Deal[]): number {
   return (lost / (won + lost)) * 100;
 }
 
+/**
+ * Win rate weighted by deal value: € won / (€ won + € lost).
+ */
+export function calcWinRateValue(deals: Deal[]): number {
+  const wonV = deals.filter(isWon).reduce((s, d) => s + (d.value || 0), 0);
+  const lostV = deals.filter(isLost).reduce((s, d) => s + (d.value || 0), 0);
+  if (wonV + lostV === 0) return 0;
+  return (wonV / (wonV + lostV)) * 100;
+}
+
+export function calcLostRateValue(deals: Deal[]): number {
+  const wonV = deals.filter(isWon).reduce((s, d) => s + (d.value || 0), 0);
+  const lostV = deals.filter(isLost).reduce((s, d) => s + (d.value || 0), 0);
+  if (wonV + lostV === 0) return 0;
+  return (lostV / (wonV + lostV)) * 100;
+}
+
 export function fieldLabel(deal: Deal, field: 'space' | 'category' | 'bookingSource'): string {
   const v = deal[field];
   return v == null || v === '' ? NON_RENSEIGNE : v;

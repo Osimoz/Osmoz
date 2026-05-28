@@ -29,6 +29,7 @@ export interface Deal {
 export type View = 'comptable' | 'commerciale';
 export type Metric = 'value' | 'count';
 export type OwnerFilter = 'all' | 'Edouard' | 'Emma';
+export type SpaceFilter = 'all' | string; // 'all' or a specific space name
 
 export type PeriodMode = 'month' | 'all' | 'custom';
 export interface Period {
@@ -41,6 +42,7 @@ export interface Filters {
   view: View;
   metric: Metric;
   owner: OwnerFilter;
+  space: SpaceFilter;
   period: Period;
 }
 

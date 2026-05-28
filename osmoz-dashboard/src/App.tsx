@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { RefreshCw, Download } from 'lucide-react';
 import { PasswordGate, checkAuth } from './components/PasswordGate';
 import { Toggles } from './components/Toggles';
@@ -12,11 +12,13 @@ import { SourcesSection } from './components/sections/SourcesSection';
 import { LostSection } from './components/sections/LostSection';
 import { ObjectivesSection } from './components/sections/ObjectivesSection';
 import { exportDealsCSV } from './utils/csv';
+import { uniqueSpaces } from './utils/aggregations';
 
 export default function App() {
   const [authed, setAuthed] = useState(checkAuth());
   const { deals, isLoading, error, lastUpdated, refresh } = useAttioDeals();
   const { filters, setFilters } = useFilters();
+  const availableSpaces = useMemo(() => uniqueSpaces(deals), [deals]);
 
   if (!authed) return <PasswordGate onUnlock={() => setAuthed(true)} />;
 
@@ -59,7 +61,7 @@ export default function App() {
               </button>
             </div>
           </div>
-          <Toggles filters={filters} onChange={setFilters} />
+          <Toggles filters={filters} onChange={setFilters} availableSpaces={availableSpaces} />
         </div>
       </header>
 
