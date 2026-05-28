@@ -3,10 +3,12 @@
 // Usage :
 //   curl -H "X-Audit-Token: $AUDIT_TOKEN" \
 //        "https://<site>/.netlify/functions/attio-audit?path=/objects/deals/records/query"
+//   ou en query string (moins sûr, mais pratique pour les URLs partageables) :
+//        "https://<site>/.netlify/functions/attio-audit?path=/objects/...&audit_token=..."
 //
 // Différent du proxy du dashboard (attio-proxy.ts) :
 //   - GET only (query-string), pas de POST anonyme depuis le browser
-//   - Authentification obligatoire via header X-Audit-Token
+//   - Authentification obligatoire via header X-Audit-Token OU query param audit_token
 //   - Forward vers https://api.attio.com/v2{path}
 
 export default async (request) => {
@@ -18,12 +20,15 @@ export default async (request) => {
   if (!expected) {
     return json({ error: 'AUDIT_TOKEN non configuré côté serveur' }, 500);
   }
-  const provided = request.headers.get('x-audit-token');
-  if (!provided || provided !== expected) {
-    return json({ error: 'Token d\'audit invalide ou manquant' }, 401);
-  }
 
   const url = new URL(request.url);
+  const headerToken = request.headers.get('x-audit-token');
+  const queryToken = url.searchParams.get('audit_token');
+  const provided = headerToken || queryToken;
+  if (!provided || provided !== expected) {
+    return json({ error: "Token d'audit invalide ou manquant" }, 401);
+  }
+
   const path = url.searchParams.get('path');
   if (!path || !path.startsWith('/')) {
     return json(
@@ -39,9 +44,11 @@ export default async (request) => {
     return json({ error: 'ATTIO_API_KEY/ATTIO_TOKEN non configuré côté serveur' }, 500);
   }
 
-  // Conserve les autres query params éventuels (ex: ?path=/...&limit=10)
+  // Conserve les autres query params éventuels (ex: ?path=/...&limit=10),
+  // en strippant nos propres params (path, audit_token).
   const passthrough = new URLSearchParams(url.searchParams);
   passthrough.delete('path');
+  passthrough.delete('audit_token');
   const qs = passthrough.toString();
   const target = `https://api.attio.com/v2${path}${qs ? `?${qs}` : ''}`;
 
