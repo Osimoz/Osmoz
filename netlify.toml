@@ -4,7 +4,19 @@
 
 # ── Domain migration: osmoz.work → osmoz-space.com ───────────────────
 [[redirects]]
+  from = "http://osmoz.work/*"
+  to = "https://osmoz-space.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://osmoz.work/*"
+  to = "https://osmoz-space.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.osmoz.work/*"
   to = "https://osmoz-space.com/:splat"
   status = 301
   force = true
