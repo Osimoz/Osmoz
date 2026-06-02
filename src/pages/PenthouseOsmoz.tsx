@@ -160,7 +160,7 @@ const otherSpaces = [
     location: 'Montmartre, Paris 2e',
     surface: '300 m²',
     capacity: '40 pers.',
-    image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'),
+    image: u('images/Duplex Haussmannien/duplex-salon-01.png'),
     link: '/spaces/duplex-osmoz',
   },
 ];
