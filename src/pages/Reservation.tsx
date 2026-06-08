@@ -101,7 +101,7 @@ export default function Reservation() {
 
   if (submitted) return (
     <>
-      <Helmet><title>Demande envoyée — OSMOZ</title></Helmet>
+      <Helmet><title>Demande envoyée — OSMOZ Paris | Réponse sous 24h</title></Helmet>
       <div className="pt-32 pb-24 min-h-screen flex items-center bg-[#fbfbf3]">
         <div className="max-w-md mx-auto px-6 text-center">
           <div className="w-14 h-14 rounded-full bg-[#862637]/10 flex items-center justify-center mx-auto mb-5">
@@ -133,14 +133,14 @@ export default function Reservation() {
   return (
     <>
       <Helmet>
-        <title>Réserver — OSMOZ | Paris</title>
-        <meta name="description" content="Réservez votre espace Osmoz à Paris pour séminaires, réunions et événements d'entreprise. Réponse sous 24h." />
+        <title>Réserver Votre Espace OSMOZ à Paris — Devis sous 24h</title>
+        <meta name="description" content="Réservez votre espace OSMOZ à Paris pour vos séminaires, réunions et événements d'entreprise. Privatisation exclusive. Réponse personnalisée sous 24h." />
         <link rel="canonical" href="https://osmoz-space.com/reservation" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://osmoz-space.com/reservation" />
-        <meta property="og:title" content="Réserver — OSMOZ | Paris" />
-        <meta property="og:description" content="Réservez votre espace Osmoz à Paris pour séminaires, réunions et événements d'entreprise. Réponse sous 24h." />
+        <meta property="og:title" content="Réserver Votre Espace OSMOZ à Paris — Devis sous 24h" />
+        <meta property="og:description" content="Réservez votre espace OSMOZ à Paris pour vos séminaires, réunions et événements d'entreprise. Privatisation exclusive. Réponse personnalisée sous 24h." />
         <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />

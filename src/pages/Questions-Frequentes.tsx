@@ -175,14 +175,14 @@ export default function QuestionsFrequentes() {
   return (
     <>
       <Helmet>
-        <title>FAQ — OSMOZ | Questions fréquentes sur nos espaces</title>
-        <meta name="description" content="Toutes vos questions sur la location d'espaces OSMOZ à Paris : événements, tarifs, restauration, équipements, RSE." />
+        <title>Questions Fréquentes — Espaces Privatifs OSMOZ Paris</title>
+        <meta name="description" content="Toutes vos questions sur la privatisation d'espaces OSMOZ à Paris : tarifs, restauration, équipements, capacité, démarche RSE. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz-space.com/questions-frequentes" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://osmoz-space.com/questions-frequentes" />
-        <meta property="og:title" content="FAQ — OSMOZ | Questions fréquentes sur nos espaces" />
-        <meta property="og:description" content="Toutes vos questions sur la location d'espaces OSMOZ à Paris : événements, tarifs, restauration, équipements, RSE." />
+        <meta property="og:title" content="Questions Fréquentes — Espaces Privatifs OSMOZ Paris" />
+        <meta property="og:description" content="Toutes vos questions sur la privatisation d'espaces OSMOZ à Paris : tarifs, restauration, équipements, capacité, démarche RSE. Devis sous 24h." />
         <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />

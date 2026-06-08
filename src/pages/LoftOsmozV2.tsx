@@ -234,14 +234,14 @@ export default function LoftOsmozV2() {
     <div className="pt-0">
       {/* ── SEO ── */}
       <Helmet>
-        <title>Le Loft OSMOZ — Paris Marais | 110m² · 25 personnes</title>
-        <meta name="description" content="Le Loft OSMOZ dans le Marais : 110m² de verrière lumineuse, jusqu'à 25 personnes. Privatisation entreprises. Devis sous 24h." />
+        <title>Le Loft OSMOZ — Espace Privatif Paris Marais 110m²</title>
+        <meta name="description" content="Le Loft OSMOZ : 110m² de verrière lumineuse dans le Marais à Paris. Idéal pour réunions, séminaires et workshops jusqu'à 25 personnes. Devis sous 24h." />
         <link rel="canonical" href="https://osmoz-space.com/spaces/loft-osmoz" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://osmoz-space.com/spaces/loft-osmoz" />
-        <meta property="og:title" content="Le Loft OSMOZ — Paris Marais | 110m² · 25 personnes" />
-        <meta property="og:description" content="Le Loft OSMOZ dans le Marais : 110m² de verrière lumineuse, jusqu'à 25 personnes. Privatisation entreprises. Devis sous 24h." />
+        <meta property="og:title" content="Le Loft OSMOZ — Espace Privatif Paris Marais 110m²" />
+        <meta property="og:description" content="Le Loft OSMOZ : 110m² de verrière lumineuse dans le Marais à Paris. Idéal pour réunions, séminaires et workshops jusqu'à 25 personnes. Devis sous 24h." />
         <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
