@@ -19,6 +19,7 @@ import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import RSE from './pages/RSE';
 import Experience from './pages/Experience';
 import Articles from './pages/Articles';
+import ArticleDetail from './pages/ArticleDetail';
 
 // Weglot fonctionne en mode sous-répertoire et préfixe l'URL avec /<langue>/.
 // Si le premier segment du path matche une langue Weglot connue, on aligne
@@ -106,6 +107,7 @@ export default function App() {
             <Route path="/questions-frequentes" element={<QuestionsFrequentes />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/articles" element={<Articles />} />
+            <Route path="/articles/:slug" element={<ArticleDetail />} />
             <Route path="/rse" element={<RSE />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />

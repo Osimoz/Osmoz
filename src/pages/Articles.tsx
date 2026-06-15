@@ -7,37 +7,107 @@ const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
 
 const articlesHeroImg = u('images/articles/articles-hero.JPG');
 
-const articles = [
+// Fallback statique : si l'API BabyLoveGrowth est down ou vide, on garde
+// les 3 publications LinkedIn historiques pour que la page reste vivante.
+type Card = {
+  num: string;
+  titre: string;
+  date: string;
+  description: string;
+  contenu: string;
+  lien: string;
+  external: boolean;
+};
+
+const fallbackArticles: Card[] = [
   {
     num: '01',
-    titre: 'Les leviers d\'un événement réussi',
+    titre: "Les leviers d'un événement réussi",
     date: '27 avril 2026',
-    description: 'Découvrez comment la réussite d\'un événement professionnel dépend des moments informels, de l\'expérience émotionnelle et du lieu. 87% des collaborateurs apprennent à travers les interactions informelles.',
-    contenu: 'Cet article explore les trois leviers clés : les espaces informels où émergent les meilleures idées, l\'impact émotionnel basé sur les neurosciences, et l\'importance du lieu dans la qualité des interactions. L\'indicateur de succès n\'est pas le budget, mais ce que ça produit en termes d\'interactions, d\'idées et de décisions.',
+    description:
+      "Découvrez comment la réussite d'un événement professionnel dépend des moments informels, de l'expérience émotionnelle et du lieu. 87% des collaborateurs apprennent à travers les interactions informelles.",
+    contenu:
+      "Cet article explore les trois leviers clés : les espaces informels où émergent les meilleures idées, l'impact émotionnel basé sur les neurosciences, et l'importance du lieu dans la qualité des interactions. L'indicateur de succès n'est pas le budget, mais ce que ça produit en termes d'interactions, d'idées et de décisions.",
     lien: 'https://www.linkedin.com/pulse/les-leviers-dun-%C3%A9v%C3%A9nement-r%C3%A9ussi-osmozspace-p5ezf/?trackingId=a8rxagUNRWegdlfZSL%2B%2FEg%3D%3D',
+    external: true,
   },
   {
     num: '02',
     titre: 'Et si vos formations ne dépendaient pas seulement du contenu… mais du contexte ?',
     date: '4 mai 2026',
-    description: 'Les formations efficaces dépassent la qualité du contenu. Découvrez les cinq éléments clés, dont le rôle crucial de l\'environnement physique.',
-    contenu: 'La réussite des formations dépend de l\'engagement du leadership, de l\'apprentissage collaboratif, des formats mixtes, et surtout de l\'environnement physique. Un environnement quotidien limite la concentration, tandis que des lieux différents stimulent l\'attention et la clarté mentale.',
+    description:
+      "Les formations efficaces dépassent la qualité du contenu. Découvrez les cinq éléments clés, dont le rôle crucial de l'environnement physique.",
+    contenu:
+      "La réussite des formations dépend de l'engagement du leadership, de l'apprentissage collaboratif, des formats mixtes, et surtout de l'environnement physique. Un environnement quotidien limite la concentration, tandis que des lieux différents stimulent l'attention et la clarté mentale.",
     lien: 'https://www.linkedin.com/pulse/et-si-vos-formations-ne-d%C3%A9pendaient-pas-seulement-du-contenu-ppnxf/?trackingId=xdd9SaCHRLijTAeEjvqozA%3D%3D',
+    external: true,
   },
   {
     num: '03',
-    titre: 'Séminaire, team building, codir… comment convaincre les sceptiques d\'y mettre le budget ?',
+    titre: "Séminaire, team building, codir… comment convaincre les sceptiques d'y mettre le budget ?",
     date: '20 mai 2026',
-    description: 'Maîtrisez les arguments pour sécuriser le budget de vos événements en les positionnant comme investissements stratégiques avec ROI mesurable.',
-    contenu: 'Apprenez à framer vos événements comme des investissements business avec des KPIs concrets : augmentation de performance commerciale, lead generation, NPS, cost-per-lead. Les chiffres seuls ne suffisent pas—positionnez vos événements comme stratégiques plutôt que discrétionnaires.',
+    description:
+      'Maîtrisez les arguments pour sécuriser le budget de vos événements en les positionnant comme investissements stratégiques avec ROI mesurable.',
+    contenu:
+      "Apprenez à framer vos événements comme des investissements business avec des KPIs concrets : augmentation de performance commerciale, lead generation, NPS, cost-per-lead. Les chiffres seuls ne suffisent pas—positionnez vos événements comme stratégiques plutôt que discrétionnaires.",
     lien: 'https://www.linkedin.com/pulse/s%C3%A9minaire-team-building-codir-comment-convaincre-les-sceptiques-zzx9e/?trackingId=U84vPmGzRBuH2bAOUgsOEw%3D%3D',
+    external: true,
   },
 ];
+
+const FR_MONTHS = [
+  'janvier',
+  'février',
+  'mars',
+  'avril',
+  'mai',
+  'juin',
+  'juillet',
+  'août',
+  'septembre',
+  'octobre',
+  'novembre',
+  'décembre',
+];
+
+function formatFrDate(iso: string | null | undefined): string {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return '';
+  return `${d.getDate()} ${FR_MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+// Shape « lâche » de l'API : on ne sait pas exactement quels champs
+// BabyLoveGrowth retourne donc on lit défensivement.
+type ApiArticle = {
+  id?: string | number;
+  title?: string;
+  slug?: string;
+  meta_description?: string;
+  excerpt?: string;
+  created_at?: string;
+};
+
+function mapToCard(article: ApiArticle, index: number): Card | null {
+  if (!article.slug || !article.title) return null;
+  return {
+    num: String(index + 1).padStart(2, '0'),
+    titre: article.title,
+    date: formatFrDate(article.created_at),
+    description: article.meta_description ?? '',
+    contenu: article.excerpt ?? '',
+    lien: `/articles/${article.slug}`,
+    external: false,
+  };
+}
 
 export default function Articles() {
   const navigate = useNavigate();
   const immersiveRef = useRef<HTMLDivElement>(null);
   const [immersiveProgress, setImmersiveProgress] = useState(0);
+
+  const [cards, setCards] = useState<Card[]>(fallbackArticles);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const onScroll = () => {
@@ -49,6 +119,37 @@ export default function Articles() {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch('/.netlify/functions/articles-proxy');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const payload = (await res.json()) as { articles?: ApiArticle[] };
+        const list = payload.articles ?? [];
+        if (!Array.isArray(list) || list.length === 0) {
+          if (!cancelled) setLoading(false);
+          return;
+        }
+        // Tri par date décroissante avant numérotation.
+        const sorted = [...list].sort((a, b) => {
+          const ta = a.created_at ? new Date(a.created_at).getTime() : 0;
+          const tb = b.created_at ? new Date(b.created_at).getTime() : 0;
+          return tb - ta;
+        });
+        const mapped = sorted.map(mapToCard).filter((c): c is Card => c !== null);
+        if (!cancelled && mapped.length > 0) setCards(mapped);
+      } catch {
+        // En cas d'erreur on garde le fallback affiché par défaut.
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
@@ -206,120 +307,174 @@ export default function Articles() {
       {/* ── ARTICLES ── */}
       <section style={{ background: '#ffffff', borderTop: '1px solid rgba(28,28,26,0.08)' }}>
         <div className="max-w-7xl mx-auto" style={{ padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 60px)' }}>
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 'clamp(32px, 4vw, 48px)' }}>
-            {articles.map((article) => (
-              <div
-                key={article.num}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '24px',
-                  padding: 'clamp(32px, 4vw, 48px)',
-                  background: '#fafaf8',
-                  border: '1px solid rgba(28,28,26,0.08)',
-                  transition: 'all 0.3s ease',
-                }}
-                className="hover:shadow-lg hover:bg-white"
-              >
-                {/* Numéro */}
-                <span
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 'clamp(32px, 4vw, 48px)' }}>
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  aria-hidden="true"
                   style={{
-                    fontFamily: 'Playfair Display',
-                    fontSize: '0.9rem',
-                    fontWeight: 300,
-                    color: '#c8c4bc',
-                    letterSpacing: '0.1em',
+                    padding: 'clamp(32px, 4vw, 48px)',
+                    background: '#fafaf8',
+                    border: '1px solid rgba(28,28,26,0.08)',
+                    minHeight: '320px',
+                    opacity: 0.6,
+                    animation: 'osmoz-pulse 1.6s ease-in-out infinite',
                   }}
+                />
+              ))}
+              <style>
+                {`@keyframes osmoz-pulse {0%,100%{opacity:.6}50%{opacity:.9}}`}
+              </style>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 'clamp(32px, 4vw, 48px)' }}>
+              {cards.map((article) => (
+                <div
+                  key={`${article.num}-${article.lien}`}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '24px',
+                    padding: 'clamp(32px, 4vw, 48px)',
+                    background: '#fafaf8',
+                    border: '1px solid rgba(28,28,26,0.08)',
+                    transition: 'all 0.3s ease',
+                  }}
+                  className="hover:shadow-lg hover:bg-white"
                 >
-                  {article.num}
-                </span>
+                  {/* Numéro */}
+                  <span
+                    style={{
+                      fontFamily: 'Playfair Display',
+                      fontSize: '0.9rem',
+                      fontWeight: 300,
+                      color: '#c8c4bc',
+                      letterSpacing: '0.1em',
+                    }}
+                  >
+                    {article.num}
+                  </span>
 
-                {/* Titre */}
-                <h3
-                  style={{
-                    fontFamily: 'Playfair Display',
-                    fontWeight: 300,
-                    fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
-                    lineHeight: 1.3,
-                    color: '#01142a',
-                    margin: 0,
-                  }}
-                >
-                  {article.titre}
-                </h3>
+                  {/* Titre */}
+                  <h3
+                    style={{
+                      fontFamily: 'Playfair Display',
+                      fontWeight: 300,
+                      fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
+                      lineHeight: 1.3,
+                      color: '#01142a',
+                      margin: 0,
+                    }}
+                  >
+                    {article.titre}
+                  </h3>
 
-                {/* Date */}
-                <p
-                  style={{
-                    fontSize: '9px',
-                    letterSpacing: '0.2em',
-                    textTransform: 'uppercase',
-                    color: '#862637',
-                    fontWeight: 500,
-                    margin: 0,
-                  }}
-                >
-                  {article.date}
-                </p>
+                  {/* Date */}
+                  <p
+                    style={{
+                      fontSize: '9px',
+                      letterSpacing: '0.2em',
+                      textTransform: 'uppercase',
+                      color: '#862637',
+                      fontWeight: 500,
+                      margin: 0,
+                    }}
+                  >
+                    {article.date}
+                  </p>
 
-                {/* Description */}
-                <p
-                  style={{
-                    fontSize: '14px',
-                    lineHeight: 1.8,
-                    color: '#6b6860',
-                    fontWeight: 300,
-                    margin: 0,
-                    flex: 1,
-                  }}
-                >
-                  {article.description}
-                </p>
+                  {/* Description */}
+                  <p
+                    style={{
+                      fontSize: '14px',
+                      lineHeight: 1.8,
+                      color: '#6b6860',
+                      fontWeight: 300,
+                      margin: 0,
+                      flex: 1,
+                    }}
+                  >
+                    {article.description}
+                  </p>
 
-                {/* Contenu */}
-                <p
-                  style={{
-                    fontSize: '13px',
-                    lineHeight: 1.7,
-                    color: '#9b9690',
-                    fontWeight: 300,
-                    margin: 0,
-                  }}
-                >
-                  {article.contenu}
-                </p>
+                  {/* Contenu */}
+                  <p
+                    style={{
+                      fontSize: '13px',
+                      lineHeight: 1.7,
+                      color: '#9b9690',
+                      fontWeight: 300,
+                      margin: 0,
+                    }}
+                  >
+                    {article.contenu}
+                  </p>
 
-                {/* Bouton */}
-                <a
-                  href={article.lien}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    fontSize: '11px',
-                    letterSpacing: '0.15em',
-                    textTransform: 'uppercase',
-                    color: '#862637',
-                    textDecoration: 'none',
-                    fontWeight: 400,
-                    marginTop: 'auto',
-                    transition: 'gap 0.3s ease',
-                  }}
-                  className="group"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.gap = '12px';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.gap = '8px';
-                  }}
-                >
-                  Lire sur LinkedIn →
-                </a>
-              </div>
-            ))}
-          </div>
+                  {/* Bouton */}
+                  {article.external ? (
+                    <a
+                      href={article.lien}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        fontSize: '11px',
+                        letterSpacing: '0.15em',
+                        textTransform: 'uppercase',
+                        color: '#862637',
+                        textDecoration: 'none',
+                        fontWeight: 400,
+                        marginTop: 'auto',
+                        transition: 'gap 0.3s ease',
+                      }}
+                      className="group"
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.gap = '12px';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.gap = '8px';
+                      }}
+                    >
+                      Lire sur LinkedIn →
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => navigate(article.lien)}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        fontSize: '11px',
+                        letterSpacing: '0.15em',
+                        textTransform: 'uppercase',
+                        color: '#862637',
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        cursor: 'pointer',
+                        fontWeight: 400,
+                        marginTop: 'auto',
+                        transition: 'gap 0.3s ease',
+                        textAlign: 'left',
+                      }}
+                      className="group"
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.gap = '12px';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.gap = '8px';
+                      }}
+                    >
+                      Lire l'article →
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
