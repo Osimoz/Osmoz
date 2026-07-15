@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import posthog from 'posthog-js';
 import { ShieldCheck } from 'lucide-react';
+import { loadGTM } from '../lib/gtm';
 
 const STORAGE_KEY = 'osmoz-cookie-consent';
 
@@ -11,13 +12,21 @@ function initPostHog(): void {
   });
 }
 
+// Active toutes les briques de tracking soumises à consent. Doit rester
+// idempotent côté appelant : un visiteur qui revient avec un consent
+// existant déclenche aussi ce flow au montage.
+function enableTracking(): void {
+  initPostHog();
+  loadGTM();
+}
+
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem(STORAGE_KEY);
     if (consent === 'accepted') {
-      initPostHog();
+      enableTracking();
       return;
     }
     if (consent === 'refused') return;
@@ -28,7 +37,7 @@ export default function CookieBanner() {
 
   const handleAccept = (): void => {
     localStorage.setItem(STORAGE_KEY, 'accepted');
-    initPostHog();
+    enableTracking();
     setVisible(false);
   };
 
