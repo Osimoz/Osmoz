@@ -1,4 +1,4 @@
-const LINKEDIN_NL = 'https://www.linkedin.com/newsletters/osmoz-7453432571654295552';
+import NewsletterForm from './NewsletterForm';
 
 export default function NewsletterSection() {
   return (
@@ -16,38 +16,15 @@ export default function NewsletterSection() {
               Newsletter
             </p>
             <h2 style={{ fontFamily: 'Playfair Display', fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.6rem)', lineHeight: 1.2, color: '#ffffff', marginBottom: '16px' }}>
-              Restez informé.
+              Recevez les actualités d’Osmoz
             </h2>
-            <p style={{ fontSize: '14px', lineHeight: 1.9, color: 'rgba(255,255,255,0.45)', fontWeight: 300 }}>
-              Suivez notre actualité directement sur LinkedIn.
+            <p style={{ fontSize: '14px', lineHeight: 1.9, color: 'rgba(255,255,255,0.85)', fontWeight: 300 }}>
+              Conseils, inspirations, nouveaux espaces et actualités directement dans votre boîte mail.
             </p>
           </div>
 
-          {/* CTA LinkedIn */}
-          <div>
-            <a
-              href={LINKEDIN_NL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '12px',
-                padding: '14px 32px',
-                background: '#862637',
-                color: '#fbfbf3',
-                fontSize: '10px',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                fontWeight: 400,
-                textDecoration: 'none',
-                transition: 'background 0.25s, color 0.25s',
-              }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#fbfbf3'; (e.currentTarget as HTMLAnchorElement).style.color = '#01142a'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#862637'; (e.currentTarget as HTMLAnchorElement).style.color = '#fbfbf3'; }}
-            >
-              S'inscrire à notre Newsletter LinkedIn →
-            </a>
+          <div style={{ padding: '32px', background: '#01142a', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '32px' }}>
+            <NewsletterForm source="home" hideHeader />
           </div>
 
         </div>

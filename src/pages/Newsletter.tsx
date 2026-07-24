@@ -1,12 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
 import NewsletterForm from '../components/NewsletterForm';
 
 const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
-
-const articlesHeroImg = u('images/articles/articles-hero.JPG');
 
 const articles = [
   {
@@ -35,41 +32,27 @@ const articles = [
   },
 ];
 
-export default function Articles() {
+export default function Newsletter() {
   const navigate = useNavigate();
-  const immersiveRef = useRef<HTMLDivElement>(null);
-  const [immersiveProgress, setImmersiveProgress] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (!immersiveRef.current) return;
-      const rect = immersiveRef.current.getBoundingClientRect();
-      const total = immersiveRef.current.offsetHeight - window.innerHeight;
-      const progress = Math.max(0, Math.min(1, -rect.top / total));
-      setImmersiveProgress(progress);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <>
       <Helmet>
-        <title>Nos Articles — OSMOZ | Insights culinaires & événements</title>
+        <title>Nos Newsletters — OSMOZ | Insights culinaires & événements</title>
         <meta
           name="description"
-          content="Découvrez nos articles OSMOZ : insights sur les leviers des événements réussis, l'importance du contexte en formation, et le ROI des séminaires."
+          content="Découvrez nos newsletters OSMOZ : articles sur les leviers des événements réussis, l'importance du contexte en formation, et le ROI des séminaires."
         />
-        <link rel="canonical" href="https://osmoz-space.com/articles" />
+        <link rel="canonical" href="https://osmoz.work/newsletter" />
         <meta name="robots" content="index, follow" />
       </Helmet>
 
       {/* ── HERO ── */}
       <section
-        className="flex items-center justify-center"
-        style={{ paddingTop: '72px', paddingBottom: '40px', background: '#fafaf8', minHeight: 'auto' }}
+        className="min-h-screen flex items-center justify-center"
+        style={{ paddingTop: '72px', background: '#fafaf8' }}
       >
-        <div className="max-w-4xl mx-auto px-8 sm:px-14 lg:px-16 xl:px-20 py-16 text-center">
+        <div className="max-w-4xl mx-auto px-8 sm:px-14 lg:px-16 xl:px-20 py-20 text-center">
           <p
             style={{
               fontSize: '10px',
@@ -80,7 +63,7 @@ export default function Articles() {
               textTransform: 'uppercase',
             }}
           >
-            L'actualité OSMOZ
+            Nos insights
           </p>
 
           <h1
@@ -93,7 +76,8 @@ export default function Articles() {
               marginBottom: '36px',
             }}
           >
-            Newsletter
+            Nos newsletters<br />
+            <em className="italic" style={{ color: '#862637' }}>pour réussir vos événements.</em>
           </h1>
 
           <p
@@ -107,110 +91,18 @@ export default function Articles() {
               margin: '0 auto',
             }}
           >
-            Découvrez nos articles directement sur LinkedIn : Les leviers d'un événement réussi, l'importance du contexte en formation, comment justifier votre budget ?          </p>
+            Découvrez nos articles sur les leviers des événements réussis, l'importance du contexte en formation, et comment justifier votre budget.
+          </p>
         </div>
       </section>
 
       <section className="bg-[#01142a] py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-[2rem] border border-white/10 bg-[#01142a]/95 p-8 sm:p-12">
-            <NewsletterForm source="articles" submitLabel="Je m’inscris" />
+            <NewsletterForm source="newsletter-page" submitLabel="Je m’inscris" />
           </div>
         </div>
       </section>
-
-      {/* ── PARALLAX SECTION ── */}
-      <div ref={immersiveRef} style={{ position: 'relative', height: '200vh' }}>
-        <div
-          style={{
-            position: 'sticky',
-            top: 0,
-            height: '100vh',
-            overflow: 'hidden',
-          }}
-        >
-          <img
-            src={articlesHeroImg}
-            alt="Articles OSMOZ"
-            style={{
-              position: 'absolute',
-              top: '-10%',
-              left: 0,
-              width: '100%',
-              height: '120%',
-              objectFit: 'cover',
-              objectPosition: 'center',
-              transform: `translateY(${immersiveProgress * 12}%)`,
-              willChange: 'transform',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: `rgba(1,20,42,${0.15 + immersiveProgress * 0.55})`,
-              transition: 'background 0.05s',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: '0 clamp(24px, 5vw, 80px)',
-              textAlign: 'center',
-              opacity: immersiveProgress > 0.12 ? 1 : 0,
-              transform: `translateY(${Math.max(0, (0.12 - immersiveProgress)) * 200}px)`,
-              transition: 'opacity 0.5s ease, transform 0.5s ease',
-            }}
-          >
-            <p style={{
-              fontSize: '10px',
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: 'rgba(254,225,212,0.7)',
-              marginBottom: '32px',
-              fontWeight: 400,
-            }}>
-              L'actualité OSMOZ
-            </p>
-            <h2
-              style={{
-                fontFamily: 'Playfair Display',
-                fontWeight: 300,
-                fontSize: 'clamp(2.2rem, 5vw, 5rem)',
-                lineHeight: 1.1,
-                color: '#ffffff',
-                maxWidth: '800px',
-                marginBottom: '40px',
-              }}
-            >
-              Nos articles sur <em className="italic" style={{ color: '#fee1d4' }}>l'événementiel corporate</em>
-            </h2>
-            <div style={{ width: '40px', height: '1px', background: 'rgba(254,225,212,0.4)', margin: '0 auto' }} />
-          </div>
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '40px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '8px',
-              opacity: 1 - immersiveProgress * 4,
-              transition: 'opacity 0.3s',
-            }}
-          >
-            <span style={{ fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>Défiler</span>
-            <div style={{ width: '1px', height: '32px', background: 'rgba(255,255,255,0.25)' }} />
-          </div>
-        </div>
-      </div>
 
       {/* ── ARTICLES ── */}
       <section style={{ background: '#ffffff', borderTop: '1px solid rgba(28,28,26,0.08)' }}>
@@ -324,7 +216,7 @@ export default function Articles() {
                     e.currentTarget.style.gap = '8px';
                   }}
                 >
-                  Lire sur LinkedIn →
+                  Lire l'article →
                 </a>
               </div>
             ))}

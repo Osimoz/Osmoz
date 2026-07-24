@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "WebFetch(domain:www.keeze.co)",
+      "Bash(cp \"/Users/emmamillereau/Desktop/MOSAIQUE PLATS/Présentation professionnel entreprise architecture sobre élégant minimaliste blanc noir.pdf\" /Users/emmamillereau/OSMOZ/public/images/Fleur/mosaique-plats.pdf)",
+      "Bash(pdftoppm -png -r 200 \"/Users/emmamillereau/Desktop/MOSAIQUE PLATS/Présentation professionnel entreprise architecture sobre élégant minimaliste blanc noir.pdf\" /Users/emmamillereau/OSMOZ/public/images/Fleur/mosaique-plats)",
+      "Bash(ls /Users/emmamillereau/OSMOZ/public/images/Fleur/mosaique*)",
+      "Bash(pdftoppm -png -r 200 \"/Users/emmamillereau/Desktop/Cuisine Fleur Web site/PHOTO FLEUR À UTILISER POUR LE SITE.pdf\" \"/tmp/fleur-site\")",
+      "Bash(ls /tmp/fleur-site*)"
+    ]
+  }
+}

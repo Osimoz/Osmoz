@@ -28,6 +28,7 @@ type F = {
   firstName: string; lastName: string; phone: string; email: string; company: string;
   space: string; date: string; timeSlot: string; guests: string;
   services: string[]; comments: string;
+  acceptDataPolicy: boolean; acceptNewsletter: boolean;
 };
 type Err = Partial<Record<keyof F, string>>;
 
@@ -38,6 +39,7 @@ export default function Reservation() {
   const [form, setForm] = useState<F>({
     firstName:'', lastName:'', phone:'', email:'', company:'',
     space: sp, date:'', timeSlot:'', guests:'', services:[], comments:'',
+    acceptDataPolicy: false, acceptNewsletter: false,
   });
   const [errors, setErrors] = useState<Err>({});
   const [submitting, setSubmitting] = useState(false);
@@ -55,6 +57,8 @@ export default function Reservation() {
     set(e.target.name as keyof F, e.target.value);
   const toggleService = (s: string) =>
     setForm(f => ({ ...f, services: f.services.includes(s) ? f.services.filter(x=>x!==s) : [...f.services,s] }));
+  const toggleCheckbox = (field: 'acceptDataPolicy' | 'acceptNewsletter') =>
+    setForm(f => ({ ...f, [field]: !f[field] }));
 
   const validate = (): Err => {
     const e: Err = {};
@@ -64,6 +68,7 @@ export default function Reservation() {
     if (!form.email.trim())     e.email     = 'Requis';
     else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Email invalide';
     if (!form.company.trim())   e.company   = 'Requis';
+    if (!form.acceptDataPolicy) e.acceptDataPolicy = 'Veuillez accepter';
     return e;
   };
 
@@ -79,7 +84,7 @@ export default function Reservation() {
     const timeLabel   = timeSlots.find(t=>t.id===form.timeSlot)?.label || '';
     const timeHours   = timeSlots.find(t=>t.id===form.timeSlot)?.hours || '';
     try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      const emailjsPromise = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: `${form.firstName} ${form.lastName}`,
         reply_to: form.email,
         phone: form.phone,
@@ -92,6 +97,18 @@ export default function Reservation() {
         services: form.services.length ? form.services.join(', ') : 'Aucun',
         comments: form.comments || 'Aucun',
       });
+
+      if (form.acceptNewsletter) {
+        const newsletterPromise = fetch('/.netlify/functions/subscribe-newsletter', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ email: form.email, source: 'reservation', pageUrl: window.location.href }),
+        });
+        await Promise.all([emailjsPromise, newsletterPromise]);
+      } else {
+        await emailjsPromise;
+      }
+
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
@@ -291,6 +308,42 @@ export default function Reservation() {
                     placeholder="Besoins spécifiques, questions…"
                     className="w-full bg-transparent border-b border-gray-200 py-1.5 text-base text-[#01142a] focus:outline-none focus:border-[#01142a] resize-none placeholder:text-gray-300 font-light transition-colors" />
                 </div>
+              </div>
+            </div>
+
+            {/* Consent Checkboxes */}
+            <div className="space-y-4 mt-6 pt-6 border-t border-[#f0f0e8]">
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="accept-data-policy"
+                  checked={form.acceptDataPolicy}
+                  onChange={() => toggleCheckbox('acceptDataPolicy')}
+                  className="mt-1 w-4 h-4 rounded border-gray-300 text-[#862637] accent-[#862637]"
+                  aria-describedby="data-policy-desc"
+                  required
+                />
+                <label htmlFor="accept-data-policy" className="text-xs leading-relaxed text-gray-600 cursor-pointer">
+                  J'accepte que mes données soient utilisées dans le cadre du traitement de ma demande, conformément à la{' '}
+                  <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className="text-[#862637] hover:text-[#01142a] underline">
+                    politique de confidentialité
+                  </a>
+                  . <span className="text-[#862637] font-semibold">*</span>
+                </label>
+              </div>
+              {errors.acceptDataPolicy && <p className="text-[9px] text-red-400 ml-7">{errors.acceptDataPolicy}</p>}
+
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="accept-newsletter"
+                  checked={form.acceptNewsletter}
+                  onChange={() => toggleCheckbox('acceptNewsletter')}
+                  className="mt-1 w-4 h-4 rounded border-gray-300 text-[#862637] accent-[#862637]"
+                />
+                <label htmlFor="accept-newsletter" className="text-xs leading-relaxed text-gray-600 cursor-pointer">
+                  Je souhaite recevoir les actualités, offres et inspirations d'Osmoz par e-mail.
+                </label>
               </div>
             </div>
 
