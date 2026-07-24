@@ -6,14 +6,14 @@ export default function MentionsLegales() {
   return (
     <>
       <Helmet>
-        <title>Mentions Légales | OSMOZ</title>
-        <meta name="description" content="Mentions légales du site osmoz.work : informations sur l'éditeur, l'hébergeur, la propriété intellectuelle et la protection des données." />
+        <title>Mentions Légales — OSMOZ Espaces Privatifs Paris</title>
+        <meta name="description" content="Mentions légales du site osmoz-space.com : informations sur l'éditeur OSMOZ, l'hébergeur, la propriété intellectuelle et la protection des données RGPD." />
         <link rel="canonical" href="https://osmoz-space.com/mentions-legales" />
         <meta name="robots" content="noindex, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://osmoz-space.com/mentions-legales" />
-        <meta property="og:title" content="Mentions Légales | OSMOZ" />
-        <meta property="og:description" content="Mentions légales du site osmoz.work : informations sur l'éditeur, l'hébergeur, la propriété intellectuelle et la protection des données." />
+        <meta property="og:title" content="Mentions Légales — OSMOZ Espaces Privatifs Paris" />
+        <meta property="og:description" content="Mentions légales du site osmoz-space.com : informations sur l'éditeur OSMOZ, l'hébergeur, la propriété intellectuelle et la protection des données RGPD." />
         <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
