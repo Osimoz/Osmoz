@@ -124,15 +124,15 @@ export default function NewsletterForm({
           </button>
         </div>
 
-        <p id={`newsletter-message-${source}`} className={`text-sm leading-relaxed ${status === 'error' ? 'text-red-500' : 'text-[#f5f5ef]'} ${!message ? 'opacity-60' : ''}`} aria-live="polite">
-          {message || 'En vous inscrivant, vous acceptez de recevoir les actualités d’Osmoz par e-mail. Vous pouvez vous désinscrire à tout moment.'}
-        </p>
-
-        <p className="text-[11px] text-[#f5f5ef]/80 leading-relaxed">
-          En vous inscrivant, vous acceptez de recevoir les actualités d’Osmoz par e-mail. Vous pouvez vous désinscrire à tout moment. Consultez notre{' '}
-          <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className="text-[#fee1d4] underline">
-            politique de confidentialité
-          </a>.
+        <p id={`newsletter-message-${source}`} className={`text-[11px] leading-relaxed ${status === 'error' ? 'text-red-500' : 'text-[#f5f5ef]/80'}`} aria-live="polite">
+          {status === 'error' ? message : (
+            <>
+              En vous inscrivant, vous acceptez de recevoir les actualités d'Osmoz par e-mail. Vous pouvez vous désinscrire à tout moment. Consultez notre{' '}
+              <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className="text-[#fee1d4] underline">
+                politique de confidentialité
+              </a>.
+            </>
+          )}
         </p>
       </form>
     </div>
