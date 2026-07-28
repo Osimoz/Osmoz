@@ -46,6 +46,39 @@
   status = 301
   force = true
 
+# Force www to non-www
+[[redirects]]
+  from = "https://www.osmoz-space.com/*"
+  to = "https://osmoz-space.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.osmoz-space.com/*"
+  to = "https://osmoz-space.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://osmoz-space.com/*"
+  to = "https://osmoz-space.com/:splat"
+  status = 301
+  force = true
+
+# Redirect /en/ paths to French equivalent
+[[redirects]]
+  from = "/en/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Normalize trailing slashes on /docs/
+[[redirects]]
+  from = "/docs/*/"
+  to = "/docs/:splat"
+  status = 301
+  force = true
+
 # ── SPA catch-all (must be last) ─────────────────────────────────────
 [[redirects]]
   from = "/*"

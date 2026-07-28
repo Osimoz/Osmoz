@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /en/
+Disallow: /docs/
 Sitemap: https://osmoz-space.com/sitemap.xml
