@@ -2,6 +2,9 @@
   publish = "dist"
   command = "npm run build"
 
+[build.environment]
+  NODE_VERSION = "22"
+
 # ── Domain migration: osmoz.work → osmoz-space.com ───────────────────
 [[redirects]]
   from = "http://osmoz.work/*"
@@ -77,9 +80,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[build.environment]
-  NODE_VERSION = "20"
 
 [dev]
   framework = "vite"
