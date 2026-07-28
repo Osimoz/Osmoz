@@ -72,13 +72,6 @@
   status = 301
   force = true
 
-# Normalize trailing slashes on /docs/
-[[redirects]]
-  from = "/docs/*/"
-  to = "/docs/:splat"
-  status = 301
-  force = true
-
 # ── SPA catch-all (must be last) ─────────────────────────────────────
 [[redirects]]
   from = "/*"
