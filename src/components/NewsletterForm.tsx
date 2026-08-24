@@ -34,12 +34,14 @@ export default function NewsletterForm({
   const normalizedEmail = useMemo(() => email.trim().toLowerCase(), [email]);
   const isSubmitting = status === 'loading';
   const isAlreadySubmitted = submittedEmail === normalizedEmail && (status === 'success' || status === 'already_subscribed');
-
-  useEffect(() => {
-    if (status !== 'idle') {
-      setMessage('');
-    }
-  }, [email, status]);
+  const disclaimerText = (
+    <>
+      En vous inscrivant, vous acceptez de recevoir les actualités d'Osmoz par e-mail. Vous pouvez vous désinscrire à tout moment. Consultez notre{' '}
+      <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className="text-[#fee1d4] underline">
+        politique de confidentialité
+      </a>.
+    </>
+  );
 
   const validateEmail = () => {
     if (!normalizedEmail) {
@@ -49,6 +51,14 @@ export default function NewsletterForm({
       return 'Adresse e-mail invalide.';
     }
     return '';
+  };
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+    if (status !== 'idle') {
+      setStatus('idle');
+      setMessage('');
+    }
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -109,7 +119,7 @@ export default function NewsletterForm({
             type="email"
             name="email"
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={handleEmailChange}
             placeholder="Votre adresse e-mail"
             className="w-full rounded-3xl border border-[#e5e5e5] bg-white/95 px-5 py-4 text-sm text-[#01142a] placeholder:text-gray-400 focus:border-[#01142a] focus:outline-none focus:ring-2 focus:ring-[#862637]/20"
             aria-invalid={status === 'error' ? 'true' : 'false'}
@@ -118,21 +128,23 @@ export default function NewsletterForm({
           <button
             type="submit"
             disabled={isSubmitting || isAlreadySubmitted}
-            className="rounded-3xl bg-[#862637] px-6 py-4 text-xs tracking-[0.2em] uppercase text-[#fbfbf3] transition hover:bg-[#01142a] disabled:cursor-not-allowed disabled:opacity-60"
+            className={`rounded-3xl px-6 py-4 text-xs tracking-[0.2em] uppercase text-[#fbfbf3] transition ${
+              status === 'success' ? 'bg-green-600 hover:bg-green-700' :
+              status === 'already_subscribed' ? 'bg-blue-600 hover:bg-blue-700' :
+              'bg-[#862637] hover:bg-[#01142a]'
+            } disabled:cursor-not-allowed disabled:opacity-60`}
           >
-            {isSubmitting ? 'Envoi…' : submitLabel}
+            {isSubmitting ? 'Envoi…' : status === 'success' ? '✓ Inscrit !' : status === 'already_subscribed' ? '✓ Déjà inscrit' : submitLabel}
           </button>
         </div>
 
-        <p id={`newsletter-message-${source}`} className={`text-[11px] leading-relaxed ${status === 'error' ? 'text-red-500' : 'text-[#f5f5ef]/80'}`} aria-live="polite">
-          {status === 'error' ? message : (
-            <>
-              En vous inscrivant, vous acceptez de recevoir les actualités d'Osmoz par e-mail. Vous pouvez vous désinscrire à tout moment. Consultez notre{' '}
-              <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className="text-[#fee1d4] underline">
-                politique de confidentialité
-              </a>.
-            </>
-          )}
+        <p id={`newsletter-message-${source}`} className={`text-[11px] leading-relaxed font-medium ${
+          status === 'error' ? 'text-red-500' :
+          status === 'success' ? 'text-green-500' :
+          status === 'already_subscribed' ? 'text-blue-500' :
+          'text-[#f5f5ef]/80'
+        }`} aria-live="polite">
+          {status === 'error' || status === 'success' || status === 'already_subscribed' ? message : disclaimerText}
         </p>
       </form>
     </div>
