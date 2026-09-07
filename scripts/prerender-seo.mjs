@@ -76,12 +76,19 @@ function renderPage(template, block) {
 }
 
 async function writeRoute(path, html) {
-  // "/" → dist/index.html ; "/x/y" → dist/x/y/index.html
-  const rel = path === '/' ? '' : path.replace(/^\/+|\/+$/g, '');
-  const dir = rel ? join(DIST, rel) : DIST;
-  await mkdir(dir, { recursive: true });
-  await writeFile(join(dir, 'index.html'), html);
-  return rel ? `dist/${rel}/index.html` : 'dist/index.html';
+  // Fichiers PLATS pour éviter la redirection slash final de Netlify :
+  //   "/"        → dist/index.html
+  //   "/x/y"     → dist/x/y.html   (PAS dist/x/y/index.html → sinon 301 vers /x/y/)
+  // Netlify sert alors /x/y en 200 direct, sans slash, sans redirection.
+  if (path === '/') {
+    await writeFile(join(DIST, 'index.html'), html);
+    return 'dist/index.html';
+  }
+  const rel = path.replace(/^\/+|\/+$/g, '');
+  const file = join(DIST, `${rel}.html`);
+  await mkdir(dirname(file), { recursive: true });
+  await writeFile(file, html);
+  return `dist/${rel}.html`;
 }
 
 async function main() {
