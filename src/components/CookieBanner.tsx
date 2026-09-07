@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import posthog from 'posthog-js';
 import { ShieldCheck } from 'lucide-react';
 import { loadGTM } from '../lib/gtm';
-import { loadGoogleAds } from '../lib/gtag';
 
 const STORAGE_KEY = 'osmoz-cookie-consent';
 
@@ -19,7 +18,6 @@ function initPostHog(): void {
 function enableTracking(): void {
   initPostHog();
   loadGTM();
-  loadGoogleAds();
 }
 
 export default function CookieBanner() {
