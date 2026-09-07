@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import AProposTabs from '../components/AProposTabs';
 
@@ -174,18 +175,8 @@ export default function QuestionsFrequentes() {
 
   return (
     <>
+      <SEO path="/questions-frequentes" />
       <Helmet>
-        <title>Questions Fréquentes — Espaces Privatifs OSMOZ Paris</title>
-        <meta name="description" content="Toutes vos questions sur la privatisation d'espaces OSMOZ à Paris : tarifs, restauration, équipements, capacité, démarche RSE. Devis sous 24h." />
-        <link rel="canonical" href="https://osmoz-space.com/questions-frequentes" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz-space.com/questions-frequentes" />
-        <meta property="og:title" content="Questions Fréquentes — Espaces Privatifs OSMOZ Paris" />
-        <meta property="og:description" content="Toutes vos questions sur la privatisation d'espaces OSMOZ à Paris : tarifs, restauration, équipements, capacité, démarche RSE. Devis sous 24h." />
-        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

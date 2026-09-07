@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Check, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { useSearchParams } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 
@@ -149,19 +150,7 @@ export default function Reservation() {
 
   return (
     <>
-      <Helmet>
-        <title>Réserver Votre Espace OSMOZ à Paris — Devis sous 24h</title>
-        <meta name="description" content="Réservez votre espace OSMOZ à Paris pour vos séminaires, réunions et événements d'entreprise. Privatisation exclusive. Réponse personnalisée sous 24h." />
-        <link rel="canonical" href="https://osmoz-space.com/reservation" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz-space.com/reservation" />
-        <meta property="og:title" content="Réserver Votre Espace OSMOZ à Paris — Devis sous 24h" />
-        <meta property="og:description" content="Réservez votre espace OSMOZ à Paris pour vos séminaires, réunions et événements d'entreprise. Privatisation exclusive. Réponse personnalisée sous 24h." />
-        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="OSMOZ" />
-      </Helmet>
+      <SEO path="/reservation" />
 
       {/* Mobile sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t border-[#e5e5e5] px-4 py-3">

@@ -39,7 +39,7 @@ function jsonLdText(value) {
   return trimmed.replace(/<\/(script)/gi, '<\\/$1');
 }
 
-function seoBlock({ title, description, url, image, type = 'website', locale = 'fr_FR', extra = [] }) {
+function seoBlock({ title, description, url, image, type = 'website', locale = 'fr_FR', robots = 'index, follow', extra = [] }) {
   const t = esc(title);
   const d = esc(description);
   const u = esc(url);
@@ -48,7 +48,7 @@ function seoBlock({ title, description, url, image, type = 'website', locale = '
     `<title>${t}</title>`,
     d && `<meta name="description" content="${d}" />`,
     `<link rel="canonical" href="${u}" />`,
-    `<meta name="robots" content="index, follow" />`,
+    `<meta name="robots" content="${esc(robots)}" />`,
     `<meta property="og:type" content="${esc(type)}" />`,
     `<meta property="og:url" content="${u}" />`,
     `<meta property="og:title" content="${t}" />`,
@@ -108,6 +108,7 @@ async function main() {
       image: meta.image ?? defaultImage,
       type: meta.type ?? 'website',
       locale,
+      robots: meta.robots ?? 'index, follow',
     });
     written.push(await writeRoute(path, renderPage(template, block)));
   }
@@ -139,7 +140,7 @@ async function main() {
     if (faq) extra.push(`<script type="application/ld+json">${faq}</script>`);
 
     const block = seoBlock({
-      title: a.title,
+      title: `${a.title} | OSMOZ`,
       description: a.meta_description || a.excerpt || '',
       url,
       image: a.hero_image_url || defaultImage,

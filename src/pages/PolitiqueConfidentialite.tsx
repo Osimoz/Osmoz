@@ -1,22 +1,10 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 
 export default function PolitiqueConfidentialite() {
   return (
     <>
-      <Helmet>
-        <title>Politique de Confidentialité — OSMOZ Espaces Paris</title>
-        <meta name="description" content="Politique de confidentialité d'OSMOZ : collecte, utilisation et protection de vos données personnelles selon le RGPD. Cookies, droits et contact détaillés." />
-        <link rel="canonical" href="https://osmoz-space.com/politique-de-confidentialite" />
-        <meta name="robots" content="noindex, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz-space.com/politique-de-confidentialite" />
-        <meta property="og:title" content="Politique de Confidentialité — OSMOZ Espaces Paris" />
-        <meta property="og:description" content="Politique de confidentialité d'OSMOZ : collecte, utilisation et protection de vos données personnelles selon le RGPD. Cookies, droits et contact détaillés." />
-        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="OSMOZ" />
-      </Helmet>
+      <SEO path="/politique-de-confidentialite" />
 
       <div className="pt-32 pb-24 bg-[#fbfbf3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

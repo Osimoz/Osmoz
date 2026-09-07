@@ -36,6 +36,36 @@
       "title": "Contact OSMOZ, réservez votre espace privatif à Paris",
       "description": "Contactez OSMOZ pour privatiser un espace à Paris ou La Défense. Réponse et devis personnalisé sous 24h pour vos réunions, séminaires et journées d'équipe.",
       "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
+    },
+    "/reservation": {
+      "title": "Réservez votre espace privatif à Paris, OSMOZ",
+      "description": "Demandez la privatisation d'un espace authentique OSMOZ à Paris ou La Défense. Devis personnalisé sous 24h pour vos réunions, séminaires et journées d'équipe."
+    },
+    "/questions-frequentes": {
+      "title": "Questions fréquentes sur nos espaces privatifs, OSMOZ",
+      "description": "Tarifs, capacités, restauration, privatisation : les réponses aux questions fréquentes sur les espaces privatifs authentiques OSMOZ à Paris et La Défense."
+    },
+    "/experience": {
+      "title": "L'expérience culinaire OSMOZ, Cheffe privée à Paris",
+      "description": "L'expérience culinaire OSMOZ à Paris : Cheffe privée, traiteurs partenaires et animations team building pour vos séminaires et événements d'entreprise."
+    },
+    "/articles": {
+      "title": "Articles OSMOZ, conseils séminaires et événements",
+      "description": "Conseils et inspirations OSMOZ pour réussir vos réunions, séminaires et événements d'entreprise à Paris : lieux, organisation, restauration, team building."
+    },
+    "/rse": {
+      "title": "Démarche RSE OSMOZ, événementiel responsable à Paris",
+      "description": "La démarche RSE d'OSMOZ : zéro déchet, cuisine locale et bio, mobilité douce. Un événementiel responsable au coeur de Paris pour vos réunions et séminaires."
+    },
+    "/mentions-legales": {
+      "title": "Mentions légales, OSMOZ espaces privatifs à Paris",
+      "description": "Mentions légales du site OSMOZ : éditeur, hébergeur, propriété intellectuelle et protection des données personnelles (RGPD).",
+      "robots": "noindex, follow"
+    },
+    "/politique-de-confidentialite": {
+      "title": "Politique de confidentialité d'OSMOZ, espaces à Paris",
+      "description": "Politique de confidentialité d'OSMOZ : collecte, usage et protection de vos données personnelles selon le RGPD. Cookies, droits et contact.",
+      "robots": "noindex, follow"
     }
   }
 }

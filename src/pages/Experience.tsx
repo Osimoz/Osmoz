@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 
 const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
@@ -310,19 +310,7 @@ export default function Experience() {
 
   return (
     <>
-      <Helmet>
-        <title>Expérience — OSMOZ | Cuisine & moments culinaires à Paris</title>
-        <meta name="description" content="L'expérience culinaire OSMOZ à Paris : Cheffe privée Fleur, traiteurs partenaires sélectionnés, animations team-building pour vos séminaires d'entreprise." />
-        <link rel="canonical" href="https://osmoz-space.com/experience" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz-space.com/experience" />
-        <meta property="og:title" content="Expérience — OSMOZ | Cuisine & moments culinaires à Paris" />
-        <meta property="og:description" content="L'expérience culinaire OSMOZ à Paris : Cheffe privée Fleur, traiteurs partenaires sélectionnés, animations team-building pour vos séminaires d'entreprise." />
-        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="OSMOZ" />
-      </Helmet>
+      <SEO path="/experience" />
 
       {/* ── 1. HERO ── */}
       <section

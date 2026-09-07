@@ -10,7 +10,7 @@ import seo from '../lib/seo-config.json';
 // dans la page elle-même via un <Helmet> dédié : il dépend de données calculées
 // au rendu.
 
-type RouteMeta = { title: string; description: string; image?: string; type?: string };
+type RouteMeta = { title: string; description: string; image?: string; type?: string; robots?: string };
 
 const defaults = seo.defaults;
 const routes = seo.routes as Record<string, RouteMeta>;
@@ -23,6 +23,7 @@ type Props = {
   description?: string;
   image?: string;
   type?: string;
+  robots?: string;
 };
 
 export function buildCanonical(path: string): string {
@@ -30,12 +31,13 @@ export function buildCanonical(path: string): string {
   return `${defaults.baseUrl}${clean}`;
 }
 
-export default function SEO({ path, title, description, image, type }: Props) {
+export default function SEO({ path, title, description, image, type, robots }: Props) {
   const meta = routes[path] ?? ({} as RouteMeta);
   const finalTitle = title ?? meta.title ?? defaults.siteName;
   const finalDesc = description ?? meta.description ?? '';
   const finalImage = image ?? meta.image ?? defaults.image;
   const finalType = type ?? meta.type ?? defaults.type;
+  const finalRobots = robots ?? meta.robots ?? 'index, follow';
   const url = buildCanonical(path);
 
   return (
@@ -43,7 +45,7 @@ export default function SEO({ path, title, description, image, type }: Props) {
       <title>{finalTitle}</title>
       {finalDesc && <meta name="description" content={finalDesc} />}
       <link rel="canonical" href={url} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={finalRobots} />
 
       <meta property="og:type" content={finalType} />
       <meta property="og:url" content={url} />

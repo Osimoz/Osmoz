@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import NewsletterForm from '../components/NewsletterForm';
@@ -161,15 +161,7 @@ export default function Articles() {
 
   return (
     <>
-      <Helmet>
-        <title>Nos Articles — OSMOZ | Insights culinaires & événements</title>
-        <meta
-          name="description"
-          content="Découvrez nos articles OSMOZ : insights sur les leviers des événements réussis, l'importance du contexte en formation, et le ROI des séminaires."
-        />
-        <link rel="canonical" href="https://osmoz-space.com/articles" />
-        <meta name="robots" content="index, follow" />
-      </Helmet>
+      <SEO path="/articles" />
 
       {/* ── HERO ── */}
       <section

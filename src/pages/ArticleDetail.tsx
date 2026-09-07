@@ -137,7 +137,7 @@ export default function ArticleDetail() {
     return (
       <div style={{ background: '#fbfbf3', minHeight: '60vh' }}>
         <Helmet>
-          <title>Article introuvable — OSMOZ</title>
+          <title>Article introuvable | OSMOZ</title>
           <meta name="robots" content="noindex, follow" />
         </Helmet>
         <div
@@ -188,7 +188,7 @@ export default function ArticleDetail() {
 
   const { article } = state;
   const canonical = `https://osmoz-space.com/articles/${article.slug ?? ''}`;
-  const metaTitle = article.title ? `${article.title} — OSMOZ` : 'Article OSMOZ';
+  const metaTitle = article.title ? `${article.title} | OSMOZ` : 'Article OSMOZ';
   const metaDescription = article.meta_description ?? article.excerpt ?? '';
   const publishDate = article.publishedAt ?? article.created_at;
   const jsonLd = toJsonLd(article.jsonLd);
