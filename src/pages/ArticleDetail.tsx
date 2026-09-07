@@ -42,42 +42,23 @@ export default function ArticleDetail() {
     let cancelled = false;
     (async () => {
       try {
-        // 1) Récupère la liste, trouve par slug, puis 2) fetch par id pour le content_html.
-        const listRes = await fetch('/.netlify/functions/articles-proxy');
-        if (!listRes.ok) throw new Error(`Liste indisponible (HTTP ${listRes.status})`);
-        const listPayload = (await listRes.json()) as { articles?: ApiArticle[] };
-        const list = listPayload.articles ?? [];
-        const match = list.find((a) => a.slug === slug);
-        if (!match || match.id == null) {
-          if (!cancelled) setState({ phase: 'not-found' });
-          return;
-        }
-        const detailRes = await fetch(
-          `/.netlify/functions/articles-proxy?id=${encodeURIComponent(String(match.id))}`
-        );
-        if (!detailRes.ok) throw new Error(`Article indisponible (HTTP ${detailRes.status})`);
-        const detail = (await detailRes.json()) as ApiArticle | { data?: ApiArticle; article?: ApiArticle };
-        // L'API peut renvoyer l'article tel quel ou wrappé.
+        // Fichier statique par slug, généré au build (scripts/sync-articles.mjs).
+        // NB: sur Netlify, un fichier absent est capté par le catch-all SPA et
+        // renvoie index.html (HTML, HTTP 200) — d'où la détection via le parsing
+        // JSON plutôt que via res.ok.
+        const res = await fetch(`/data/articles/${encodeURIComponent(slug)}.json`);
         let article: ApiArticle | undefined;
-        if (detail && typeof detail === 'object') {
-          if ('content_html' in detail || 'title' in detail) {
-            article = detail as ApiArticle;
-          } else {
-            const w = detail as { data?: ApiArticle; article?: ApiArticle };
-            article = w.data ?? w.article;
-          }
+        try {
+          const parsed = (await res.json()) as ApiArticle;
+          if (parsed && typeof parsed === 'object' && parsed.title) article = parsed;
+        } catch {
+          article = undefined; // JSON invalide (fallback SPA) → article inexistant
         }
         if (!article) {
           if (!cancelled) setState({ phase: 'not-found' });
           return;
         }
-        // Fusionne les champs de la liste (meta, created_at) avec ceux du detail.
-        if (!cancelled) {
-          setState({
-            phase: 'ready',
-            article: { ...match, ...article },
-          });
-        }
+        if (!cancelled) setState({ phase: 'ready', article });
       } catch (err) {
         if (!cancelled) {
           setState({ phase: 'error', message: err instanceof Error ? err.message : 'Erreur inconnue' });

@@ -29,3 +29,6 @@ dist-ssr
 .env.claude/
 .env
 .env.local
+
+# Articles synchronisés au build (générés par scripts/sync-articles.mjs)
+public/data/

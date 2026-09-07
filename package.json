@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "sync-articles": "node scripts/sync-articles.mjs",
+    "prebuild": "node scripts/sync-articles.mjs",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint ."

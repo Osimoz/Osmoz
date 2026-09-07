@@ -1,0 +1,30 @@
+name: Sync articles (rebuild planifié)
+
+# Réveille un déploiement Netlify sur un rythme régulier. Le sync lui-même
+# tourne PENDANT le build Netlify (npm run prebuild → scripts/sync-articles.mjs),
+# qui contacte l'API BabyLoveGrowth une seule fois et écrit les fichiers
+# statiques. Ici on ne fait que déclencher ce rebuild.
+#
+# Prérequis : créer un "Build hook" dans Netlify
+#   (Site configuration → Build & deploy → Build hooks)
+# puis ajouter son URL en secret de dépôt GitHub : NETLIFY_BUILD_HOOK.
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # tous les jours à 06:00 UTC
+  workflow_dispatch: {} # déclenchement manuel depuis l'onglet Actions
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Déclencher le build hook Netlify
+        env:
+          BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -z "$BUILD_HOOK" ]; then
+            echo "::error::Secret NETLIFY_BUILD_HOOK manquant (Settings → Secrets → Actions)."
+            exit 1
+          fi
+          curl -fsS -X POST -d '{}' "$BUILD_HOOK"
+          echo "Rebuild Netlify déclenché."

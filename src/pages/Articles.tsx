@@ -126,7 +126,9 @@ export default function Articles() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch('/.netlify/functions/articles-proxy');
+        // Fichiers statiques générés au build (scripts/sync-articles.mjs) —
+        // jamais d'appel direct à l'API rate-limitée depuis le client.
+        const res = await fetch('/data/articles.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const payload = (await res.json()) as { articles?: ApiArticle[] };
         const list = payload.articles ?? [];
