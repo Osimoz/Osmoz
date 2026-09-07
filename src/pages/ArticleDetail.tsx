@@ -9,8 +9,25 @@ type ApiArticle = {
   meta_description?: string;
   excerpt?: string;
   created_at?: string;
+  publishedAt?: string;
   content_html?: string;
+  content_markdown?: string;
+  hero_image_url?: string;
+  languageCode?: string;
+  jsonLd?: unknown;
+  faqJsonLd?: unknown;
 };
+
+// jsonLd / faqJsonLd peuvent arriver en string (déjà sérialisé) ou en objet.
+function toJsonLd(value: unknown): string | null {
+  if (!value) return null;
+  if (typeof value === 'string') return value.trim() || null;
+  try {
+    return JSON.stringify(value);
+  } catch {
+    return null;
+  }
+}
 
 const FR_MONTHS = [
   'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
@@ -173,6 +190,9 @@ export default function ArticleDetail() {
   const canonical = `https://osmoz-space.com/articles/${article.slug ?? ''}`;
   const metaTitle = article.title ? `${article.title} — OSMOZ` : 'Article OSMOZ';
   const metaDescription = article.meta_description ?? article.excerpt ?? '';
+  const publishDate = article.publishedAt ?? article.created_at;
+  const jsonLd = toJsonLd(article.jsonLd);
+  const faqJsonLd = toJsonLd(article.faqJsonLd);
 
   return (
     <div style={{ background: '#fbfbf3' }}>
@@ -185,8 +205,13 @@ export default function ArticleDetail() {
         <meta property="og:url" content={canonical} />
         <meta property="og:title" content={metaTitle} />
         {metaDescription && <meta property="og:description" content={metaDescription} />}
+        {article.hero_image_url && <meta property="og:image" content={article.hero_image_url} />}
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
+        {publishDate && <meta property="article:published_time" content={publishDate} />}
+        {/* Données structurées JSON-LD renvoyées par l'API (SEO / rich results). */}
+        {jsonLd && <script type="application/ld+json">{jsonLd}</script>}
+        {faqJsonLd && <script type="application/ld+json">{faqJsonLd}</script>}
       </Helmet>
 
       <article
@@ -214,7 +239,7 @@ export default function ArticleDetail() {
           ← Tous les articles
         </Link>
 
-        {article.created_at && (
+        {publishDate && (
           <p
             style={{
               fontSize: '9px',
@@ -225,7 +250,7 @@ export default function ArticleDetail() {
               marginBottom: '16px',
             }}
           >
-            {formatFrDate(article.created_at)}
+            {formatFrDate(publishDate)}
           </p>
         )}
 
@@ -257,6 +282,21 @@ export default function ArticleDetail() {
           >
             {article.meta_description}
           </p>
+        )}
+
+        {article.hero_image_url && (
+          <img
+            src={article.hero_image_url}
+            alt={article.title ?? ''}
+            loading="lazy"
+            style={{
+              width: '100%',
+              height: 'auto',
+              borderRadius: '8px',
+              display: 'block',
+              margin: '8px 0 48px',
+            }}
+          />
         )}
 
         {article.content_html ? (

@@ -87,14 +87,18 @@ type ApiArticle = {
   meta_description?: string;
   excerpt?: string;
   created_at?: string;
+  publishedAt?: string;
+  hero_image_url?: string | null;
 };
+
+const pubDate = (a: ApiArticle): string | undefined => a.publishedAt ?? a.created_at;
 
 function mapToCard(article: ApiArticle, index: number): Card | null {
   if (!article.slug || !article.title) return null;
   return {
     num: String(index + 1).padStart(2, '0'),
     titre: article.title,
-    date: formatFrDate(article.created_at),
+    date: formatFrDate(pubDate(article)),
     description: article.meta_description ?? '',
     contenu: article.excerpt ?? '',
     lien: `/articles/${article.slug}`,
@@ -138,8 +142,8 @@ export default function Articles() {
         }
         // Tri par date décroissante avant numérotation.
         const sorted = [...list].sort((a, b) => {
-          const ta = a.created_at ? new Date(a.created_at).getTime() : 0;
-          const tb = b.created_at ? new Date(b.created_at).getTime() : 0;
+          const ta = pubDate(a) ? new Date(pubDate(a) as string).getTime() : 0;
+          const tb = pubDate(b) ? new Date(pubDate(b) as string).getTime() : 0;
           return tb - ta;
         });
         const mapped = sorted.map(mapToCard).filter((c): c is Card => c !== null);
