@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import ImageGallery from '../components/ImageGallery';
 
 // ─── helpers ────────────────────────────────────────────────────────────────
@@ -276,18 +277,8 @@ export default function PenthouseOsmoz() {
   return (
     <div className="pt-0">
       {/* ── SEO ── */}
+      <SEO path="/spaces/penthouse-osmoz" />
       <Helmet>
-        <title>Le Penthouse OSMOZ — Rooftop Vue Paris La Défense</title>
-        <meta name="description" content="Le Penthouse OSMOZ à La Défense : 150m² + rooftop 350m² vue Paris. Réunions, séminaires et cocktails jusqu'à 40 personnes. Privatisation. Devis sous 24h." />
-        <link rel="canonical" href="https://osmoz-space.com/spaces/penthouse-osmoz" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz-space.com/spaces/penthouse-osmoz" />
-        <meta property="og:title" content="Le Penthouse OSMOZ — Rooftop Vue Paris La Défense" />
-        <meta property="og:description" content="Le Penthouse OSMOZ à La Défense : 150m² + rooftop 350m² vue Paris. Réunions, séminaires et cocktails jusqu'à 40 personnes. Privatisation. Devis sous 24h." />
-        <meta property="og:image" content="https://osmoz-space.com/images/Penthouse/2%20-%20Salon.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(penthouseBreadcrumbFaqLd)}</script>
       </Helmet>

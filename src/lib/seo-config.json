@@ -1,0 +1,41 @@
+{
+  "defaults": {
+    "siteName": "OSMOZ",
+    "baseUrl": "https://osmoz-space.com",
+    "locale": "fr_FR",
+    "type": "website",
+    "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
+  },
+  "routes": {
+    "/": {
+      "title": "OSMOZ, espaces privatifs authentiques à Paris",
+      "description": "Louez un espace privatif authentique à Paris pour vos réunions, séminaires et journées d'équipe. Trois lieux privatisables clé en main. Devis sous 24h.",
+      "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
+    },
+    "/spaces": {
+      "title": "Nos espaces privatifs à Paris et La Défense, OSMOZ",
+      "description": "Découvrez les espaces privatifs OSMOZ à Paris et La Défense pour vos réunions, séminaires et événements d'entreprise. Lieux authentiques clé en main. Devis 24h.",
+      "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
+    },
+    "/spaces/loft-osmoz": {
+      "title": "Le Loft OSMOZ, espace privatif dans le Marais à Paris",
+      "description": "Le Loft OSMOZ, 110 m2 lumineux dans le Marais à deux pas de la Place des Vosges. Réunions, séminaires et workshops jusqu'à 25 personnes. Devis sous 24h.",
+      "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
+    },
+    "/spaces/duplex-osmoz": {
+      "title": "Le Duplex OSMOZ, espace privatif haussmannien Paris 2e",
+      "description": "Le Duplex OSMOZ, 300 m2 haussmanniens sur deux étages au coeur de Paris. Séminaires, réunions et cocktails jusqu'à 40 personnes. Privatisation totale, devis 24h.",
+      "image": "https://osmoz-space.com/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg"
+    },
+    "/spaces/penthouse-osmoz": {
+      "title": "Le Penthouse OSMOZ, rooftop avec vue à La Défense",
+      "description": "Le Penthouse OSMOZ à La Défense, 150 m2 plus un rooftop de 350 m2 avec vue sur Paris. Séminaires, réunions et cocktails jusqu'à 40 personnes. Devis sous 24h.",
+      "image": "https://osmoz-space.com/images/Penthouse/2%20-%20Salon.jpg"
+    },
+    "/contact": {
+      "title": "Contact OSMOZ, réservez votre espace privatif à Paris",
+      "description": "Contactez OSMOZ pour privatiser un espace à Paris ou La Défense. Réponse et devis personnalisé sous 24h pour vos réunions, séminaires et journées d'équipe.",
+      "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
+    }
+  }
+}

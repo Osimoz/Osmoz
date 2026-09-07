@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import ImageGallery from '../components/ImageGallery';
 
 const base = import.meta.env.BASE_URL;
@@ -266,18 +267,8 @@ export default function DuplexOsmozV2() {
     <div className="pt-0">
 
       {/* ── SEO ── */}
+      <SEO path="/spaces/duplex-osmoz" />
       <Helmet>
-        <title>Le Duplex OSMOZ — Espace Privatif Paris 2e 300m²</title>
-        <meta name="description" content="Le Duplex OSMOZ : appartement haussmannien 300m² Paris 2e pour vos réunions, séminaires et cocktails jusqu'à 40 personnes. Privatisation totale. Devis 24h." />
-        <link rel="canonical" href="https://osmoz-space.com/spaces/duplex-osmoz" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz-space.com/spaces/duplex-osmoz" />
-        <meta property="og:title" content="Le Duplex OSMOZ — Espace Privatif Paris 2e 300m²" />
-        <meta property="og:description" content="Le Duplex OSMOZ : appartement haussmannien 300m² Paris 2e pour vos réunions, séminaires et cocktails jusqu'à 40 personnes. Privatisation totale. Devis 24h." />
-        <meta property="og:image" content="https://osmoz-space.com/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(duplexBreadcrumbFaqLd)}</script>
         <link rel="preload" as="image" href={u(`${D}duplex-salon-01.webp`)} />

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, Users } from 'lucide-react';
 
 const base = import.meta.env.BASE_URL;
@@ -83,18 +84,8 @@ export default function Spaces() {
 
   return (
     <>
+      <SEO path="/spaces" />
       <Helmet>
-        <title>Nos Espaces Privatifs Authentiques à Paris | OSMOZ</title>
-        <meta name="description" content="Découvrez nos 3 espaces privatifs à Paris : Le Loft (Marais), Le Duplex (2e arr.) et Le Penthouse (La Défense). De 5 à 40 personnes. Devis sous 24h." />
-        <link rel="canonical" href="https://osmoz-space.com/spaces" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz-space.com/spaces" />
-        <meta property="og:title" content="Nos Espaces Privatifs Authentiques à Paris | OSMOZ" />
-        <meta property="og:description" content="Découvrez nos 3 espaces privatifs à Paris : Le Loft (Marais), Le Duplex (2e arr.) et Le Penthouse (La Défense). De 5 à 40 personnes. Devis sous 24h." />
-        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="OSMOZ" />
         <script type="application/ld+json">{JSON.stringify(spacesBreadcrumbLd)}</script>
       </Helmet>
 

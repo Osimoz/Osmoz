@@ -8,6 +8,7 @@
     "sync-articles": "node scripts/sync-articles.mjs",
     "prebuild": "node scripts/sync-articles.mjs",
     "build": "tsc && vite build",
+    "postbuild": "node scripts/prerender-seo.mjs",
     "preview": "vite preview",
     "lint": "eslint ."
   },

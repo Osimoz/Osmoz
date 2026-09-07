@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, ArrowRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 
 const EMAILJS_SERVICE_ID = 'service_5dizo3p';
@@ -50,19 +50,7 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact OSMOZ — Réservez Votre Espace à Paris</title>
-        <meta name="description" content="Une question sur nos espaces privatifs à Paris ? Contactez l'équipe OSMOZ. Pour une demande de privatisation, utilisez notre formulaire dédié sous 24h." />
-        <link rel="canonical" href="https://osmoz-space.com/contact" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://osmoz-space.com/contact" />
-        <meta property="og:title" content="Contact OSMOZ — Réservez Votre Espace à Paris" />
-        <meta property="og:description" content="Une question sur nos espaces privatifs à Paris ? Contactez l'équipe OSMOZ. Pour une demande de privatisation, utilisez notre formulaire dédié sous 24h." />
-        <meta property="og:image" content="https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="OSMOZ" />
-      </Helmet>
+      <SEO path="/contact" />
 
       <div className="pt-32 pb-24 bg-[#fbfbf3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
