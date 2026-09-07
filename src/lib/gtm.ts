@@ -1,4 +1,4 @@
-// Loader Google Tag Manager (GTM-P9XGX8GH) déclenché APRÈS acceptation des
+// Loader Google Tag Manager (GTM-MBSKF297) déclenché APRÈS acceptation des
 // cookies via CookieBanner. Le script <head> a été retiré de index.html pour
 // rester RGPD-compliant : GTM ne se charge jamais tant que l'utilisateur n'a
 // pas accepté.
@@ -11,7 +11,7 @@
 // dans index.html), tout ce qui y a été poussé avant l'injection sera rejoué
 // par GTM à son chargement.
 
-const GTM_ID = 'GTM-P9XGX8GH';
+const GTM_ID = 'GTM-MBSKF297';
 
 declare global {
   interface Window {
