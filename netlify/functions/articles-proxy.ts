@@ -33,12 +33,15 @@ export const handler = async (event: Event) => {
     };
   }
 
-  const apiKey = process.env.BABYLOVE_API_KEY;
+  // Clé API serveur-side uniquement (jamais exposée au client). On lit en
+  // priorité BABYLOVEGROWTH_API_KEY (nom canonique) et on retombe sur l'ancien
+  // BABYLOVE_API_KEY pour rester compatible avec la variable Netlify existante.
+  const apiKey = process.env.BABYLOVEGROWTH_API_KEY ?? process.env.BABYLOVE_API_KEY;
   if (!apiKey) {
     return {
       statusCode: 500,
       headers: { ...CORS, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'BABYLOVE_API_KEY non configuré côté serveur' }),
+      body: JSON.stringify({ error: 'BABYLOVEGROWTH_API_KEY non configuré côté serveur' }),
     };
   }
 
