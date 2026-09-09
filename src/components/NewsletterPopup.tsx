@@ -130,7 +130,7 @@ export default function NewsletterPopup() {
             </p>
           </div>
 
-          <NewsletterForm source="popup" submitLabel="Je m’inscris" inputRef={inputRef} />
+          <NewsletterForm source="popup" submitLabel="Je m’inscris" inputRef={inputRef} tone="light" />
         </div>
       </div>
     </>

@@ -7,6 +7,7 @@ type NewsletterFormProps = {
   description?: string;
   submitLabel?: string;
   hideHeader?: boolean;
+  tone?: 'dark' | 'light';
   className?: string;
   onSuccess?: () => void;
   onError?: (message: string) => void;
@@ -21,6 +22,7 @@ export default function NewsletterForm({
   description = 'Conseils, inspirations, nouveaux espaces et actualités directement dans votre boîte mail.',
   submitLabel = 'Je m’inscris',
   hideHeader = false,
+  tone = 'dark',
   className = '',
   onSuccess,
   onError,
@@ -37,7 +39,7 @@ export default function NewsletterForm({
   const disclaimerText = (
     <>
       En vous inscrivant, vous acceptez de recevoir les actualités d'Osmoz par e-mail. Vous pouvez vous désinscrire à tout moment. Consultez notre{' '}
-      <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className="text-[#fee1d4] underline">
+      <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className={tone === 'light' ? 'text-[#862637] underline' : 'text-[#fee1d4] underline'}>
         politique de confidentialité
       </a>.
     </>
@@ -142,7 +144,7 @@ export default function NewsletterForm({
           status === 'error' ? 'text-red-500' :
           status === 'success' ? 'text-green-500' :
           status === 'already_subscribed' ? 'text-blue-500' :
-          'text-[#f5f5ef]/80'
+          tone === 'light' ? 'text-[#6b6860]' : 'text-[#f5f5ef]/80'
         }`} aria-live="polite">
           {status === 'error' || status === 'success' || status === 'already_subscribed' ? message : disclaimerText}
         </p>
