@@ -24,27 +24,38 @@ export function trackPageView(path: string, title: string): void {
   });
 }
 
+// Dernier pathname RÉELLEMENT envoyé. Volontairement au niveau module (et non un
+// useRef) : un useRef est réinitialisé au remontage du composant (double montage
+// de React.StrictMode en dev, ou tout remount), ce qui laisserait passer un 2e
+// push. Le module persiste tant que la page n'est pas rechargée → dédup fiable.
+let lastTrackedPath: string | null = null;
+
 // Écoute les changements de route (react-router v6) et envoie une page vue à
-// chaque navigation, PREMIER RENDU INCLUS.
+// chaque navigation, PREMIER RENDU INCLUS, et UNE SEULE FOIS par pathname.
 //
-// Les titres sont posés de façon asynchrone par react-helmet-async (via rAF),
-// et l'effet de ce hook s'exécute avant celui du Helmet de la page. On diffère
-// donc la lecture de document.title de deux requestAnimationFrame pour être sûr
-// que le titre de la nouvelle route est déjà appliqué au moment du push.
+// - page_path = location.pathname uniquement (sans query string ni hash).
+// - On diffère la lecture de document.title de deux requestAnimationFrame : les
+//   titres sont posés de façon asynchrone par react-helmet-async, et l'effet de
+//   ce hook s'exécute avant celui du Helmet de la page.
+// - Dédup : on ne pousse que si le pathname a changé par rapport au dernier
+//   envoyé (revérifié dans le rAF pour couvrir les doubles effets StrictMode).
 export function usePageTracking(): void {
-  const { pathname, search } = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
+    if (lastTrackedPath === pathname) return;
+
     let raf2 = 0;
     const raf1 = window.requestAnimationFrame(() => {
       raf2 = window.requestAnimationFrame(() => {
-        const path = window.location.pathname + window.location.search;
-        trackPageView(path, document.title);
+        if (lastTrackedPath === pathname) return;
+        lastTrackedPath = pathname;
+        trackPageView(pathname, document.title);
       });
     });
     return () => {
       window.cancelAnimationFrame(raf1);
       if (raf2) window.cancelAnimationFrame(raf2);
     };
-  }, [pathname, search]);
+  }, [pathname]);
 }
