@@ -4,6 +4,7 @@ import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import NewsletterPopup from './components/NewsletterPopup';
+import { usePageTracking } from './lib/analytics';
 
 import HomeV2 from './pages/HomeV2';
 import Spaces from './pages/Spaces';
@@ -81,6 +82,13 @@ function useWeglotReloadOnLanguageChange(): void {
   }, []);
 }
 
+// Envoie une page vue GA4 à chaque changement de route. Doit être DANS le
+// Router (utilise useLocation).
+function RouteAnalytics() {
+  usePageTracking();
+  return null;
+}
+
 export default function App() {
   useWeglotReloadOnLanguageChange();
   return (
@@ -89,6 +97,7 @@ export default function App() {
       future={{ v7_relativeSplatPath: true }}
     >
       <ScrollToTop />
+      <RouteAnalytics />
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#fbfbf3' }}>
         <Navigation />
 
