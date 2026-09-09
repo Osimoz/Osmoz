@@ -1,22 +1,13 @@
 import { useState, useEffect } from 'react';
-import posthog from 'posthog-js';
 import { ShieldCheck } from 'lucide-react';
 import { loadGTM } from '../lib/gtm';
 
 const STORAGE_KEY = 'osmoz-cookie-consent';
 
-function initPostHog(): void {
-  posthog.init('phc_5Ji4D4oRaqsu6fJijIcdmvwPyZLxRaYua4MUqqZ0FOc', {
-    api_host: 'https://eu.i.posthog.com',
-    capture_pageview: true,
-  });
-}
-
 // Active toutes les briques de tracking soumises à consent. Doit rester
 // idempotent côté appelant : un visiteur qui revient avec un consent
 // existant déclenche aussi ce flow au montage.
 function enableTracking(): void {
-  initPostHog();
   loadGTM();
 }
 
