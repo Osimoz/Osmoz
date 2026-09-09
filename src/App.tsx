@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import CookieBanner from './components/CookieBanner';
 import NewsletterPopup from './components/NewsletterPopup';
 
 import HomeV2 from './pages/HomeV2';
@@ -94,7 +93,6 @@ export default function App() {
         <Navigation />
 
         <NewsletterPopup />
-        <CookieBanner />
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomeV2 />} />
