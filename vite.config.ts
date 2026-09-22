@@ -20,6 +20,10 @@ export default defineConfig({
         '/mentions-legales',
         '/politique-de-confidentialite',
       ],
+      // public/robots.txt est la source de vérité : par défaut le plugin
+      // écrase dist/robots.txt avec son propre fichier (Allow: / seulement),
+      // ce qui faisait disparaître nos Disallow en production.
+      generateRobotsTxt: false,
       changefreq: 'weekly',
       priority: {
         '/': 1.0,
