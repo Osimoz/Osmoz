@@ -39,27 +39,42 @@ function jsonLdText(value) {
   return trimmed.replace(/<\/(script)/gi, '<\\/$1');
 }
 
-function seoBlock({ title, description, url, image, type = 'website', locale = 'fr_FR', robots = 'index, follow', extra = [] }) {
+// Why `data-rh="true"` sur chaque balise : au runtime, react-helmet-async ne
+// remplace que les balises qui portent cet attribut
+// (`head.querySelectorAll('meta[data-rh]')`). Sans lui, les balises
+// pré-rendues restent en place et Helmet AJOUTE les siennes par-dessus : la
+// page finit avec deux <meta name="description"> et deux <link rel="canonical">
+// dès que le JS s'exécute (ce que voient les crawlers qui rendent le JS).
+// Avec l'attribut, Helmet reconnaît les balises identiques via isEqualNode()
+// et les conserve telles quelles — une seule balise par type, sans flash.
+// Les valeurs doivent donc rester identiques à celles de src/components/SEO.tsx
+// (même source : src/lib/seo-config.json).
+function seoBlock({ title, description, url, image, type = 'website', locale = 'fr_FR', robots = 'index, follow', publishedTime, extra = [] }) {
   const t = esc(title);
   const d = esc(description);
   const u = esc(url);
   const img = esc(image);
+  const rh = 'data-rh="true"';
   const lines = [
-    `<title>${t}</title>`,
-    d && `<meta name="description" content="${d}" />`,
-    `<link rel="canonical" href="${u}" />`,
-    `<meta name="robots" content="${esc(robots)}" />`,
-    `<meta property="og:type" content="${esc(type)}" />`,
-    `<meta property="og:url" content="${u}" />`,
-    `<meta property="og:title" content="${t}" />`,
-    d && `<meta property="og:description" content="${d}" />`,
-    img && `<meta property="og:image" content="${img}" />`,
-    `<meta property="og:locale" content="${esc(locale)}" />`,
-    `<meta property="og:site_name" content="OSMOZ" />`,
-    `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:title" content="${t}" />`,
-    d && `<meta name="twitter:description" content="${d}" />`,
-    img && `<meta name="twitter:image" content="${img}" />`,
+    `<title ${rh}>${t}</title>`,
+    d && `<meta ${rh} name="description" content="${d}" />`,
+    `<link ${rh} rel="canonical" href="${u}" />`,
+    `<meta ${rh} name="robots" content="${esc(robots)}" />`,
+    `<meta ${rh} property="og:type" content="${esc(type)}" />`,
+    `<meta ${rh} property="og:url" content="${u}" />`,
+    `<meta ${rh} property="og:title" content="${t}" />`,
+    d && `<meta ${rh} property="og:description" content="${d}" />`,
+    img && `<meta ${rh} property="og:image" content="${img}" />`,
+    `<meta ${rh} property="og:locale" content="${esc(locale)}" />`,
+    `<meta ${rh} property="og:site_name" content="OSMOZ" />`,
+    publishedTime && `<meta ${rh} property="article:published_time" content="${esc(publishedTime)}" />`,
+    `<meta ${rh} name="twitter:card" content="summary_large_image" />`,
+    `<meta ${rh} name="twitter:title" content="${t}" />`,
+    d && `<meta ${rh} name="twitter:description" content="${d}" />`,
+    img && `<meta ${rh} name="twitter:image" content="${img}" />`,
+    // Le JSON-LD reste SANS data-rh : la page article le re-rend via son propre
+    // <Helmet>, et le marquer ferait supprimer le bloc pré-rendu tant que
+    // l'article n'est pas chargé (ou si le fetch échoue).
     ...extra,
   ].filter(Boolean);
   return lines.map((l) => `    ${l}`).join('\n');
@@ -133,7 +148,6 @@ async function main() {
     const url = `${baseUrl}/articles/${a.slug}`;
     const extra = [];
     const publishedAt = a.publishedAt ?? a.created_at;
-    if (publishedAt) extra.push(`<meta property="article:published_time" content="${esc(publishedAt)}" />`);
     const ld = jsonLdText(a.jsonLd);
     const faq = jsonLdText(a.faqJsonLd);
     if (ld) extra.push(`<script type="application/ld+json">${ld}</script>`);
@@ -146,6 +160,7 @@ async function main() {
       image: a.hero_image_url || defaultImage,
       type: 'article',
       locale,
+      publishedTime: publishedAt,
       extra,
     });
     written.push(await writeRoute(`/articles/${a.slug}`, renderPage(template, block)));

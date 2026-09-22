@@ -209,6 +209,15 @@ export default function ArticleDetail() {
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="OSMOZ" />
         {publishDate && <meta property="article:published_time" content={publishDate} />}
+
+        {/* Ces balises twitter:* doivent rester alignées sur celles émises par
+            scripts/prerender-seo.mjs : le HTML pré-rendu les marque data-rh, donc
+            Helmet supprimerait celles qu'il ne re-déclare pas ici. */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metaTitle} />
+        {metaDescription && <meta name="twitter:description" content={metaDescription} />}
+        {article.hero_image_url && <meta name="twitter:image" content={article.hero_image_url} />}
+
         {/* Données structurées JSON-LD renvoyées par l'API (SEO / rich results). */}
         {jsonLd && <script type="application/ld+json">{jsonLd}</script>}
         {faqJsonLd && <script type="application/ld+json">{faqJsonLd}</script>}
