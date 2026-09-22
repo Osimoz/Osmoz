@@ -7,6 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
 import ImageGallery from '../components/ImageGallery';
+import { srcSet, SIZES } from '../lib/responsiveImage';
 
 const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
@@ -272,8 +273,6 @@ export default function DuplexOsmozV2() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(duplexBreadcrumbFaqLd)}</script>
         <link rel="preload" as="image" href={u(`${D}duplex-salon-01.webp`)} />
-        <link rel="preload" as="image" href={u(`${D}duplex-cuisine-01.webp`)} />
-        <link rel="preload" as="image" href={u(`${D}duplex-reunion-01.webp`)} />
       </Helmet>
 
       {/* ── 1. HERO ── */}
@@ -408,6 +407,8 @@ export default function DuplexOsmozV2() {
                 >
                   <img
                     src={img.url}
+                    srcSet={srcSet(img.url)}
+                    sizes={SIZES.galleryStrip}
                     alt={img.alt}
                     loading="lazy"
                     decoding="async"
@@ -462,6 +463,8 @@ export default function DuplexOsmozV2() {
               <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#f5f5f0]">
                 <img
                   src={configurations[activeConfig].image}
+                  srcSet={srcSet(configurations[activeConfig].image)}
+                  sizes={SIZES.halfColumn}
                   alt={`Duplex Osmoz configuration ${configurations[activeConfig].label} Paris 2e`}
                   loading="lazy"
                   decoding="async"
@@ -688,6 +691,8 @@ export default function DuplexOsmozV2() {
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
                     src={s.image}
+                    srcSet={srcSet(s.image)}
+                    sizes={SIZES.halfColumn}
                     alt={`${s.title} Osmoz`}
                     loading="lazy"
                     decoding="async"
