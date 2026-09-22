@@ -41,7 +41,7 @@ const headers = {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// Français uniquement (le site est FR ; Weglot gère la traduction à la volée).
+// Français uniquement (le site est FR).
 // Absence de languageCode = on garde (rétro-compat).
 function isFrench(code) {
   return !code || /^fr/i.test(String(code));

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
@@ -21,67 +20,6 @@ import Experience from './pages/Experience';
 import Articles from './pages/Articles';
 import ArticleDetail from './pages/ArticleDetail';
 
-// Weglot fonctionne en mode sous-répertoire et préfixe l'URL avec /<langue>/.
-// Si le premier segment du path matche une langue Weglot connue, on aligne
-// le basename du router pour que les routes définies (/, /spaces, ...) matchent
-// correctement sur /en/, /en/spaces, etc. Sinon basename = '/'.
-const WEGLOT_LANGS = ['en'] as const;
-
-function getRouterBasename(): string {
-  if (typeof window === 'undefined') return '/';
-  const first = window.location.pathname.split('/')[1];
-  if (first && (WEGLOT_LANGS as readonly string[]).includes(first)) {
-    return `/${first}`;
-  }
-  return '/';
-}
-
-// Why: le basename du router est calculé UNE FOIS au montage à partir de
-// window.location.pathname. Si Weglot bascule la langue via pushState sans
-// recharger la page, le basename reste figé sur l'ancienne valeur et plus
-// aucune route ne matche (page blanche). On force un reload sur l'event
-// Weglot pour que getRouterBasename() soit ré-évalué.
-//
-// Le snippet Weglot peut être injecté après le montage de l'app, on poll
-// donc window.Weglot pendant 30s avant d'abandonner.
-function useWeglotReloadOnLanguageChange(): void {
-  useEffect(() => {
-    type WeglotAPI = { on?: (event: string, cb: (...args: unknown[]) => void) => void };
-    let bound = false;
-    let interval: number | undefined;
-
-    const tryBind = (): boolean => {
-      const w = window as unknown as { Weglot?: WeglotAPI };
-      if (w.Weglot && typeof w.Weglot.on === 'function') {
-        w.Weglot.on('languageChanged', () => window.location.reload());
-        bound = true;
-        return true;
-      }
-      return false;
-    };
-
-    if (!tryBind()) {
-      interval = window.setInterval(() => {
-        if (tryBind() && interval !== undefined) {
-          window.clearInterval(interval);
-          interval = undefined;
-        }
-      }, 300);
-      window.setTimeout(() => {
-        if (interval !== undefined) {
-          window.clearInterval(interval);
-          interval = undefined;
-        }
-      }, 30_000);
-    }
-
-    return () => {
-      if (interval !== undefined) window.clearInterval(interval);
-      void bound;
-    };
-  }, []);
-}
-
 // Envoie une page vue GA4 à chaque changement de route. Doit être DANS le
 // Router (utilise useLocation).
 function RouteAnalytics() {
@@ -90,12 +28,8 @@ function RouteAnalytics() {
 }
 
 export default function App() {
-  useWeglotReloadOnLanguageChange();
   return (
-    <BrowserRouter
-      basename={getRouterBasename()}
-      future={{ v7_relativeSplatPath: true }}
-    >
+    <BrowserRouter future={{ v7_relativeSplatPath: true }}>
       <ScrollToTop />
       <RouteAnalytics />
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#fbfbf3' }}>
