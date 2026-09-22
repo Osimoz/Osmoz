@@ -132,6 +132,7 @@ export default function LoftOsmozV2() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isStatsVisible, setIsStatsVisible] = useState(false);
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   // Show sticky stats bar after scrolling past hero
   useEffect(() => {
@@ -545,26 +546,31 @@ export default function LoftOsmozV2() {
                 </div>
               </div>
 
-              {/* Google Maps lazy — click to load */}
-              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-[#e5e5e5] relative group cursor-pointer"
-                onClick={(e) => {
-                  const target = e.currentTarget;
-                  target.innerHTML = `<iframe src="https://maps.google.com/maps?q=10+rue+Roger+Verlomme+75003+Paris&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>`;
-                }}
+              {/* Google Maps lazy — click to load (même pattern que DuplexOsmozV2, sans clé API) */}
+              <div
+                className="aspect-[4/3] rounded-lg overflow-hidden bg-[#f0ede8] relative group cursor-pointer border border-[#e5e5e5]"
+                onClick={() => setMapLoaded(true)}
               >
-                <img
-                  src={`https://maps.googleapis.com/maps/api/staticmap?center=10+rue+Roger+Verlomme,Paris&zoom=15&size=600x400&key=`}
-                  alt="Carte Loft Osmoz – 10 rue Roger Verlomme Paris 3e"
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                  loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                  }}
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 group-hover:bg-black/10 transition-colors">
-                  <MapPin className="h-8 w-8 text-[#862637]" />
-                  <span className="text-sm font-normal text-[#01142a]">Cliquer pour ouvrir la carte</span>
-                </div>
+                {mapLoaded ? (
+                  <iframe
+                    src="https://maps.google.com/maps?q=10+rue+Roger+Verlomme+75003+Paris&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    title="Localisation Loft Osmoz"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 group-hover:bg-black/5 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-[#862637]/10 flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-[#862637]" strokeWidth={1.5} />
+                    </div>
+                    <span className="text-xs font-normal text-[#01142a] tracking-widest uppercase">
+                      Voir sur la carte
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           </section>
