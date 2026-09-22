@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
 import ImageGallery from '../components/ImageGallery';
+import { srcSet, SIZES } from '../lib/responsiveImage';
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 const base = import.meta.env.BASE_URL;
@@ -245,6 +246,8 @@ export default function LoftOsmozV2() {
       <section className="relative h-[88vh] w-full overflow-hidden">
         <img
           src={u('images/Loft/2 Salon pleiniere 2.jpg')}
+          srcSet={srcSet(u('images/Loft/2 Salon pleiniere 2.jpg'))}
+          sizes={SIZES.hero}
           alt="Loft Osmoz – verrière et salon, Paris Marais"
           fetchPriority="high"
           loading="eager"
@@ -358,6 +361,8 @@ export default function LoftOsmozV2() {
                 >
                   <img
                     src={img.url}
+                    srcSet={srcSet(img.url)}
+                    sizes={SIZES.galleryStrip}
                     alt={img.alt}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -405,6 +410,8 @@ export default function LoftOsmozV2() {
               <div className="aspect-[4/3] overflow-hidden rounded-lg">
                 <img
                   src={configurations[activeConfig].images[0]}
+                  srcSet={srcSet(configurations[activeConfig].images[0])}
+                  sizes={SIZES.halfColumn}
                   alt={`Loft Osmoz – configuration ${configurations[activeConfig].label}`}
                   loading="lazy"
                   className="w-full h-full object-cover"
@@ -599,6 +606,8 @@ export default function LoftOsmozV2() {
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
                     src={s.image}
+                    srcSet={srcSet(s.image)}
+                    sizes={SIZES.halfColumn}
                     alt={`${s.title} – Osmoz`}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

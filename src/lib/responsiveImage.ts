@@ -25,6 +25,8 @@ export function srcSet(url: string): string {
 
 /** Largeurs CSS d'affichage par contexte (attribut `sizes`). */
 export const SIZES = {
+  /** Hero pleine largeur : un téléphone 390 px @3x prend la 1280 au lieu de la 1920. */
+  hero: '100vw',
   /** Bande galerie horizontale : vignettes w-64 sm:w-80. */
   galleryStrip: '(min-width: 640px) 320px, 256px',
   /** Une colonne d'une grille md:grid-cols-2 dans un conteneur max-w-7xl. */

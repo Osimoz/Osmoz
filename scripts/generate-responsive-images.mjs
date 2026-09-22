@@ -40,8 +40,23 @@ const SOURCES = [
   `${DUPLEX}duplex-entree-01.webp`,
   `${DUPLEX}duplex-ambiance-01.webp`,
   `${DUPLEX}duplex-facade-01.webp`,
-  // Cartes "Découvrir nos autres espaces"
+  // Page /spaces/loft-osmoz : hero + galerie + configurations
   'Loft/2 Salon pleiniere 2.jpg',
+  'Loft/1 SdR.jpg',
+  'Loft/3 salle a manger.jpg',
+  'Loft/4 Cuisine 5.jpg',
+  'Loft/7 Salon pleiniere 1.jpg',
+  'Loft/6 Salon pleiniere 6.jpg',
+  'Loft/11 Salle de reunion 2.jpg',
+  'Loft/12 Salle de reunion 4.jpg',
+  'Loft/9 salle a manger.jpg',
+  'Loft/21 Cuisine 3.jpg',
+  'Loft/18 Cocktail 3.jpg',
+  'Loft/8 Cocktail 1.jpg',
+  'Loft/5 Accueil.jpg',
+  'Loft/25 DSC4695-HDR.jpg',
+  // Cartes "Découvrir nos autres espaces"
+  'Duplex Haussmannien/1 Salon Normal 3.jpg',
   'Penthouse/2 - Salon.jpg',
 ];
 
