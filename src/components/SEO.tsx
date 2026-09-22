@@ -26,7 +26,7 @@ type Props = {
   robots?: string;
 };
 
-export function buildCanonical(path: string): string {
+function buildCanonical(path: string): string {
   const clean = path === '/' ? '/' : `/${path.replace(/^\/+|\/+$/g, '')}`;
   return `${defaults.baseUrl}${clean}`;
 }

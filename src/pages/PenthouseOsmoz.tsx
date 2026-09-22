@@ -12,7 +12,6 @@ import ImageGallery from '../components/ImageGallery';
 const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
 const P = 'images/Penthouse/';
-const PW = 'images/Penthouse/webp/';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 

@@ -32,3 +32,6 @@ dist-ssr
 
 # Articles synchronisés au build (générés par scripts/sync-articles.mjs)
 public/data/
+
+# Cache incrémental de `tsc -b`
+*.tsbuildinfo

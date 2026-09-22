@@ -5,7 +5,7 @@ interface LogoProps {
   color?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = "h-8 w-auto", color = "#862637" }) => {
+export const Logo: React.FC<LogoProps> = ({ className = "h-8 w-auto" }) => {
   return (
     <img 
       src="/images/osmoz-logo.png" 
@@ -16,7 +16,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "h-8 w-auto", color = "#
   );
 }
 
-export const LogoHorizontal: React.FC<LogoProps> = ({ className, color = "#862637" }) => {
+export const LogoHorizontal: React.FC<LogoProps> = ({ className }) => {
   return (
     <div className={`flex items-center ${className}`}>
       <img 

@@ -34,7 +34,7 @@ export default defineConfig({
         '/mentions-legales': 0.3,
         '/politique-de-confidentialite': 0.3,
       },
-      lastmod: new Date().toISOString(),
+      lastmod: new Date(),
     }),
   ],
   build: {

@@ -7,7 +7,7 @@
     "dev": "vite",
     "sync-articles": "node scripts/sync-articles.mjs",
     "prebuild": "node scripts/sync-articles.mjs",
-    "build": "tsc && vite build",
+    "build": "tsc -b && vite build",
     "postbuild": "node scripts/prerender-seo.mjs",
     "preview": "vite preview",
     "lint": "eslint ."
@@ -36,7 +36,7 @@
     "tailwindcss": "^3.4.1",
     "terser": "^5.29.1",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^8.3.0",
+    "typescript-eslint": "^8.70.1",
     "vite": "^5.4.2",
     "vite-plugin-sitemap": "^0.8.2"
   }

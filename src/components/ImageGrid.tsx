@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ImageGridProps {
   onImageClick: (index: number) => void;
 }
 
+// Generate array of all image numbers (1-34)
+const allImageNumbers = Array.from({ length: 34 }, (_, i) => i + 1);
+
 export default function ImageGrid({ onImageClick }: ImageGridProps) {
   const [randomImages, setRandomImages] = useState<number[]>([]);
-  
-  // Generate array of all image numbers (1-34)
-  const allImageNumbers = Array.from({ length: 34 }, (_, i) => i + 1);
-  
+
   // Function to get file name from number
   const getImagePath = (num: number) => {
     const padded = num.toString().padStart(2, '0');
@@ -26,7 +26,7 @@ export default function ImageGrid({ onImageClick }: ImageGridProps) {
 
   return (
     <div className="grid grid-cols-2 gap-4 mb-12">
-      {randomImages.map((num, index) => (
+      {randomImages.map((num) => (
         <div
           key={num}
           className="aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"

@@ -2,8 +2,6 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import NewsletterForm from '../components/NewsletterForm';
 
-const base = import.meta.env.BASE_URL;
-const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
 
 const articles = [
   {
