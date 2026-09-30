@@ -115,7 +115,7 @@ export default function Reservation() {
 
   if (submitted) return (
     <>
-      <Helmet><title>{r.sent.metaTitle}</title></Helmet>
+      <Helmet><html lang={lang} /><title>{r.sent.metaTitle}</title></Helmet>
       <div className="pt-32 pb-24 min-h-screen flex items-center bg-[#fbfbf3]">
         <div className="max-w-md mx-auto px-6 text-center">
           <div className="w-14 h-14 rounded-full bg-[#862637]/10 flex items-center justify-center mx-auto mb-5">

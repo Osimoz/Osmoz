@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import seo from '../lib/seo-config.json';
 import { useLocale } from '../i18n/context';
-import type { Lang, RouteKey } from '../i18n/paths';
+import { LANGS, type Lang, type RouteKey } from '../i18n/paths';
 
 // Balises SEO par route et par langue (title, description, canonical absolu,
 // Open Graph, Twitter). La source de vérité est src/lib/seo-config.json,
@@ -49,12 +49,19 @@ export default function SEO({ route, title, description, image, type, robots }: 
   const finalType = type ?? entry.type ?? defaults.type;
   const finalRobots = robots ?? entry.robots ?? 'index, follow';
   const url = `${defaults.baseUrl}${path}`;
+  // hreflang réciproques (fr, en, x-default → fr) uniquement quand la page
+  // existe dans les deux langues ; les articles restent FR seulement.
+  const alternates = LANGS.filter((l) => entry.path[l]).map((l) => ({ lang: l, href: `${defaults.baseUrl}${entry.path[l]}` }));
+  const hasAlternates = alternates.length > 1;
 
   return (
     <Helmet>
+      <html lang={lang} />
       <title>{finalTitle}</title>
       {finalDesc && <meta name="description" content={finalDesc} />}
       <link rel="canonical" href={url} />
+      {hasAlternates && alternates.map((a) => <link key={a.lang} rel="alternate" hrefLang={a.lang} href={a.href} />)}
+      {hasAlternates && <link rel="alternate" hrefLang="x-default" href={`${defaults.baseUrl}${entry.path.fr}`} />}
       <meta name="robots" content={finalRobots} />
 
       <meta property="og:type" content={finalType} />
@@ -62,7 +69,7 @@ export default function SEO({ route, title, description, image, type, robots }: 
       <meta property="og:title" content={finalTitle} />
       {finalDesc && <meta property="og:description" content={finalDesc} />}
       <meta property="og:image" content={finalImage} />
-      <meta property="og:locale" content={defaults.locale} />
+      <meta property="og:locale" content={defaults.locales[lang]} />
       <meta property="og:site_name" content={defaults.siteName} />
 
       <meta name="twitter:card" content="summary_large_image" />

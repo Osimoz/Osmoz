@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { useLocale } from '../i18n/context';
 
 export default function NotFound() {
-  const { t, p } = useLocale();
+  const { t, p, lang } = useLocale();
   const s = t.notFound;
 
   return (
     <div style={{ background: '#fbfbf3', minHeight: '60vh' }}>
       <Helmet>
+        <html lang={lang} />
         <title>{s.metaTitle}</title>
         <meta name="robots" content="noindex, follow" />
       </Helmet>

@@ -2,7 +2,10 @@
   "defaults": {
     "siteName": "OSMOZ",
     "baseUrl": "https://osmoz-space.com",
-    "locale": "fr_FR",
+    "locales": {
+      "fr": "fr_FR",
+      "en": "en_GB"
+    },
     "type": "website",
     "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
   },
@@ -16,6 +19,10 @@
         "title": "OSMOZ, espaces privatifs authentiques à Paris",
         "description": "Louez un espace privatif authentique à Paris pour vos réunions, séminaires et journées d'équipe. Trois lieux privatisables clé en main. Devis sous 24h."
       },
+      "en": {
+        "title": "OSMOZ, authentic private spaces in Paris",
+        "description": "Hire an authentic private space in Paris for your meetings, off-sites and team days. Three turnkey venues, for companies only. Quote within 24 hours."
+      },
       "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
     },
     "spaces": {
@@ -26,6 +33,10 @@
       "fr": {
         "title": "Nos espaces privatifs à Paris et La Défense, OSMOZ",
         "description": "Découvrez les espaces privatifs OSMOZ à Paris et La Défense pour vos réunions, séminaires et événements d'entreprise. Lieux authentiques clé en main. Devis 24h."
+      },
+      "en": {
+        "title": "Our private spaces in Paris and La Défense, OSMOZ",
+        "description": "Discover OSMOZ private spaces in Paris and La Défense for meetings, off-sites and corporate events. Authentic turnkey venues, yours for the day. Quote in 24h."
       },
       "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
     },
@@ -38,6 +49,10 @@
         "title": "Le Loft OSMOZ, espace privatif dans le Marais à Paris",
         "description": "Le Loft OSMOZ, 110 m2 lumineux dans le Marais à deux pas de la Place des Vosges. Réunions, séminaires et workshops jusqu'à 25 personnes. Devis sous 24h."
       },
+      "en": {
+        "title": "Le Loft OSMOZ, private space in Le Marais, Paris",
+        "description": "Le Loft OSMOZ: 110 m² of light in Le Marais, a stone’s throw from Place des Vosges. Meetings, off-sites and workshops for up to 25 people. Quote within 24h."
+      },
       "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
     },
     "duplex": {
@@ -48,6 +63,10 @@
       "fr": {
         "title": "Le Duplex OSMOZ, espace privatif haussmannien Paris 2e",
         "description": "Le Duplex OSMOZ : 300 m² haussmanniens sur deux étages à Paris 2e. Réunions, séminaires et cocktails jusqu'à 40 personnes, dès 1 499 € HT. Devis sous 24h."
+      },
+      "en": {
+        "title": "Le Duplex OSMOZ, Haussmann private space, Paris 2nd",
+        "description": "Le Duplex OSMOZ: 300 m² of Haussmann style over two floors in Paris 2nd. Meetings, off-sites and cocktail parties for up to 40 people, from 1,499 € excl. VAT."
       },
       "image": "https://osmoz-space.com/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg"
     },
@@ -60,6 +79,10 @@
         "title": "Le Penthouse OSMOZ, rooftop avec vue à La Défense",
         "description": "Le Penthouse OSMOZ à La Défense, 150 m2 plus un rooftop de 350 m2 avec vue sur Paris. Séminaires, réunions et cocktails jusqu'à 40 personnes. Devis sous 24h."
       },
+      "en": {
+        "title": "Le Penthouse OSMOZ, rooftop with a view, La Défense",
+        "description": "Le Penthouse OSMOZ in La Défense: 150 m² plus a 350 m² rooftop overlooking Paris. Off-sites, meetings and cocktail parties for up to 40 people. Quote in 24h."
+      },
       "image": "https://osmoz-space.com/images/Penthouse/2%20-%20Salon.jpg"
     },
     "contact": {
@@ -71,6 +94,10 @@
         "title": "Contact OSMOZ, réservez votre espace privatif à Paris",
         "description": "Contactez OSMOZ pour privatiser un espace à Paris ou La Défense. Réponse et devis personnalisé sous 24h pour vos réunions, séminaires et journées d'équipe."
       },
+      "en": {
+        "title": "Contact OSMOZ, book your private space in Paris",
+        "description": "Get in touch with OSMOZ to hire a private space in Paris or La Défense. Reply and tailored quote within 24 hours for your meetings, off-sites and team days."
+      },
       "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
     },
     "reservation": {
@@ -81,6 +108,10 @@
       "fr": {
         "title": "Réservez votre espace privatif à Paris, OSMOZ",
         "description": "Demandez la privatisation d'un espace authentique OSMOZ à Paris ou La Défense. Devis personnalisé sous 24h pour vos réunions, séminaires et journées d'équipe."
+      },
+      "en": {
+        "title": "Book your private space in Paris, OSMOZ",
+        "description": "Request exclusive hire of an authentic OSMOZ space in Paris or La Défense. Tailored quote within 24 hours for your meetings, off-sites and team days."
       }
     },
     "faq": {
@@ -91,6 +122,10 @@
       "fr": {
         "title": "Questions fréquentes sur nos espaces privatifs, OSMOZ",
         "description": "Tarifs, capacités, restauration, privatisation : les réponses aux questions fréquentes sur les espaces privatifs authentiques OSMOZ à Paris et La Défense."
+      },
+      "en": {
+        "title": "FAQ about our private spaces, OSMOZ",
+        "description": "Prices, capacity, catering, exclusive hire: answers to the most frequent questions about OSMOZ’s authentic private spaces in Paris and La Défense."
       }
     },
     "experience": {
@@ -101,6 +136,10 @@
       "fr": {
         "title": "L'expérience culinaire OSMOZ, Cheffe privée à Paris",
         "description": "L'expérience culinaire OSMOZ à Paris : Cheffe privée, traiteurs partenaires et animations team building pour vos séminaires et événements d'entreprise."
+      },
+      "en": {
+        "title": "The OSMOZ food experience, private chef in Paris",
+        "description": "The OSMOZ food experience in Paris: a private chef, committed partner caterers and team-building activities for your off-sites and corporate events."
       }
     },
     "articles": {
@@ -120,6 +159,10 @@
       "fr": {
         "title": "Démarche RSE OSMOZ, événementiel responsable à Paris",
         "description": "La démarche RSE d'OSMOZ : zéro déchet, cuisine locale et bio, mobilité douce. Un événementiel responsable au coeur de Paris pour vos réunions et séminaires."
+      },
+      "en": {
+        "title": "OSMOZ CSR approach, responsible events in Paris",
+        "description": "OSMOZ’s CSR approach: zero waste, local organic food, low-impact mobility. Responsible events in the heart of Paris for your meetings and off-sites."
       }
     },
     "legal": {
@@ -131,6 +174,10 @@
         "title": "Mentions légales, OSMOZ espaces privatifs à Paris",
         "description": "Mentions légales du site OSMOZ : éditeur, hébergeur, propriété intellectuelle et protection des données personnelles (RGPD)."
       },
+      "en": {
+        "title": "Legal notice, OSMOZ private spaces in Paris",
+        "description": "Legal notice for the OSMOZ website: publisher, hosting, intellectual property and the protection of your personal data (GDPR)."
+      },
       "robots": "noindex, follow"
     },
     "privacy": {
@@ -141,6 +188,10 @@
       "fr": {
         "title": "Politique de confidentialité d'OSMOZ, espaces à Paris",
         "description": "Politique de confidentialité d'OSMOZ : collecte, usage et protection de vos données personnelles selon le RGPD. Cookies, droits et contact."
+      },
+      "en": {
+        "title": "OSMOZ privacy policy, spaces in Paris",
+        "description": "OSMOZ privacy policy: how we collect, use and protect your personal data under the GDPR. Cookies, your rights and how to contact us."
       },
       "robots": "noindex, follow"
     }

@@ -137,6 +137,7 @@ export default function ArticleDetail() {
     return (
       <div style={{ background: '#fbfbf3', minHeight: '60vh' }}>
         <Helmet>
+          <html lang="fr" />
           <title>Article introuvable | OSMOZ</title>
           <meta name="robots" content="noindex, follow" />
         </Helmet>
@@ -197,6 +198,7 @@ export default function ArticleDetail() {
   return (
     <div style={{ background: '#fbfbf3' }}>
       <Helmet>
+        <html lang="fr" />
         <title>{metaTitle}</title>
         {metaDescription && <meta name="description" content={metaDescription} />}
         <link rel="canonical" href={canonical} />

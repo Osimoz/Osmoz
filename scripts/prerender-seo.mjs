@@ -49,7 +49,7 @@ function jsonLdText(value) {
 // et les conserve telles quelles — une seule balise par type, sans flash.
 // Les valeurs doivent donc rester identiques à celles de src/components/SEO.tsx
 // (même source : src/lib/seo-config.json).
-function seoBlock({ title, description, url, image, type = 'website', locale = 'fr_FR', robots = 'index, follow', publishedTime, extra = [] }) {
+function seoBlock({ title, description, url, image, type = 'website', locale = 'fr_FR', robots = 'index, follow', publishedTime, alternates = [], extra = [] }) {
   const t = esc(title);
   const d = esc(description);
   const u = esc(url);
@@ -59,6 +59,8 @@ function seoBlock({ title, description, url, image, type = 'website', locale = '
     `<title ${rh}>${t}</title>`,
     d && `<meta ${rh} name="description" content="${d}" />`,
     `<link ${rh} rel="canonical" href="${u}" />`,
+    // hreflang réciproques + x-default (→ FR), même ordre que SEO.tsx
+    ...alternates.map((a) => `<link ${rh} rel="alternate" hreflang="${esc(a.lang)}" href="${esc(a.href)}" />`),
     `<meta ${rh} name="robots" content="${esc(robots)}" />`,
     `<meta ${rh} property="og:type" content="${esc(type)}" />`,
     `<meta ${rh} property="og:url" content="${u}" />`,
@@ -80,14 +82,19 @@ function seoBlock({ title, description, url, image, type = 'website', locale = '
   return lines.map((l) => `    ${l}`).join('\n');
 }
 
-// Remplace le bloc entre les marqueurs <!-- SEO:start --> … <!-- SEO:end -->.
+// Remplace le bloc entre les marqueurs <!-- SEO:start --> … <!-- SEO:end -->
+// et pose la langue de la page sur <html lang>.
 const SEO_RE = /[ \t]*<!-- SEO:start[\s\S]*?<!-- SEO:end -->/;
+const HTML_LANG_RE = /<html lang="[a-z-]+">/;
 
-function renderPage(template, block) {
+function renderPage(template, block, lang = 'fr') {
   if (!SEO_RE.test(template)) {
     throw new Error('marqueurs <!-- SEO:start/end --> introuvables dans dist/index.html');
   }
-  return template.replace(SEO_RE, block);
+  if (!HTML_LANG_RE.test(template)) {
+    throw new Error('<html lang="…"> introuvable dans dist/index.html');
+  }
+  return template.replace(SEO_RE, block).replace(HTML_LANG_RE, `<html lang="${lang}">`);
 }
 
 async function writeRoute(path, html) {
@@ -109,7 +116,7 @@ async function writeRoute(path, html) {
 async function main() {
   const template = await readFile(join(DIST, 'index.html'), 'utf8');
   const config = JSON.parse(await readFile(CONFIG_PATH, 'utf8'));
-  const { baseUrl, image: defaultImage, locale } = config.defaults;
+  const { baseUrl, image: defaultImage, locales } = config.defaults;
 
   const written = [];
 
@@ -121,16 +128,21 @@ async function main() {
       const meta = route[lang];
       if (!path || !meta) continue;
       const url = `${baseUrl}${path}`;
+      const langs = ['fr', 'en'].filter((l) => route.path?.[l]);
+      const alternates = langs.length > 1
+        ? [...langs.map((l) => ({ lang: l, href: `${baseUrl}${route.path[l]}` })), { lang: 'x-default', href: `${baseUrl}${route.path.fr}` }]
+        : [];
       const block = seoBlock({
         title: meta.title,
         description: meta.description,
         url,
         image: route.image ?? defaultImage,
         type: route.type ?? 'website',
-        locale,
+        locale: locales[lang],
         robots: route.robots ?? 'index, follow',
+        alternates,
       });
-      written.push(await writeRoute(path, renderPage(template, block)));
+      written.push(await writeRoute(path, renderPage(template, block, lang)));
     }
   }
 
@@ -165,7 +177,7 @@ async function main() {
       url,
       image: a.hero_image_url || defaultImage,
       type: 'article',
-      locale,
+      locale: locales.fr,
       publishedTime: publishedAt,
       extra,
     });
