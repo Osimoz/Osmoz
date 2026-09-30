@@ -10,21 +10,11 @@ const EMAILJS_SERVICE_ID = 'service_5dizo3p';
 const EMAILJS_TEMPLATE_ID = 'template_ffl7k88';
 const EMAILJS_PUBLIC_KEY = '1Q_BLfh61Y9oi6ls_';
 
-const spaces = [
-  { id: 'loft',      label: 'Loft Osmoz',         sub: 'Marais · 25 pers.' },
-  { id: 'duplex',    label: 'Duplex Haussmannien', sub: 'Paris 2e · 40 pers.' },
-  { id: 'penthouse', label: 'Le Penthouse',        sub: 'La Défense · 40 pers.' },
-];
-
-const timeSlots = [
-  { id: 'morning',   label: 'Matin',      hours: '08h30–12h' },
-  { id: 'afternoon', label: 'Après-midi', hours: '14h–18h' },
-  { id: 'fullday',   label: 'Journée',    hours: '08h30–18h30' },
-  { id: 'evening',   label: 'Soirée',     hours: '18h30–22h' },
-];
+// Libellés dans t.reservation.spaces / t.reservation.timeSlots.
+const spaceIds = ['loft', 'duplex', 'penthouse'] as const;
+const timeSlotIds = ['morning', 'afternoon', 'fullday', 'evening'] as const;
 
 const guestOptions = ['1–10', '11–20', '21–30', '31–40', '41+'];
-const serviceOptions = ['Petit-déjeuner', 'Déjeuner', 'Cocktail', 'Teambuilding', 'Cours de cuisine'];
 
 type F = {
   firstName: string; lastName: string; phone: string; email: string; company: string;
@@ -35,7 +25,8 @@ type F = {
 type Err = Partial<Record<keyof F, string>>;
 
 export default function Reservation() {
-  const { p } = useLocale();
+  const { t, p, lang } = useLocale();
+  const r = t.reservation;
   const [searchParams] = useSearchParams();
   const sp = ['loft','duplex','penthouse'].includes(searchParams.get('space') || '') ? searchParams.get('space')! : '';
 
@@ -65,13 +56,13 @@ export default function Reservation() {
 
   const validate = (): Err => {
     const e: Err = {};
-    if (!form.firstName.trim()) e.firstName = 'Requis';
-    if (!form.lastName.trim())  e.lastName  = 'Requis';
-    if (!form.phone.trim())     e.phone     = 'Requis';
-    if (!form.email.trim())     e.email     = 'Requis';
-    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Email invalide';
-    if (!form.company.trim())   e.company   = 'Requis';
-    if (!form.acceptDataPolicy) e.acceptDataPolicy = 'Veuillez accepter';
+    if (!form.firstName.trim()) e.firstName = r.validation.required;
+    if (!form.lastName.trim())  e.lastName  = r.validation.required;
+    if (!form.phone.trim())     e.phone     = r.validation.required;
+    if (!form.email.trim())     e.email     = r.validation.required;
+    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = r.validation.invalidEmail;
+    if (!form.company.trim())   e.company   = r.validation.required;
+    if (!form.acceptDataPolicy) e.acceptDataPolicy = r.validation.accept;
     return e;
   };
 
@@ -83,16 +74,19 @@ export default function Reservation() {
       return;
     }
     setSubmitting(true); setSubmitErr(null);
-    const spaceLabel  = spaces.find(s=>s.id===form.space)?.label || (form.space ? form.space : 'Non précisé');
-    const timeLabel   = timeSlots.find(t=>t.id===form.timeSlot)?.label || '';
-    const timeHours   = timeSlots.find(t=>t.id===form.timeSlot)?.hours || '';
+    // E-mail interne (équipe OSMOZ) : reste en français, marqué (EN) si la
+    // demande vient du site anglais. Les valeurs choisies gardent leur libellé affiché.
+    const spaceLabel  = (spaceIds as readonly string[]).includes(form.space) ? r.spaces[form.space as typeof spaceIds[number]].label : (form.space ? form.space : 'Non précisé');
+    const slot        = (timeSlotIds as readonly string[]).includes(form.timeSlot) ? r.timeSlots[form.timeSlot as typeof timeSlotIds[number]] : undefined;
+    const timeLabel   = slot?.label || '';
+    const timeHours   = slot?.hours || '';
     try {
       const emailjsPromise = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: `${form.firstName} ${form.lastName}`,
         reply_to: form.email,
         phone: form.phone,
         company: form.company,
-        subject: `Réservation — ${spaceLabel}`,
+        subject: `Réservation — ${spaceLabel}${lang === 'en' ? ' (EN)' : ''}`,
         space: spaceLabel || 'Non précisé',
         date: form.date || 'Non précisée',
         time_slot: timeLabel ? `${timeLabel} (${timeHours})` : 'Non précisé',
@@ -115,26 +109,26 @@ export default function Reservation() {
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
-      setSubmitErr("Erreur d'envoi. Écrivez-nous à contact@osmoz-space.com");
+      setSubmitErr(r.submitError);
     } finally { setSubmitting(false); }
   };
 
   if (submitted) return (
     <>
-      <Helmet><title>Demande envoyée, OSMOZ Paris | Réponse sous 24h</title></Helmet>
+      <Helmet><title>{r.sent.metaTitle}</title></Helmet>
       <div className="pt-32 pb-24 min-h-screen flex items-center bg-[#fbfbf3]">
         <div className="max-w-md mx-auto px-6 text-center">
           <div className="w-14 h-14 rounded-full bg-[#862637]/10 flex items-center justify-center mx-auto mb-5">
             <Check className="h-7 w-7 text-[#862637]" strokeWidth={1.5} />
           </div>
           <h1 className="font-light text-[#01142a] mb-3" style={{ fontFamily:'Playfair Display', fontSize:'clamp(1.8rem,4vw,2.4rem)' }}>
-            Demande envoyée
+            {r.sent.title}
           </h1>
           <p className="text-sm font-light text-gray-500 leading-relaxed mb-8">
-            Notre équipe vous contacte sous <strong className="font-normal text-[#01142a]">24h</strong> pour confirmer les disponibilités.
+            {r.sent.textBefore}<strong className="font-normal text-[#01142a]">{r.sent.textStrong}</strong>{r.sent.textAfter}
           </p>
           <a href={p('/')} className="inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] transition-all duration-300">
-            Retour à l'accueil
+            {r.sent.home}
           </a>
         </div>
       </div>
@@ -144,7 +138,7 @@ export default function Reservation() {
   /* ── label helper ── */
   const L = ({ t, opt }: { t: string; opt?: boolean }) => (
     <p className="text-[10px] font-normal uppercase tracking-[0.18em] text-gray-400 mb-1.5">
-      {t}{opt ? <span className="normal-case tracking-normal ml-1 text-gray-300">(optionnel)</span> : <span className="text-[#862637] ml-0.5">*</span>}
+      {t}{opt ? <span className="normal-case tracking-normal ml-1 text-gray-300">{r.optional}</span> : <span className="text-[#862637] ml-0.5">*</span>}
     </p>
   );
   const inputCls = (err?: string) =>
@@ -158,7 +152,7 @@ export default function Reservation() {
       <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t border-[#e5e5e5] px-4 py-3">
         <button type="button" onClick={handleSubmit} disabled={submitting}
           className="w-full bg-[#862637] text-[#fee1d4] py-3.5 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60">
-          {submitting ? 'Envoi…' : 'Envoyer ma demande'}
+          {submitting ? r.sending : r.submit}
           {!submitting && <ChevronRight className="h-3.5 w-3.5" />}
         </button>
       </div>
@@ -168,11 +162,11 @@ export default function Reservation() {
 
           {/* Header — ultra compact */}
           <div className="text-center mb-6">
-            <p className="text-[10px] font-normal uppercase tracking-[0.3em] text-[#862637] mb-1.5">Osmoz · Paris</p>
+            <p className="text-[10px] font-normal uppercase tracking-[0.3em] text-[#862637] mb-1.5">{r.header.kicker}</p>
             <h1 className="font-light text-[#01142a]" style={{ fontFamily:'Playfair Display', fontSize:'clamp(1.6rem,3.5vw,2.4rem)' }}>
-              Réserver un espace
+              {r.header.title}
             </h1>
-            <p className="text-xs font-light text-gray-400 mt-1">Réponse garantie sous 24h · Pas encore fixé sur une date ? Aucun problème.</p>
+            <p className="text-xs font-light text-gray-400 mt-1">{r.header.subtitle}</p>
           </div>
 
           <div className="bg-white rounded-2xl border border-[#e5e5e5] p-5 sm:p-7">
@@ -181,16 +175,16 @@ export default function Reservation() {
 
               {/* LEFT: Coordonnées */}
               <div className="space-y-4 pb-5 sm:pb-0 border-b sm:border-b-0 sm:border-r border-[#f0f0e8] sm:pr-8">
-                <p className="text-[10px] font-normal uppercase tracking-[0.25em] text-gray-300">Vos coordonnées</p>
+                <p className="text-[10px] font-normal uppercase tracking-[0.25em] text-gray-300">{r.sections.details}</p>
 
                 <div className="grid grid-cols-2 gap-x-3">
                   <div data-error={errors.firstName ? true : undefined}>
-                    <L t="Prénom" />
+                    <L t={r.fields.firstName} />
                     <input type="text" name="firstName" value={form.firstName} onChange={onChange} className={inputCls(errors.firstName)} />
                     {errors.firstName && <p className="text-[9px] text-red-400 mt-0.5">{errors.firstName}</p>}
                   </div>
                   <div data-error={errors.lastName ? true : undefined}>
-                    <L t="Nom" />
+                    <L t={r.fields.lastName} />
                     <input type="text" name="lastName" value={form.lastName} onChange={onChange} className={inputCls(errors.lastName)} />
                     {errors.lastName && <p className="text-[9px] text-red-400 mt-0.5">{errors.lastName}</p>}
                   </div>
@@ -198,28 +192,28 @@ export default function Reservation() {
 
                 <div className="grid grid-cols-2 gap-x-3">
                   <div data-error={errors.phone ? true : undefined}>
-                    <L t="Téléphone" />
+                    <L t={r.fields.phone} />
                     <input type="tel" name="phone" value={form.phone} onChange={onChange} className={inputCls(errors.phone)} />
                     {errors.phone && <p className="text-[9px] text-red-400 mt-0.5">{errors.phone}</p>}
                   </div>
                   <div data-error={errors.email ? true : undefined}>
-                    <L t="Email pro" />
+                    <L t={r.fields.email} />
                     <input type="email" name="email" value={form.email} onChange={onChange} className={inputCls(errors.email)} />
                     {errors.email && <p className="text-[9px] text-red-400 mt-0.5">{errors.email}</p>}
                   </div>
                 </div>
 
                 <div data-error={errors.company ? true : undefined}>
-                  <L t="Société" />
+                  <L t={r.fields.company} />
                   <input type="text" name="company" value={form.company} onChange={onChange} className={inputCls(errors.company)} />
                   {errors.company && <p className="text-[9px] text-red-400 mt-0.5">{errors.company}</p>}
                 </div>
 
                 {/* Services */}
                 <div className="pt-1">
-                  <L t="Services" opt />
+                  <L t={r.fields.services} opt />
                   <div className="flex flex-wrap gap-1.5 mt-0.5">
-                    {serviceOptions.map(s => {
+                    {r.services.map(s => {
                       const on = form.services.includes(s);
                       return (
                         <button key={s} type="button" onClick={() => toggleService(s)}
@@ -237,22 +231,22 @@ export default function Reservation() {
 
               {/* RIGHT: Événement */}
               <div className="space-y-4 pt-5 sm:pt-0 sm:pl-0">
-                <p className="text-[10px] font-normal uppercase tracking-[0.25em] text-gray-300">Votre événement</p>
+                <p className="text-[10px] font-normal uppercase tracking-[0.25em] text-gray-300">{r.sections.event}</p>
 
                 {/* Espace — 3 compact text buttons */}
                 <div>
-                  <L t="Espace" opt />
+                  <L t={r.fields.space} opt />
                   <div className="flex flex-col gap-1.5">
-                    {spaces.map(s => (
-                      <button key={s.id} type="button" onClick={() => set('space', form.space===s.id ? '' : s.id)}
+                    {spaceIds.map(id => (
+                      <button key={id} type="button" onClick={() => set('space', form.space===id ? '' : id)}
                         className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-left transition-all duration-150 ${
-                          form.space===s.id ? 'border-[#01142a] bg-[#01142a] text-white' : 'border-[#e5e5e5] text-[#01142a] hover:border-[#01142a]/30'
+                          form.space===id ? 'border-[#01142a] bg-[#01142a] text-white' : 'border-[#e5e5e5] text-[#01142a] hover:border-[#01142a]/30'
                         }`}>
                         <span>
-                          <span className="block text-xs font-light">{s.label}</span>
-                          <span className={`block text-[10px] font-light ${form.space===s.id ? 'text-white/50' : 'text-gray-400'}`}>{s.sub}</span>
+                          <span className="block text-xs font-light">{r.spaces[id].label}</span>
+                          <span className={`block text-[10px] font-light ${form.space===id ? 'text-white/50' : 'text-gray-400'}`}>{r.spaces[id].sub}</span>
                         </span>
-                        {form.space===s.id && <Check className="h-3.5 w-3.5 flex-shrink-0" strokeWidth={2} />}
+                        {form.space===id && <Check className="h-3.5 w-3.5 flex-shrink-0" strokeWidth={2} />}
                       </button>
                     ))}
                   </div>
@@ -261,32 +255,32 @@ export default function Reservation() {
                 {/* Date + Personnes */}
                 <div className="grid grid-cols-2 gap-x-3">
                   <div>
-                    <L t="Date" opt />
+                    <L t={r.fields.date} opt />
                     <input type="date" name="date" value={form.date} onChange={onChange}
                       min={new Date().toISOString().split('T')[0]}
                       className={inputCls()} />
                   </div>
                   <div>
-                    <L t="Personnes" opt />
+                    <L t={r.fields.guests} opt />
                     <select name="guests" value={form.guests} onChange={onChange}
                       className={`${inputCls()} appearance-none cursor-pointer`}>
                       <option value="">–</option>
-                      {guestOptions.map(o => <option key={o} value={o}>{o} pers.</option>)}
+                      {guestOptions.map(o => <option key={o} value={o}>{o} {r.fields.guestsSuffix}</option>)}
                     </select>
                   </div>
                 </div>
 
                 {/* Créneau */}
                 <div>
-                  <L t="Créneau" opt />
+                  <L t={r.fields.timeSlot} opt />
                   <div className="grid grid-cols-2 gap-1.5">
-                    {timeSlots.map(t => (
-                      <button key={t.id} type="button" onClick={() => set('timeSlot', form.timeSlot===t.id ? '' : t.id)}
+                    {timeSlotIds.map(id => (
+                      <button key={id} type="button" onClick={() => set('timeSlot', form.timeSlot===id ? '' : id)}
                         className={`border rounded-xl px-3 py-2.5 text-left transition-all duration-150 ${
-                          form.timeSlot===t.id ? 'border-[#01142a] bg-[#01142a] text-white' : 'border-[#e5e5e5] text-[#01142a] hover:border-[#01142a]/30'
+                          form.timeSlot===id ? 'border-[#01142a] bg-[#01142a] text-white' : 'border-[#e5e5e5] text-[#01142a] hover:border-[#01142a]/30'
                         }`}>
-                        <p className="text-xs font-light">{t.label}</p>
-                        <p className={`text-[10px] font-light ${form.timeSlot===t.id ? 'text-white/50' : 'text-gray-400'}`}>{t.hours}</p>
+                        <p className="text-xs font-light">{r.timeSlots[id].label}</p>
+                        <p className={`text-[10px] font-light ${form.timeSlot===id ? 'text-white/50' : 'text-gray-400'}`}>{r.timeSlots[id].hours}</p>
                       </button>
                     ))}
                   </div>
@@ -294,9 +288,9 @@ export default function Reservation() {
 
                 {/* Commentaires */}
                 <div>
-                  <L t="Commentaires" opt />
+                  <L t={r.fields.comments} opt />
                   <textarea name="comments" value={form.comments} onChange={onChange} rows={2}
-                    placeholder="Besoins spécifiques, questions…"
+                    placeholder={r.fields.commentsPlaceholder}
                     className="w-full bg-transparent border-b border-gray-200 py-1.5 text-base text-[#01142a] focus:outline-none focus:border-[#01142a] resize-none placeholder:text-gray-300 font-light transition-colors" />
                 </div>
               </div>
@@ -315,11 +309,11 @@ export default function Reservation() {
                   required
                 />
                 <label htmlFor="accept-data-policy" className="text-xs leading-relaxed text-gray-600 cursor-pointer">
-                  J'accepte que mes données soient utilisées dans le cadre du traitement de ma demande, conformément à la{' '}
+                  {r.consent.dataBefore}
                   <a href={p('/politique-de-confidentialite')} target="_blank" rel="noopener noreferrer" className="text-[#862637] hover:text-[#01142a] underline">
-                    politique de confidentialité
+                    {r.consent.dataLink}
                   </a>
-                  . <span className="text-[#862637] font-semibold">*</span>
+                  {r.consent.dataAfter} <span className="text-[#862637] font-semibold">*</span>
                 </label>
               </div>
               {errors.acceptDataPolicy && <p className="text-[9px] text-red-400 ml-7">{errors.acceptDataPolicy}</p>}
@@ -333,7 +327,7 @@ export default function Reservation() {
                   className="mt-1 w-4 h-4 rounded border-gray-300 text-[#862637] accent-[#862637]"
                 />
                 <label htmlFor="accept-newsletter" className="text-xs leading-relaxed text-gray-600 cursor-pointer">
-                  Je souhaite recevoir les actualités, offres et inspirations d'Osmoz par e-mail.
+                  {r.consent.newsletter}
                 </label>
               </div>
             </div>
@@ -345,11 +339,11 @@ export default function Reservation() {
             {/* Desktop CTA */}
             <div className="hidden sm:flex items-center justify-between mt-6 pt-5 border-t border-[#f0f0e8]">
               <p className="text-[10px] font-light text-gray-400">
-                Champs <span className="text-[#862637]">*</span> obligatoires · Les autres peuvent être précisés plus tard
+                {r.footer.requiredBefore}<span className="text-[#862637]">*</span>{r.footer.requiredAfter}
               </p>
               <button type="button" onClick={handleSubmit} disabled={submitting}
                 className="bg-[#862637] text-[#fee1d4] px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60">
-                {submitting ? 'Envoi…' : 'Envoyer ma demande'}
+                {submitting ? r.sending : r.submit}
                 {!submitting && <ChevronRight className="h-3.5 w-3.5" />}
               </button>
             </div>

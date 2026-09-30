@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { subscribeToNewsletter } from '../lib/newsletter';
+import { NewsletterError, subscribeToNewsletter } from '../lib/newsletter';
 import { useLocale } from '../i18n/context';
 
 type NewsletterFormProps = {
@@ -19,9 +19,9 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function NewsletterForm({
   source = 'popup',
-  headline = 'Recevez les actualités d’Osmoz',
-  description = 'Conseils, inspirations, nouveaux espaces et actualités directement dans votre boîte mail.',
-  submitLabel = 'Je m’inscris',
+  headline,
+  description,
+  submitLabel,
   hideHeader = false,
   tone = 'dark',
   className = '',
@@ -29,7 +29,12 @@ export default function NewsletterForm({
   onError,
   inputRef,
 }: NewsletterFormProps) {
-  const { p } = useLocale();
+  const { t, p } = useLocale();
+  const n = t.shared.newsletter;
+  // Les props texte restent des surcharges optionnelles ; par défaut, le dictionnaire.
+  const finalHeadline = headline ?? n.headline;
+  const finalDescription = description ?? n.description;
+  const finalSubmit = submitLabel ?? n.submit;
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'already_subscribed' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -40,19 +45,20 @@ export default function NewsletterForm({
   const isAlreadySubmitted = submittedEmail === normalizedEmail && (status === 'success' || status === 'already_subscribed');
   const disclaimerText = (
     <>
-      En vous inscrivant, vous acceptez de recevoir les actualités d'Osmoz par e-mail. Vous pouvez vous désinscrire à tout moment. Consultez notre{' '}
+      {n.disclaimerBefore}
       <a href={p('/politique-de-confidentialite')} target="_blank" rel="noopener noreferrer" className={tone === 'light' ? 'text-[#862637] underline' : 'text-[#fee1d4] underline'}>
-        politique de confidentialité
-      </a>.
+        {n.disclaimerLink}
+      </a>
+      {n.disclaimerAfter}
     </>
   );
 
   const validateEmail = () => {
     if (!normalizedEmail) {
-      return 'Votre adresse e-mail est requise.';
+      return n.errorRequired;
     }
     if (!EMAIL_REGEX.test(normalizedEmail)) {
-      return 'Adresse e-mail invalide.';
+      return n.errorInvalid;
     }
     return '';
   };
@@ -84,14 +90,14 @@ export default function NewsletterForm({
       setSubmittedEmail(normalizedEmail);
       if (result.alreadySubscribed) {
         setStatus('already_subscribed');
-        setMessage('Cette adresse est déjà inscrite à notre newsletter.');
+        setMessage(n.alreadySubscribed);
       } else {
         setStatus('success');
-        setMessage('Merci ! Votre inscription à la newsletter a bien été prise en compte.');
+        setMessage(n.success);
       }
       onSuccess?.();
     } catch (err) {
-      const text = err instanceof Error ? err.message : 'Une erreur est survenue. Veuillez réessayer dans quelques instants.';
+      const text = err instanceof NewsletterError && err.code === 'invalid_email' ? n.errorInvalid : n.errorGeneric;
       setStatus('error');
       setMessage(text);
       onError?.(text);
@@ -102,12 +108,12 @@ export default function NewsletterForm({
     <div className={className}>
       {!hideHeader && (
         <div className="mb-8">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#862637] mb-4">Newsletter</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-[#862637] mb-4">{n.kicker}</p>
           <h2 className="font-light text-[#fbfbf3] text-3xl sm:text-4xl leading-tight mb-4" style={{ fontFamily: 'Playfair Display' }}>
-            {headline}
+            {finalHeadline}
           </h2>
           <p className="text-sm text-[#f5f5ef] max-w-2xl leading-relaxed">
-            {description}
+            {finalDescription}
           </p>
         </div>
       )}
@@ -115,7 +121,7 @@ export default function NewsletterForm({
       <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
           <label htmlFor={`newsletter-email-${source}`} className="sr-only">
-            Votre adresse e-mail
+            {n.emailLabel}
           </label>
           <input
             ref={inputRef}
@@ -124,7 +130,7 @@ export default function NewsletterForm({
             name="email"
             value={email}
             onChange={handleEmailChange}
-            placeholder="Votre adresse e-mail"
+            placeholder={n.emailPlaceholder}
             className="w-full rounded-3xl border border-[#e5e5e5] bg-white/95 px-5 py-4 text-sm text-[#01142a] placeholder:text-gray-400 focus:border-[#01142a] focus:outline-none focus:ring-2 focus:ring-[#862637]/20"
             aria-invalid={status === 'error' ? 'true' : 'false'}
             aria-describedby={`newsletter-message-${source}`}
@@ -138,7 +144,7 @@ export default function NewsletterForm({
               'bg-[#862637] hover:bg-[#01142a]'
             } disabled:cursor-not-allowed disabled:opacity-60`}
           >
-            {isSubmitting ? 'Envoi…' : status === 'success' ? '✓ Inscrit !' : status === 'already_subscribed' ? '✓ Déjà inscrit' : submitLabel}
+            {isSubmitting ? n.sending : status === 'success' ? n.subscribed : status === 'already_subscribed' ? n.alreadySubscribedShort : finalSubmit}
           </button>
         </div>
 

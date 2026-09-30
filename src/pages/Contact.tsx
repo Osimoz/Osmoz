@@ -10,7 +10,8 @@ const EMAILJS_TEMPLATE_ID = 'template_ttklrxv';
 const EMAILJS_PUBLIC_KEY = '1Q_BLfh61Y9oi6ls_';
 
 export default function Contact() {
-  const { p } = useLocale();
+  const { t, p, lang } = useLocale();
+  const c = t.contact;
   useEffect(() => {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }, []);
@@ -26,7 +27,7 @@ export default function Contact() {
 
   const handleSubmit = async () => {
     if (!form.firstName || !form.lastName || !form.email || !form.message) {
-      setError('Merci de remplir tous les champs.');
+      setError(c.form.errorRequired);
       return;
     }
     setIsSubmitting(true);
@@ -37,14 +38,15 @@ export default function Contact() {
         reply_to: form.email,
         phone: '',
         company: '',
-        subject: 'Message via page Contact',
+        // E-mail interne (équipe OSMOZ) : reste en français, marqué (EN) si la demande vient du site anglais.
+        subject: lang === 'en' ? 'Message via page Contact (EN)' : 'Message via page Contact',
         message: form.message,
         to_email: 'contact@osmoz-space.com',
       });
       setIsSubmitted(true);
       setForm({ firstName: '', lastName: '', email: '', message: '' });
     } catch {
-      setError("Une erreur s'est produite lors de l'envoi. Veuillez réessayer.");
+      setError(c.form.errorSend);
     } finally {
       setIsSubmitting(false);
     }
@@ -60,20 +62,20 @@ export default function Contact() {
           {/* Header */}
           <div className="max-w-2xl mb-16">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-4">
-              Nous écrire
+              {c.kicker}
             </p>
             <h1
               className="font-light text-[#01142a] mb-5"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
             >
-              Contact
+              {c.title}
             </h1>
             <p className="text-base font-normal text-gray-500 leading-relaxed">
-              Une question, une demande particulière ? Écrivez-nous. Pour une réservation, utilisez{' '}
+              {c.introBefore}
               <Link to={p('/reservation')} className="text-[#862637] underline underline-offset-4 hover:text-[#01142a] transition-colors">
-                notre formulaire dédié
+                {c.introLink}
               </Link>
-              .
+              {c.introAfter}
             </p>
           </div>
 
@@ -85,24 +87,24 @@ export default function Contact() {
                   <svg className="h-14 w-14 mx-auto mb-5" viewBox="0 0 20 20" fill="currentColor" style={{ color: '#862637' }}>
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <h3 className="text-xl font-normal text-[#01142a] mb-3">Message envoyé</h3>
+                  <h3 className="text-xl font-normal text-[#01142a] mb-3">{c.sent.title}</h3>
                   <p className="text-sm font-light text-gray-500 mb-6">
-                    Merci ! Nous vous répondrons dans les plus brefs délais.
+                    {c.sent.text}
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
                     className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300"
                   >
-                    Nouveau message
+                    {c.sent.again}
                   </button>
                 </div>
               ) : (
                 <div className="space-y-6">
-                  <h2 className="text-lg font-normal text-[#01142a] mb-2">Votre message</h2>
+                  <h2 className="text-lg font-normal text-[#01142a] mb-2">{c.form.title}</h2>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">Nom *</label>
+                      <label className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">{c.form.lastName}</label>
                       <input
                         type="text"
                         name="lastName"
@@ -113,7 +115,7 @@ export default function Contact() {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">Prénom *</label>
+                      <label className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">{c.form.firstName}</label>
                       <input
                         type="text"
                         name="firstName"
@@ -126,7 +128,7 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">Email *</label>
+                    <label className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">{c.form.email}</label>
                     <input
                       type="email"
                       name="email"
@@ -138,7 +140,7 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">Message *</label>
+                    <label className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">{c.form.message}</label>
                     <textarea
                       name="message"
                       value={form.message}
@@ -159,7 +161,7 @@ export default function Contact() {
                     disabled={isSubmitting}
                     className="bg-[#862637] text-[#fee1d4] px-7 py-3.5 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60"
                   >
-                    {isSubmitting ? 'Envoi…' : 'Envoyer'}
+                    {isSubmitting ? c.form.sending : c.form.send}
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -169,7 +171,7 @@ export default function Contact() {
             {/* Coordonnées */}
             <div className="flex flex-col justify-center space-y-10">
               <div>
-                <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-6">Nos coordonnées</p>
+                <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-6">{c.details.kicker}</p>
                 <div className="space-y-5">
                   <a href="mailto:contact@osmoz-space.com" className="flex items-center gap-4 text-[#01142a] hover:text-[#862637] transition-colors">
                     <Mail className="h-5 w-5 flex-shrink-0" />
@@ -183,15 +185,15 @@ export default function Contact() {
               </div>
 
               <div className="border border-[#e5e5e5] rounded-2xl p-7 bg-white">
-                <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">Réserver un espace</p>
+                <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">{c.book.kicker}</p>
                 <p className="text-sm font-light text-gray-500 leading-relaxed mb-5">
-                  Pour une demande de réservation, de devis ou de disponibilité, utilisez notre formulaire dédié.
+                  {c.book.text}
                 </p>
                 <Link
                   to={p('/reservation')}
                   className="inline-flex items-center gap-2 bg-[#01142a] text-white px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
                 >
-                  Formulaire de réservation
+                  {c.book.button}
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>

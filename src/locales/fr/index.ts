@@ -2,7 +2,20 @@
 // donc une clé manquante ou en trop en anglais est une erreur `tsc -b`.
 // Un objet par composant / page ; les pages viennent s'ajouter ici au fur et
 // à mesure de leur extraction.
+import { home } from './home';
+import { shared } from './shared';
+import { spaces } from './spaces';
+import { contact } from './contact';
+import { reservation } from './reservation';
+import { faq } from './faq';
+
 export const fr = {
+  home,
+  shared,
+  spaces,
+  contact,
+  reservation,
+  faq,
   lang: {
     fr: 'FR',
     en: 'EN',

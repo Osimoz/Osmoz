@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import NewsletterForm from './NewsletterForm';
+import { useLocale } from '../i18n/context';
 
 const STORAGE_KEY = 'osmoz_newsletter_dismissed';
 
@@ -7,6 +8,8 @@ export default function NewsletterPopup() {
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const { t } = useLocale();
+  const n = t.shared.newsletter;
 
   useEffect(() => {
     if (localStorage.getItem(STORAGE_KEY)) return;
@@ -40,7 +43,7 @@ export default function NewsletterPopup() {
       <div
         onClick={dismiss}
         role="button"
-        aria-label="Fermer le pop-up"
+        aria-label={n.closePopup}
         style={{
           position: 'fixed',
           inset: 0,
@@ -72,7 +75,7 @@ export default function NewsletterPopup() {
       >
         <button
           onClick={dismiss}
-          aria-label="Fermer"
+          aria-label={n.close}
           style={{
             position: 'absolute',
             top: '20px',
@@ -107,7 +110,7 @@ export default function NewsletterPopup() {
               gap: '12px',
             }}>
               <span style={{ display: 'inline-block', width: '24px', height: '1px', background: '#862637' }} />
-              Newsletter
+              {n.kicker}
             </p>
             <h2 style={{
               fontFamily: 'Playfair Display',
@@ -117,7 +120,7 @@ export default function NewsletterPopup() {
               color: '#01142a',
               marginBottom: '8px',
             }}>
-              Recevez les actualités d’Osmoz
+              {n.headline}
             </h2>
             <p style={{
               fontSize: '13px',
@@ -126,11 +129,11 @@ export default function NewsletterPopup() {
               fontWeight: 300,
               marginBottom: 0,
             }}>
-              Conseils, inspirations, nouveaux espaces et actualités directement dans votre boîte mail.
+              {n.description}
             </p>
           </div>
 
-          <NewsletterForm source="popup" submitLabel="Je m’inscris" inputRef={inputRef} tone="light" hideHeader />
+          <NewsletterForm source="popup" inputRef={inputRef} tone="light" hideHeader />
         </div>
       </div>
     </>

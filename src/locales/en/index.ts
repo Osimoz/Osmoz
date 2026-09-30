@@ -1,6 +1,18 @@
 import type { Dictionary } from '../fr';
+import { home } from './home';
+import { shared } from './shared';
+import { spaces } from './spaces';
+import { contact } from './contact';
+import { reservation } from './reservation';
+import { faq } from './faq';
 
 export const en: Dictionary = {
+  home,
+  shared,
+  spaces,
+  contact,
+  reservation,
+  faq,
   lang: {
     fr: 'FR',
     en: 'EN',

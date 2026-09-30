@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useKeyPress } from '../hooks/useKeyPress';
 import type { Image } from '../types';
+import { useLocale } from '../i18n/context';
 
 interface ImageGalleryProps {
   images: Image[];
@@ -17,6 +18,7 @@ export default function ImageGallery({
   onClose
 }: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const { t } = useLocale();
 
   useEffect(() => {
     setCurrentIndex(initialIndex);
@@ -48,7 +50,7 @@ export default function ImageGallery({
       <button
         onClick={onClose}
         className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
-        aria-label="Close gallery"
+        aria-label={t.shared.gallery.close}
       >
         <X className="h-8 w-8" />
       </button>
@@ -56,7 +58,7 @@ export default function ImageGallery({
       <button
         onClick={handlePrevious}
         className="absolute left-4 text-white hover:text-gray-300 transition-colors z-10"
-        aria-label="Previous image"
+        aria-label={t.shared.gallery.previous}
       >
         <ChevronLeft className="h-8 w-8" />
       </button>
@@ -64,7 +66,7 @@ export default function ImageGallery({
       <button
         onClick={handleNext}
         className="absolute right-4 text-white hover:text-gray-300 transition-colors z-10"
-        aria-label="Next image"
+        aria-label={t.shared.gallery.next}
       >
         <ChevronRight className="h-8 w-8" />
       </button>

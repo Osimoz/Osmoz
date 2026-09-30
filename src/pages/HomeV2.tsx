@@ -24,11 +24,12 @@ const logos: string[] = [
 ];
 
 function ClientLogos() {
+  const { t } = useLocale();
   return (
     <section className="bg-[#fbfbf3] py-12 border-t border-b border-[#e5e5e5] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-xs font-normal uppercase text-gray-400 tracking-[0.3em] mb-8">
-          Ils nous font confiance
+          {t.home.logos.kicker}
         </p>
         <div className="relative w-full overflow-hidden">
           <div className="flex gap-12 animate-marquee-fast whitespace-nowrap">
@@ -36,7 +37,7 @@ function ClientLogos() {
               <img
                 key={idx}
                 src={src}
-                alt={`Logo client Osmoz ${idx + 1}`}
+                alt={`${t.home.logos.alt} ${idx + 1}`}
                 loading="lazy"
                 className="h-8 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition duration-300 flex-shrink-0"
               />
@@ -50,84 +51,23 @@ function ClientLogos() {
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
+// Le texte (tag, titre, pills, alt) vient de t.home.spaces[key].
 const spaces = [
-  {
-    tag: 'Marais · Paris 3e',
-    title: 'Le Loft',
-    stats: '110 m² · 25 personnes',
-    pills: ['Réunion', 'Séminaire', 'Workshop', 'Tournage'],
-    image: u('images/Loft/2 Salon pleiniere 2.jpg'),
-    alt: 'Le Loft Osmoz – salon avec verrière, Paris Marais 3e',
-    link: '/spaces/loft-osmoz',
-  },
-  {
-    tag: 'Montmartre · Paris 2e',
-    title: 'Le Duplex',
-    stats: '300 m² · 40 personnes',
-    pills: ['Réunion', 'Conférence', 'Cocktail', 'Séminaire'],
-    image: u('images/Duplex Haussmannien/webp/duplex-salon-01.webp'),
-    alt: 'Le Duplex Haussmannien Osmoz – salon moulures parquet Paris 2e',
-    link: '/spaces/duplex-osmoz',
-  },
-  {
-    tag: 'La Défense · Puteaux',
-    title: 'Le Penthouse',
-    stats: '150 m² + jardin 350 m² · 40 personnes',
-    pills: ['Réunion', 'Cocktail', 'Séminaire', 'Vue panoramique'],
-    image: u('images/Penthouse/2 - Salon.jpg'),
-    alt: 'Le Penthouse Osmoz – espace panoramique La Défense Puteaux',
-    link: '/spaces/penthouse-osmoz',
-  },
-];
+  { key: 'loft', image: u('images/Loft/2 Salon pleiniere 2.jpg'), link: '/spaces/loft-osmoz' },
+  { key: 'duplex', image: u('images/Duplex Haussmannien/webp/duplex-salon-01.webp'), link: '/spaces/duplex-osmoz' },
+  { key: 'penthouse', image: u('images/Penthouse/2 - Salon.jpg'), link: '/spaces/penthouse-osmoz' },
+] as const;
 
-const useCases = [
-  {
-    Icon: Users,
-    title: 'Réunions & séminaires',
-    description:
-      "De 5 à 40 personnes, dans un cadre qui sort de l'ordinaire. Mobilier modulable, équipements pro inclus.",
-  },
-  {
-    Icon: Lightbulb,
-    title: 'Ateliers & workshops',
-    description:
-      "Des espaces qui s'organisent selon vos besoins. Table en U, îlots, plénière — on prépare tout à l'avance.",
-  },
-  {
-    Icon: UtensilsCrossed,
-    title: 'Cocktails & déjeuners',
-    description:
-      'Un panel de services sur mesure\u00a0: traiteur, chef privé, activités pour que chaque journée soit vraiment la vôtre.',
-  },
-];
-
-const steps = [
-  {
-    number: '01',
-    title: 'Choisissez votre espace',
-    description:
-      'Parcourez nos trois lieux à Paris et trouvez celui qui correspond à votre équipe et à votre format.',
-  },
-  {
-    number: '02',
-    title: 'Envoyez votre demande',
-    description:
-      'Quelques lignes suffisent. Nous revenons vers vous sous quelques heures avec les disponibilités et un devis.',
-  },
-  {
-    number: '03',
-    title: 'Profitez de votre journée',
-    description:
-      "Vous arrivez, on a tout préparé. Échangez, créez, formez-vous, célébrez.",
-  },
-];
+// Une icône par cas d'usage, dans l'ordre de t.home.useCases.
+const useCaseIcons = [Users, Lightbulb, UtensilsCrossed];
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
 
 export default function HomeV2() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const navigate = useNavigate();
-  const { p } = useLocale();
+  const { t, p } = useLocale();
+  const h = t.home;
 
   useEffect(() => {
     const v = videoRef.current;
@@ -146,7 +86,7 @@ export default function HomeV2() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'OSMOZ',
-    description: "OSMOZ propose trois espaces privatisables authentiques et chaleureux à Paris et La Défense pour les entreprises. Séminaires, réunions de direction, workshops, cocktails et tournages. Le Loft (Marais, 110m²), Le Duplex Haussmannien (Paris 2e, 300m²), Le Penthouse (La Défense, 150m² + jardin 350m²).",
+    description: h.jsonLd.description,
     url: 'https://osmoz-space.com',
     logo: 'https://osmoz-space.com/logo.png',
     image: 'https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg',
@@ -162,48 +102,27 @@ export default function HomeV2() {
     openingHours: 'Mo-Fr 08:00-22:00',
     priceRange: '€€€',
     currenciesAccepted: 'EUR',
-    paymentAccepted: 'Virement bancaire, Carte bancaire',
+    paymentAccepted: h.jsonLd.paymentAccepted,
     hasMap: 'https://maps.google.com/?q=Paris+France',
     sameAs: [
       'https://www.instagram.com/osmoz_space',
       'https://www.linkedin.com/company/osmoz',
     ],
     makesOffer: [
-      { '@type': 'Offer', name: 'Le Loft OSMOZ', description: 'Espace privatif 110m², Place des Vosges, Paris 3e. Jusqu\'à 25 personnes.', url: 'https://osmoz-space.com/spaces/loft-osmoz' },
-      { '@type': 'Offer', name: 'Le Duplex Haussmannien OSMOZ', description: 'Appartement haussmannien 300m², Paris 2e. Jusqu\'à 40 personnes.', url: 'https://osmoz-space.com/spaces/duplex-osmoz' },
-      { '@type': 'Offer', name: 'Le Penthouse OSMOZ', description: 'Penthouse 150m² + jardin 350m², La Défense. Jusqu\'à 40 personnes.', url: 'https://osmoz-space.com/spaces/penthouse-osmoz' },
+      { '@type': 'Offer', name: 'Le Loft OSMOZ', description: h.jsonLd.offers.loft, url: `https://osmoz-space.com${p('/spaces/loft-osmoz')}` },
+      { '@type': 'Offer', name: 'Le Duplex Haussmannien OSMOZ', description: h.jsonLd.offers.duplex, url: `https://osmoz-space.com${p('/spaces/duplex-osmoz')}` },
+      { '@type': 'Offer', name: 'Le Penthouse OSMOZ', description: h.jsonLd.offers.penthouse, url: `https://osmoz-space.com${p('/spaces/penthouse-osmoz')}` },
     ],
   };
 
   const homeFaqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: "Qu'est-ce qu'OSMOZ ?",
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "OSMOZ est une société parisienne spécialisée dans la location d'espaces privatifs authentiques exclusivement pour les entreprises. Nous proposons trois lieux à Paris et La Défense : Le Loft au Marais (110m², 25 personnes), Le Duplex Haussmannien Paris 2e (300m², 40 personnes) et Le Penthouse La Défense (150m² + rooftop 350m², 40 personnes).",
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'OSMOZ est-il ouvert aux particuliers ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "Non, OSMOZ loue ses espaces exclusivement aux entreprises. Nos lieux accueillent des séminaires, réunions de direction, workshops, cocktails et journées d'équipe.",
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Comment réserver un espace OSMOZ ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Envoyez-nous votre demande via le formulaire de contact sur osmoz.work. Nous revenons vers vous sous 24h avec les disponibilités et un devis personnalisé.',
-        },
-      },
-    ],
+    mainEntity: h.jsonLd.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
   };
 
   return (
@@ -235,25 +154,25 @@ export default function HomeV2() {
         {/* Content — left-aligned, bottom */}
         <div className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-12 pb-16 sm:pb-20 max-w-7xl mx-auto w-full">
           <p className="text-white/50 text-xs tracking-[0.3em] uppercase mb-4">
-            Paris · Marais · La Défense
+            {h.hero.kicker}
           </p>
           <h1
             className="text-white font-light leading-tight mb-6 max-w-3xl"
             style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
           >
-            Vos lieux. Votre journée.
+            {h.hero.title}
           </h1>
           <p className="text-white/70 font-normal text-base sm:text-lg mb-10 max-w-xl leading-relaxed">
-            Séminaires, réunions, workshops.
+            {h.hero.line1}
             <br className="hidden sm:block" />
-            Privatisation à la journée, exclusivement pour les entreprises.
+            {h.hero.line2}
           </p>
           <div>
             <button
               onClick={() => navigate(p('/reservation'))}
               className="bg-[#862637] text-[#fee1d4] px-8 sm:px-10 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
             >
-              Voir les disponibilités
+              {h.hero.cta}
               <ChevronRight className="h-3.5 w-3.5" />
             </button>
           </div>
@@ -269,25 +188,27 @@ export default function HomeV2() {
           {/* Header */}
           <div className="mb-14 sm:mb-16">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">
-              Nos espaces
+              {h.spacesSection.kicker}
             </p>
             <h2
               className="font-normal text-[#01142a] max-w-xl"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
             >
-              Trois lieux. Une seule promesse.
+              {h.spacesSection.title}
             </h2>
             <p className="text-sm font-light text-gray-500 mt-3">
-              Privatisation exclusive à la journée pour vos équipes.
+              {h.spacesSection.subtitle}
             </p>
           </div>
 
           {/* 2×2 grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Active space cards */}
-            {spaces.map((space) => (
+            {spaces.map((space) => {
+              const s = h.spaces[space.key];
+              return (
               <Link
-                key={space.title}
+                key={space.key}
                 to={p(space.link)}
                 className="group block rounded-2xl overflow-hidden border border-[#e5e5e5] hover:border-[#01142a]/20 hover:shadow-2xl transition-all duration-500 bg-white"
               >
@@ -295,7 +216,7 @@ export default function HomeV2() {
                 <div className="relative aspect-[3/2] overflow-hidden">
                   <img
                     src={space.image}
-                    alt={space.alt}
+                    alt={s.alt}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -303,22 +224,22 @@ export default function HomeV2() {
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center">
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white text-white text-xs tracking-[0.2em] uppercase px-6 py-3 rounded-lg">
-                      Voir l'espace
+                      {h.spacesSection.view}
                     </span>
                   </div>
                 </div>
                 {/* Content */}
                 <div className="p-6">
-                  <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">{space.tag}</p>
+                  <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">{s.tag}</p>
                   <h3
                     className="text-xl font-normal text-[#01142a] mb-1"
                     style={{ fontFamily: 'Playfair Display' }}
                   >
-                    {space.title}
+                    {s.title}
                   </h3>
-                  <p className="text-sm font-light text-gray-500 mb-4">{space.stats}</p>
+                  <p className="text-sm font-light text-gray-500 mb-4">{s.stats}</p>
                   <div className="flex flex-wrap gap-2">
-                    {space.pills.map((pill) => (
+                    {s.pills.map((pill) => (
                       <span
                         key={pill}
                         className="text-xs font-light px-3 py-1 rounded-full border border-[#e5e5e5] text-gray-500"
@@ -329,7 +250,8 @@ export default function HomeV2() {
                   </div>
                 </div>
               </Link>
-            ))}
+              );
+            })}
 
             {/* Coming soon card */}
             <div className="rounded-2xl overflow-hidden border border-[#e5e5e5] bg-white">
@@ -337,7 +259,7 @@ export default function HomeV2() {
               <div className="relative aspect-[3/2] overflow-hidden">
                 <img
                   src={u('images/Loft/2 Salon pleiniere 2.jpg')}
-                  alt="Prochain espace Osmoz – bientôt disponible"
+                  alt={h.comingSoon.alt}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover blur-md scale-105"
@@ -345,26 +267,26 @@ export default function HomeV2() {
                 <div className="absolute inset-0 bg-[#01142a]/70" />
                 {/* Badge */}
                 <span className="absolute top-4 right-4 bg-[#862637] text-[#fee1d4] text-xs px-3 py-1 rounded-full font-light tracking-wide">
-                  Bientôt disponible
+                  {h.comingSoon.badge}
                 </span>
               </div>
               {/* Content */}
               <div className="p-6">
-                <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">Paris · 2026</p>
+                <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">{h.comingSoon.tag}</p>
                 <h3
                   className="text-xl font-normal text-[#01142a] mb-3"
                   style={{ fontFamily: 'Playfair Display' }}
                 >
-                  Prochain espace Osmoz
+                  {h.comingSoon.title}
                 </h3>
                 <p className="text-sm font-light text-gray-500 mb-5 leading-relaxed">
-                  Un nouveau lieu arrive en 2026. Rejoignez la liste d'attente pour être les premiers informés.
+                  {h.comingSoon.text}
                 </p>
                 <button
                   onClick={() => navigate(p('/contact'))}
                   className="bg-[#862637] text-[#fee1d4] text-xs tracking-[0.2em] uppercase px-6 py-3 rounded-lg hover:bg-[#01142a] transition-all duration-300"
                 >
-                  Être prévenu en priorité
+                  {h.comingSoon.cta}
                 </button>
               </div>
             </div>
@@ -380,23 +302,25 @@ export default function HomeV2() {
           {/* Header */}
           <div className="mb-14 sm:mb-16">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">
-              Pour quels moments
+              {h.useCasesSection.kicker}
             </p>
             <h2
               className="font-normal text-[#01142a]"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
             >
-              Chaque espace s'adapte à votre format.
+              {h.useCasesSection.title}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {useCases.map((item) => (
+            {h.useCases.map((item, i) => {
+              const Icon = useCaseIcons[i];
+              return (
               <div
                 key={item.title}
                 className="border border-[#e5e5e5] rounded-2xl p-8 sm:p-10 bg-white hover:shadow-md transition-all duration-300"
               >
-                <item.Icon className="h-6 w-6 text-[#862637] mb-6" strokeWidth={1.5} />
+                <Icon className="h-6 w-6 text-[#862637] mb-6" strokeWidth={1.5} />
                 <h3
                   className="text-lg font-normal text-[#01142a] mb-3"
                   style={{ fontFamily: 'Playfair Display' }}
@@ -405,7 +329,8 @@ export default function HomeV2() {
                 </h3>
                 <p className="text-sm font-light text-gray-500 leading-loose">{item.description}</p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -417,16 +342,16 @@ export default function HomeV2() {
             className="font-light italic text-white max-w-2xl mx-auto mb-4"
             style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
           >
-            Votre prochaine journée d'équipe commence ici.
+            {h.ctaBand.title}
           </h2>
           <p className="text-white/50 font-light mb-10 text-sm">
-            Disponibilités, devis et confirmation en moins de 24h.
+            {h.ctaBand.subtitle}
           </p>
           <button
             onClick={() => navigate(p('/reservation'))}
             className="bg-white text-[#01142a] px-10 sm:px-12 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
           >
-            Voir les disponibilités
+            {h.ctaBand.cta}
           </button>
         </div>
       </section>
@@ -437,18 +362,18 @@ export default function HomeV2() {
           {/* Header */}
           <div className="mb-14 sm:mb-16">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-3">
-              Simple & rapide
+              {h.how.kicker}
             </p>
             <h2
               className="font-normal text-[#01142a]"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
             >
-              Comment ça marche ?
+              {h.how.title}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {steps.map((step, i) => (
+            {h.steps.map((step, i) => (
               <div
                 key={step.number}
                 className={`py-10 md:py-0 md:px-10 ${
@@ -474,18 +399,18 @@ export default function HomeV2() {
       {/* ── 8. FINAL CTA ── */}
       <section className="py-24 sm:py-32 bg-white border-t border-[#e5e5e5] text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-4">Osmoz</p>
+          <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-4">{h.finalCta.kicker}</p>
           <h2
             className="font-normal text-[#01142a] max-w-2xl mx-auto mb-10"
             style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
           >
-            Prêt à sortir du bureau ?
+            {h.finalCta.title}
           </h2>
           <button
             onClick={() => navigate(p('/reservation'))}
             className="bg-[#862637] text-[#fee1d4] px-10 sm:px-12 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-[#01142a] transition-all duration-300"
           >
-            Réserver un espace
+            {h.finalCta.cta}
           </button>
         </div>
       </section>
