@@ -24,153 +24,84 @@ const platforms = [
   { name: 'Rejolt',       url: 'https://www.rejolt.com',                                                                                                                                          logo: null },
 ];
 
-const amenities = [
-  { icon: Wifi,        label: 'Wifi haut débit' },
-  { icon: Tv,          label: 'Écrans connectés' },
-  { icon: Maximize2,   label: 'Salle de réunion confidentielle' },
-  { icon: Presentation,label: 'Paperboard' },
-  { icon: Tv,          label: 'Câble HDMI' },
-  { icon: Layers,      label: 'Espaces modulables' },
-  { icon: TreePine,    label: 'Jardin privatif 350 m²' },
-  { icon: Eye,         label: 'Vue panoramique sur Paris' },
-];
-
-const amenitiesOnDemand = [
-  'Chef privé',
-  'Service traiteur',
-  'Activités team building',
-  'Œnologie',
-  'Activités outdoor',
-];
-
-const tarifs = [
-  { label: 'Demi-journée',      hours: '08h30 - 12h  ou  14h - 18h', price: '1 499€' },
-  { label: 'Journée',           hours: '08h30 - 18h30',               price: '2 499€' },
-  { label: 'Soirée',            hours: '18h30 - 22h',                 price: '1 999€' },
-  { label: 'Journée + soirée',  hours: '08h30 - 22h',                 price: '2 999€' },
-];
+// Le texte vient de t.penthouse / t.venue ; ne restent ici que les valeurs non
+// textuelles (icônes, images, capacités, liens), dans le même ordre.
+const amenityIcons = [Wifi, Tv, Maximize2, Presentation, Tv, Layers, TreePine, Eye];
 
 const configurations = [
-  {
-    label: 'Réunion confidentielle',
-    capacity: 15,
-    description: 'Table en cuir noir, tapisserie ancienne, vue directe sur Paris. Idéal pour comités de direction et réunions stratégiques.',
-    image: u(`${P}Bureau 24 bis.jpg`),
-  },
-  {
-    label: 'Workshop / Séjour',
-    capacity: 30,
-    description: 'Grand séjour 70\'s modulable. Canapés déplaçables, espace flexible adapté aux ateliers.',
-    image: u(`${P}Sejour format reunion 18.jpg`),
-  },
-  {
-    label: 'Cocktail / Lounge',
-    capacity: 40,
-    description: 'Séjour ouvert sur le jardin suspendu. Ambiance unique perchée au-dessus de Paris.',
-    image: u(`${P}Cocktail copie.jpg`),
-  },
-  {
-    label: 'Jardin suspendu',
-    capacity: 40,
-    description: '350 m² de gazon privatif au dernier étage. Vue panoramique sur Paris, la Tour Eiffel et La Défense.',
-    image: u(`${P}Rooftop 1.JPG`),
-  },
+  { capacity: 15, image: u(`${P}Bureau 24 bis.jpg`) },
+  { capacity: 30, image: u(`${P}Sejour format reunion 18.jpg`) },
+  { capacity: 40, image: u(`${P}Cocktail copie.jpg`) },
+  { capacity: 40, image: u(`${P}Rooftop 1.JPG`) },
 ];
 
-const galleryItems = [
-  { url: u(`images/Penthouse/Rooftop 1.JPG`), label: 'Rooftop 1', alt: 'Rooftop 1' },
-  { url: u(`images/Penthouse/Rooftop 2.JPG`), label: 'Rooftop 2', alt: 'Rooftop 2' },
-  { url: u(`images/Penthouse/Bureau 3 .jpg`), label: 'Bureau 3', alt: 'Bureau 3' },
-  { url: u(`images/Penthouse/Sejour 4.JPG`), label: 'Séjour 4', alt: 'Séjour 4' },
-  { url: u(`images/Penthouse/Sejour 5.JPG`), label: 'Séjour 5', alt: 'Séjour 5' },
-  { url: u(`images/Penthouse/Sejour 6.JPG`), label: 'Séjour 6', alt: 'Séjour 6' },
-  { url: u(`images/Penthouse/Sejour 7.jpg`), label: 'Séjour 7', alt: 'Séjour 7' },
-  { url: u(`images/Penthouse/Sejour 8.JPG`), label: 'Séjour 8', alt: 'Séjour 8' },
-];
-
-const allImages = [
-  { url: u(`images/Penthouse/Rooftop 1.JPG`), alt: 'Penthouse Osmoz – Rooftop 1' },
-  { url: u(`images/Penthouse/Rooftop 2.JPG`), alt: 'Penthouse Osmoz – Rooftop 2' },
-  { url: u(`images/Penthouse/Bureau 3 .jpg`), alt: 'Penthouse Osmoz – Bureau 3' },
-  { url: u(`images/Penthouse/Sejour 4.JPG`), alt: 'Penthouse Osmoz – Séjour 4' },
-  { url: u(`images/Penthouse/Sejour 5.JPG`), alt: 'Penthouse Osmoz – Séjour 5' },
-  { url: u(`images/Penthouse/Sejour 6.JPG`), alt: 'Penthouse Osmoz – Séjour 6' },
-  { url: u(`images/Penthouse/Sejour 7.jpg`), alt: 'Penthouse Osmoz – Séjour 7' },
-  { url: u(`images/Penthouse/Sejour 8.JPG`), alt: 'Penthouse Osmoz – Séjour 8' },
-  { url: u(`images/Penthouse/Sejour 9.JPG`), alt: 'Penthouse Osmoz – Séjour 9' },
-  { url: u(`images/Penthouse/Sejour 10.JPG`), alt: 'Penthouse Osmoz – Séjour 10' },
-  { url: u(`images/Penthouse/Sejour 11.JPG`), alt: 'Penthouse Osmoz – Séjour 11' },
-  { url: u(`images/Penthouse/Sejour 11 bis .jpg`), alt: 'Penthouse Osmoz – Séjour 11 bis' },
-  { url: u(`images/Penthouse/Sejour 12.JPG`), alt: 'Penthouse Osmoz – Séjour 12' },
-  { url: u(`images/Penthouse/Sejour 13.jpg`), alt: 'Penthouse Osmoz – Séjour 13' },
-  { url: u(`images/Penthouse/Sejour 14.JPG`), alt: 'Penthouse Osmoz – Séjour 14' },
-  { url: u(`images/Penthouse/Sejour 15.jpg`), alt: 'Penthouse Osmoz – Séjour 15' },
-  { url: u(`images/Penthouse/Sejour 16.JPG`), alt: 'Penthouse Osmoz – Séjour 16' },
-  { url: u(`images/Penthouse/Sejour 17.jpg`), alt: 'Penthouse Osmoz – Séjour 17' },
-  { url: u(`images/Penthouse/Sejour format reunion 18.jpg`), alt: 'Penthouse Osmoz – Séjour format réunion 18' },
-  { url: u(`images/Penthouse/Sejour format reunion 18 bis.jpg`), alt: 'Penthouse Osmoz – Séjour format réunion 18 bis' },
-  { url: u(`images/Penthouse/Sejour format conference 19.jpg`), alt: 'Penthouse Osmoz – Séjour format conférence 19' },
-  { url: u(`images/Penthouse/Sejour format conference 19 bis.jpg`), alt: 'Penthouse Osmoz – Séjour format conférence 19 bis' },
-  { url: u(`images/Penthouse/Sejour 20.jpg`), alt: 'Penthouse Osmoz – Séjour 20' },
-  { url: u(`images/Penthouse/Bureau 21.jpg`), alt: 'Penthouse Osmoz – Bureau 21' },
-  { url: u(`images/Penthouse/Bureau 22.JPG`), alt: 'Penthouse Osmoz – Bureau 22' },
-  { url: u(`images/Penthouse/Bureau 23.JPG`), alt: 'Penthouse Osmoz – Bureau 23' },
-  { url: u(`images/Penthouse/Bureau 24.jpg`), alt: 'Penthouse Osmoz – Bureau 24' },
-  { url: u(`images/Penthouse/Bureau 24 bis.jpg`), alt: 'Penthouse Osmoz – Bureau 24 bis' },
-  { url: u(`images/Penthouse/Bureau 25.JPG`), alt: 'Penthouse Osmoz – Bureau 25' },
-  { url: u(`images/Penthouse/Bureau 26.JPG`), alt: 'Penthouse Osmoz – Bureau 26' },
-  { url: u(`images/Penthouse/Bureau 26 bis.jpg`), alt: 'Penthouse Osmoz – Bureau 26 bis' },
-  { url: u(`images/Penthouse/Bureau 27.JPG`), alt: 'Penthouse Osmoz – Bureau 27' },
-  { url: u(`images/Penthouse/Bureau 27 bis.jpg`), alt: 'Penthouse Osmoz – Bureau 27 bis' },
-  { url: u(`images/Penthouse/Bureau 28.JPG`), alt: 'Penthouse Osmoz – Bureau 28' },
-  { url: u(`images/Penthouse/Escalier 29.jpg`), alt: 'Penthouse Osmoz – Escalier 29' },
-  { url: u(`images/Penthouse/Rooftop 30.JPG`), alt: 'Penthouse Osmoz – Rooftop 30' },
-  { url: u(`images/Penthouse/Rooftop 31.JPG`), alt: 'Penthouse Osmoz – Rooftop 31' },
-  { url: u(`images/Penthouse/Rooftop 32.JPG`), alt: 'Penthouse Osmoz – Rooftop 32' },
-  { url: u(`images/Penthouse/Rooftop 33.JPG`), alt: 'Penthouse Osmoz – Rooftop 33' },
-  { url: u(`images/Penthouse/Rooftop 34.JPG`), alt: 'Penthouse Osmoz – Rooftop 34' },
-  { url: u(`images/Penthouse/Rooftop 35.JPG`), alt: 'Penthouse Osmoz – Rooftop 35' },
-  { url: u(`images/Penthouse/Rooftop 36.JPG`), alt: 'Penthouse Osmoz – Rooftop 36' },
-  { url: u(`images/Penthouse/Rooftop 37.JPG`), alt: 'Penthouse Osmoz – Rooftop 37' },
-  { url: u(`images/Penthouse/Rooftop 38.JPG`), alt: 'Penthouse Osmoz – Rooftop 38' },
-  { url: u(`images/Penthouse/Rooftop 39.JPG`), alt: 'Penthouse Osmoz – Rooftop 39' },
-  { url: u(`images/Penthouse/Rooftop 40.JPG`), alt: 'Penthouse Osmoz – Rooftop 40' },
-  { url: u(`images/Penthouse/Rooftop 41.jpg`), alt: 'Penthouse Osmoz – Rooftop 41' },
-  { url: u(`images/Penthouse/Rooftop 42.JPG`), alt: 'Penthouse Osmoz – Rooftop 42' },
-  { url: u(`images/Penthouse/Rooftop 43.JPG`), alt: 'Penthouse Osmoz – Rooftop 43' },
-  { url: u(`images/Penthouse/Rooftop 44.jpg`), alt: 'Penthouse Osmoz – Rooftop 44' },
-  { url: u(`images/Penthouse/Rooftop 45.jpg`), alt: 'Penthouse Osmoz – Rooftop 45' },
-  { url: u(`images/Penthouse/Rooftop 46.JPG`), alt: 'Penthouse Osmoz – Rooftop 46' },
-  { url: u(`images/Penthouse/Rooftop 47.jpg`), alt: 'Penthouse Osmoz – Rooftop 47' },
-  { url: u(`images/Penthouse/Rooftop 48.JPG`), alt: 'Penthouse Osmoz – Rooftop 48' },
-  { url: u(`images/Penthouse/Rooftop 49.JPG`), alt: 'Penthouse Osmoz – Rooftop 49' },
-  { url: u(`images/Penthouse/SDB 50.jpg`), alt: 'Penthouse Osmoz – SDB 50' },
+// Photos : « <pièce> <n> » (t.penthouse.rooms). Les 8 premières forment la
+// galerie ; toutes alimentent la lightbox avec le préfixe « Penthouse Osmoz – ».
+type Room = 'rooftop' | 'bureau' | 'sejour' | 'sejourReunion' | 'sejourConference' | 'escalier' | 'sdb';
+const photos: { file: string; room: Room; n: string }[] = [
+  { file: 'Rooftop 1.JPG', room: 'rooftop', n: '1' },
+  { file: 'Rooftop 2.JPG', room: 'rooftop', n: '2' },
+  { file: 'Bureau 3 .jpg', room: 'bureau', n: '3' },
+  { file: 'Sejour 4.JPG', room: 'sejour', n: '4' },
+  { file: 'Sejour 5.JPG', room: 'sejour', n: '5' },
+  { file: 'Sejour 6.JPG', room: 'sejour', n: '6' },
+  { file: 'Sejour 7.jpg', room: 'sejour', n: '7' },
+  { file: 'Sejour 8.JPG', room: 'sejour', n: '8' },
+  { file: 'Sejour 9.JPG', room: 'sejour', n: '9' },
+  { file: 'Sejour 10.JPG', room: 'sejour', n: '10' },
+  { file: 'Sejour 11.JPG', room: 'sejour', n: '11' },
+  { file: 'Sejour 11 bis .jpg', room: 'sejour', n: '11 bis' },
+  { file: 'Sejour 12.JPG', room: 'sejour', n: '12' },
+  { file: 'Sejour 13.jpg', room: 'sejour', n: '13' },
+  { file: 'Sejour 14.JPG', room: 'sejour', n: '14' },
+  { file: 'Sejour 15.jpg', room: 'sejour', n: '15' },
+  { file: 'Sejour 16.JPG', room: 'sejour', n: '16' },
+  { file: 'Sejour 17.jpg', room: 'sejour', n: '17' },
+  { file: 'Sejour format reunion 18.jpg', room: 'sejourReunion', n: '18' },
+  { file: 'Sejour format reunion 18 bis.jpg', room: 'sejourReunion', n: '18 bis' },
+  { file: 'Sejour format conference 19.jpg', room: 'sejourConference', n: '19' },
+  { file: 'Sejour format conference 19 bis.jpg', room: 'sejourConference', n: '19 bis' },
+  { file: 'Sejour 20.jpg', room: 'sejour', n: '20' },
+  { file: 'Bureau 21.jpg', room: 'bureau', n: '21' },
+  { file: 'Bureau 22.JPG', room: 'bureau', n: '22' },
+  { file: 'Bureau 23.JPG', room: 'bureau', n: '23' },
+  { file: 'Bureau 24.jpg', room: 'bureau', n: '24' },
+  { file: 'Bureau 24 bis.jpg', room: 'bureau', n: '24 bis' },
+  { file: 'Bureau 25.JPG', room: 'bureau', n: '25' },
+  { file: 'Bureau 26.JPG', room: 'bureau', n: '26' },
+  { file: 'Bureau 26 bis.jpg', room: 'bureau', n: '26 bis' },
+  { file: 'Bureau 27.JPG', room: 'bureau', n: '27' },
+  { file: 'Bureau 27 bis.jpg', room: 'bureau', n: '27 bis' },
+  { file: 'Bureau 28.JPG', room: 'bureau', n: '28' },
+  { file: 'Escalier 29.jpg', room: 'escalier', n: '29' },
+  ...['30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40'].map((n) => ({ file: `Rooftop ${n}.JPG`, room: 'rooftop' as const, n })),
+  { file: 'Rooftop 41.jpg', room: 'rooftop', n: '41' },
+  { file: 'Rooftop 42.JPG', room: 'rooftop', n: '42' },
+  { file: 'Rooftop 43.JPG', room: 'rooftop', n: '43' },
+  { file: 'Rooftop 44.jpg', room: 'rooftop', n: '44' },
+  { file: 'Rooftop 45.jpg', room: 'rooftop', n: '45' },
+  { file: 'Rooftop 46.JPG', room: 'rooftop', n: '46' },
+  { file: 'Rooftop 47.jpg', room: 'rooftop', n: '47' },
+  { file: 'Rooftop 48.JPG', room: 'rooftop', n: '48' },
+  { file: 'Rooftop 49.JPG', room: 'rooftop', n: '49' },
+  { file: 'SDB 50.jpg', room: 'sdb', n: '50' },
 ];
 
 const otherSpaces = [
-  {
-    title: 'Le Loft',
-    location: 'Marais, Paris 3e',
-    surface: '110 m²',
-    capacity: '25 pers.',
-    image: u('images/Loft/2 Salon pleiniere 2.jpg'),
-    link: '/spaces/loft-osmoz',
-  },
-  {
-    title: 'Le Duplex Haussmannien',
-    location: 'Montmartre, Paris 2e',
-    surface: '300 m²',
-    capacity: '40 pers.',
-    image: u('images/Duplex Haussmannien/duplex-salon-01.png'),
-    link: '/spaces/duplex-osmoz',
-  },
-];
+  { key: 'loft', image: u('images/Loft/2 Salon pleiniere 2.jpg'), link: '/spaces/loft-osmoz' },
+  { key: 'duplex', image: u('images/Duplex Haussmannien/duplex-salon-01.png'), link: '/spaces/duplex-osmoz' },
+] as const;
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 export default function PenthouseOsmoz() {
   const navigate = useNavigate();
-  const { p } = useLocale();
+  const { t, p } = useLocale();
+  const h = t.penthouse;
+  const v = t.venue;
+  const abs = (frPath: string) => `https://osmoz-space.com${p(frPath)}`;
+  const galleryItems = photos.slice(0, 8).map(({ file, room, n }) => ({ url: u(`${P}${file}`), label: `${h.rooms[room]} ${n}`, alt: `${h.rooms[room]} ${n}` }));
+  const allImages = photos.map(({ file, room, n }) => ({ url: u(`${P}${file}`), alt: `${h.lightboxPrefix}${h.rooms[room]} ${n}` }));
   const [activeConfig, setActiveConfig] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -192,8 +123,8 @@ export default function PenthouseOsmoz() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Le Penthouse OSMOZ',
-    description: "Penthouse de 150m² avec jardin suspendu de 350m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel, esthétique 70's, salle de réunion confidentielle. Idéal pour séminaires, cocktails, réunions de direction et événements outdoor jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",
-    url: 'https://osmoz-space.com/spaces/penthouse-osmoz',
+    description: h.jsonLd.description,
+    url: abs('/spaces/penthouse-osmoz'),
     image: 'https://osmoz-space.com/images/Penthouse/2%20-%20Salon.jpg',
     address: {
       '@type': 'PostalAddress',
@@ -205,28 +136,14 @@ export default function PenthouseOsmoz() {
     },
     geo: { '@type': 'GeoCoordinates', latitude: 48.8924, longitude: 2.2384 },
     maximumAttendeeCapacity: 40,
-    amenityFeature: [
-      { '@type': 'LocationFeatureSpecification', name: 'Wifi haut débit', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Écran connecté', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Jardin suspendu 350m²', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Vue panoramique Paris', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Salle de réunion confidentielle', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Paperboard', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Câble HDMI', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Privatisation totale', value: true },
-    ],
-    offers: [
-      { '@type': 'Offer', name: 'Demi-journée', price: '1499', priceCurrency: 'EUR', description: 'Privatisation demi-journée — 08h30-12h ou 14h-18h' },
-      { '@type': 'Offer', name: 'Journée complète', price: '2499', priceCurrency: 'EUR', description: 'Privatisation journée complète — 08h30-18h30' },
-      { '@type': 'Offer', name: 'Soirée', price: '1999', priceCurrency: 'EUR', description: 'Privatisation soirée — 18h30-22h' },
-      { '@type': 'Offer', name: 'Journée + soirée', price: '2999', priceCurrency: 'EUR', description: 'Privatisation journée complète + soirée — 08h30-22h' },
-    ],
+    amenityFeature: h.jsonLd.amenities.map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
+    offers: ['1499', '2499', '1999', '2999'].map((price, i) => ({ '@type': 'Offer', ...h.jsonLd.offers[i], price, priceCurrency: 'EUR' })),
     telephone: '+33675186932',
     email: 'contact@osmoz-space.com',
     openingHours: 'Mo-Fr 08:00-22:00',
     priceRange: '€€€',
     currenciesAccepted: 'EUR',
-    paymentAccepted: 'Virement bancaire, Carte bancaire',
+    paymentAccepted: v.jsonLd.paymentAccepted,
     isAccessibleForFree: false,
     publicAccess: false,
     smokingAllowed: false,
@@ -238,39 +155,18 @@ export default function PenthouseOsmoz() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz-space.com/' },
-          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz-space.com/spaces' },
-          { '@type': 'ListItem', position: 3, name: 'Le Penthouse', item: 'https://osmoz-space.com/spaces/penthouse-osmoz' },
+          { '@type': 'ListItem', position: 1, name: v.jsonLd.home, item: abs('/') },
+          { '@type': 'ListItem', position: 2, name: v.jsonLd.spaces, item: abs('/spaces') },
+          { '@type': 'ListItem', position: 3, name: h.jsonLd.breadcrumb, item: abs('/spaces/penthouse-osmoz') },
         ],
       },
       {
         '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Combien de personnes peut accueillir Le Penthouse OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Le Penthouse OSMOZ accueille jusqu'à 40 personnes en intérieur et jusqu'à 40 personnes sur le rooftop suspendu de 350m² avec vue sur Paris.",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Où se trouve Le Penthouse OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Le Penthouse OSMOZ est situé Tour Cofonca, 6-8 rue Jean Jaurès, Puteaux 92800. Accès depuis le métro La Défense ligne 1 en 5 minutes à pied.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Quel est le tarif de location du Penthouse OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Le Penthouse OSMOZ est disponible à partir de 1499€ HT pour une demi-journée, 2499€ HT pour une journée complète et 1999€ HT pour une soirée. Devis personnalisé sous 24h.',
-            },
-          },
-        ],
+        mainEntity: h.jsonLd.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
       },
     ],
   };
@@ -288,7 +184,7 @@ export default function PenthouseOsmoz() {
       <section className="relative h-[90vh] w-full overflow-hidden">
         <img
           src={u(`${P}Sejour 4.JPG`)}
-          alt="Penthouse Osmoz – Séjour 4, La Défense"
+          alt={h.heroAlt}
           fetchPriority="high"
           loading="eager"
           decoding="async"
@@ -301,20 +197,20 @@ export default function PenthouseOsmoz() {
 
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-16 px-4 text-center">
           <p className="text-white/60 font-normal tracking-[0.3em] text-xs mb-4 uppercase">
-            Osmoz · La Défense
+            {h.kicker}
           </p>
           <h1
             className="text-white font-light mb-4 leading-tight"
             style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(3rem, 6vw, 5.5rem)' }}
           >
-            Le Penthouse
+            {h.name}
           </h1>
           <p className="text-white/70 font-light tracking-[0.15em] text-sm mb-10 uppercase">
-            La Défense · Puteaux
+            {h.location}
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center mb-10">
-            {['150 m² + jardin 350 m²', '40 pers. max', 'Vue panoramique Paris', 'À partir de 1 499€ HT'].map((pill) => (
+            {h.pills.map((pill) => (
               <span
                 key={pill}
                 className="bg-white/10 backdrop-blur-sm text-white border border-white/25 px-4 py-1.5 rounded-full text-xs font-light tracking-widest uppercase"
@@ -328,7 +224,7 @@ export default function PenthouseOsmoz() {
             onClick={() => navigate(p('/reservation?space=penthouse'))}
             className="bg-white text-[#01142a] px-12 py-4 rounded-lg text-xs tracking-[0.2em] font-normal uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition-all duration-300"
           >
-            Réserver ce lieu
+            {v.book}
           </button>
         </div>
       </section>
@@ -342,20 +238,20 @@ export default function PenthouseOsmoz() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
           <div className="flex items-center gap-6 text-xs font-light text-[#01142a] tracking-wide uppercase">
             <span className="flex items-center gap-1.5">
-              <Maximize2 className="h-3 w-3" strokeWidth={1.5} />150 m² + jardin 350 m²
+              <Maximize2 className="h-3 w-3" strokeWidth={1.5} />{h.stats.surface}
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
-              <Users className="h-3 w-3" strokeWidth={1.5} />40 personnes max
+              <Users className="h-3 w-3" strokeWidth={1.5} />{h.stats.people}
             </span>
             <span className="hidden md:flex items-center gap-1.5">
-              <MapPin className="h-3 w-3" strokeWidth={1.5} />Tour Cofonca, La Défense
+              <MapPin className="h-3 w-3" strokeWidth={1.5} />{h.stats.address}
             </span>
           </div>
           <button
             onClick={() => navigate(p('/reservation?space=penthouse'))}
             className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-normal uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
-            Demander un devis
+            {v.quote}
           </button>
         </div>
       </div>
@@ -363,14 +259,14 @@ export default function PenthouseOsmoz() {
       {/* ── MOBILE STICKY CTA ── */}
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-[#e5e5e5] px-4 py-3 flex items-center justify-between gap-3 shadow-lg">
         <div>
-          <p className="text-xs font-light text-gray-400 uppercase tracking-widest">À partir de</p>
-          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>1 499€</p>
+          <p className="text-xs font-light text-gray-400 uppercase tracking-widest">{v.from}</p>
+          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>{h.price}</p>
         </div>
         <button
           onClick={() => navigate(p('/reservation?space=penthouse'))}
           className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-normal flex-1 max-w-[200px]"
         >
-          Réserver ce lieu
+          {v.book}
         </button>
       </div>
 
@@ -386,13 +282,13 @@ export default function PenthouseOsmoz() {
                   className="text-xl italic font-light text-[#01142a] mb-6 leading-loose"
                   style={{ fontFamily: 'Playfair Display' }}
                 >
-                  Au dernier étage d'une tour de La Défense, perché au-dessus de Paris.
+                  {h.intro.quote}
                 </p>
                 <p className="text-sm font-light leading-loose text-gray-600 mb-6">
-                  Un penthouse confidentiel de 150 m², entièrement privatisé, avec jardin suspendu de 350 m² et vue panoramique sur tout Paris. Lieu rare et inattendu, esthétique 70's, espaces baignés de lumière, salle de réunion confidentielle et jardin ouvert sur le ciel. L'ensemble compose un cadre pensé pour alterner temps de travail et moments plus informels, dans une atmosphère unique.
+                  {h.intro.text}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['Réunion', 'Séminaire', 'Workshop', 'Cocktail', 'Vue panoramique', 'Outdoor'].map((tag) => (
+                  {h.intro.tags.map((tag) => (
                     <span key={tag} className="border border-[#01142a]/20 text-[#01142a] text-xs font-light px-3 py-1 rounded-full">
                       {tag}
                     </span>
@@ -429,19 +325,19 @@ export default function PenthouseOsmoz() {
               onClick={() => openGallery(0)}
               className="mt-6 text-sm font-normal text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors"
             >
-              Voir toutes les photos ({allImages.length})
+              {v.allPhotos} ({allImages.length})
             </button>
           </section>
 
           {/* ── 4. CONFIGURATIONS ── */}
           <section>
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Configurations</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.configurations.kicker}</p>
             <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
-              Comment aménager l'espace ?
+              {v.configurations.title}
             </h2>
 
             <div className="flex gap-2 mb-8 flex-wrap">
-              {configurations.map((c, i) => (
+              {h.configurations.map((c, i) => (
                 <button
                   key={c.label}
                   onClick={() => setActiveConfig(i)}
@@ -460,7 +356,7 @@ export default function PenthouseOsmoz() {
               <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#f0ede8]">
                 <img
                   src={configurations[activeConfig].image}
-                  alt={`Penthouse Osmoz – configuration ${configurations[activeConfig].label} La Défense`}
+                  alt={`${h.configurationAltBefore}${h.configurations[activeConfig].label}${h.configurationAltAfter}`}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
@@ -469,13 +365,13 @@ export default function PenthouseOsmoz() {
               </div>
               <div>
                 <p className="text-3xl font-light text-[#01142a] mb-1" style={{ fontFamily: 'Playfair Display' }}>
-                  {configurations[activeConfig].capacity} personnes
+                  {configurations[activeConfig].capacity} {v.people}
                 </p>
                 <p className="text-sm font-light text-gray-500 mb-4 uppercase tracking-widest">
-                  {configurations[activeConfig].label}
+                  {h.configurations[activeConfig].label}
                 </p>
                 <p className="text-sm font-light text-gray-600 leading-loose">
-                  {configurations[activeConfig].description}
+                  {h.configurations[activeConfig].description}
                 </p>
               </div>
             </div>
@@ -483,24 +379,27 @@ export default function PenthouseOsmoz() {
 
           {/* ── 5. ÉQUIPEMENTS ── */}
           <section>
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Services</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.amenities.kicker}</p>
             <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
-              Équipements & services
+              {v.amenities.title}
             </h2>
 
-            <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-4">Inclus</p>
+            <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-4">{v.amenities.included}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
-              {amenities.map((a, i) => (
+              {h.amenities.map((label, i) => {
+                const Icon = amenityIcons[i];
+                return (
                 <div key={i} className="flex items-center gap-3">
-                  <a.icon className="h-4 w-4 text-[#862637] flex-shrink-0" strokeWidth={1.5} />
-                  <span className="text-sm font-light text-[#01142a]">{a.label}</span>
+                  <Icon className="h-4 w-4 text-[#862637] flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-sm font-light text-[#01142a]">{label}</span>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
-            <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-4">Sur demande</p>
+            <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-4">{v.amenities.onDemand}</p>
             <div className="flex flex-wrap gap-3">
-              {amenitiesOnDemand.map((item) => (
+              {h.amenitiesOnDemand.map((item) => (
                 <span key={item} className="border border-[#01142a]/20 text-[#01142a] text-xs font-light px-3 py-1.5 rounded-full">
                   {item}
                 </span>
@@ -510,23 +409,23 @@ export default function PenthouseOsmoz() {
 
           {/* ── 6. TARIFS ── */}
           <section>
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Tarification</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.pricing.kicker}</p>
             <h2 className="text-2xl font-normal text-[#01142a] mb-2" style={{ fontFamily: 'Playfair Display' }}>
-              Tarifs — location seule
+              {v.pricing.title}
             </h2>
-            <p className="text-xs font-light text-gray-400 mb-8 uppercase tracking-widest">Hors taxes · Services en supplément</p>
+            <p className="text-xs font-light text-gray-400 mb-8 uppercase tracking-widest">{v.pricing.note}</p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {tarifs.map((t) => (
-                <div key={t.label} className="border border-[#e5e5e5] rounded-xl p-5 bg-white hover:border-[#01142a]/40 hover:shadow-sm transition-all duration-200 group">
-                  <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-2">{t.label}</p>
+              {h.tarifs.map((tarif) => (
+                <div key={tarif.label} className="border border-[#e5e5e5] rounded-xl p-5 bg-white hover:border-[#01142a]/40 hover:shadow-sm transition-all duration-200 group">
+                  <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-2">{tarif.label}</p>
                   <p
                     className="text-2xl font-light text-[#01142a] mb-2 group-hover:text-[#862637] transition-colors"
                     style={{ fontFamily: 'Playfair Display' }}
                   >
-                    {t.price}
+                    {tarif.price}
                   </p>
-                  <p className="text-xs font-light text-gray-500">{t.hours}</p>
+                  <p className="text-xs font-light text-gray-500">{tarif.hours}</p>
                 </div>
               ))}
             </div>
@@ -536,32 +435,32 @@ export default function PenthouseOsmoz() {
           <section className="bg-[#01142a] rounded-2xl p-10 sm:p-14">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
-                <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">À partir de</p>
-                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>1 499€</p>
-                <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
+                <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">{v.from}</p>
+                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>{h.price}</p>
+                <p className="text-white/40 text-xs mt-1 font-light">{v.ctaBand.note}</p>
               </div>
               <button
                 onClick={() => navigate(p('/reservation?space=penthouse'))}
                 className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
               >
-                Réserver ce lieu
+                {v.book}
               </button>
               <div className="text-center">
-                <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">Ou réserver via</p>
+                <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">{v.ctaBand.or}</p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {platforms.map((p) => (
+                  {platforms.map((platform) => (
                     <a
-                      key={p.name}
-                      href={p.url}
+                      key={platform.name}
+                      href={platform.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title={`Voir sur ${p.name}`}
+                      title={`${v.ctaBand.viewOn} ${platform.name}`}
                       className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
                     >
-                      {p.logo ? (
-                        <img src={p.logo} alt={p.name} className="w-5 h-5 object-contain" loading="lazy" />
+                      {platform.logo ? (
+                        <img src={platform.logo} alt={platform.name} className="w-5 h-5 object-contain" loading="lazy" />
                       ) : (
-                        <span className="text-xs font-light text-white">{p.name[0]}</span>
+                        <span className="text-xs font-light text-white">{platform.name[0]}</span>
                       )}
                     </a>
                   ))}
@@ -572,9 +471,9 @@ export default function PenthouseOsmoz() {
 
           {/* ── 7. ACCÈS ── */}
           <section>
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Localisation</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.access.kicker}</p>
             <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
-              Comment venir ?
+              {v.access.title}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -582,24 +481,18 @@ export default function PenthouseOsmoz() {
                 <div className="flex items-start gap-3 mb-6">
                   <MapPin className="h-4 w-4 text-[#862637] mt-0.5 flex-shrink-0" strokeWidth={1.5} />
                   <div>
-                    <p className="text-sm font-light text-[#01142a]">Tour Cofonca, 6-8 rue Jean Jaurès</p>
-                    <p className="text-sm font-light text-gray-500">92800 Puteaux</p>
+                    <p className="text-sm font-light text-[#01142a]">{h.access.street}</p>
+                    <p className="text-sm font-light text-gray-500">{h.access.city}</p>
                   </div>
                 </div>
 
                 <div className="space-y-3 text-sm font-light text-gray-600">
-                  <div className="flex items-center gap-3">
-                    <span className="bg-[#01142a] text-white text-xs px-2 py-0.5 rounded font-light flex-shrink-0">M</span>
-                    <span><strong className="font-normal text-[#01142a]">La Défense – Grande Arche</strong> (ligne 1) — 5 min à pied</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="bg-[#01142a] text-white text-xs px-2 py-0.5 rounded font-light flex-shrink-0">RER</span>
-                    <span><strong className="font-normal text-[#01142a]">La Défense</strong> (RER A) — 5 min à pied</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="bg-[#01142a] text-white text-xs px-2 py-0.5 rounded font-light flex-shrink-0">T</span>
-                    <span><strong className="font-normal text-[#01142a]">La Défense</strong> (Tram T2) — 3 min à pied</span>
-                  </div>
+                  {h.access.transit.map((stop) => (
+                    <div key={stop.badge} className="flex items-center gap-3">
+                      <span className="bg-[#01142a] text-white text-xs px-2 py-0.5 rounded font-light flex-shrink-0">{stop.badge}</span>
+                      <span><strong className="font-normal text-[#01142a]">{stop.station}</strong> {stop.detail}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -615,7 +508,7 @@ export default function PenthouseOsmoz() {
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
-                    title="Localisation Penthouse Osmoz – Tour Cofonca La Défense"
+                    title={h.access.mapTitle}
                   />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 group-hover:bg-black/5 transition-colors">
@@ -623,7 +516,7 @@ export default function PenthouseOsmoz() {
                       <MapPin className="h-5 w-5 text-[#862637]" strokeWidth={1.5} />
                     </div>
                     <span className="text-xs font-normal text-[#01142a] tracking-widest uppercase">
-                      Voir sur la carte
+                      {v.access.map}
                     </span>
                   </div>
                 )}
@@ -637,25 +530,27 @@ export default function PenthouseOsmoz() {
       {/* ── 8. CROSS-SELL ── */}
       <section className="bg-white border-t border-[#e5e5e5] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Nos espaces</p>
+          <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.crossSell.kicker}</p>
           <h2
             className="text-2xl font-normal text-[#01142a] mb-10"
             style={{ fontFamily: 'Playfair Display' }}
           >
-            Découvrir nos autres espaces
+            {v.crossSell.title}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {otherSpaces.map((s) => (
+            {otherSpaces.map((s) => {
+              const o = h.otherSpaces[s.key];
+              return (
               <Link
-                key={s.title}
+                key={s.key}
                 to={p(s.link)}
                 className="group block bg-[#fbfbf3] rounded-xl overflow-hidden border border-[#e5e5e5] hover:border-[#01142a]/30 transition-all duration-300 hover:shadow-md"
               >
                 <div className="aspect-[16/9] overflow-hidden bg-[#f0ede8]">
                   <img
                     src={s.image}
-                    alt={`${s.title} – Osmoz`}
+                    alt={`${o.title} – Osmoz`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -664,13 +559,14 @@ export default function PenthouseOsmoz() {
                 </div>
                 <div className="p-6 flex items-center justify-between">
                   <div>
-                    <h3 className="text-base font-normal text-[#01142a] mb-1">{s.title}</h3>
-                    <p className="text-xs font-light text-gray-400">{s.location} · {s.surface} · {s.capacity}</p>
+                    <h3 className="text-base font-normal text-[#01142a] mb-1">{o.title}</h3>
+                    <p className="text-xs font-light text-gray-400">{o.location} · {o.surface} · {o.capacity}</p>
                   </div>
                   <ChevronRight className="h-4 w-4 text-[#862637] group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

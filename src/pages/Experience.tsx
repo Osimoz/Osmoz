@@ -17,281 +17,17 @@ const dinerImg    = u('images/journee-diner.webp');
 
 const mosaiqueImg = u('images/Fleur/mosaique-plats-1.png');
 
-// ─── MENUS ────────────────────────────────────────────────────────────────────
-
-const menus = [
-  {
-    num: '01',
-    titre: 'Plats à partager, Automne / Hiver',
-    soustitre: '',
-    occasion: 'Déjeuner · Dîner',
-    intro: "Une cuisine maison, de saison, préparée sur place et pensée pour être partagée au centre de la table. Le repas est composé d'une entrée, d'un plat et d'un dessert, choisis à l'avance par le groupe.",
-    note: "Un choix unique pour l'ensemble du groupe · Minimum 5 personnes · Cuisine préparée sur place",
-    colonnes: [
-      {
-        label: 'Entrées (1 choix pour le groupe)',
-        items: [
-          'Aubergines rôties, courgettes au citron, feta fouettée',
-          'Poivrons rôtis, chèvre frais, basilic',
-          'Soupe de patate douce, gingembre, lait de coco',
-          'Velouté de courge rôtie, cumin, noisettes',
-        ],
-      },
-      {
-        label: 'Plats (1 choix pour le groupe)',
-        items: [
-          'Crumble salé champignons, chèvre, noisettes',
-          'Orzo crémeux aux crevettes, citron, herbes fraîches',
-          'Polpettes al sugo, boulettes de bœuf mijotées, semoule ou fregola sarda',
-        ],
-      },
-      {
-        label: 'Desserts (1 choix pour le groupe)',
-        items: [
-          'Tarte au citron',
-          'Crumble pommes poires, cannelle, chantilly maison',
-          'Tiramisu the Italian way',
-        ],
-      },
-    ],
-  },
-  {
-    num: '02',
-    titre: 'Plats à partager, Printemps / Été',
-    soustitre: '',
-    occasion: 'Déjeuner · Dîner',
-    intro: 'La version estivale des plats à partager : des saveurs fraîches et légères, préparées sur place par Fleur avec les produits du marché.',
-    note: "Un choix unique pour l'ensemble du groupe · Minimum 5 personnes",
-    colonnes: [
-      {
-        label: 'Entrées (1 choix pour le groupe)',
-        items: [
-          'Salade de tagliatelles de carottes',
-          "Taboulé d'été",
-          'Tarte au confit de tomates',
-        ],
-      },
-      {
-        label: 'Plats (1 choix pour le groupe)',
-        items: [
-          'Dahl de lentilles corail, patates douces, lait de coco, riz',
-          'Poulet mariné au citron et aux herbes, semoule',
-          'Lieu noir à la sicilienne aux olives et câpres, salade de fenouil et parmesan',
-        ],
-      },
-      {
-        label: 'Desserts (1 choix pour le groupe)',
-        items: [
-          "Tiramisu à l'italienne",
-          'Crème vegan au chocolat et lait de coco',
-          'Poire pochée, émietté de palet breton au sarrasin et crème fouettée',
-        ],
-      },
-    ],
-  },
-  {
-    num: '03',
-    titre: 'Buffet de Fleur',
-    soustitre: '',
-    occasion: 'Déjeuner · Cocktail',
-    intro: 'Un buffet maison, de saison, préparé sur place par Fleur. Des plats frais, colorés, salés et sucrés, à picorer à votre rythme. La formule : 4 plats au choix parmi notre sélection.',
-    note: 'Minimum 10 personnes · Formule 4 plats au choix (ex : 2 salés + 2 desserts)',
-    colonnes: [
-      {
-        label: 'Plats salés',
-        items: [
-          'Gaspacho petits pois, menthe et concombre',
-          'Salade de pommes de terre',
-          'Crumble de courgettes, chèvre frais et pesto',
-          'Tarte au confit de tomates',
-          'Tarte petits pois, ricotta et citron',
-          "Taboulé d'été",
-          'Cake chorizo, mozzarella et basilic',
-          'Salade quinoa, asperges vertes, petits pois, feta et citron',
-        ],
-      },
-      {
-        label: 'Desserts',
-        items: [
-          'Tiramisu café',
-          'Tarte au citron',
-          'Cake citron-pavot',
-          "Gâteau au fromage blanc et fleur d'oranger",
-          'Fondant poire-chocolat',
-          'Crème chocolat et lait de coco (vegan)',
-        ],
-      },
-    ],
-  },
-  {
-    num: '04',
-    titre: 'Cocktail Fingerfood',
-    soustitre: '',
-    occasion: 'Cocktail · Soirée',
-    intro: "Des assortiments de fingerfood préparés sur place par Fleur. Du soin dans chaque bouchée, du salé jusqu'au sucré.",
-    note: 'Minimum 10 personnes · Service debout',
-    colonnes: [
-      {
-        label: 'Salé',
-        items: [
-          'Rouleau de printemps frais, sauce cacahuète onctueuse',
-          'Brioche tiède au porc effiloché, crème légère au curry doux & concombre croquant',
-          'Bouchées feuilletées, crème fouettée et œufs de lompe',
-          "Mini croque-monsieur jambon blanc & sel au piment d'Espelette",
-          "Œuf mimosa, mayonnaise à l'estragon frais",
-        ],
-      },
-      {
-        label: 'Sucré',
-        items: [
-          'Mini moelleux chocolat à la crème de marron',
-        ],
-      },
-    ],
-  },
-];
-
-// ─── MOMENTS ──────────────────────────────────────────────────────────────────
-
-const moments = [
-  {
-    num: '01',
-    temps: 'Petit déjeuner',
-    tags: ["Brigat'", 'Terroir du Nil'],
-    desc: "Le ton est donné dès le matin. Viennoiseries et pains frais de nos boulangeries partenaires, pour un accueil à la hauteur de votre journée.",
-    image: petitDej,
-    alt: 'Petit déjeuner OSMOZ — viennoiseries et pains frais',
-  },
-  {
-    num: '02',
-    temps: 'Déjeuner',
-    tags: ['Adar', 'Les Cuistots Migrateurs', 'Cheffe Fleur', 'Karmama'],
-    desc: "Des prestataires engagés dans une cuisine de qualité, préparée sur place. Plats à partager, buffet ou lunchbox : trois formats selon le rythme de votre événement.",
-    image: dejImg,
-    alt: 'Déjeuner OSMOZ — cuisine de qualité',
-  },
-  {
-    num: '03',
-    temps: 'Pause gourmande',
-    tags: ['Café & thé', 'Douceurs du moment'],
-    desc: "Une pause pensée pour recharger les esprits autant que les corps. Un moment de respiration dans votre journée, soigné dans ses moindres détails.",
-    image: pauseImg,
-    alt: 'Pause gourmande OSMOZ',
-  },
-  {
-    num: '04',
-    temps: 'Dîner & cocktail',
-    tags: ['Cocktail dînatoire', 'Dîner assis'],
-    desc: "Pour terminer en beauté ou célébrer un moment fort. Nos espaces se transforment au fil de la journée, et la table avec eux.",
-    image: dinerImg,
-    alt: 'Dîner OSMOZ — soirée élégante',
-  },
-];
-
-// ─── ACTIVITÉS ────────────────────────────────────────────────────────────────
-
-const activites = [
-  {
-    num: '01',
-    titre: 'Animations culinaires',
-    soustitre: 'Atelier · Sur place',
-    intro: 'Des ateliers animés par des professionnels pour créer un moment de convivialité autour de la cuisine. Idéal en ice breaker ou pour dynamiser une journée.',
-    items: [
-      {
-        nom: 'Atelier Pizzaiolo',
-        duree: '2h',
-        desc: "Réalisation d'une pâte artisanale de A à Z. Ouverture, garniture, enfournement. Chaque participant repart avec sa pizza.",
-      },
-      {
-        nom: 'Atelier Pâtisserie : Œuf en Chocolat',
-        duree: '2h',
-        desc: "Animé par des intervenants professionnels. Moulage, assemblage et décoration d'un œuf en chocolat. Tout le matériel est fourni, chacun repart avec sa création.",
-      },
-      {
-        nom: "L'Effet Mer, Dégustation Huîtres",
-        duree: 'Sur-mesure',
-        desc: "Un hôte ou une hôtesse circule parmi vos invités pour proposer une expérience fluide, élégante et chaleureuse autour des huîtres.",
-      },
-    ],
-  },
-  {
-    num: '02',
-    titre: 'Quiz & challenges',
-    soustitre: '1h à 1h30 · Ice breaker ou plénière',
-    intro: "Des formats ludiques et sur-mesure pour dynamiser vos équipes, créer de la cohésion et rendre vos événements mémorables.",
-    items: [
-      {
-        nom: 'Bagel Quiz',
-        duree: '1h',
-        desc: "Questions ludiques via une web application : nuggets, sel ou poivre, menus, l'addition. Personnalisable selon vos objectifs. Proposé en ice breaker ou pour dynamiser une plénière.",
-      },
-      {
-        nom: 'Blind Test',
-        duree: '30min – 1h30',
-        desc: "Culture pop', chansons cultes, phrases de films mythiques. Option : chanteuse en live. Contenu développé sur mesure.",
-      },
-      {
-        nom: 'Meet & Win',
-        duree: '1h – 1h30',
-        desc: "Créer de la valeur en équipe à partir de ressources limitées dans un temps imparti. Faible logistique, fort impact sur la cohésion.",
-      },
-    ],
-  },
-  {
-    num: '03',
-    titre: 'Créativité & immersion',
-    soustitre: '2h à 3h · Cohésion & RSE',
-    intro: "Des expériences immersives qui mobilisent la créativité, la collaboration et la gestion de projet, avec ou sans réalité virtuelle.",
-    items: [
-      {
-        nom: 'Atelier Doublage',
-        duree: '2h – 2h30',
-        desc: "Les équipes réécrivent et doublent un extrait de film en y intégrant leurs propres codes et créativité. Présentation en direct devant le groupe.",
-      },
-      {
-        nom: 'Green City, RSE',
-        duree: '2h – 3h',
-        desc: "Construction en équipe de la maquette de la ville idéale de demain. Développe la créativité, la gestion de projet et sensibilise aux enjeux RSE.",
-      },
-      {
-        nom: 'Réalité Virtuelle, Démineur',
-        duree: 'Sur-mesure',
-        desc: "Coopérer en ayant différentes visions du monde. Communication rapide et efficace pour désamorcer une bombe virtuelle.",
-      },
-      {
-        nom: 'Réalité Virtuelle, Minotaure',
-        duree: 'Sur-mesure',
-        desc: "Plongée dans un univers inconnu pour révéler les modes de décision et réflexes sous pression. Débrief individuel avec coach inclus.",
-      },
-    ],
-  },
-];
-
-// ─── REASSURANCE ─────────────────────────────────────────────────────────────
-
-const reassurances = [
-  {
-    number: '01',
-    titre: 'Rien de préconfiguré',
-    desc: "Vous nous dites ce que vous voulez, on adapte. Format, équipe, contraintes horaires, régimes alimentaires : chaque prestation est construite pour vous, pas pour un groupe générique.",
-  },
-  {
-    number: '02',
-    titre: "On s'occupe de tout en amont",
-    desc: "Vaisselle, mise en place, service, Cheffe privée. Vous n'avez pas à vous en préoccuper. Moins de logistique dans votre tête, plus d'attention pour vos équipes. Une fois dans le lieu, vous êtes comme chez vous à la maison !",
-  },
-  {
-    number: '03',
-    titre: "Des partenaires qu'on a choisis",
-    desc: "On ne travaille pas avec n'importe qui. Nos prestataires cuisinent de saison, préparent sur place, et partagent notre obsession du détail. Vous sentez la différence dans l'assiette.",
-  },
-];
+// Le texte vient de t.experience ; ne restent ici que les images des
+// « moments », dans l'ordre de t.experience.moments.
+const momentImages = [petitDej, dejImg, pauseImg, dinerImg];
+const reassuranceNumbers = ['01', '02', '03'];
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
 
 export default function Experience() {
   const navigate = useNavigate();
-  const { p } = useLocale();
+  const { t, p } = useLocale();
+  const e = t.experience;
   const [activeMenu, setActiveMenu] = useState(-1);
 
   // Parallax immersive section
@@ -330,7 +66,7 @@ export default function Experience() {
           />
 
           <p style={{ fontSize: '10px', letterSpacing: '0.3em', color: '#862637', fontWeight: 500, marginBottom: '40px', textTransform: 'uppercase' }}>
-            L'expérience OSMOZ
+            {e.hero.kicker}
           </p>
 
           <h1
@@ -343,9 +79,9 @@ export default function Experience() {
               marginBottom: '36px',
             }}
           >
-            Une journée qui compte,<br />
-            <em className="italic">dans les moindres</em><br />
-            détails.
+            {e.hero.titleLine1}<br />
+            <em className="italic">{e.hero.titleEm}</em><br />
+            {e.hero.titleLine3}
           </h1>
 
           <p
@@ -358,7 +94,7 @@ export default function Experience() {
               marginBottom: '56px',
             }}
           >
-            De la première viennoiserie au dernier verre, chaque moment est pensé pour accompagner votre équipe tout au long de la journée.
+            {e.hero.text}
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
@@ -367,21 +103,21 @@ export default function Experience() {
               className="hover:bg-[#862637] transition-colors duration-300"
               style={{ padding: '14px 32px', background: '#01142a', color: '#fafaf8', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 400, border: 'none', cursor: 'pointer' }}
             >
-              Découvrir l'expérience
+              {e.hero.ctaDiscover}
             </button>
             <button
               onClick={() => navigate(p('/reservation'))}
               className="hover:text-[#01142a] transition-colors"
               style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6b6860', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
             >
-              Faire une demande →
+              {e.hero.ctaRequest} →
             </button>
           </div>
 
           {/* Scroll indicator */}
           <div style={{ position: 'absolute', bottom: '40px', left: 'clamp(32px, 5vw, 80px)', display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{ width: '40px', height: '1px', background: '#c8c4bc' }} />
-            <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6b6860' }}>Défiler</span>
+            <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6b6860' }}>{e.hero.scroll}</span>
           </div>
         </div>
 
@@ -389,7 +125,7 @@ export default function Experience() {
         <div className="hidden lg:block relative overflow-hidden" style={{ minHeight: '100%' }}>
           <img
             src={heroImg}
-            alt="Fleur, cheffe privée OSMOZ"
+            alt={e.hero.heroAlt}
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
@@ -405,25 +141,21 @@ export default function Experience() {
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-start">
           <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 lg:sticky lg:top-28 pt-1">
-            Notre approche
+            {e.intro.kicker}
           </p>
           <div className="max-w-3xl">
             <h2
               className="font-light text-[#01142a] mb-10"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.7rem, 3vw, 2.6rem)', lineHeight: '1.3' }}
             >
-              Un événement réussi se joue aussi{' '}
-              <em className="italic text-[#862637]">à table.</em>
+              {e.intro.titleBefore}
+              <em className="italic text-[#862637]">{e.intro.titleEm}</em>
             </h2>
             <p
               className="font-light text-gray-500 md:columns-2 md:gap-12"
               style={{ fontSize: '16px', lineHeight: 2 }}
             >
-              Chez OSMOZ, l'expérience ne s'arrête pas à la porte de la salle. Nous avons
-              sélectionné des partenaires culinaires qui partagent nos exigences : des produits
-              de saison, une cuisine préparée sur place, un soin du détail qui se sent dans
-              chaque assiette. Du petit déjeuner au dîner, chaque moment est pensé pour que
-              votre équipe se sente vraiment accueillie.
+              {e.intro.body}
             </p>
           </div>
         </div>
@@ -442,7 +174,7 @@ export default function Experience() {
           {/* Image avec parallax */}
           <img
             src={fleurPortrait}
-            alt="Cuisine de Fleur — OSMOZ"
+            alt={e.immersive.alt}
             style={{
               position: 'absolute',
               top: '-10%',
@@ -490,7 +222,7 @@ export default function Experience() {
               marginBottom: '32px',
               fontWeight: 400,
             }}>
-              La cuisine de Fleur
+              {e.immersive.kicker}
             </p>
             <h2
               style={{
@@ -503,7 +235,7 @@ export default function Experience() {
                 marginBottom: '40px',
               }}
             >
-              Une cuisine maison, <em className="italic" style={{ color: '#fee1d4' }}>de saison,</em> et colorée !
+              {e.immersive.titleBefore}<em className="italic" style={{ color: '#fee1d4' }}>{e.immersive.titleEm}</em>{e.immersive.titleAfter}
             </h2>
             <div style={{ width: '40px', height: '1px', background: 'rgba(254,225,212,0.4)', margin: '0 auto' }} />
           </div>
@@ -523,7 +255,7 @@ export default function Experience() {
               transition: 'opacity 0.3s',
             }}
           >
-            <span style={{ fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>Défiler</span>
+            <span style={{ fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>{e.immersive.scroll}</span>
             <div style={{ width: '1px', height: '32px', background: 'rgba(255,255,255,0.25)', animation: 'none' }} />
           </div>
         </div>
@@ -541,27 +273,26 @@ export default function Experience() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-start">
             <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#862637', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '16px', paddingTop: '4px' }}>
               <span style={{ display: 'inline-block', width: '32px', height: '1px', background: '#862637' }} />
-              Cheffe privée
+              {e.fleur.kicker}
             </p>
             <div>
               <h2 style={{ fontFamily: 'Playfair Display', fontWeight: 300, lineHeight: 1.15, color: '#01142a', marginBottom: '32px', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }}>
-                On vous présente<br />
-                <em className="italic" style={{ color: '#862637' }}>notre Cheffe privée adorée !</em>
+                {e.fleur.titleLine1}<br />
+                <em className="italic" style={{ color: '#862637' }}>{e.fleur.titleEm}</em>
               </h2>
               <div style={{ fontSize: '15px', lineHeight: 2, color: '#6b6860', fontWeight: 300, maxWidth: '560px', marginBottom: '36px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <p>
-                  Fleur a rejoint OSMOZ il y a quelques mois et on vous fait découvrir sa cuisine.
-                  Apparemment, la food et le wine la rendent heureuse. Nous, c'est sa cuisine !
+                  {e.fleur.p1}
                 </p>
                 <p>
-                  Tout est fait maison avec des produits de saison, en buffet, cocktails ou en plats à partager.
+                  {e.fleur.p2}
                 </p>
                 <p>
-                  Nos coups de cœur : son <em style={{ fontStyle: 'italic', color: '#01142a' }}>orzo crémeux aux crevettes</em>, ses <em style={{ fontStyle: 'italic', color: '#01142a' }}>polpettes al sugo</em> ou encore le <em style={{ fontStyle: 'italic', color: '#01142a' }}>tiramisu</em>, qui font l'unanimité à chaque fois !
+                  {e.fleur.p3Before}<em style={{ fontStyle: 'italic', color: '#01142a' }}>{e.fleur.p3Em1}</em>{e.fleur.p3Mid1}<em style={{ fontStyle: 'italic', color: '#01142a' }}>{e.fleur.p3Em2}</em>{e.fleur.p3Mid2}<em style={{ fontStyle: 'italic', color: '#01142a' }}>{e.fleur.p3Em3}</em>{e.fleur.p3After}
                 </p>
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                {['Cuisine sur place', 'Produits de saison', 'Maison & généreux'].map(tag => (
+                {e.fleur.tags.map(tag => (
                   <span key={tag} style={{ padding: '6px 14px', border: '1px solid rgba(28,28,26,0.12)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6b6860' }}>
                     {tag}
                   </span>
@@ -575,7 +306,7 @@ export default function Experience() {
         <div className="w-full" style={{ padding: '0 clamp(24px, 4vw, 60px) clamp(64px, 8vw, 120px)' }}>
           <img
             src={mosaiqueImg}
-            alt="Mosaïque des plats de Fleur — OSMOZ"
+            alt={e.fleur.mosaicAlt}
             loading="lazy"
             className="w-full h-auto block"
             style={{ display: 'block' }}
@@ -590,17 +321,17 @@ export default function Experience() {
         <div style={{ padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 60px) clamp(48px, 6vw, 80px)' }}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-end">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">
-              Ses menus
+              {e.menusSection.kicker}
             </p>
             <div>
               <h2
                 className="font-light text-[#01142a]"
                 style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.6rem, 3vw, 2.8rem)', lineHeight: 1.2, marginBottom: '16px' }}
               >
-                Ce que Fleur prépare pour vous.
+                {e.menusSection.title}
               </h2>
               <p style={{ fontSize: '14px', color: '#9b9690', fontWeight: 300, letterSpacing: '0.02em' }}>
-                Cliquez sur un menu pour découvrir les plats.
+                {e.menusSection.hint}
               </p>
             </div>
           </div>
@@ -608,7 +339,7 @@ export default function Experience() {
 
         {/* Accordéon */}
         <div className="max-w-7xl mx-auto" style={{ padding: '0 clamp(24px, 5vw, 60px) clamp(80px, 10vw, 140px)' }}>
-          {menus.map((menu, i) => {
+          {e.menus.map((menu, i) => {
             const open = activeMenu === i;
             return (
               <div key={menu.titre} style={{ borderTop: '1px solid rgba(28,28,26,0.08)' }}>
@@ -763,9 +494,9 @@ export default function Experience() {
         {/* En-tête */}
         <div style={{ padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 60px) clamp(56px, 7vw, 96px)' }}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-end">
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">La journée</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">{e.momentsSection.kicker}</p>
             <h2 className="font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)', lineHeight: 1.2 }}>
-              Chaque moment, pensé pour vous.
+              {e.momentsSection.title}
             </h2>
           </div>
         </div>
@@ -773,12 +504,12 @@ export default function Experience() {
         {/* Grille 2×2 — même format pour toutes les images */}
         <div className="max-w-7xl mx-auto" style={{ padding: '0 clamp(24px, 5vw, 60px) clamp(80px, 10vw, 140px)' }}>
           <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 'clamp(24px, 3vw, 40px)' }}>
-            {moments.map((m) => (
+            {e.moments.map((m, i) => (
               <div key={m.temps} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 {/* Photo — ratio fixe identique pour tous */}
                 <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', background: '#e8e4dc' }}>
                   <img
-                    src={m.image}
+                    src={momentImages[i]}
                     alt={m.alt}
                     loading="lazy"
                     style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
@@ -813,13 +544,13 @@ export default function Experience() {
         {/* En-tête */}
         <div style={{ padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 60px) clamp(48px, 6vw, 80px)' }}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-end">
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">Activités</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">{e.activitiesSection.kicker}</p>
             <div>
               <h2 className="font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)', lineHeight: 1.2, marginBottom: '16px' }}>
-                Animations & expériences pour vos équipes.
+                {e.activitiesSection.title}
               </h2>
               <p style={{ fontSize: '14px', color: '#9b9690', fontWeight: 300, maxWidth: '520px', lineHeight: 1.8 }}>
-                En ice breaker, pour dynamiser une plénière ou clôturer une journée. Des activités sur-mesure pour rendre chaque événement mémorable.
+                {e.activitiesSection.text}
               </p>
             </div>
           </div>
@@ -827,7 +558,7 @@ export default function Experience() {
 
         {/* Accordéon activités */}
         <div className="max-w-7xl mx-auto" style={{ padding: '0 clamp(24px, 5vw, 60px) clamp(80px, 10vw, 140px)' }}>
-          {activites.map((cat, i) => {
+          {e.activities.map((cat, i) => {
             const openAct = activeMenu === 100 + i;
             return (
               <div key={cat.titre} style={{ borderTop: '1px solid rgba(28,28,26,0.08)' }}>
@@ -925,7 +656,7 @@ export default function Experience() {
           }}
         >
           <p style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(254,225,212,0.5)', marginBottom: '32px' }}>
-            Notre promesse
+            {e.promise.kicker}
           </p>
           <h2
             style={{
@@ -938,16 +669,16 @@ export default function Experience() {
               margin: '0 auto',
             }}
           >
-            Ce qu'on fait pour que vous{' '}
-            <em className="italic" style={{ color: '#fee1d4' }}>n'ayez pas à y penser.</em>
+            {e.promise.titleBefore}
+            <em className="italic" style={{ color: '#fee1d4' }}>{e.promise.titleEm}</em>
           </h2>
         </div>
 
         {/* 3 blocs */}
         <div className="grid grid-cols-1 md:grid-cols-3">
-          {reassurances.map((r, i) => (
+          {e.reassurances.map((r, i) => (
             <div
-              key={r.number}
+              key={reassuranceNumbers[i]}
               style={{
                 padding: 'clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px)',
                 borderRight: i < 2 ? '1px solid rgba(255,255,255,0.07)' : 'none',
@@ -955,7 +686,7 @@ export default function Experience() {
               }}
             >
               <p style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 3vw, 2.8rem)', fontWeight: 300, color: 'rgba(254,225,212,0.15)', lineHeight: 1, marginBottom: '32px' }}>
-                {r.number}
+                {reassuranceNumbers[i]}
               </p>
               <h3 style={{ fontFamily: 'Playfair Display', fontWeight: 300, fontSize: 'clamp(1.1rem, 1.5vw, 1.35rem)', color: '#ffffff', lineHeight: 1.3, marginBottom: '16px', fontStyle: 'italic' }}>
                 {r.titre}
@@ -979,7 +710,7 @@ export default function Experience() {
       >
         <div className="max-w-7xl mx-auto">
           <p style={{ fontSize: '10px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#6b6860', marginBottom: '24px' }}>
-            Organiser votre journée
+            {e.cta.kicker}
           </p>
           <h2
             className="mx-auto"
@@ -989,11 +720,11 @@ export default function Experience() {
               maxWidth: '600px', marginBottom: '24px',
             }}
           >
-            Une journée pensée{' '}
-            <em className="italic" style={{ color: '#862637' }}>dans les moindres détails.</em>
+            {e.cta.titleBefore}
+            <em className="italic" style={{ color: '#862637' }}>{e.cta.titleEm}</em>
           </h2>
           <p style={{ fontSize: '15px', fontWeight: 300, color: '#6b6860', maxWidth: '400px', margin: '0 auto 48px', lineHeight: 1.9 }}>
-            Dites-nous ce que vous souhaitez. On s'occupe de tout.
+            {e.cta.text}
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
@@ -1001,14 +732,14 @@ export default function Experience() {
               className="hover:bg-[#862637] transition-colors duration-300"
               style={{ padding: '14px 36px', background: '#01142a', color: '#fafaf8', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 400, border: 'none', cursor: 'pointer' }}
             >
-              Faire une demande
+              {e.cta.request}
             </button>
             <button
               onClick={() => navigate(p('/contact'))}
               className="hover:text-[#01142a] transition-colors"
               style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6b6860', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
             >
-              Nous contacter →
+              {e.cta.contact}
             </button>
           </div>
         </div>

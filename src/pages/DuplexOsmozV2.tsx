@@ -24,147 +24,64 @@ const platforms = [
   { name: 'Rejolt',       url: 'https://www.rejolt.com',                              logo: null },
 ];
 
-const amenities = [
-  { icon: Wifi,            label: 'Wifi haut débit' },
-  { icon: Tv,              label: 'Écrans connectés' },
-  { icon: Coffee,          label: 'Machine à café en grains' },
-  { icon: UtensilsCrossed, label: 'Cuisine entièrement équipée' },
-  { icon: Tv,              label: 'Câble HDMI' },
-  { icon: Presentation,    label: 'Paperboard' },
-  { icon: Maximize2,       label: 'Espaces modulables sur 2 niveaux' },
-  { icon: Tv,              label: 'Ventilation' },
-];
+// Le texte vient de t.duplex / t.venue ; ne restent ici que les valeurs non
+// textuelles (icônes, images, capacités, liens), dans le même ordre.
+const amenityIcons = [Wifi, Tv, Coffee, UtensilsCrossed, Tv, Presentation, Maximize2, Tv];
 
-const amenitiesOnDemand = [
-  'Chef privé',
-  'Service traiteur',
-  'Activités team building',
-  'Atelier cuisine',
-  'Œnologie',
-];
-
-const tarifs = [
-  { label: 'Demi-journée',      hours: '08h30 - 12h  ou  14h - 18h', price: '1 499€' },
-  { label: 'Journée',           hours: '08h30 - 18h30',               price: '2 499€' },
-  { label: 'Soirée',            hours: '18h30 - 22h',                 price: '1 999€' },
-  { label: 'Journée + soirée',  hours: '08h30 - 22h',                 price: '2 999€' },
-];
-
-// ─── CONFIGURATIONS ──────────────────────────────────────────────────────────
 const configurations = [
-  {
-    label: 'Réunion',
-    capacity: 20,
-    description: 'Grande table centrale dans le salon haussmannien, écran TV, paperboard. Idéal pour réunions de direction et comités.',
-    image: u(`${D}duplex-reunion-01.webp`),
-  },
-  {
-    label: 'Conférence',
-    capacity: 30,
-    description: "Disposition en conférence face à l'écran pour présentations, formations et ateliers stratégiques.",
-    image: u(`${D}duplex-salon-06.webp`),
-  },
-  {
-    label: 'Rectangle',
-    capacity: 25,
-    description: 'Tables en rectangle pour favoriser les échanges et la collaboration en groupe.',
-    image: u(`${D}duplex-reunion-04.webp`),
-  },
-  {
-    label: 'Cocktail',
-    capacity: 40,
-    description: 'Deux niveaux ouverts, cuisine équipée, bar. Ambiance conviviale pour cocktails, déjeuners et afterworks.',
-    image: u(`${D}duplex-salon-01.webp`),
-  },
+  { capacity: 20, image: u(`${D}duplex-reunion-01.webp`) },
+  { capacity: 30, image: u(`${D}duplex-salon-06.webp`) },
+  { capacity: 25, image: u(`${D}duplex-reunion-04.webp`) },
+  { capacity: 40, image: u(`${D}duplex-salon-01.webp`) },
 ];
 
-// ─── GALERIE PREVIEW ─────────────────────────────────────────────────────────
-const galleryItems = [
-  { url: u(`${D}duplex-salon-01.webp`),          label: 'Salon',           alt: 'Salon Duplex Osmoz - Paris' },
-  { url: u(`${D}duplex-cuisine-01.webp`),         label: 'Cuisine',         alt: 'Cuisine équipée Duplex Osmoz - Paris' },
-  { url: u(`${D}duplex-salle-reunion-01.webp`),   label: 'Salle de réunion', alt: 'Salle de réunion Duplex Osmoz' },
-  { url: u(`${D}duplex-reunion-01.webp`),         label: 'Salle de réunion', alt: 'Configuration réunion Duplex Osmoz' },
-  { url: u(`${D}duplex-diner-01.webp`),           label: 'Dîner & Déjeuner', alt: 'Dîner et déjeuner Duplex Osmoz' },
-  { url: u(`${D}duplex-entree-01.webp`),          label: 'Entrée',          alt: 'Entrée Duplex Osmoz' },
-  { url: u(`${D}duplex-ambiance-01.webp`),        label: 'Ambiance',        alt: 'Ambiance Duplex Osmoz' },
-  { url: u(`${D}duplex-facade-01.webp`),          label: 'Façade',          alt: 'Façade extérieure Duplex Osmoz' },
+// ─── GALERIE PREVIEW (libellés et alt dans t.duplex.gallery, même ordre) ─────
+const galleryUrls = [
+  u(`${D}duplex-salon-01.webp`),
+  u(`${D}duplex-cuisine-01.webp`),
+  u(`${D}duplex-salle-reunion-01.webp`),
+  u(`${D}duplex-reunion-01.webp`),
+  u(`${D}duplex-diner-01.webp`),
+  u(`${D}duplex-entree-01.webp`),
+  u(`${D}duplex-ambiance-01.webp`),
+  u(`${D}duplex-facade-01.webp`),
 ];
 
 // ─── TOUTES LES IMAGES LIGHTBOX ──────────────────────────────────────────────
-const allImages = [
-  // Salon
-  { url: u(`${D}duplex-salon-01.webp`),        alt: 'Salon vue 1' },
-  { url: u(`${D}duplex-salon-02.webp`),        alt: 'Salon vue 2' },
-  { url: u(`${D}duplex-salon-03.webp`),        alt: 'Salon vue 3' },
-  { url: u(`${D}duplex-salon-04.webp`),        alt: 'Salon vue 4' },
-  { url: u(`${D}duplex-salon-05.webp`),        alt: 'Salon vue 5' },
-  { url: u(`${D}duplex-salon-06.webp`),        alt: 'Salon vue 6' },
-  { url: u(`${D}duplex-salon-07.webp`),        alt: 'Salon vue 7' },
-  { url: u(`${D}duplex-salon-08.webp`),        alt: 'Salon vue 8' },
-  { url: u(`${D}duplex-salon-09.webp`),        alt: 'Salon vue 9' },
-  { url: u(`${D}duplex-salon-etage-01.webp`),  alt: 'Salon étage vue 1' },
-  { url: u(`${D}duplex-salon-etage-02.webp`),  alt: 'Salon étage vue 2' },
-  // Cuisine
-  { url: u(`${D}duplex-cuisine-01.webp`),      alt: 'Cuisine vue 1' },
-  { url: u(`${D}duplex-cuisine-02.webp`),      alt: 'Cuisine vue 2' },
-  { url: u(`${D}duplex-cuisine-03.webp`),      alt: 'Cuisine vue 3' },
-  { url: u(`${D}duplex-cuisine-04.webp`),      alt: 'Cuisine vue 4' },
-  { url: u(`${D}duplex-cuisine-05.webp`),      alt: 'Cuisine vue 5' },
-  { url: u(`${D}duplex-cuisine-06.webp`),      alt: 'Cuisine vue 6' },
-  { url: u(`${D}duplex-cuisine-07.webp`),      alt: 'Cuisine vue 7' },
-  { url: u(`${D}duplex-cuisine-08.webp`),      alt: 'Cuisine vue 8' },
-  // Salle de réunion
-  { url: u(`${D}duplex-salle-reunion-01.webp`), alt: 'Salle de réunion vue 1' },
-  { url: u(`${D}duplex-salle-reunion-02.webp`), alt: 'Salle de réunion vue 2' },
-  { url: u(`${D}duplex-salle-reunion-03.webp`), alt: 'Salle de réunion vue 3' },
-  { url: u(`${D}duplex-salle-reunion-04.webp`), alt: 'Salle de réunion vue 4' },
-  { url: u(`${D}duplex-salle-reunion-05.webp`), alt: 'Salle de réunion vue 5' },
-  // Réunion
-  { url: u(`${D}duplex-reunion-01.webp`),      alt: 'Réunion vue 1' },
-  { url: u(`${D}duplex-reunion-02.webp`),      alt: 'Réunion vue 2' },
-  { url: u(`${D}duplex-reunion-03.webp`),      alt: 'Réunion vue 3' },
-  { url: u(`${D}duplex-reunion-04.webp`),      alt: 'Réunion vue 4' },
-  { url: u(`${D}duplex-reunion-05.webp`),      alt: 'Réunion vue 5' },
-  { url: u(`${D}duplex-reunion-06.webp`),      alt: 'Réunion vue 6' },
-  // Dîner & Déjeuner
-  { url: u(`${D}duplex-diner-01.webp`),        alt: 'Dîner Déjeuner vue 1' },
-  { url: u(`${D}duplex-diner-02.webp`),        alt: 'Dîner Déjeuner vue 2' },
-  { url: u(`${D}duplex-diner-03.webp`),        alt: 'Dîner Déjeuner vue 3' },
-  { url: u(`${D}duplex-diner-04.webp`),        alt: 'Dîner Déjeuner vue 4' },
-  { url: u(`${D}duplex-diner-05.webp`),        alt: 'Dîner Déjeuner vue 5' },
-  // Entrée
-  { url: u(`${D}duplex-entree-01.webp`),       alt: 'Entrée vue 1' },
-  { url: u(`${D}duplex-entree-02.webp`),       alt: 'Entrée vue 2' },
-  // Ambiance
-  { url: u(`${D}duplex-ambiance-01.webp`),     alt: 'Ambiance' },
-  // Façade
-  { url: u(`${D}duplex-facade-01.webp`),       alt: 'Façade extérieure' },
+// alt = « <pièce> vue <n> » (t.duplex.rooms / t.duplex.view), ou la pièce seule.
+type Room = 'salon' | 'salonEtage' | 'cuisine' | 'salleReunion' | 'reunion' | 'diner' | 'entree' | 'ambiance' | 'facade';
+const photos: { file: string; room: Room; n?: number }[] = [
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({ file: `duplex-salon-0${n}.webp`, room: 'salon' as const, n })),
+  { file: 'duplex-salon-etage-01.webp', room: 'salonEtage', n: 1 },
+  { file: 'duplex-salon-etage-02.webp', room: 'salonEtage', n: 2 },
+  ...[1, 2, 3, 4, 5, 6, 7, 8].map((n) => ({ file: `duplex-cuisine-0${n}.webp`, room: 'cuisine' as const, n })),
+  ...[1, 2, 3, 4, 5].map((n) => ({ file: `duplex-salle-reunion-0${n}.webp`, room: 'salleReunion' as const, n })),
+  ...[1, 2, 3, 4, 5, 6].map((n) => ({ file: `duplex-reunion-0${n}.webp`, room: 'reunion' as const, n })),
+  ...[1, 2, 3, 4, 5].map((n) => ({ file: `duplex-diner-0${n}.webp`, room: 'diner' as const, n })),
+  { file: 'duplex-entree-01.webp', room: 'entree', n: 1 },
+  { file: 'duplex-entree-02.webp', room: 'entree', n: 2 },
+  { file: 'duplex-ambiance-01.webp', room: 'ambiance' },
+  { file: 'duplex-facade-01.webp', room: 'facade' },
 ];
 
 // ─── CROSS-SELL ──────────────────────────────────────────────────────────────
 const otherSpaces = [
-  {
-    title: 'Le Loft',
-    location: 'Marais, Paris 3e',
-    surface: '110 m²',
-    capacity: '25 pers.',
-    image: u('images/Loft/2 Salon pleiniere 2.jpg'),
-    link: '/spaces/loft-osmoz',
-  },
-  {
-    title: 'Le Penthouse',
-    location: 'La Défense, Puteaux',
-    surface: '150 m²',
-    capacity: '40 pers.',
-    image: u('images/Penthouse/2 - Salon.jpg'),
-    link: '/spaces/penthouse-osmoz',
-  },
-];
+  { key: 'loft', image: u('images/Loft/2 Salon pleiniere 2.jpg'), link: '/spaces/loft-osmoz' },
+  { key: 'penthouse', image: u('images/Penthouse/2 - Salon.jpg'), link: '/spaces/penthouse-osmoz' },
+] as const;
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 export default function DuplexOsmozV2() {
   const navigate = useNavigate();
-  const { p } = useLocale();
+  const { t, p } = useLocale();
+  const d = t.duplex;
+  const v = t.venue;
+  const abs = (frPath: string) => `https://osmoz-space.com${p(frPath)}`;
+  const galleryItems = galleryUrls.map((url, i) => ({ url, ...d.gallery[i] }));
+  const allImages = photos.map(({ file, room, n }) => ({
+    url: u(`${D}${file}`),
+    alt: n ? `${d.rooms[room]} ${d.view} ${n}` : d.rooms[room],
+  }));
   const [activeConfig, setActiveConfig] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -186,8 +103,8 @@ export default function DuplexOsmozV2() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Le Duplex Haussmannien OSMOZ',
-    description: "Appartement haussmannien de 300m² sur deux étages au cœur du 2e arrondissement de Paris. Esprit résidentiel chic, escalier en ferronnerie, parquet ancien. Idéal pour séminaires, conférences, cocktails, dîners de direction et journées d'équipe jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",
-    url: 'https://osmoz-space.com/spaces/duplex-osmoz',
+    description: d.jsonLd.description,
+    url: abs('/spaces/duplex-osmoz'),
     image: 'https://osmoz-space.com/images/Duplex%20Haussmannien/1%20Salon%20Normal%203.jpg',
     address: {
       '@type': 'PostalAddress',
@@ -199,25 +116,17 @@ export default function DuplexOsmozV2() {
     },
     geo: { '@type': 'GeoCoordinates', latitude: 48.8672, longitude: 2.3456 },
     maximumAttendeeCapacity: 40,
-    amenityFeature: [
-      { '@type': 'LocationFeatureSpecification', name: 'Wifi haut débit', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Écran connecté', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Paperboard', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Câble HDMI', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Cuisine équipée', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Deux étages', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Privatisation totale', value: true },
-    ],
+    amenityFeature: d.jsonLd.amenities.map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
     offers: [
-      { '@type': 'Offer', name: 'Journée — moins de 15 personnes', price: '1500', priceCurrency: 'EUR', description: "Privatisation journée complète jusqu'à 15 personnes" },
-      { '@type': 'Offer', name: 'Journée — plus de 15 personnes', price: '2500', priceCurrency: 'EUR', description: 'Privatisation journée complète de 15 à 40 personnes' },
+      { '@type': 'Offer', ...d.jsonLd.offers[0], price: '1500', priceCurrency: 'EUR' },
+      { '@type': 'Offer', ...d.jsonLd.offers[1], price: '2500', priceCurrency: 'EUR' },
     ],
     telephone: '+33675186932',
     email: 'contact@osmoz-space.com',
     openingHours: 'Mo-Fr 08:00-22:00',
     priceRange: '€€€',
     currenciesAccepted: 'EUR',
-    paymentAccepted: 'Virement bancaire, Carte bancaire',
+    paymentAccepted: v.jsonLd.paymentAccepted,
     isAccessibleForFree: false,
     publicAccess: false,
     smokingAllowed: false,
@@ -229,39 +138,18 @@ export default function DuplexOsmozV2() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz-space.com/' },
-          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz-space.com/spaces' },
-          { '@type': 'ListItem', position: 3, name: 'Le Duplex', item: 'https://osmoz-space.com/spaces/duplex-osmoz' },
+          { '@type': 'ListItem', position: 1, name: v.jsonLd.home, item: abs('/') },
+          { '@type': 'ListItem', position: 2, name: v.jsonLd.spaces, item: abs('/spaces') },
+          { '@type': 'ListItem', position: 3, name: d.jsonLd.breadcrumb, item: abs('/spaces/duplex-osmoz') },
         ],
       },
       {
         '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Combien de personnes peut accueillir Le Duplex OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Le Duplex Haussmannien OSMOZ accueille jusqu'à 40 personnes sur 300m² répartis sur deux étages. L'appartement est entièrement privatisé.",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Où se trouve Le Duplex OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Le Duplex OSMOZ est situé au 146 rue Montmartre, Paris 2e, au cœur du 2e arrondissement de Paris.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Quel est le tarif de location du Duplex OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Le Duplex OSMOZ est disponible à partir de 1500€ HT pour une journée jusqu'à 15 personnes, et 2500€ HT au-delà. Devis personnalisé sous 24h.",
-            },
-          },
-        ],
+        mainEntity: d.jsonLd.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
       },
     ],
   };
@@ -281,7 +169,7 @@ export default function DuplexOsmozV2() {
       <section className="relative h-[90vh] w-full overflow-hidden">
         <img
           src={u(`${D}duplex-salon-01.webp`)}
-          alt="Duplex Haussmannien Osmoz - salon principal lumineux moulures parquet Paris 2e"
+          alt={d.heroAlt}
           fetchPriority="high"
           loading="eager"
           decoding="async"
@@ -293,20 +181,20 @@ export default function DuplexOsmozV2() {
 
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-16 px-4 text-center">
           <p className="text-white/60 font-normal tracking-[0.3em] text-xs mb-4 uppercase">
-            Osmoz · Paris 2e
+            {d.kicker}
           </p>
           <h1
             className="text-white font-light mb-4 leading-tight"
             style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(3rem, 6vw, 5.5rem)' }}
           >
-            Le Duplex Haussmannien
+            {d.name}
           </h1>
           <p className="text-white/70 font-light tracking-[0.15em] text-sm mb-10 uppercase">
-            146 rue Montmartre · Paris 2e
+            {d.location}
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center mb-10">
-            {['300 m²', '2 niveaux', '40 pers. max', 'À partir de 1 499€ HT'].map((pill) => (
+            {d.pills.map((pill) => (
               <span
                 key={pill}
                 className="bg-white/10 backdrop-blur-sm text-white border border-white/25 px-4 py-1.5 rounded-full text-xs font-light tracking-widest uppercase"
@@ -320,7 +208,7 @@ export default function DuplexOsmozV2() {
             onClick={() => navigate(p('/reservation?space=duplex'))}
             className="bg-white text-[#01142a] px-12 py-4 rounded-lg text-xs tracking-[0.2em] font-normal uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition-all duration-300"
           >
-            Réserver ce lieu
+            {v.book}
           </button>
         </div>
       </section>
@@ -334,20 +222,20 @@ export default function DuplexOsmozV2() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
           <div className="flex items-center gap-6 text-xs font-light text-[#01142a] tracking-wide uppercase">
             <span className="flex items-center gap-1.5">
-              <Maximize2 className="h-3 w-3" />300 m²
+              <Maximize2 className="h-3 w-3" />{d.stats.surface}
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
-              <Users className="h-3 w-3" />40 personnes max
+              <Users className="h-3 w-3" />{d.stats.people}
             </span>
             <span className="hidden md:flex items-center gap-1.5">
-              <MapPin className="h-3 w-3" />146 rue Montmartre, Paris 2e
+              <MapPin className="h-3 w-3" />{d.stats.address}
             </span>
           </div>
           <button
             onClick={() => navigate(p('/reservation?space=duplex'))}
             className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-normal uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
-            Demander un devis
+            {v.quote}
           </button>
         </div>
       </div>
@@ -355,14 +243,14 @@ export default function DuplexOsmozV2() {
       {/* ── MOBILE STICKY CTA ── */}
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-[#e5e5e5] px-4 py-3 flex items-center justify-between gap-3 shadow-lg">
         <div>
-          <p className="text-xs font-light text-gray-400 uppercase tracking-widest">À partir de</p>
-          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>1 499€</p>
+          <p className="text-xs font-light text-gray-400 uppercase tracking-widest">{v.from}</p>
+          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>{d.price}</p>
         </div>
         <button
           onClick={() => navigate(p('/reservation?space=duplex'))}
           className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-normal flex-1 max-w-[200px]"
         >
-          Réserver ce lieu
+          {v.book}
         </button>
       </div>
 
@@ -378,16 +266,13 @@ export default function DuplexOsmozV2() {
                   className="text-2xl italic font-light text-[#01142a] mb-6 leading-loose"
                   style={{ fontFamily: 'Playfair Display' }}
                 >
-                  Deux niveaux. Un escalier sculptural. Le cœur du 2e.
+                  {d.intro.quote}
                 </p>
                 <p className="text-sm font-light leading-loose text-gray-500 mb-8">
-                  Derrière sa façade discrète, ce duplex haussmannien de 300m² s'ouvre sur deux
-                  niveaux reliés par un escalier d'exception. Moulures, parquet et lumière naturelle
-                  composent un cadre entièrement privatisé pour votre journée — avec une cuisine
-                  professionnelle pour orchestrer déjeuners et pauses sur mesure.
+                  {d.intro.text}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['Réunion', 'Séminaire', 'Workshop', 'Conférence', 'Cocktail', "Déjeuner d'affaires"].map((tag) => (
+                  {d.intro.tags.map((tag) => (
                     <span
                       key={tag}
                       className="border border-[#01142a]/15 text-[#01142a] text-xs font-light px-3 py-1.5 rounded-full hover:border-[#01142a]/40 transition-colors"
@@ -428,7 +313,7 @@ export default function DuplexOsmozV2() {
               onClick={() => openGallery(0)}
               className="mt-8 inline-flex items-center gap-2 text-xs font-normal text-[#01142a] tracking-widest uppercase underline underline-offset-4 hover:text-[#862637] transition-colors"
             >
-              Voir toutes les photos
+              {v.allPhotos}
               <span className="text-gray-400">({allImages.length})</span>
             </button>
           </section>
@@ -436,17 +321,17 @@ export default function DuplexOsmozV2() {
           {/* ── 4. CONFIGURATIONS ── */}
           <section>
             <div className="mb-10">
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Flexibilité</p>
+              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.configurationsKicker}</p>
               <h2
                 className="text-2xl font-normal text-[#01142a]"
                 style={{ fontFamily: 'Playfair Display' }}
               >
-                Comment aménager l'espace ?
+                {v.configurations.title}
               </h2>
             </div>
 
             <div className="flex gap-2 mb-10 flex-wrap">
-              {configurations.map((c, i) => (
+              {d.configurations.map((c, i) => (
                 <button
                   key={c.label}
                   onClick={() => setActiveConfig(i)}
@@ -467,7 +352,7 @@ export default function DuplexOsmozV2() {
                   src={configurations[activeConfig].image}
                   srcSet={srcSet(configurations[activeConfig].image)}
                   sizes={SIZES.halfColumn}
-                  alt={`Duplex Osmoz configuration ${configurations[activeConfig].label} Paris 2e`}
+                  alt={`${d.configurationAltBefore}${d.configurations[activeConfig].label}${d.configurationAltAfter}`}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transition-opacity duration-300"
@@ -481,10 +366,10 @@ export default function DuplexOsmozV2() {
                   {configurations[activeConfig].capacity}
                 </p>
                 <p className="text-xs font-light text-gray-400 mb-6 uppercase tracking-widest">
-                  personnes · {configurations[activeConfig].label}
+                  {v.people} · {d.configurations[activeConfig].label}
                 </p>
                 <p className="text-sm font-light text-gray-500 leading-loose">
-                  {configurations[activeConfig].description}
+                  {d.configurations[activeConfig].description}
                 </p>
               </div>
             </div>
@@ -493,28 +378,31 @@ export default function DuplexOsmozV2() {
           {/* ── 5. ÉQUIPEMENTS ── */}
           <section>
             <div className="mb-10">
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Tout est prévu</p>
+              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.amenitiesKicker}</p>
               <h2
                 className="text-2xl font-normal text-[#01142a]"
                 style={{ fontFamily: 'Playfair Display' }}
               >
-                Équipements & services
+                {v.amenities.title}
               </h2>
             </div>
 
-            <p className="text-xs font-light uppercase tracking-widest text-gray-300 mb-5">Inclus</p>
+            <p className="text-xs font-light uppercase tracking-widest text-gray-300 mb-5">{v.amenities.included}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              {amenities.map((a, i) => (
+              {d.amenities.map((label, i) => {
+                const Icon = amenityIcons[i];
+                return (
                 <div key={i} className="flex items-center gap-3">
-                  <a.icon className="h-4 w-4 text-[#862637] flex-shrink-0" strokeWidth={1.5} />
-                  <span className="text-sm font-light text-[#01142a]">{a.label}</span>
+                  <Icon className="h-4 w-4 text-[#862637] flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-sm font-light text-[#01142a]">{label}</span>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
-            <p className="text-xs font-light uppercase tracking-widest text-gray-300 mb-5">Sur demande</p>
+            <p className="text-xs font-light uppercase tracking-widest text-gray-300 mb-5">{v.amenities.onDemand}</p>
             <div className="flex flex-wrap gap-2">
-              {amenitiesOnDemand.map((item) => (
+              {d.amenitiesOnDemand.map((item) => (
                 <span
                   key={item}
                   className="border border-[#01142a]/15 text-[#01142a] text-xs font-light px-4 py-2 rounded-full"
@@ -528,32 +416,32 @@ export default function DuplexOsmozV2() {
           {/* ── 6. TARIFS ── */}
           <section>
             <div className="mb-10">
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Tarification</p>
+              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.pricing.kicker}</p>
               <h2
                 className="text-2xl font-normal text-[#01142a]"
                 style={{ fontFamily: 'Playfair Display' }}
               >
-                Tarifs — location seule
+                {v.pricing.title}
               </h2>
               <p className="text-xs font-light text-gray-400 mt-2 tracking-wide">
-                Hors taxes · Services traiteur et activités en supplément
+                {d.pricingNote}
               </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {tarifs.map((t) => (
+              {d.tarifs.map((tarif) => (
                 <div
-                  key={t.label}
+                  key={tarif.label}
                   className="border border-[#e5e5e5] rounded-xl p-6 bg-white hover:border-[#01142a]/40 hover:shadow-sm transition-all duration-200 group"
                 >
-                  <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-3">{t.label}</p>
+                  <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-3">{tarif.label}</p>
                   <p
                     className="text-2xl font-light text-[#01142a] mb-2 group-hover:text-[#862637] transition-colors"
                     style={{ fontFamily: 'Playfair Display' }}
                   >
-                    {t.price}
+                    {tarif.price}
                   </p>
-                  <p className="text-xs font-light text-gray-400">{t.hours}</p>
+                  <p className="text-xs font-light text-gray-400">{tarif.hours}</p>
                 </div>
               ))}
             </div>
@@ -563,32 +451,32 @@ export default function DuplexOsmozV2() {
           <section className="bg-[#01142a] rounded-2xl p-10 sm:p-14">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
-                <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">À partir de</p>
-                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>1 499€</p>
-                <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
+                <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">{v.from}</p>
+                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>{d.price}</p>
+                <p className="text-white/40 text-xs mt-1 font-light">{v.ctaBand.note}</p>
               </div>
               <button
                 onClick={() => navigate(p('/reservation?space=duplex'))}
                 className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
               >
-                Réserver ce lieu
+                {v.book}
               </button>
               <div className="text-center">
-                <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">Ou réserver via</p>
+                <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">{v.ctaBand.or}</p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {platforms.map((p) => (
+                  {platforms.map((platform) => (
                     <a
-                      key={p.name}
-                      href={p.url}
+                      key={platform.name}
+                      href={platform.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title={`Voir sur ${p.name}`}
+                      title={`${v.ctaBand.viewOn} ${platform.name}`}
                       className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
                     >
-                      {p.logo ? (
-                        <img src={p.logo} alt={p.name} className="w-5 h-5 object-contain" loading="lazy" />
+                      {platform.logo ? (
+                        <img src={platform.logo} alt={platform.name} className="w-5 h-5 object-contain" loading="lazy" />
                       ) : (
-                        <span className="text-xs font-light text-white">{p.name[0]}</span>
+                        <span className="text-xs font-light text-white">{platform.name[0]}</span>
                       )}
                     </a>
                   ))}
@@ -600,12 +488,12 @@ export default function DuplexOsmozV2() {
           {/* ── 7. ACCÈS ── */}
           <section>
             <div className="mb-10">
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Localisation</p>
+              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.access.kicker}</p>
               <h2
                 className="text-2xl font-normal text-[#01142a]"
                 style={{ fontFamily: 'Playfair Display' }}
               >
-                Comment venir ?
+                {v.access.title}
               </h2>
             </div>
 
@@ -614,25 +502,21 @@ export default function DuplexOsmozV2() {
                 <div className="flex items-start gap-3 mb-8">
                   <MapPin className="h-4 w-4 text-[#862637] mt-0.5 flex-shrink-0" strokeWidth={1.5} />
                   <div>
-                    <p className="text-sm font-light text-[#01142a]">146 rue Montmartre</p>
-                    <p className="text-sm font-light text-gray-400">75002 Paris</p>
+                    <p className="text-sm font-light text-[#01142a]">{d.access.street}</p>
+                    <p className="text-sm font-light text-gray-400">{d.access.city}</p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  {[
-                    { station: 'Bourse',           line: '3',    time: '3 min à pied' },
-                    { station: 'Grands Boulevards', line: '8, 9', time: '5 min à pied' },
-                    { station: 'Sentier',           line: '3',    time: '5 min à pied' },
-                  ].map((t) => (
-                    <div key={t.station} className="flex items-center gap-3">
+                  {d.access.transit.map((stop) => (
+                    <div key={stop.station} className="flex items-center gap-3">
                       <span className="bg-[#01142a] text-white text-xs px-2.5 py-0.5 rounded font-light tracking-wide flex-shrink-0">
                         M
                       </span>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-sm font-light text-[#01142a]">{t.station}</span>
-                        <span className="text-xs text-gray-400">ligne {t.line}</span>
-                        <span className="text-xs text-gray-400">· {t.time}</span>
+                        <span className="text-sm font-light text-[#01142a]">{stop.station}</span>
+                        <span className="text-xs text-gray-400">{d.access.lineLabel} {stop.line}</span>
+                        <span className="text-xs text-gray-400">· {stop.time}</span>
                       </div>
                     </div>
                   ))}
@@ -651,7 +535,7 @@ export default function DuplexOsmozV2() {
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
-                    title="Localisation Duplex Osmoz"
+                    title={d.access.mapTitle}
                   />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 group-hover:bg-black/5 transition-colors">
@@ -659,7 +543,7 @@ export default function DuplexOsmozV2() {
                       <MapPin className="h-5 w-5 text-[#862637]" strokeWidth={1.5} />
                     </div>
                     <span className="text-xs font-normal text-[#01142a] tracking-widest uppercase">
-                      Voir sur la carte
+                      {v.access.map}
                     </span>
                   </div>
                 )}
@@ -674,19 +558,21 @@ export default function DuplexOsmozV2() {
       <section className="bg-white border-t border-[#e5e5e5] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Osmoz</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.crossSellKicker}</p>
             <h2
               className="text-2xl font-normal text-[#01142a]"
               style={{ fontFamily: 'Playfair Display' }}
             >
-              Découvrir nos autres espaces
+              {v.crossSell.title}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {otherSpaces.map((s) => (
+            {otherSpaces.map((s) => {
+              const o = d.otherSpaces[s.key];
+              return (
               <Link
-                key={s.title}
+                key={s.key}
                 to={p(s.link)}
                 className="group block bg-[#fbfbf3] rounded-xl overflow-hidden border border-[#e5e5e5] hover:border-[#01142a]/30 transition-all duration-300 hover:shadow-lg"
               >
@@ -695,7 +581,7 @@ export default function DuplexOsmozV2() {
                     src={s.image}
                     srcSet={srcSet(s.image)}
                     sizes={SIZES.halfColumn}
-                    alt={`${s.title} Osmoz`}
+                    alt={`${o.title} Osmoz`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -707,10 +593,10 @@ export default function DuplexOsmozV2() {
                       className="text-base font-normal text-[#01142a] mb-1"
                       style={{ fontFamily: 'Playfair Display' }}
                     >
-                      {s.title}
+                      {o.title}
                     </h3>
                     <p className="text-xs font-light text-gray-400 tracking-wide">
-                      {s.location} · {s.surface} · {s.capacity}
+                      {o.location} · {o.surface} · {o.capacity}
                     </p>
                   </div>
                   <ChevronRight
@@ -719,7 +605,8 @@ export default function DuplexOsmozV2() {
                   />
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

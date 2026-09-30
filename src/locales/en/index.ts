@@ -7,6 +7,11 @@ import { reservation } from './reservation';
 import { faq } from './faq';
 import { rse } from './rse';
 import { legal, privacy } from './legal';
+import { venue } from './venue';
+import { loft } from './loft';
+import { duplex } from './duplex';
+import { penthouse } from './penthouse';
+import { experience } from './experience';
 
 export const en: Dictionary = {
   home,
@@ -18,6 +23,11 @@ export const en: Dictionary = {
   rse,
   legal,
   privacy,
+  venue,
+  loft,
+  duplex,
+  penthouse,
+  experience,
   lang: {
     fr: 'FR',
     en: 'EN',

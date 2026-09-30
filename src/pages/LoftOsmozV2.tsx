@@ -22,115 +22,49 @@ const platforms = [
   { name: 'Peerspace',    url: 'https://www.peerspace.com/fr/pages/listings/67223aec8687373c1c672007',                                                  logo: u('images/logos/peerspace.png') },
 ];
 
-const amenities = [
-  { icon: Wifi,             label: 'Wifi haut débit' },
-  { icon: Tv,               label: 'Écrans connectés' },
-  { icon: Coffee,           label: 'Machine à café en grains' },
-  { icon: UtensilsCrossed,  label: 'Cuisine entièrement équipée' },
-  { icon: Music,            label: 'Sonorisation' },
-  { icon: Presentation,     label: 'Paperboard' },
-  { icon: Tv,               label: 'Câble HDMI' },
-  { icon: Maximize2,        label: 'Bar' },
-];
-
-const amenitiesOnDemand = [
-  'Chef privé',
-  'Service traiteur',
-  'Activités team building',
-  'Atelier cuisine',
-];
-
-const tarifs = [
-  { label: 'Demi-journée', hours: '08h30 - 12h  ou  14h - 18h', price: '649€' },
-  { label: 'Journée',      hours: '08h30 - 18h30',               price: '999€' },
-  { label: 'Soirée',       hours: '18h30 - 22h',                 price: '849€' },
-  { label: 'Journée + soirée', hours: '08h30 - 22h',             price: '1 499€' },
-];
+// Le texte vient de t.loft / t.venue ; ne restent ici que les valeurs non
+// textuelles (icônes, images, capacités, liens), dans le même ordre.
+const amenityIcons = [Wifi, Tv, Coffee, UtensilsCrossed, Music, Presentation, Tv, Maximize2];
 
 const configurations = [
-  {
-    label: 'Réunion',
-    capacity: 14,
-    description: 'Grande table centrale, écran TV, paperboard.',
-    images: [
-      u('images/Loft/1 SdR.jpg'),
-      u('images/Loft/11 Salle de reunion 2.jpg'),
-    ],
-  },
-  {
-    label: 'Workshop',
-    capacity: 20,
-    description: 'Tables modulables en îlots, mobilier déplaçable.',
-    images: [
-      u('images/Loft/12 Salle de reunion 4.jpg'),
-      u('images/Loft/13 Salle de reunion 5.jpg'),
-    ],
-  },
-  {
-    label: 'Plénière',
-    capacity: 25,
-    description: "Rangées face à l'écran, configuration théâtre.",
-    images: [
-      u('images/Loft/7 Salon pleiniere 1.jpg'),
-      u('images/Loft/2 Salon pleiniere 2.jpg'),
-    ],
-  },
-  {
-    label: 'Lounge',
-    capacity: 25,
-    description: 'Canapés, bar, ambiance cocktail ou déjeuner.',
-    images: [
-      u('images/Loft/21 Cuisine 3.jpg'),
-      u('images/Loft/18 Cocktail 3.jpg'),
-      u('images/Loft/17 Cocktail 2.jpg'),
-      u('images/Loft/5 Accueil.jpg'),
-    ],
-  },
+  { capacity: 14, images: [u('images/Loft/1 SdR.jpg'), u('images/Loft/11 Salle de reunion 2.jpg')] },
+  { capacity: 20, images: [u('images/Loft/12 Salle de reunion 4.jpg'), u('images/Loft/13 Salle de reunion 5.jpg')] },
+  { capacity: 25, images: [u('images/Loft/7 Salon pleiniere 1.jpg'), u('images/Loft/2 Salon pleiniere 2.jpg')] },
+  { capacity: 25, images: [u('images/Loft/21 Cuisine 3.jpg'), u('images/Loft/18 Cocktail 3.jpg'), u('images/Loft/17 Cocktail 2.jpg'), u('images/Loft/5 Accueil.jpg')] },
 ];
 
-// Galerie labellisée
-const galleryItems = [
-  { url: u('images/Loft/2 Salon pleiniere 2.jpg'),    label: 'Salon',             alt: 'Salon Loft Osmoz – verrière, configuration plénière' },
-  { url: u('images/Loft/1 SdR.jpg'),                 label: 'Salle de réunion',  alt: 'Salle de réunion Loft Osmoz – mur en pierre, lumière naturelle, Paris Marais' },
-  { url: u('images/Loft/3 salle a manger.jpg'),       label: 'Salle à manger',    alt: 'Salle à manger Loft Osmoz – grande table conviviale' },
-  { url: u('images/Loft/4 Cuisine 5.jpg'),            label: 'Cuisine',           alt: 'Cuisine équipée Loft Osmoz – bar, îlot central' },
-  { url: u('images/Loft/7 Salon pleiniere 1.jpg'),    label: 'Verrière',          alt: 'Verrière Loft Osmoz – lumière naturelle' },
-  { url: u('images/Loft/6 Salon pleiniere 6.jpg'),    label: 'Plénière',          alt: 'Configuration plénière Loft Osmoz – écran OSMOZ' },
-  { url: u('images/Loft/11 Salle de reunion 2.jpg'),  label: 'Réunion',           alt: 'Configuration réunion Loft Osmoz' },
-  { url: u('images/Loft/12 Salle de reunion 4.jpg'),  label: 'Réunion – U',       alt: 'Salle de réunion Loft Osmoz – configuration en U' },
-  { url: u('images/Loft/9 salle a manger.jpg'),       label: 'Salle à manger',    alt: 'Salle à manger Loft Osmoz – vue 2' },
-  { url: u('images/Loft/21 Cuisine 3.jpg'),           label: 'Bar',               alt: 'Bar Loft Osmoz – espace lounge et cocktail' },
-  { url: u('images/Loft/18 Cocktail 3.jpg'),          label: 'Cocktail',          alt: 'Espace cocktail Loft Osmoz' },
-  { url: u('images/Loft/8 Cocktail 1.jpg'),           label: 'Cocktail – vue 2',  alt: 'Espace cocktail Loft Osmoz – vue 2' },
-  { url: u('images/Loft/5 Accueil.jpg'),              label: 'Accueil',           alt: 'Cour intérieure Loft Osmoz' },
-  { url: u('images/Loft/25 DSC4695-HDR.jpg'),         label: 'Cour',              alt: 'Cour pavée Loft Osmoz – fontaine' },
+// Galerie labellisée (libellés et alt dans t.loft.gallery, même ordre)
+const galleryUrls = [
+  u('images/Loft/2 Salon pleiniere 2.jpg'),
+  u('images/Loft/1 SdR.jpg'),
+  u('images/Loft/3 salle a manger.jpg'),
+  u('images/Loft/4 Cuisine 5.jpg'),
+  u('images/Loft/7 Salon pleiniere 1.jpg'),
+  u('images/Loft/6 Salon pleiniere 6.jpg'),
+  u('images/Loft/11 Salle de reunion 2.jpg'),
+  u('images/Loft/12 Salle de reunion 4.jpg'),
+  u('images/Loft/9 salle a manger.jpg'),
+  u('images/Loft/21 Cuisine 3.jpg'),
+  u('images/Loft/18 Cocktail 3.jpg'),
+  u('images/Loft/8 Cocktail 1.jpg'),
+  u('images/Loft/5 Accueil.jpg'),
+  u('images/Loft/25 DSC4695-HDR.jpg'),
 ];
 
 // Cross-sell autres lieux
 const otherSpaces = [
-  {
-    title: 'Le Duplex Haussmannien',
-    location: 'Montmartre, Paris 2e',
-    surface: '300 m²',
-    capacity: '40 pers.',
-    image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'),
-    link: '/spaces/duplex-osmoz',
-  },
-  {
-    title: 'Le Penthouse',
-    location: 'La Défense, Puteaux',
-    surface: '150 m²',
-    capacity: '40 pers.',
-    image: u('images/Penthouse/2 - Salon.jpg'),
-    link: '/spaces/penthouse-osmoz',
-  },
-];
+  { key: 'duplex', image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'), link: '/spaces/duplex-osmoz' },
+  { key: 'penthouse', image: u('images/Penthouse/2 - Salon.jpg'), link: '/spaces/penthouse-osmoz' },
+] as const;
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 export default function LoftOsmozV2() {
   const navigate = useNavigate();
-  const { p } = useLocale();
+  const { t, p } = useLocale();
+  const l = t.loft;
+  const v = t.venue;
+  const abs = (frPath: string) => `https://osmoz-space.com${p(frPath)}`;
   const [activeConfig, setActiveConfig] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -144,6 +78,7 @@ export default function LoftOsmozV2() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const galleryItems = galleryUrls.map((url, i) => ({ url, ...l.gallery[i] }));
   const allImages = galleryItems.map((g) => ({ url: g.url, alt: g.alt }));
 
   const openGallery = (index: number) => {
@@ -156,8 +91,8 @@ export default function LoftOsmozV2() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Le Loft OSMOZ',
-    description: "Espace privatif de 110m² situé à deux pas de la Place des Vosges dans le Marais. Grande verrière lumineuse, ambiance contemporaine et chaleureuse. Idéal pour séminaires, réunions de direction, workshops, déjeuners d'affaires et tournages. Privatisation exclusive à la journée pour les entreprises.",
-    url: 'https://osmoz-space.com/spaces/loft-osmoz',
+    description: l.jsonLd.description,
+    url: abs('/spaces/loft-osmoz'),
     image: 'https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg',
     address: {
       '@type': 'PostalAddress',
@@ -169,24 +104,17 @@ export default function LoftOsmozV2() {
     },
     geo: { '@type': 'GeoCoordinates', latitude: 48.8566, longitude: 2.3630 },
     maximumAttendeeCapacity: 25,
-    amenityFeature: [
-      { '@type': 'LocationFeatureSpecification', name: 'Wifi haut débit', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Écran connecté', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Paperboard', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Câble HDMI', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Cuisine équipée', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Privatisation totale', value: true },
-    ],
+    amenityFeature: l.jsonLd.amenities.map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
     offers: [
-      { '@type': 'Offer', name: 'Demi-journée', price: '649', priceCurrency: 'EUR', description: 'Privatisation demi-journée — 08h30-12h ou 14h-18h' },
-      { '@type': 'Offer', name: 'Journée complète', price: '999', priceCurrency: 'EUR', description: 'Privatisation journée complète — 08h30-18h30' },
+      { '@type': 'Offer', ...l.jsonLd.offers[0], price: '649', priceCurrency: 'EUR' },
+      { '@type': 'Offer', ...l.jsonLd.offers[1], price: '999', priceCurrency: 'EUR' },
     ],
     telephone: '+33675186932',
     email: 'contact@osmoz-space.com',
     openingHours: 'Mo-Fr 08:00-22:00',
     priceRange: '€€€',
     currenciesAccepted: 'EUR',
-    paymentAccepted: 'Virement bancaire, Carte bancaire',
+    paymentAccepted: v.jsonLd.paymentAccepted,
     isAccessibleForFree: false,
     publicAccess: false,
     smokingAllowed: false,
@@ -198,39 +126,18 @@ export default function LoftOsmozV2() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://osmoz-space.com/' },
-          { '@type': 'ListItem', position: 2, name: 'Nos espaces', item: 'https://osmoz-space.com/spaces' },
-          { '@type': 'ListItem', position: 3, name: 'Le Loft', item: 'https://osmoz-space.com/spaces/loft-osmoz' },
+          { '@type': 'ListItem', position: 1, name: v.jsonLd.home, item: abs('/') },
+          { '@type': 'ListItem', position: 2, name: v.jsonLd.spaces, item: abs('/spaces') },
+          { '@type': 'ListItem', position: 3, name: l.jsonLd.breadcrumb, item: abs('/spaces/loft-osmoz') },
         ],
       },
       {
         '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Combien de personnes peut accueillir Le Loft OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Le Loft OSMOZ accueille jusqu'à 25 personnes. L'espace fait 110m² et est entièrement privatisé pour votre événement — vous êtes seuls.",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Où se trouve Le Loft OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Le Loft OSMOZ est situé au 10 rue Roger Verlomme, Paris 3e, à deux pas de la Place des Vosges dans le Marais.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Quel est le tarif de location du Loft OSMOZ ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Le Loft OSMOZ est disponible à partir de 649€ HT pour une demi-journée et 999€ HT pour une journée complète. Devis personnalisé sous 24h.',
-            },
-          },
-        ],
+        mainEntity: l.jsonLd.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
       },
     ],
   };
@@ -250,7 +157,7 @@ export default function LoftOsmozV2() {
           src={u('images/Loft/2 Salon pleiniere 2.jpg')}
           srcSet={srcSet(u('images/Loft/2 Salon pleiniere 2.jpg'))}
           sizes={SIZES.hero}
-          alt="Loft Osmoz – verrière et salon, Paris Marais"
+          alt={l.heroAlt}
           fetchPriority="high"
           loading="eager"
           width={1920}
@@ -264,14 +171,14 @@ export default function LoftOsmozV2() {
             className="text-white font-light mb-3 leading-tight"
             style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(3rem, 6vw, 5.5rem)' }}
           >
-            Le Loft
+            {l.name}
           </h1>
           <p className="text-white/80 font-light tracking-[0.2em] text-sm mb-8 uppercase">
-            Marais · Paris 3e
+            {l.location}
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center mb-10">
-            {['110 m²', '25 pers. max', 'À partir de 649€'].map((pill) => (
+            {l.pills.map((pill) => (
               <span
                 key={pill}
                 className="bg-white/15 backdrop-blur-sm text-white border border-white/30 px-4 py-1.5 rounded-full text-sm font-light tracking-wide"
@@ -285,7 +192,7 @@ export default function LoftOsmozV2() {
             onClick={() => navigate(p('/reservation?space=loft'))}
             className="bg-white text-[#01142a] px-10 py-3.5 rounded-lg text-sm tracking-widest font-normal hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition duration-300"
           >
-            Réserver ce lieu
+            {v.book}
           </button>
         </div>
       </section>
@@ -298,15 +205,15 @@ export default function LoftOsmozV2() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-6">
           <div className="flex items-center gap-8 text-sm font-light text-[#01142a]">
-            <span className="flex items-center gap-1.5"><Maximize2 className="h-3.5 w-3.5" />110 m²</span>
-            <span className="hidden sm:flex items-center gap-1.5"><Users className="h-3.5 w-3.5" />25 personnes</span>
-            <span className="hidden md:flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />10 rue Roger Verlomme, Paris 3e</span>
+            <span className="flex items-center gap-1.5"><Maximize2 className="h-3.5 w-3.5" />{l.stats.surface}</span>
+            <span className="hidden sm:flex items-center gap-1.5"><Users className="h-3.5 w-3.5" />{l.stats.people}</span>
+            <span className="hidden md:flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />{l.stats.address}</span>
           </div>
           <button
             onClick={() => navigate(p('/reservation?space=loft'))}
             className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-normal hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
-            Demander un devis
+            {v.quote}
           </button>
         </div>
       </div>
@@ -314,14 +221,14 @@ export default function LoftOsmozV2() {
       {/* ── MOBILE STICKY CTA ── */}
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-[#e5e5e5] px-4 py-3 flex items-center justify-between gap-3 shadow-lg">
         <div>
-          <p className="text-xs font-light text-gray-400 uppercase tracking-widest">À partir de</p>
-          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>649€</p>
+          <p className="text-xs font-light text-gray-400 uppercase tracking-widest">{v.from}</p>
+          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>{l.price}</p>
         </div>
         <button
           onClick={() => navigate(p('/reservation?space=loft'))}
           className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-normal flex-1 max-w-[200px]"
         >
-          Réserver ce lieu
+          {v.book}
         </button>
       </div>
 
@@ -337,14 +244,13 @@ export default function LoftOsmozV2() {
                   className="text-xl italic font-light text-[#01142a] mb-6 leading-loose"
                   style={{ fontFamily: 'Playfair Display' }}
                 >
-                  Au cœur du Marais, à deux pas de la Place des Vosges.
+                  {l.intro.quote}
                 </p>
                 <p className="text-sm font-light leading-loose text-gray-600 mb-6">
-                  Sublimé par une verrière et un mur en pierre, ce loft de 110m² conjugue authenticité et modernité.
-                  Deux espaces communicants — une salle de réunion intimiste et un salon chaleureux avec cuisine ouverte — s'adaptent à tous vos formats professionnels.
+                  {l.intro.text}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['Réunion', 'Séminaire', 'Workshop', 'Déjeuner', 'Shooting'].map((tag) => (
+                  {l.intro.tags.map((tag) => (
                     <span key={tag} className="border border-[#01142a]/20 text-[#01142a] text-xs font-light px-3 py-1 rounded-full">
                       {tag}
                     </span>
@@ -381,19 +287,19 @@ export default function LoftOsmozV2() {
               onClick={() => openGallery(0)}
               className="mt-6 text-sm font-normal text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors"
             >
-              Voir toutes les photos ({allImages.length})
+              {v.allPhotos} ({allImages.length})
             </button>
           </section>
 
           {/* ── 4. CONFIGURATIONS ── */}
           <section>
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Configurations</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.configurations.kicker}</p>
             <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
-              Comment aménager l'espace ?
+              {v.configurations.title}
             </h2>
 
             <div className="flex gap-2 mb-8 flex-wrap">
-              {configurations.map((c, i) => (
+              {l.configurations.map((c, i) => (
                 <button
                   key={c.label}
                   onClick={() => setActiveConfig(i)}
@@ -414,20 +320,20 @@ export default function LoftOsmozV2() {
                   src={configurations[activeConfig].images[0]}
                   srcSet={srcSet(configurations[activeConfig].images[0])}
                   sizes={SIZES.halfColumn}
-                  alt={`Loft Osmoz – configuration ${configurations[activeConfig].label}`}
+                  alt={`${l.configurationAlt} – ${v.configurations.altPrefix} ${l.configurations[activeConfig].label}`}
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div>
                 <p className="text-3xl font-light text-[#01142a] mb-1" style={{ fontFamily: 'Playfair Display' }}>
-                  {configurations[activeConfig].capacity} personnes
+                  {configurations[activeConfig].capacity} {v.people}
                 </p>
                 <p className="text-sm font-light text-gray-500 mb-4 uppercase tracking-widest">
-                  {configurations[activeConfig].label}
+                  {l.configurations[activeConfig].label}
                 </p>
                 <p className="text-sm font-light text-gray-600 leading-loose">
-                  {configurations[activeConfig].description}
+                  {l.configurations[activeConfig].description}
                 </p>
               </div>
             </div>
@@ -435,24 +341,27 @@ export default function LoftOsmozV2() {
 
           {/* ── 5. ÉQUIPEMENTS ── */}
           <section>
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Services</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.amenities.kicker}</p>
             <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
-              Équipements & services
+              {v.amenities.title}
             </h2>
 
-            <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-4">Inclus</p>
+            <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-4">{v.amenities.included}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
-              {amenities.map((a, i) => (
+              {l.amenities.map((label, i) => {
+                const Icon = amenityIcons[i];
+                return (
                 <div key={i} className="flex items-center gap-3">
-                  <a.icon className="h-4 w-4 text-[#862637] flex-shrink-0" />
-                  <span className="text-sm font-light text-[#01142a]">{a.label}</span>
+                  <Icon className="h-4 w-4 text-[#862637] flex-shrink-0" />
+                  <span className="text-sm font-light text-[#01142a]">{label}</span>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
-            <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-4">Sur demande</p>
+            <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-4">{v.amenities.onDemand}</p>
             <div className="flex flex-wrap gap-3">
-              {amenitiesOnDemand.map((item) => (
+              {l.amenitiesOnDemand.map((item) => (
                 <span key={item} className="border border-[#01142a]/20 text-[#01142a] text-xs font-light px-3 py-1.5 rounded-full">
                   {item}
                 </span>
@@ -462,23 +371,23 @@ export default function LoftOsmozV2() {
 
           {/* ── 6. TARIFS ── */}
           <section>
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Tarification</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.pricing.kicker}</p>
             <h2 className="text-2xl font-normal text-[#01142a] mb-2" style={{ fontFamily: 'Playfair Display' }}>
-              Tarifs — location seule
+              {v.pricing.title}
             </h2>
-            <p className="text-xs font-light text-gray-400 mb-8 uppercase tracking-widest">Hors taxes · Services en supplément</p>
+            <p className="text-xs font-light text-gray-400 mb-8 uppercase tracking-widest">{v.pricing.note}</p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {tarifs.map((t) => (
-                <div key={t.label} className="border border-[#e5e5e5] rounded-lg p-5 bg-white hover:border-[#01142a] transition-colors duration-200">
-                  <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-2">{t.label}</p>
+              {l.tarifs.map((tarif) => (
+                <div key={tarif.label} className="border border-[#e5e5e5] rounded-lg p-5 bg-white hover:border-[#01142a] transition-colors duration-200">
+                  <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-2">{tarif.label}</p>
                   <p
                     className="text-2xl font-light text-[#01142a] mb-2"
                     style={{ fontFamily: 'Playfair Display' }}
                   >
-                    {t.price}
+                    {tarif.price}
                   </p>
-                  <p className="text-xs font-light text-gray-500">{t.hours}</p>
+                  <p className="text-xs font-light text-gray-500">{tarif.hours}</p>
                 </div>
               ))}
             </div>
@@ -488,32 +397,32 @@ export default function LoftOsmozV2() {
           <section className="bg-[#01142a] rounded-2xl p-10 sm:p-14">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
-                <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">À partir de</p>
-                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>649€</p>
-                <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
+                <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">{v.from}</p>
+                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>{l.price}</p>
+                <p className="text-white/40 text-xs mt-1 font-light">{v.ctaBand.note}</p>
               </div>
               <button
                 onClick={() => navigate(p('/reservation?space=loft'))}
                 className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
               >
-                Réserver ce lieu
+                {v.book}
               </button>
               <div className="text-center">
-                <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">Ou réserver via</p>
+                <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">{v.ctaBand.or}</p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {platforms.map((p) => (
+                  {platforms.map((platform) => (
                     <a
-                      key={p.name}
-                      href={p.url}
+                      key={platform.name}
+                      href={platform.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title={`Voir sur ${p.name}`}
+                      title={`${v.ctaBand.viewOn} ${platform.name}`}
                       className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
                     >
-                      {p.logo ? (
-                        <img src={p.logo} alt={p.name} className="w-5 h-5 object-contain" loading="lazy" />
+                      {platform.logo ? (
+                        <img src={platform.logo} alt={platform.name} className="w-5 h-5 object-contain" loading="lazy" />
                       ) : (
-                        <span className="text-xs font-light text-white">{p.name[0]}</span>
+                        <span className="text-xs font-light text-white">{platform.name[0]}</span>
                       )}
                     </a>
                   ))}
@@ -524,9 +433,9 @@ export default function LoftOsmozV2() {
 
           {/* ── 7. ACCÈS ── */}
           <section>
-            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Localisation</p>
+            <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.access.kicker}</p>
             <h2 className="text-2xl font-normal text-[#01142a] mb-8" style={{ fontFamily: 'Playfair Display' }}>
-              Comment venir ?
+              {v.access.title}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -534,24 +443,18 @@ export default function LoftOsmozV2() {
                 <div className="flex items-start gap-3 mb-5">
                   <MapPin className="h-4 w-4 text-[#862637] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-sm font-light text-[#01142a]">10 rue Roger Verlomme</p>
-                    <p className="text-sm font-light text-gray-500">75003 Paris</p>
+                    <p className="text-sm font-light text-[#01142a]">{l.access.street}</p>
+                    <p className="text-sm font-light text-gray-500">{l.access.city}</p>
                   </div>
                 </div>
 
                 <div className="space-y-3 text-sm font-light text-gray-600">
-                  <div className="flex items-center gap-3">
-                    <span className="bg-[#01142a] text-white text-xs px-2 py-0.5 rounded font-light">M</span>
-                    <span><strong className="font-normal text-[#01142a]">Chemin Vert</strong> (ligne 8) — 3 min à pied</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="bg-[#01142a] text-white text-xs px-2 py-0.5 rounded font-light">M</span>
-                    <span><strong className="font-normal text-[#01142a]">Bastille</strong> (lignes 1, 5, 8) — 7 min à pied</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="bg-[#01142a] text-white text-xs px-2 py-0.5 rounded font-light">M</span>
-                    <span><strong className="font-normal text-[#01142a]">Saint-Paul</strong> (ligne 1) — 8 min à pied</span>
-                  </div>
+                  {l.access.transit.map((stop) => (
+                    <div key={stop.station} className="flex items-center gap-3">
+                      <span className="bg-[#01142a] text-white text-xs px-2 py-0.5 rounded font-light">M</span>
+                      <span><strong className="font-normal text-[#01142a]">{stop.station}</strong> {stop.detail}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -568,7 +471,7 @@ export default function LoftOsmozV2() {
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
-                    title="Localisation Loft Osmoz"
+                    title={l.access.mapTitle}
                   />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 group-hover:bg-black/5 transition-colors">
@@ -576,7 +479,7 @@ export default function LoftOsmozV2() {
                       <MapPin className="h-5 w-5 text-[#862637]" strokeWidth={1.5} />
                     </div>
                     <span className="text-xs font-normal text-[#01142a] tracking-widest uppercase">
-                      Voir sur la carte
+                      {v.access.map}
                     </span>
                   </div>
                 )}
@@ -590,18 +493,20 @@ export default function LoftOsmozV2() {
       {/* ── 8. CROSS-SELL ── */}
       <section className="bg-white border-t border-[#e5e5e5] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">Nos espaces</p>
+          <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.crossSell.kicker}</p>
           <h2
             className="text-2xl font-normal text-[#01142a] mb-10"
             style={{ fontFamily: 'Playfair Display' }}
           >
-            Découvrir nos autres espaces
+            {v.crossSell.title}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {otherSpaces.map((s) => (
+            {otherSpaces.map((s) => {
+              const o = l.otherSpaces[s.key];
+              return (
               <Link
-                key={s.title}
+                key={s.key}
                 to={p(s.link)}
                 className="group block bg-[#fbfbf3] rounded-lg overflow-hidden border border-[#e5e5e5] hover:border-[#01142a] transition-all duration-300 hover:shadow-md"
               >
@@ -610,20 +515,21 @@ export default function LoftOsmozV2() {
                     src={s.image}
                     srcSet={srcSet(s.image)}
                     sizes={SIZES.halfColumn}
-                    alt={`${s.title} – Osmoz`}
+                    alt={`${o.title} – Osmoz`}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6 flex items-center justify-between">
                   <div>
-                    <h3 className="text-base font-normal text-[#01142a] mb-1">{s.title}</h3>
-                    <p className="text-xs font-light text-gray-400">{s.location} · {s.surface} · {s.capacity}</p>
+                    <h3 className="text-base font-normal text-[#01142a] mb-1">{o.title}</h3>
+                    <p className="text-xs font-light text-gray-400">{o.location} · {o.surface} · {o.capacity}</p>
                   </div>
                   <ChevronRight className="h-4 w-4 text-[#862637] group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
