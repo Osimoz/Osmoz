@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 
 const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
@@ -290,6 +291,7 @@ const reassurances = [
 
 export default function Experience() {
   const navigate = useNavigate();
+  const { p } = useLocale();
   const [activeMenu, setActiveMenu] = useState(-1);
 
   // Parallax immersive section
@@ -310,7 +312,7 @@ export default function Experience() {
 
   return (
     <>
-      <SEO path="/experience" />
+      <SEO route="experience" />
 
       {/* ── 1. HERO ── */}
       <section
@@ -368,7 +370,7 @@ export default function Experience() {
               Découvrir l'expérience
             </button>
             <button
-              onClick={() => navigate('/reservation')}
+              onClick={() => navigate(p('/reservation'))}
               className="hover:text-[#01142a] transition-colors"
               style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6b6860', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
             >
@@ -995,14 +997,14 @@ export default function Experience() {
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
-              onClick={() => navigate('/reservation')}
+              onClick={() => navigate(p('/reservation'))}
               className="hover:bg-[#862637] transition-colors duration-300"
               style={{ padding: '14px 36px', background: '#01142a', color: '#fafaf8', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 400, border: 'none', cursor: 'pointer' }}
             >
               Faire une demande
             </button>
             <button
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate(p('/contact'))}
               className="hover:text-[#01142a] transition-colors"
               style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6b6860', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
             >

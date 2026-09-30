@@ -3,6 +3,7 @@ import { MapPin, Users, Maximize2, Coffee, Wifi, Tv, UtensilsCrossed, Presentati
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import ImageGallery from '../components/ImageGallery';
 import { srcSet, SIZES } from '../lib/responsiveImage';
 
@@ -129,6 +130,7 @@ const otherSpaces = [
 
 export default function LoftOsmozV2() {
   const navigate = useNavigate();
+  const { p } = useLocale();
   const [activeConfig, setActiveConfig] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -236,7 +238,7 @@ export default function LoftOsmozV2() {
   return (
     <div className="pt-0">
       {/* ── SEO ── */}
-      <SEO path="/spaces/loft-osmoz" />
+      <SEO route="loft" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(loftBreadcrumbFaqLd)}</script>
@@ -280,7 +282,7 @@ export default function LoftOsmozV2() {
           </div>
 
           <button
-            onClick={() => navigate('/reservation?space=loft')}
+            onClick={() => navigate(p('/reservation?space=loft'))}
             className="bg-white text-[#01142a] px-10 py-3.5 rounded-lg text-sm tracking-widest font-normal hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition duration-300"
           >
             Réserver ce lieu
@@ -301,7 +303,7 @@ export default function LoftOsmozV2() {
             <span className="hidden md:flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />10 rue Roger Verlomme, Paris 3e</span>
           </div>
           <button
-            onClick={() => navigate('/reservation?space=loft')}
+            onClick={() => navigate(p('/reservation?space=loft'))}
             className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-normal hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
             Demander un devis
@@ -316,7 +318,7 @@ export default function LoftOsmozV2() {
           <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>649€</p>
         </div>
         <button
-          onClick={() => navigate('/reservation?space=loft')}
+          onClick={() => navigate(p('/reservation?space=loft'))}
           className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-normal flex-1 max-w-[200px]"
         >
           Réserver ce lieu
@@ -491,7 +493,7 @@ export default function LoftOsmozV2() {
                 <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
               </div>
               <button
-                onClick={() => navigate('/reservation?space=loft')}
+                onClick={() => navigate(p('/reservation?space=loft'))}
                 className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
               >
                 Réserver ce lieu
@@ -600,7 +602,7 @@ export default function LoftOsmozV2() {
             {otherSpaces.map((s) => (
               <Link
                 key={s.title}
-                to={s.link}
+                to={p(s.link)}
                 className="group block bg-[#fbfbf3] rounded-lg overflow-hidden border border-[#e5e5e5] hover:border-[#01142a] transition-all duration-300 hover:shadow-md"
               >
                 <div className="aspect-[16/9] overflow-hidden">

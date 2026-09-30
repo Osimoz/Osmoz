@@ -3,6 +3,7 @@ import { Users, Lightbulb, UtensilsCrossed, ChevronRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import NewsletterSection from '../components/NewsletterSection';
 
 const base = import.meta.env.BASE_URL;
@@ -126,6 +127,7 @@ const steps = [
 export default function HomeV2() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const navigate = useNavigate();
+  const { p } = useLocale();
 
   useEffect(() => {
     const v = videoRef.current;
@@ -206,7 +208,7 @@ export default function HomeV2() {
 
   return (
     <>
-      <SEO path="/" />
+      <SEO route="home" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(homeFaqLd)}</script>
@@ -248,7 +250,7 @@ export default function HomeV2() {
           </p>
           <div>
             <button
-              onClick={() => navigate('/reservation')}
+              onClick={() => navigate(p('/reservation'))}
               className="bg-[#862637] text-[#fee1d4] px-8 sm:px-10 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
             >
               Voir les disponibilités
@@ -286,7 +288,7 @@ export default function HomeV2() {
             {spaces.map((space) => (
               <Link
                 key={space.title}
-                to={space.link}
+                to={p(space.link)}
                 className="group block rounded-2xl overflow-hidden border border-[#e5e5e5] hover:border-[#01142a]/20 hover:shadow-2xl transition-all duration-500 bg-white"
               >
                 {/* Image */}
@@ -359,7 +361,7 @@ export default function HomeV2() {
                   Un nouveau lieu arrive en 2026. Rejoignez la liste d'attente pour être les premiers informés.
                 </p>
                 <button
-                  onClick={() => navigate('/contact')}
+                  onClick={() => navigate(p('/contact'))}
                   className="bg-[#862637] text-[#fee1d4] text-xs tracking-[0.2em] uppercase px-6 py-3 rounded-lg hover:bg-[#01142a] transition-all duration-300"
                 >
                   Être prévenu en priorité
@@ -421,7 +423,7 @@ export default function HomeV2() {
             Disponibilités, devis et confirmation en moins de 24h.
           </p>
           <button
-            onClick={() => navigate('/reservation')}
+            onClick={() => navigate(p('/reservation'))}
             className="bg-white text-[#01142a] px-10 sm:px-12 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
           >
             Voir les disponibilités
@@ -480,7 +482,7 @@ export default function HomeV2() {
             Prêt à sortir du bureau ?
           </h2>
           <button
-            onClick={() => navigate('/reservation')}
+            onClick={() => navigate(p('/reservation'))}
             className="bg-[#862637] text-[#fee1d4] px-10 sm:px-12 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-[#01142a] transition-all duration-300"
           >
             Réserver un espace

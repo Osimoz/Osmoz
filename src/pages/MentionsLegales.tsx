@@ -1,10 +1,12 @@
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import { Link } from 'react-router-dom';
 
 export default function MentionsLegales() {
+  const { p } = useLocale();
   return (
     <>
-      <SEO path="/mentions-legales" />
+      <SEO route="legal" />
 
       <div className="pt-32 pb-24 bg-[#fbfbf3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,7 +102,7 @@ export default function MentionsLegales() {
               </p>
               <p className="text-base font-light text-gray-600 leading-relaxed">
                 Pour plus d'informations, veuillez consulter notre{' '}
-                <Link to="/politique-de-confidentialite" className="text-[#862637] underline underline-offset-4 hover:text-[#01142a] transition-colors">
+                <Link to={p('/politique-de-confidentialite')} className="text-[#862637] underline underline-offset-4 hover:text-[#01142a] transition-colors">
                   Politique de Confidentialité
                 </Link>{' '}
                 accessible sur ce site.

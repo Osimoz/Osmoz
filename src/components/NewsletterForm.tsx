@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { subscribeToNewsletter } from '../lib/newsletter';
+import { useLocale } from '../i18n/context';
 
 type NewsletterFormProps = {
   source?: 'home' | 'popup' | 'articles' | 'reservation' | 'footer' | string;
@@ -28,6 +29,7 @@ export default function NewsletterForm({
   onError,
   inputRef,
 }: NewsletterFormProps) {
+  const { p } = useLocale();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'already_subscribed' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -39,7 +41,7 @@ export default function NewsletterForm({
   const disclaimerText = (
     <>
       En vous inscrivant, vous acceptez de recevoir les actualités d'Osmoz par e-mail. Vous pouvez vous désinscrire à tout moment. Consultez notre{' '}
-      <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className={tone === 'light' ? 'text-[#862637] underline' : 'text-[#fee1d4] underline'}>
+      <a href={p('/politique-de-confidentialite')} target="_blank" rel="noopener noreferrer" className={tone === 'light' ? 'text-[#862637] underline' : 'text-[#fee1d4] underline'}>
         politique de confidentialité
       </a>.
     </>

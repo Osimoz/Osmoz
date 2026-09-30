@@ -1,23 +1,34 @@
 import { Helmet } from 'react-helmet-async';
 import seo from '../lib/seo-config.json';
+import { useLocale } from '../i18n/context';
+import type { Lang, RouteKey } from '../i18n/paths';
 
-// Balises SEO par route (title, description, canonical absolu, Open Graph,
-// Twitter). La source de vérité est src/lib/seo-config.json, partagée avec le
-// script de pré-rendering (scripts/prerender-seo.mjs) pour que le HTML servi et
-// le rendu client restent identiques.
+// Balises SEO par route et par langue (title, description, canonical absolu,
+// Open Graph, Twitter). La source de vérité est src/lib/seo-config.json,
+// partagée avec le script de pré-rendering (scripts/prerender-seo.mjs) pour
+// que le HTML servi et le rendu client restent identiques : Helmet reconnaît
+// alors les balises pré-rendues (data-rh) et ne les duplique pas.
 //
 // Le JSON-LD spécifique à une page (LocalBusiness, FAQ, Breadcrumb) reste géré
 // dans la page elle-même via un <Helmet> dédié : il dépend de données calculées
 // au rendu.
 
-type RouteMeta = { title: string; description: string; image?: string; type?: string; robots?: string };
+type LangMeta = { title: string; description: string };
+type RouteMeta = {
+  path: Partial<Record<Lang, string>>;
+  fr: LangMeta;
+  en?: LangMeta;
+  image?: string;
+  type?: string;
+  robots?: string;
+};
 
 const defaults = seo.defaults;
-const routes = seo.routes as Record<string, RouteMeta>;
+const routes = seo.routes as Record<RouteKey, RouteMeta>;
 
 type Props = {
-  /** Chemin canonique de la route, ex. "/spaces/loft-osmoz". */
-  path: string;
+  /** Clé de la route dans seo-config.json, ex. "loft". */
+  route: RouteKey;
   /** Surcharges optionnelles (sinon lues dans seo-config.json). */
   title?: string;
   description?: string;
@@ -26,19 +37,18 @@ type Props = {
   robots?: string;
 };
 
-function buildCanonical(path: string): string {
-  const clean = path === '/' ? '/' : `/${path.replace(/^\/+|\/+$/g, '')}`;
-  return `${defaults.baseUrl}${clean}`;
-}
-
-export default function SEO({ path, title, description, image, type, robots }: Props) {
-  const meta = routes[path] ?? ({} as RouteMeta);
+export default function SEO({ route, title, description, image, type, robots }: Props) {
+  const { lang } = useLocale();
+  const entry = routes[route];
+  // Tant qu'une route n'a pas de meta dans la langue courante, on retombe sur la FR.
+  const meta = entry[lang] ?? entry.fr;
+  const path = entry.path[lang] ?? entry.path.fr ?? '/';
   const finalTitle = title ?? meta.title ?? defaults.siteName;
   const finalDesc = description ?? meta.description ?? '';
-  const finalImage = image ?? meta.image ?? defaults.image;
-  const finalType = type ?? meta.type ?? defaults.type;
-  const finalRobots = robots ?? meta.robots ?? 'index, follow';
-  const url = buildCanonical(path);
+  const finalImage = image ?? entry.image ?? defaults.image;
+  const finalType = type ?? entry.type ?? defaults.type;
+  const finalRobots = robots ?? entry.robots ?? 'index, follow';
+  const url = `${defaults.baseUrl}${path}`;
 
   return (
     <Helmet>

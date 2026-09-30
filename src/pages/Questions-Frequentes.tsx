@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import { Link } from 'react-router-dom';
 import AProposTabs from '../components/AProposTabs';
 
@@ -16,7 +17,10 @@ type FaqCategory = {
   items: FaqItem[];
 };
 
-const faqCategories: FaqCategory[] = [
+// Fonction (et non constante) : les réponses contiennent des <Link> dont le
+// chemin dépend de la langue courante via p().
+function buildFaqCategories(p: (frPath: string) => string): FaqCategory[] {
+  return [
   {
     label: 'Questions générales',
     items: [
@@ -45,7 +49,7 @@ const faqCategories: FaqCategory[] = [
         question: "Quels types d'événements d'entreprise peut-on organiser dans un lieu Osmoz ?",
         answer: "Les espaces Osmoz accueillent tous les formats d'événements professionnels à la journée : réunions et comités de direction, séminaires d'équipe, workshops et ateliers, formations, conférences et plénières, cocktails et afterworks, déjeuners d'affaires, ainsi que tournages et shootings photo. Chaque lieu est modulable pour combiner plusieurs formats dans la même journée, par exemple une plénière le matin, des ateliers en îlots l'après-midi et un cocktail en soirée. Osmoz est réservé exclusivement aux entreprises : nous n'accueillons pas d'événements pour particuliers.",
         answerJsx: (
-          <p>Les espaces Osmoz accueillent tous les formats d'événements professionnels à la journée : réunions et comités de direction, séminaires d'équipe, workshops et ateliers, formations, conférences et plénières, cocktails et afterworks, déjeuners d'affaires, ainsi que tournages et shootings photo. Chaque lieu est modulable pour combiner plusieurs formats dans la même journée, par exemple une plénière le matin, des ateliers en îlots l'après-midi et un cocktail en soirée. Osmoz est réservé exclusivement aux entreprises : nous n'accueillons pas d'événements pour particuliers. <Link to="/spaces" className="text-[#862637] underline underline-offset-2">Découvrir nos espaces →</Link></p>
+          <p>Les espaces Osmoz accueillent tous les formats d'événements professionnels à la journée : réunions et comités de direction, séminaires d'équipe, workshops et ateliers, formations, conférences et plénières, cocktails et afterworks, déjeuners d'affaires, ainsi que tournages et shootings photo. Chaque lieu est modulable pour combiner plusieurs formats dans la même journée, par exemple une plénière le matin, des ateliers en îlots l'après-midi et un cocktail en soirée. Osmoz est réservé exclusivement aux entreprises : nous n'accueillons pas d'événements pour particuliers. <Link to={p('/spaces')} className="text-[#862637] underline underline-offset-2">Découvrir nos espaces →</Link></p>
         ),
       },
       {
@@ -56,14 +60,14 @@ const faqCategories: FaqCategory[] = [
         question: "Est-il possible d'organiser un événement en soirée ou le week-end chez Osmoz ?",
         answer: "Oui, les trois lieux Osmoz accueillent des événements en soirée jusqu'à 22 h, avec deux formules dédiées : « Soirée » (18 h 30 – 22 h) ou « Journée + soirée » (8 h 30 – 22 h). Les soirées sont idéales pour les cocktails d'entreprise, afterworks, dîners d'équipe ou lancements de produit. Les événements le week-end sont étudiés au cas par cas selon la disponibilité des lieux : précisez votre besoin dans la demande de devis et nous revenons sous 24 h.",
         answerJsx: (
-          <p>Oui, les trois lieux Osmoz accueillent des événements en soirée jusqu'à 22 h, avec deux formules dédiées : « Soirée » (18 h 30 – 22 h) ou « Journée + soirée » (8 h 30 – 22 h). Les soirées sont idéales pour les cocktails d'entreprise, afterworks, dîners d'équipe ou lancements de produit. Les événements le week-end sont étudiés au cas par cas : précisez votre besoin dans votre <Link to="/reservation" className="text-[#862637] underline underline-offset-2">demande de devis</Link> et nous revenons sous 24 h.</p>
+          <p>Oui, les trois lieux Osmoz accueillent des événements en soirée jusqu'à 22 h, avec deux formules dédiées : « Soirée » (18 h 30 – 22 h) ou « Journée + soirée » (8 h 30 – 22 h). Les soirées sont idéales pour les cocktails d'entreprise, afterworks, dîners d'équipe ou lancements de produit. Les événements le week-end sont étudiés au cas par cas : précisez votre besoin dans votre <Link to={p('/reservation')} className="text-[#862637] underline underline-offset-2">demande de devis</Link> et nous revenons sous 24 h.</p>
         ),
       },
       {
         question: "Peut-on tourner un film ou organiser un shooting photo dans un espace Osmoz ?",
         answer: "Oui, les trois lieux Osmoz accueillent régulièrement des productions audiovisuelles : tournages publicitaires, captations vidéo, shootings mode ou corporate, podcasts filmés. Le Loft (Marais) offre une verrière et un mur en pierre très photogéniques, Le Duplex Haussmannien (Paris 2e) un escalier sculptural avec moulures et parquet, et Le Penthouse (La Défense) une vue panoramique sur Paris avec jardin suspendu. La privatisation exclusive à la journée garantit à votre équipe un accès complet, sans interférence avec d'autres réservations.",
         answerJsx: (
-          <p>Oui, les trois lieux Osmoz accueillent régulièrement des productions audiovisuelles : tournages publicitaires, captations vidéo, shootings mode ou corporate, podcasts filmés. <Link to="/spaces/loft-osmoz" className="text-[#862637] underline underline-offset-2">Le Loft (Marais)</Link> offre une verrière et un mur en pierre très photogéniques, <Link to="/spaces/duplex-osmoz" className="text-[#862637] underline underline-offset-2">Le Duplex Haussmannien (Paris 2e)</Link> un escalier sculptural avec moulures et parquet, et <Link to="/spaces/penthouse-osmoz" className="text-[#862637] underline underline-offset-2">Le Penthouse (La Défense)</Link> une vue panoramique sur Paris avec jardin suspendu.</p>
+          <p>Oui, les trois lieux Osmoz accueillent régulièrement des productions audiovisuelles : tournages publicitaires, captations vidéo, shootings mode ou corporate, podcasts filmés. <Link to={p('/spaces/loft-osmoz')} className="text-[#862637] underline underline-offset-2">Le Loft (Marais)</Link> offre une verrière et un mur en pierre très photogéniques, <Link to={p('/spaces/duplex-osmoz')} className="text-[#862637] underline underline-offset-2">Le Duplex Haussmannien (Paris 2e)</Link> un escalier sculptural avec moulures et parquet, et <Link to={p('/spaces/penthouse-osmoz')} className="text-[#862637] underline underline-offset-2">Le Penthouse (La Défense)</Link> une vue panoramique sur Paris avec jardin suspendu.</p>
         ),
       },
     ],
@@ -75,7 +79,7 @@ const faqCategories: FaqCategory[] = [
         question: "Combien de personnes peut-on accueillir dans les espaces Osmoz ?",
         answer: "Les trois lieux Osmoz accueillent de 5 à 40 personnes selon l'adresse et le format. Le Loft dans le Marais privatise jusqu'à 25 personnes sur 110 m², Le Duplex Haussmannien à Paris 2e reçoit 40 personnes sur 300 m² et deux niveaux, et Le Penthouse à La Défense accueille 40 personnes sur 150 m² intérieurs plus 350 m² de jardin suspendu. Chaque espace propose plusieurs configurations (plénière, table en U, îlots, cocktail) pour s'adapter à votre format.",
         answerJsx: (
-          <p>Les trois lieux Osmoz accueillent de 5 à 40 personnes selon l'adresse et le format. <Link to="/spaces/loft-osmoz" className="text-[#862637] underline underline-offset-2">Le Loft (Marais)</Link> privatise jusqu'à 25 personnes sur 110 m², <Link to="/spaces/duplex-osmoz" className="text-[#862637] underline underline-offset-2">Le Duplex Haussmannien (Paris 2e)</Link> reçoit 40 personnes sur 300 m² et deux niveaux, et <Link to="/spaces/penthouse-osmoz" className="text-[#862637] underline underline-offset-2">Le Penthouse (La Défense)</Link> accueille 40 personnes sur 150 m² intérieurs plus 350 m² de jardin suspendu.</p>
+          <p>Les trois lieux Osmoz accueillent de 5 à 40 personnes selon l'adresse et le format. <Link to={p('/spaces/loft-osmoz')} className="text-[#862637] underline underline-offset-2">Le Loft (Marais)</Link> privatise jusqu'à 25 personnes sur 110 m², <Link to={p('/spaces/duplex-osmoz')} className="text-[#862637] underline underline-offset-2">Le Duplex Haussmannien (Paris 2e)</Link> reçoit 40 personnes sur 300 m² et deux niveaux, et <Link to={p('/spaces/penthouse-osmoz')} className="text-[#862637] underline underline-offset-2">Le Penthouse (La Défense)</Link> accueille 40 personnes sur 150 m² intérieurs plus 350 m² de jardin suspendu.</p>
         ),
       },
       {
@@ -86,7 +90,7 @@ const faqCategories: FaqCategory[] = [
         question: "Certains espaces Osmoz disposent-ils d'extérieurs ou d'une vue panoramique ?",
         answer: "Oui. Le Penthouse à La Défense dispose d'un jardin suspendu privatif de 350 m² au dernier étage d'une tour, avec vue panoramique sur Paris et la Tour Eiffel, un extérieur rare pour un événement d'entreprise. Le Duplex Haussmannien (Paris 2e) possède une cour privée à l'arrière. Ces espaces extérieurs sont parfaits pour une pause café, un cocktail en plein air ou un moment de respiration entre deux sessions de travail.",
         answerJsx: (
-          <p>Oui. <Link to="/spaces/penthouse-osmoz" className="text-[#862637] underline underline-offset-2">Le Penthouse à La Défense</Link> dispose d'un jardin suspendu privatif de 350 m² au dernier étage d'une tour, avec vue panoramique sur Paris et la Tour Eiffel, un extérieur rare pour un événement d'entreprise. <Link to="/spaces/duplex-osmoz" className="text-[#862637] underline underline-offset-2">Le Duplex Haussmannien (Paris 2e)</Link> possède une cour privée à l'arrière. Ces espaces extérieurs sont parfaits pour une pause café, un cocktail en plein air ou un moment de respiration entre deux sessions de travail.</p>
+          <p>Oui. <Link to={p('/spaces/penthouse-osmoz')} className="text-[#862637] underline underline-offset-2">Le Penthouse à La Défense</Link> dispose d'un jardin suspendu privatif de 350 m² au dernier étage d'une tour, avec vue panoramique sur Paris et la Tour Eiffel, un extérieur rare pour un événement d'entreprise. <Link to={p('/spaces/duplex-osmoz')} className="text-[#862637] underline underline-offset-2">Le Duplex Haussmannien (Paris 2e)</Link> possède une cour privée à l'arrière. Ces espaces extérieurs sont parfaits pour une pause café, un cocktail en plein air ou un moment de respiration entre deux sessions de travail.</p>
         ),
       },
       {
@@ -102,14 +106,14 @@ const faqCategories: FaqCategory[] = [
         question: "Combien coûte la privatisation d'un lieu Osmoz pour un séminaire à Paris ?",
         answer: "Les tarifs démarrent à 649 € HT la demi-journée pour Le Loft (Marais, jusqu'à 25 personnes), 1 499 € HT pour Le Penthouse (La Défense, jusqu'à 40 personnes) et 1 499 € HT pour Le Duplex Haussmannien (Paris 2e, jusqu'à 40 personnes). En journée complète (8 h 30 – 18 h 30), comptez de 999 € à 2 499 € HT selon le lieu. Ces tarifs correspondent à la location seule : la restauration, les animations de team building et les extensions horaires sont chiffrées en option, sur devis.",
         answerJsx: (
-          <p>Les tarifs démarrent à 649 € HT la demi-journée pour <Link to="/spaces/loft-osmoz" className="text-[#862637] underline underline-offset-2">Le Loft (Marais)</Link>, 1 499 € HT pour <Link to="/spaces/penthouse-osmoz" className="text-[#862637] underline underline-offset-2">Le Penthouse (La Défense)</Link> et 1 999 € HT pour <Link to="/spaces/duplex-osmoz" className="text-[#862637] underline underline-offset-2">Le Duplex Haussmannien (Paris 2e)</Link>. En journée complète (8 h 30 – 18 h 30), comptez de 999 € à 2 499 € HT selon le lieu. La restauration, les animations et les extensions horaires sont chiffrées en option, sur devis.</p>
+          <p>Les tarifs démarrent à 649 € HT la demi-journée pour <Link to={p('/spaces/loft-osmoz')} className="text-[#862637] underline underline-offset-2">Le Loft (Marais)</Link>, 1 499 € HT pour <Link to={p('/spaces/penthouse-osmoz')} className="text-[#862637] underline underline-offset-2">Le Penthouse (La Défense)</Link> et 1 999 € HT pour <Link to={p('/spaces/duplex-osmoz')} className="text-[#862637] underline underline-offset-2">Le Duplex Haussmannien (Paris 2e)</Link>. En journée complète (8 h 30 – 18 h 30), comptez de 999 € à 2 499 € HT selon le lieu. La restauration, les animations et les extensions horaires sont chiffrées en option, sur devis.</p>
         ),
       },
       {
         question: "Comment obtenir un devis pour privatiser un espace Osmoz ?",
         answer: "Le plus simple est d'envoyer une demande via le formulaire de contact sur osmoz.work en précisant la date, le nombre de participants, le format souhaité (réunion, séminaire, cocktail, tournage…) et vos besoins en restauration ou animation. Nous revenons sous 24 h avec les disponibilités, un devis détaillé et des propositions d'options. La demande est gratuite et sans engagement.",
         answerJsx: (
-          <p>Le plus simple est d'envoyer une demande via <Link to="/reservation" className="text-[#862637] underline underline-offset-2">notre formulaire de réservation</Link> en précisant la date, le nombre de participants, le format souhaité (réunion, séminaire, cocktail, tournage…) et vos besoins en restauration ou animation. Nous revenons sous 24 h avec les disponibilités, un devis détaillé et des propositions d'options. La demande est gratuite et sans engagement.</p>
+          <p>Le plus simple est d'envoyer une demande via <Link to={p('/reservation')} className="text-[#862637] underline underline-offset-2">notre formulaire de réservation</Link> en précisant la date, le nombre de participants, le format souhaité (réunion, séminaire, cocktail, tournage…) et vos besoins en restauration ou animation. Nous revenons sous 24 h avec les disponibilités, un devis détaillé et des propositions d'options. La demande est gratuite et sans engagement.</p>
         ),
       },
       {
@@ -125,14 +129,14 @@ const faqCategories: FaqCategory[] = [
         question: "Quelle offre de restauration proposez-vous pour un événement d'entreprise ?",
         answer: "Osmoz propose une offre de restauration complète, construite sur mesure selon le rythme de votre journée : petit déjeuner, déjeuner (plats à partager, buffet, lunchbox ou dîner assis), pause gourmande, cocktail dînatoire. Deux formats principaux : la Cheffe privée Fleur, qui cuisine sur place avec des produits de saison, ou nos traiteurs partenaires engagés (Brigat', Adar, Les Cuistots Migrateurs, Terroir du Nil, Karmama). Tout est préparé ou livré le jour même. Les régimes spécifiques (végétarien, vegan, sans gluten, allergies, halal) sont pris en compte sur demande.",
         answerJsx: (
-          <p>Osmoz propose une offre de restauration complète, construite sur mesure selon le rythme de votre journée : petit déjeuner, déjeuner (plats à partager, buffet, lunchbox ou dîner assis), pause gourmande, cocktail dînatoire. Deux formats principaux : la Cheffe privée Fleur, qui cuisine sur place avec des produits de saison, ou nos traiteurs partenaires engagés (Brigat', Adar, Les Cuistots Migrateurs, Terroir du Nil, Karmama). Les régimes spécifiques (végétarien, vegan, sans gluten, allergies, halal) sont pris en compte sur demande. <Link to="/experience" className="text-[#862637] underline underline-offset-2">Découvrir l'offre culinaire →</Link></p>
+          <p>Osmoz propose une offre de restauration complète, construite sur mesure selon le rythme de votre journée : petit déjeuner, déjeuner (plats à partager, buffet, lunchbox ou dîner assis), pause gourmande, cocktail dînatoire. Deux formats principaux : la Cheffe privée Fleur, qui cuisine sur place avec des produits de saison, ou nos traiteurs partenaires engagés (Brigat', Adar, Les Cuistots Migrateurs, Terroir du Nil, Karmama). Les régimes spécifiques (végétarien, vegan, sans gluten, allergies, halal) sont pris en compte sur demande. <Link to={p('/experience')} className="text-[#862637] underline underline-offset-2">Découvrir l'offre culinaire →</Link></p>
         ),
       },
       {
         question: "Quelles animations et activités de team building sont proposées chez Osmoz ?",
         answer: "Trois familles d'animations sont disponibles directement dans le lieu : les animations culinaires (atelier pizzaiolo, atelier pâtisserie-chocolat, dégustation d'huîtres animée), les quiz et challenges (Bagel Quiz, blind test avec option chanteuse live, Meet & Win pour la cohésion), et les formats immersifs (atelier doublage de film, Green City pour sensibiliser aux enjeux RSE, escape game en réalité virtuelle avec débrief coach). Toutes ces activités sont intégrées à la journée, sans logistique supplémentaire de votre côté.",
         answerJsx: (
-          <p>Trois familles d'animations sont disponibles directement dans le lieu : les animations culinaires (atelier pizzaiolo, atelier pâtisserie-chocolat, dégustation d'huîtres animée), les quiz et challenges (Bagel Quiz, blind test avec option chanteuse live, Meet & Win), et les formats immersifs (atelier doublage de film, Green City RSE, escape game en réalité virtuelle). <Link to="/experience" className="text-[#862637] underline underline-offset-2">Voir toutes les activités →</Link></p>
+          <p>Trois familles d'animations sont disponibles directement dans le lieu : les animations culinaires (atelier pizzaiolo, atelier pâtisserie-chocolat, dégustation d'huîtres animée), les quiz et challenges (Bagel Quiz, blind test avec option chanteuse live, Meet & Win), et les formats immersifs (atelier doublage de film, Green City RSE, escape game en réalité virtuelle). <Link to={p('/experience')} className="text-[#862637] underline underline-offset-2">Voir toutes les activités →</Link></p>
         ),
       },
       {
@@ -148,16 +152,18 @@ const faqCategories: FaqCategory[] = [
         question: "Osmoz propose-t-il une approche éco-responsable pour les événements d'entreprise ?",
         answer: "Oui, la démarche RSE d'Osmoz repose sur quatre piliers concrets. Zéro déchet opérationnel : plastique à usage unique banni, tri sélectif intégré, filtration d'eau pour supprimer les bouteilles. Cuisine locale et responsable : produits de saison, circuit court, filières bio ou HVE, gestion active du gaspillage. Réhabilitation plutôt que construction : nos lieux sont des espaces existants transformés, pas de nouvelle construction. Mobilité sobre : Paris intra-muros ou proche, transports en commun à portée, éclairage LED. Des indicateurs de performance sont disponibles sur demande pour vos bilans RSE et rapports de durabilité.",
         answerJsx: (
-          <p>Oui, la démarche RSE d'Osmoz repose sur quatre piliers concrets : zéro déchet opérationnel, cuisine locale et responsable, réhabilitation plutôt que construction, et mobilité sobre. Des indicateurs de performance sont disponibles sur demande pour vos bilans RSE et rapports de durabilité. <Link to="/rse" className="text-[#862637] underline underline-offset-2">En savoir plus sur notre démarche RSE →</Link></p>
+          <p>Oui, la démarche RSE d'Osmoz repose sur quatre piliers concrets : zéro déchet opérationnel, cuisine locale et responsable, réhabilitation plutôt que construction, et mobilité sobre. Des indicateurs de performance sont disponibles sur demande pour vos bilans RSE et rapports de durabilité. <Link to={p('/rse')} className="text-[#862637] underline underline-offset-2">En savoir plus sur notre démarche RSE →</Link></p>
         ),
       },
     ],
   },
-];
-
-const allItems = faqCategories.flatMap(c => c.items);
+  ];
+}
 
 export default function QuestionsFrequentes() {
+  const { p } = useLocale();
+  const faqCategories = useMemo(() => buildFaqCategories(p), [p]);
+  const allItems = faqCategories.flatMap((c) => c.items);
   const [openKey, setOpenKey] = useState<string | null>(null);
 
   const jsonLd = {
@@ -175,7 +181,7 @@ export default function QuestionsFrequentes() {
 
   return (
     <>
-      <SEO path="/questions-frequentes" />
+      <SEO route="faq" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>

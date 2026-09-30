@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import type { CSSProperties } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import AProposTabs from '../components/AProposTabs';
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
@@ -100,6 +101,7 @@ const revealD = (d: number): CSSProperties => ({ ...reveal, transitionDelay: `${
 
 export default function RSE() {
   const navigate = useNavigate();
+  const { p } = useLocale();
 
   // Scroll reveal via IntersectionObserver
   useEffect(() => {
@@ -122,7 +124,7 @@ export default function RSE() {
 
   return (
     <>
-      <SEO path="/rse" />
+      <SEO route="rse" />
 
       <AProposTabs />
 
@@ -203,7 +205,7 @@ export default function RSE() {
               Découvrir nos engagements
             </button>
             <button
-              onClick={() => navigate('/reservation')}
+              onClick={() => navigate(p('/reservation'))}
               className="hover:text-[#01142a] transition-colors"
               style={{
                 fontSize: '11px',
@@ -562,7 +564,7 @@ export default function RSE() {
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
-              onClick={() => navigate('/reservation')}
+              onClick={() => navigate(p('/reservation'))}
               className="hover:bg-[#862637] transition-colors duration-300"
               style={{
                 padding: '14px 32px',
@@ -579,7 +581,7 @@ export default function RSE() {
               Demander un devis
             </button>
             <Link
-              to="/spaces"
+              to={p('/spaces')}
               className="hover:text-[#01142a] transition-colors"
               style={{
                 fontSize: '11px',

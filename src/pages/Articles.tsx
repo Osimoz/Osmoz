@@ -1,4 +1,5 @@
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import NewsletterForm from '../components/NewsletterForm';
@@ -108,6 +109,7 @@ function mapToCard(article: ApiArticle, index: number): Card | null {
 
 export default function Articles() {
   const navigate = useNavigate();
+  const { p } = useLocale();
   const immersiveRef = useRef<HTMLDivElement>(null);
   const [immersiveProgress, setImmersiveProgress] = useState(0);
 
@@ -161,7 +163,7 @@ export default function Articles() {
 
   return (
     <>
-      <SEO path="/articles" />
+      <SEO route="articles" />
 
       {/* ── HERO ── */}
       <section
@@ -521,7 +523,7 @@ export default function Articles() {
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
-              onClick={() => navigate('/reservation')}
+              onClick={() => navigate(p('/reservation'))}
               className="hover:bg-[#fee1d4] transition-colors duration-300"
               style={{
                 padding: '14px 36px',
@@ -538,7 +540,7 @@ export default function Articles() {
               Faire une demande
             </button>
             <button
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate(p('/contact'))}
               className="hover:text-[#fee1d4] transition-colors"
               style={{
                 fontSize: '11px',

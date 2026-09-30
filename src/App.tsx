@@ -1,9 +1,9 @@
+import type { ReactElement } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Navigation } from './components/Navigation';
-import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import NewsletterPopup from './components/NewsletterPopup';
+import LangLayout from './components/LangLayout';
 import { usePageTracking } from './lib/analytics';
+import { LANGS, ROUTE_KEYS, pathFor, type RouteKey } from './i18n/paths';
 
 import HomeV2 from './pages/HomeV2';
 import Spaces from './pages/Spaces';
@@ -19,6 +19,25 @@ import RSE from './pages/RSE';
 import Experience from './pages/Experience';
 import Articles from './pages/Articles';
 import ArticleDetail from './pages/ArticleDetail';
+import NotFound from './pages/NotFound';
+
+// Une page par clé de route de src/lib/seo-config.json. Une clé sans page (ou
+// l'inverse) est une erreur de compilation.
+const PAGES: Record<RouteKey, ReactElement> = {
+  home: <HomeV2 />,
+  spaces: <Spaces />,
+  loft: <LoftOsmozV2 />,
+  duplex: <DuplexOsmozV2 />,
+  penthouse: <PenthouseOsmoz />,
+  contact: <Contact />,
+  reservation: <Reservation />,
+  faq: <QuestionsFrequentes />,
+  experience: <Experience />,
+  articles: <Articles />,
+  rse: <RSE />,
+  legal: <MentionsLegales />,
+  privacy: <PolitiqueConfidentialite />,
+};
 
 // Envoie une page vue GA4 à chaque changement de route. Doit être DANS le
 // Router (utilise useLocation).
@@ -33,28 +52,20 @@ export default function App() {
       <ScrollToTop />
       <RouteAnalytics />
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#fbfbf3' }}>
-        <Navigation />
-
-        <NewsletterPopup />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<HomeV2 />} />
-            <Route path="/spaces" element={<Spaces />} />
-            <Route path="/spaces/loft-osmoz" element={<LoftOsmozV2 />} />
-            <Route path="/spaces/duplex-osmoz" element={<DuplexOsmozV2 />} />
-            <Route path="/spaces/penthouse-osmoz" element={<PenthouseOsmoz />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/reservation" element={<Reservation />} />
-            <Route path="/questions-frequentes" element={<QuestionsFrequentes />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/articles" element={<Articles />} />
-            <Route path="/articles/:slug" element={<ArticleDetail />} />
-            <Route path="/rse" element={<RSE />} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
-            <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
-          </Routes>
-        </main>
-        <Footer />
+        <Routes>
+          {/* Un arbre de routes par langue, monté sur les chemins de la table. */}
+          {LANGS.map((lang) => (
+            <Route key={lang} element={<LangLayout lang={lang} />}>
+              {ROUTE_KEYS.map((key) => {
+                const path = pathFor(key, lang);
+                return path ? <Route key={key} path={path} element={PAGES[key]} /> : null;
+              })}
+              {/* Les articles n'existent qu'en français (/en/articles/* → 301, netlify.toml). */}
+              {lang === 'fr' && <Route path="/articles/:slug" element={<ArticleDetail />} />}
+              <Route path={lang === 'fr' ? '*' : '/en/*'} element={<NotFound />} />
+            </Route>
+          ))}
+        </Routes>
       </div>
     </BrowserRouter>
   );

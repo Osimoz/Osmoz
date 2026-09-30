@@ -1,11 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useLocale } from '../i18n/context';
 
 export default function AProposTabs() {
   const { pathname } = useLocation();
+  const { t, p } = useLocale();
 
   const tabs = [
-    { label: 'Nos engagements', to: '/rse' },
-    { label: 'FAQ', to: '/questions-frequentes' },
+    { label: t.nav.commitments, to: p('/rse') },
+    { label: t.nav.faq, to: p('/questions-frequentes') },
   ];
 
   return (

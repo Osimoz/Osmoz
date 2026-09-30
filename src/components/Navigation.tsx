@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { LogoHorizontal } from './Logo';
+import { useLocale } from '../i18n/context';
 
 export const Navigation = () => {
   const navigate = useNavigate();
+  const { t, p, alt } = useLocale();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [aproposOpen, setAproposOpen] = useState(false);
 
   const handleReservationClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    navigate('/reservation');
+    navigate(p('/reservation'));
   };
 
   // Scroll detection
@@ -47,21 +49,21 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-[72px]">
 
           {/* Logo */}
-          <Link to="/" onClick={() => setOpen(false)} className="flex-shrink-0">
+          <Link to={p('/')} onClick={() => setOpen(false)} className="flex-shrink-0">
             <LogoHorizontal color="#862637" />
           </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-10">
             {[
-              { to: '/', label: 'Accueil' },
-              { to: '/spaces', label: 'Espaces' },
-              { to: '/experience', label: 'Expérience' },
-              { to: '/articles', label: 'Articles' },
+              { to: '/', label: t.nav.home },
+              { to: '/spaces', label: t.nav.spaces },
+              { to: '/experience', label: t.nav.experience },
+              { to: '/articles', label: t.nav.articles },
             ].map(({ to, label }) => (
               <Link
                 key={to}
-                to={to}
+                to={p(to)}
                 className="relative group py-1"
               >
                 <span className="text-[#01142a] font-normal text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">
@@ -77,9 +79,9 @@ export const Navigation = () => {
               onMouseEnter={() => setAproposOpen(true)}
               onMouseLeave={() => setAproposOpen(false)}
             >
-              <Link to="/rse" className="relative group flex items-center gap-1">
+              <Link to={p('/rse')} className="relative group flex items-center gap-1">
                 <span className="text-[#01142a] font-normal text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">
-                  À propos
+                  {t.nav.about}
                 </span>
                 <span className="text-[10px] text-[#01142a] group-hover:text-[#862637] transition-colors duration-200">▾</span>
                 <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -92,25 +94,39 @@ export const Navigation = () => {
                 aproposOpen ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'
               }`}>
                 <Link
-                  to="/rse"
+                  to={p('/rse')}
                   className="block px-5 py-3 text-xs tracking-[0.12em] uppercase text-[#01142a] hover:text-[#862637] hover:bg-white transition-colors duration-150"
                   onClick={() => setAproposOpen(false)}
                 >
-                  Nos engagements
+                  {t.nav.commitments}
                 </Link>
                 <div className="mx-4 h-px bg-[#e5e5e5]" />
                 <Link
-                  to="/questions-frequentes"
+                  to={p('/questions-frequentes')}
                   className="block px-5 py-3 text-xs tracking-[0.12em] uppercase text-[#01142a] hover:text-[#862637] hover:bg-white transition-colors duration-150"
                   onClick={() => setAproposOpen(false)}
                 >
-                  FAQ
+                  {t.nav.faq}
                 </Link>
               </div>
             </div>
 
-            <Link to="/contact" className="relative group py-1">
-              <span className="text-[#01142a] font-normal text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">Contact</span>
+            <Link to={p('/contact')} className="relative group py-1">
+              <span className="text-[#01142a] font-normal text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">{t.nav.contact}</span>
+              <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+            </Link>
+
+            {/* Sélecteur de langue : mène à la page équivalente dans l'autre langue */}
+            <Link
+              to={alt.to}
+              hrefLang={alt.lang}
+              lang={alt.lang}
+              aria-label={t.lang.switchAria}
+              className="relative group py-1"
+            >
+              <span className="text-[#01142a] font-normal text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">
+                {t.lang[alt.lang]}
+              </span>
               <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </Link>
 
@@ -118,14 +134,14 @@ export const Navigation = () => {
               onClick={handleReservationClick}
               className="ml-2 bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-normal rounded-lg hover:bg-[#01142a] hover:text-white transition-all duration-300 border border-transparent"
             >
-              Réserver
+              {t.nav.book}
             </button>
           </div>
 
           {/* Mobile hamburger */}
           <button
             className="md:hidden p-3 -mr-1"
-            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={open}
             onClick={() => setOpen(v => !v)}
           >
@@ -152,36 +168,46 @@ export const Navigation = () => {
       >
         <div className="p-3 space-y-0.5">
           {[
-            { to: '/', label: 'Accueil' },
-            { to: '/spaces', label: 'Espaces' },
-            { to: '/experience', label: 'Expérience' },
-            { to: '/articles', label: 'Articles' },
+            { to: '/', label: t.nav.home },
+            { to: '/spaces', label: t.nav.spaces },
+            { to: '/experience', label: t.nav.experience },
+            { to: '/articles', label: t.nav.articles },
           ].map(({ to, label }) => (
             <Link
               key={to}
-              to={to}
+              to={p(to)}
               onClick={() => setOpen(false)}
               className="block px-4 py-3 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150"
             >
               {label}
             </Link>
           ))}
-          <div className="px-4 py-2 text-xs tracking-[0.15em] uppercase text-[#9b9690]">À propos</div>
-          <Link to="/rse" onClick={() => setOpen(false)} className="block pl-8 pr-4 py-2.5 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
-            Nos engagements
+          <div className="px-4 py-2 text-xs tracking-[0.15em] uppercase text-[#9b9690]">{t.nav.about}</div>
+          <Link to={p('/rse')} onClick={() => setOpen(false)} className="block pl-8 pr-4 py-2.5 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
+            {t.nav.commitments}
           </Link>
-          <Link to="/questions-frequentes" onClick={() => setOpen(false)} className="block pl-8 pr-4 py-2.5 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
-            FAQ
+          <Link to={p('/questions-frequentes')} onClick={() => setOpen(false)} className="block pl-8 pr-4 py-2.5 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
+            {t.nav.faq}
           </Link>
-          <Link to="/contact" onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
-            Contact
+          <Link to={p('/contact')} onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
+            {t.nav.contact}
+          </Link>
+          <Link
+            to={alt.to}
+            hrefLang={alt.lang}
+            lang={alt.lang}
+            aria-label={t.lang.switchAria}
+            onClick={() => setOpen(false)}
+            className="block px-4 py-3 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150"
+          >
+            {t.lang[alt.lang]}
           </Link>
           <div className="pt-2 pb-1 px-1">
             <button
               onClick={(e) => { handleReservationClick(e); setOpen(false); }}
               className="w-full bg-[#862637] text-[#fee1d4] px-4 py-3 text-xs tracking-[0.2em] uppercase font-normal rounded-xl hover:bg-[#01142a] transition-all duration-300"
             >
-              Réserver un espace
+              {t.nav.bookSpace}
             </button>
           </div>
         </div>

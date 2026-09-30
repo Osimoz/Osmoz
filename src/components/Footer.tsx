@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useLocale } from '../i18n/context';
 
 const socials = [
   {
@@ -41,6 +42,7 @@ const socials = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t, p } = useLocale();
 
   return (
     <footer className="border-t border-black/5 py-8 mt-auto">
@@ -48,7 +50,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-5">
 
           <div className="text-sm text-gray-400 font-light">
-            © {currentYear} Osmoz. Tous droits réservés.
+            © {currentYear} Osmoz. {t.footer.rights}
           </div>
 
           {/* Social icons */}
@@ -68,20 +70,20 @@ export function Footer() {
           </div>
 
           <div className="flex gap-6 flex-wrap justify-center">
-            <Link to="/contact" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              Contact
+            <Link to={p('/contact')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              {t.footer.contact}
             </Link>
-            <Link to="/questions-frequentes" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              FAQ
+            <Link to={p('/questions-frequentes')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              {t.footer.faq}
             </Link>
-            <Link to="/rse" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              RSE
+            <Link to={p('/rse')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              {t.footer.csr}
             </Link>
-            <Link to="/mentions-legales" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              Mentions légales
+            <Link to={p('/mentions-legales')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              {t.footer.legal}
             </Link>
-            <Link to="/politique-de-confidentialite" className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              Politique de confidentialité
+            <Link to={p('/politique-de-confidentialite')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              {t.footer.privacy}
             </Link>
           </div>
 

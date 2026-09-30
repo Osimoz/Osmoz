@@ -6,6 +6,7 @@ import {
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import ImageGallery from '../components/ImageGallery';
 import { srcSet, SIZES } from '../lib/responsiveImage';
 
@@ -163,6 +164,7 @@ const otherSpaces = [
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 export default function DuplexOsmozV2() {
   const navigate = useNavigate();
+  const { p } = useLocale();
   const [activeConfig, setActiveConfig] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -268,7 +270,7 @@ export default function DuplexOsmozV2() {
     <div className="pt-0">
 
       {/* ── SEO ── */}
-      <SEO path="/spaces/duplex-osmoz" />
+      <SEO route="duplex" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(duplexBreadcrumbFaqLd)}</script>
@@ -315,7 +317,7 @@ export default function DuplexOsmozV2() {
           </div>
 
           <button
-            onClick={() => navigate('/reservation?space=duplex')}
+            onClick={() => navigate(p('/reservation?space=duplex'))}
             className="bg-white text-[#01142a] px-12 py-4 rounded-lg text-xs tracking-[0.2em] font-normal uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition-all duration-300"
           >
             Réserver ce lieu
@@ -342,7 +344,7 @@ export default function DuplexOsmozV2() {
             </span>
           </div>
           <button
-            onClick={() => navigate('/reservation?space=duplex')}
+            onClick={() => navigate(p('/reservation?space=duplex'))}
             className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-normal uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
             Demander un devis
@@ -357,7 +359,7 @@ export default function DuplexOsmozV2() {
           <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>1 499€</p>
         </div>
         <button
-          onClick={() => navigate('/reservation?space=duplex')}
+          onClick={() => navigate(p('/reservation?space=duplex'))}
           className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-normal flex-1 max-w-[200px]"
         >
           Réserver ce lieu
@@ -566,7 +568,7 @@ export default function DuplexOsmozV2() {
                 <p className="text-white/40 text-xs mt-1 font-light">Hors taxes · Location seule</p>
               </div>
               <button
-                onClick={() => navigate('/reservation?space=duplex')}
+                onClick={() => navigate(p('/reservation?space=duplex'))}
                 className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
               >
                 Réserver ce lieu
@@ -685,7 +687,7 @@ export default function DuplexOsmozV2() {
             {otherSpaces.map((s) => (
               <Link
                 key={s.title}
-                to={s.link}
+                to={p(s.link)}
                 className="group block bg-[#fbfbf3] rounded-xl overflow-hidden border border-[#e5e5e5] hover:border-[#01142a]/30 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="aspect-[16/9] overflow-hidden">

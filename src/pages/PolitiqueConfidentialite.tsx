@@ -3,7 +3,7 @@ import SEO from '../components/SEO';
 export default function PolitiqueConfidentialite() {
   return (
     <>
-      <SEO path="/politique-de-confidentialite" />
+      <SEO route="privacy" />
 
       <div className="pt-32 pb-24 bg-[#fbfbf3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

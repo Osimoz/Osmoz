@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Check, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import { useSearchParams } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 
@@ -34,6 +35,7 @@ type F = {
 type Err = Partial<Record<keyof F, string>>;
 
 export default function Reservation() {
+  const { p } = useLocale();
   const [searchParams] = useSearchParams();
   const sp = ['loft','duplex','penthouse'].includes(searchParams.get('space') || '') ? searchParams.get('space')! : '';
 
@@ -131,7 +133,7 @@ export default function Reservation() {
           <p className="text-sm font-light text-gray-500 leading-relaxed mb-8">
             Notre équipe vous contacte sous <strong className="font-normal text-[#01142a]">24h</strong> pour confirmer les disponibilités.
           </p>
-          <a href="/" className="inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] transition-all duration-300">
+          <a href={p('/')} className="inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] transition-all duration-300">
             Retour à l'accueil
           </a>
         </div>
@@ -150,7 +152,7 @@ export default function Reservation() {
 
   return (
     <>
-      <SEO path="/reservation" />
+      <SEO route="reservation" />
 
       {/* Mobile sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t border-[#e5e5e5] px-4 py-3">
@@ -314,7 +316,7 @@ export default function Reservation() {
                 />
                 <label htmlFor="accept-data-policy" className="text-xs leading-relaxed text-gray-600 cursor-pointer">
                   J'accepte que mes données soient utilisées dans le cadre du traitement de ma demande, conformément à la{' '}
-                  <a href="/politique-de-confidentialite" target="_blank" rel="noopener noreferrer" className="text-[#862637] hover:text-[#01142a] underline">
+                  <a href={p('/politique-de-confidentialite')} target="_blank" rel="noopener noreferrer" className="text-[#862637] hover:text-[#01142a] underline">
                     politique de confidentialité
                   </a>
                   . <span className="text-[#862637] font-semibold">*</span>

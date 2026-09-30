@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import { ArrowRight, Users } from 'lucide-react';
 
 const base = import.meta.env.BASE_URL;
@@ -43,6 +44,7 @@ const spaces = [
 ];
 
 export default function Spaces() {
+  const { p } = useLocale();
   const spacesBreadcrumbLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -84,7 +86,7 @@ export default function Spaces() {
 
   return (
     <>
-      <SEO path="/spaces" />
+      <SEO route="spaces" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(spacesBreadcrumbLd)}</script>
       </Helmet>
@@ -111,7 +113,7 @@ export default function Spaces() {
           {spaces.map((space, i) => (
             <Link
               key={space.id}
-              to={`/spaces/${space.id}`}
+              to={p(`/spaces/${space.id}`)}
               className="group block"
             >
               <div className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-0 rounded-3xl overflow-hidden border border-[#e5e5e5] bg-white hover:shadow-2xl transition-all duration-500`}>
@@ -167,7 +169,7 @@ export default function Spaces() {
                       <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                     <Link
-                      to={`/reservation?space=${space.slug}`}
+                      to={p(`/reservation?space=${space.slug}`)}
                       onClick={e => e.stopPropagation()}
                       className="text-xs font-normal tracking-[0.18em] uppercase text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors duration-200"
                     >
@@ -193,7 +195,7 @@ export default function Spaces() {
               </h3>
             </div>
             <Link
-              to="/contact"
+              to={p('/contact')}
               className="flex-shrink-0 border border-white/30 text-white px-8 py-4 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
             >
               Nous contacter

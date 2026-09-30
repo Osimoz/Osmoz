@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Phone, ArrowRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import SEO from '../components/SEO';
+import { useLocale } from '../i18n/context';
 import { Link } from 'react-router-dom';
 
 const EMAILJS_SERVICE_ID = 'service_5dizo3p';
@@ -9,6 +10,7 @@ const EMAILJS_TEMPLATE_ID = 'template_ttklrxv';
 const EMAILJS_PUBLIC_KEY = '1Q_BLfh61Y9oi6ls_';
 
 export default function Contact() {
+  const { p } = useLocale();
   useEffect(() => {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }, []);
@@ -50,7 +52,7 @@ export default function Contact() {
 
   return (
     <>
-      <SEO path="/contact" />
+      <SEO route="contact" />
 
       <div className="pt-32 pb-24 bg-[#fbfbf3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +70,7 @@ export default function Contact() {
             </h1>
             <p className="text-base font-normal text-gray-500 leading-relaxed">
               Une question, une demande particulière ? Écrivez-nous. Pour une réservation, utilisez{' '}
-              <Link to="/reservation" className="text-[#862637] underline underline-offset-4 hover:text-[#01142a] transition-colors">
+              <Link to={p('/reservation')} className="text-[#862637] underline underline-offset-4 hover:text-[#01142a] transition-colors">
                 notre formulaire dédié
               </Link>
               .
@@ -186,7 +188,7 @@ export default function Contact() {
                   Pour une demande de réservation, de devis ou de disponibilité, utilisez notre formulaire dédié.
                 </p>
                 <Link
-                  to="/reservation"
+                  to={p('/reservation')}
                   className="inline-flex items-center gap-2 bg-[#01142a] text-white px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
                 >
                   Formulaire de réservation

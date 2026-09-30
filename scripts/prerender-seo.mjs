@@ -113,19 +113,25 @@ async function main() {
 
   const written = [];
 
-  // 1) Routes marketing (seo-config.json)
-  for (const [path, meta] of Object.entries(config.routes)) {
-    const url = `${baseUrl}${path === '/' ? '/' : path}`;
-    const block = seoBlock({
-      title: meta.title,
-      description: meta.description,
-      url,
-      image: meta.image ?? defaultImage,
-      type: meta.type ?? 'website',
-      locale,
-      robots: meta.robots ?? 'index, follow',
-    });
-    written.push(await writeRoute(path, renderPage(template, block)));
+  // 1) Routes marketing (seo-config.json) : une page par langue qui a un
+  //    chemin ET des meta (les routes sans meta EN ne sont pas pré-rendues en EN).
+  for (const route of Object.values(config.routes)) {
+    for (const lang of ['fr', 'en']) {
+      const path = route.path?.[lang];
+      const meta = route[lang];
+      if (!path || !meta) continue;
+      const url = `${baseUrl}${path}`;
+      const block = seoBlock({
+        title: meta.title,
+        description: meta.description,
+        url,
+        image: route.image ?? defaultImage,
+        type: route.type ?? 'website',
+        locale,
+        robots: route.robots ?? 'index, follow',
+      });
+      written.push(await writeRoute(path, renderPage(template, block)));
+    }
   }
 
   // 2) Pages articles (/articles/<slug>) depuis dist/data/
