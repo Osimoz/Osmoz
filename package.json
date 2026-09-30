@@ -9,6 +9,7 @@
     "prebuild": "node scripts/sync-articles.mjs",
     "build": "tsc -b && vite build",
     "postbuild": "node scripts/prerender-seo.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
     "preview": "vite preview",
     "lint": "eslint ."
   },
@@ -37,7 +38,6 @@
     "terser": "^5.29.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.70.1",
-    "vite": "^5.4.2",
-    "vite-plugin-sitemap": "^0.8.2"
+    "vite": "^5.4.2"
   }
 }

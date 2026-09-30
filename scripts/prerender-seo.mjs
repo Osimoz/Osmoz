@@ -12,6 +12,13 @@
 //
 // Les pages articles (/articles/<slug>) sont générées depuis les JSON déjà
 // synchronisés dans dist/data/ (title, description, hero, JSON-LD).
+//
+// Le script écrit aussi :
+// - dist/sitemap.xml : toutes les pages indexables FR + EN avec leurs
+//   xhtml:link hreflang, plus les articles (FR seulement). Les pages noindex
+//   n'y figurent pas.
+// - dist/404.html : servi par Netlify en HTTP 404 pour toute URL inconnue
+//   (netlify.toml), en noindex et sans canonical.
 
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
@@ -113,12 +120,43 @@ async function writeRoute(path, html) {
   return `dist/${rel}.html`;
 }
 
+const isNoindex = (robots) => /noindex/i.test(robots ?? '');
+
+function sitemapXml(entries) {
+  const url = (e) => [
+    '  <url>',
+    `    <loc>${esc(e.loc)}</loc>`,
+    ...e.alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${esc(a.lang)}" href="${esc(a.href)}" />`),
+    e.lastmod && `    <lastmod>${esc(e.lastmod)}</lastmod>`,
+    '  </url>',
+  ].filter(Boolean).join('\n');
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schema/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    ...entries.map(url),
+    '</urlset>',
+    '',
+  ].join('\n');
+}
+
+// Page 404 : noindex, pas de canonical (une URL inconnue n'a pas d'URL de
+// référence), lang fr par défaut — le client repasse en EN sous /en/*.
+function notFoundBlock() {
+  const rh = 'data-rh="true"';
+  return [
+    `<title ${rh}>Page introuvable | OSMOZ</title>`,
+    `<meta ${rh} name="robots" content="noindex, follow" />`,
+    `<meta ${rh} property="og:site_name" content="OSMOZ" />`,
+  ].map((l) => `    ${l}`).join('\n');
+}
+
 async function main() {
   const template = await readFile(join(DIST, 'index.html'), 'utf8');
   const config = JSON.parse(await readFile(CONFIG_PATH, 'utf8'));
   const { baseUrl, image: defaultImage, locales } = config.defaults;
 
   const written = [];
+  const sitemap = [];
 
   // 1) Routes marketing (seo-config.json) : une page par langue qui a un
   //    chemin ET des meta (les routes sans meta EN ne sont pas pré-rendues en EN).
@@ -143,6 +181,7 @@ async function main() {
         alternates,
       });
       written.push(await writeRoute(path, renderPage(template, block, lang)));
+      if (!isNoindex(route.robots)) sitemap.push({ loc: url, alternates });
     }
   }
 
@@ -182,7 +221,14 @@ async function main() {
       extra,
     });
     written.push(await writeRoute(`/articles/${a.slug}`, renderPage(template, block)));
+    const lastmod = (a.updatedAt ?? a.updated_at ?? publishedAt ?? '').toString().slice(0, 10) || undefined;
+    sitemap.push({ loc: url, alternates: [], lastmod });
   }
+
+  // 3) sitemap.xml + 404.html
+  await writeFile(join(DIST, 'sitemap.xml'), sitemapXml(sitemap));
+  await writeFile(join(DIST, '404.html'), renderPage(template, notFoundBlock(), 'fr'));
+  console.log(`[prerender-seo] sitemap.xml : ${sitemap.length} URLs · 404.html écrit.`);
 
   console.log(`[prerender-seo] ${written.length} pages HTML générées (${articleFiles.length} articles).`);
 }

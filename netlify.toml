@@ -68,18 +68,29 @@
   status = 301
   force = true
 
-# Redirect /en/ paths to French equivalent
+# ── English version ──────────────────────────────────────────────────
+# Les pages EN sont des fichiers plats pré-rendus (dist/en.html, dist/en/…).
+# Les articles n'existent qu'en français : /en/articles/* → 301 vers l'article FR.
 [[redirects]]
-  from = "/en/*"
-  to = "/:splat"
+  from = "/en/articles/*"
+  to = "/articles/:splat"
   status = 301
   force = true
 
-# ── SPA catch-all (must be last) ─────────────────────────────────────
+[[redirects]]
+  from = "/en/articles"
+  to = "/articles"
+  status = 301
+  force = true
+
+# ── 404 (must be last) ───────────────────────────────────────────────
+# Toutes les routes indexables sont des fichiers plats servis avant cette
+# règle. Une URL inconnue reçoit dist/404.html (noindex) en HTTP 404 — plus
+# de soft-404 servant la home en 200.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
 
 [dev]
   framework = "vite"
