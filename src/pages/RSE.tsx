@@ -6,86 +6,18 @@ import { useLocale } from '../i18n/context';
 import AProposTabs from '../components/AProposTabs';
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
+// Le texte vient de t.rse ; ne restent ici que les valeurs non textuelles.
 
-const piliers = [
-  {
-    number: '01',
-    title: 'Zéro déchet opérationnel',
-    desc: "Éliminer le plastique, structurer le tri, repenser chaque consommable. Rien n'est anodin.",
-  },
-  {
-    number: '02',
-    title: 'Cuisine locale & responsable',
-    desc: 'Des partenaires traiteurs engagés, des produits de saison, des circuits courts. La gastronomie sans compromis.',
-  },
-  {
-    number: '03',
-    title: 'Réhabilitation plutôt que construction',
-    desc: "Redonner vie à des espaces existants. Réduire l'empreinte carbone dès la fondation.",
-  },
-  {
-    number: '04',
-    title: 'Mobilité & installations sobres',
-    desc: "Paris intra-muros. Transports en commun à portée. Éclairage LED. Filtration d'eau. Les détails techniques comptent aussi.",
-  },
+const pillarNumbers = ['01', '02', '03', '04'];
+
+const actionGradients = [
+  'linear-gradient(160deg, #e2eade 0%, #d5e0cf 60%, #c5d3be 100%)',
+  'linear-gradient(160deg, #e2eade 0%, #d5e0cf 60%, #c5d3be 100%)',
+  'linear-gradient(160deg, #dce5df 0%, #cfdbcf 60%, #bfcfc0 100%)',
+  'linear-gradient(160deg, #dce5df 0%, #cfdbcf 60%, #bfcfc0 100%)',
 ];
 
-const actions = [
-  {
-    index: 'Action 01',
-    word: 'Zéro',
-    tag: 'Tri sélectif intégré, tous nos espaces',
-    gradient: 'linear-gradient(160deg, #e2eade 0%, #d5e0cf 60%, #c5d3be 100%)',
-    title: 'Tendre vers le zéro déchet',
-    body: "Nous avons banni le plastique à usage unique de l'ensemble de nos espaces. Chaque lieu est équipé de dispositifs de tri sélectif identifiés, et nous privilégions des alternatives durables pour tous les contenants, accessoires et consommables. Chaque détail compte, même les plus invisibles.",
-    tags: ['Plastique éliminé', 'Tri sélectif', 'Alternatives durables'],
-  },
-  {
-    index: 'Action 02',
-    word: 'Local',
-    tag: 'Produits de saison, filières engagées',
-    gradient: 'linear-gradient(160deg, #e2eade 0%, #d5e0cf 60%, #c5d3be 100%)',
-    title: 'Une table qui respecte son territoire',
-    body: "Nous collaborons exclusivement avec des traiteurs partageant nos engagements environnementaux. Produits de saison, approvisionnement local, filières biologiques ou certifiées HVE, réduction des emballages. Et parce que le gaspillage alimentaire est une question sérieuse, nous ajustons les quantités, redistribuons les surplus et encourageons les formats à emporter.",
-    tags: ['Saison', 'Circuit court', 'Bio / HVE', 'Anti-gaspillage'],
-  },
-  {
-    index: 'Action 03',
-    word: 'Réhabiliter',
-    tag: 'Patrimoine réhabilité, Paris',
-    gradient: 'linear-gradient(160deg, #dce5df 0%, #cfdbcf 60%, #bfcfc0 100%)',
-    title: 'Réhabiliter plutôt que construire',
-    body: "OSMOZ ne bâtit pas : il transforme. En valorisant des lieux existants, nous limitons l'artificialisation des sols et réduisons l'empreinte carbone liée à la construction. Nos espaces sont des héritages réactivés, déjà intégrés au tissu urbain, porteurs d'une histoire, prêts pour la prochaine.",
-    tags: ['Patrimoine', 'Empreinte réduite', 'Tissu urbain'],
-  },
-  {
-    index: 'Action 04',
-    word: 'Paris',
-    tag: 'Intra-muros, transports à portée',
-    gradient: 'linear-gradient(160deg, #dce5df 0%, #cfdbcf 60%, #bfcfc0 100%)',
-    title: 'Au cœur de Paris, pour de bonnes raisons',
-    body: "Nos espaces sont situés à Paris intra-muros, à proximité immédiate des transports en commun. Un choix stratégique : moins de déplacements longue distance, plus de mobilités douces, une logistique simplifiée. Nous sommes aussi équipés d'ampoules LED basse consommation et de systèmes de filtration d'eau pour éliminer le recours aux bouteilles plastiques.",
-    tags: ['Transports en commun', 'Éclairage LED', 'Filtration eau'],
-  },
-];
-
-const engagements = [
-  {
-    number: '01',
-    title: "Espaces prêts à l'usage",
-    desc: "Mobilier, audiovisuel, équipements : tout est déjà là. Moins de transport, moins d'impact.",
-  },
-  {
-    number: '02',
-    title: 'Traçabilité & transparence',
-    desc: 'Indicateurs de performance disponibles sur demande pour vos bilans RSE et rapports de durabilité.',
-  },
-  {
-    number: '03',
-    title: 'Un lieu authentique et responsable',
-    desc: 'Chaque espace OSMOZ est pensé pour être à la fois beau, fonctionnel et aligné avec nos valeurs.',
-  },
-];
+const commitmentNumbers = ['01', '02', '03'];
 
 // ─── STYLE HELPERS ────────────────────────────────────────────────────────────
 
@@ -101,7 +33,8 @@ const revealD = (d: number): CSSProperties => ({ ...reveal, transitionDelay: `${
 
 export default function RSE() {
   const navigate = useNavigate();
-  const { p } = useLocale();
+  const { t, p } = useLocale();
+  const r = t.rse;
 
   // Scroll reveal via IntersectionObserver
   useEffect(() => {
@@ -148,7 +81,7 @@ export default function RSE() {
             data-reveal
             style={{ ...reveal, fontSize: '10px', letterSpacing: '0.3em', color: '#862637', fontWeight: 500, marginBottom: '40px', textTransform: 'uppercase' }}
           >
-            Osmoz Engagé · Notre démarche RSE
+            {r.hero.kicker}
           </p>
 
           <h1
@@ -163,9 +96,9 @@ export default function RSE() {
               marginBottom: '36px',
             }}
           >
-            L'événementiel<br />
-            peut être <em className="italic">à la hauteur</em><br />
-            de ses ambitions.
+            {r.hero.titleLine1}<br />
+            {r.hero.titleLine2Before}<em className="italic">{r.hero.titleLine2Em}</em><br />
+            {r.hero.titleLine3}
           </h1>
 
           <p
@@ -180,7 +113,7 @@ export default function RSE() {
               marginBottom: '56px',
             }}
           >
-            Chez OSMOZ, nous croyons qu'un événement réussi ne laisse pas de traces, sauf dans les esprits.
+            {r.hero.text}
           </p>
 
           <div
@@ -202,7 +135,7 @@ export default function RSE() {
                 cursor: 'pointer',
               }}
             >
-              Découvrir nos engagements
+              {r.hero.ctaPillars}
             </button>
             <button
               onClick={() => navigate(p('/reservation'))}
@@ -220,7 +153,7 @@ export default function RSE() {
                 gap: '8px',
               }}
             >
-              Organiser un événement <span>→</span>
+              {r.hero.ctaBook} <span>→</span>
             </button>
           </div>
 
@@ -231,7 +164,7 @@ export default function RSE() {
           >
             <div style={{ width: '40px', height: '1px', background: '#c8c4bc' }} />
             <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6b6860' }}>
-              Défiler
+              {r.hero.scroll}
             </span>
           </div>
         </div>
@@ -256,7 +189,7 @@ export default function RSE() {
               transform: 'translate(-50%, -50%)',
             }}
           >
-            RSE
+            {r.hero.watermark}
           </span>
           <span
             style={{
@@ -272,7 +205,7 @@ export default function RSE() {
               backdropFilter: 'blur(4px)',
             }}
           >
-            Démarche RSE · Paris
+            {r.hero.badge}
           </span>
         </div>
       </section>
@@ -292,7 +225,7 @@ export default function RSE() {
             className="lg:sticky lg:top-28"
           >
             <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#6b6860', fontWeight: 500, paddingTop: '8px' }}>
-              Notre manifeste
+              {r.manifesto.kicker}
             </p>
           </div>
 
@@ -307,9 +240,9 @@ export default function RSE() {
                 marginBottom: '48px',
               }}
             >
-              Concevoir des événements{' '}
-              <em className="italic" style={{ color: '#862637' }}>à impact positif</em>,<br />
-              sans compromis sur l'expérience.
+              {r.manifesto.titleBefore}
+              <em className="italic" style={{ color: '#862637' }}>{r.manifesto.titleEm}</em>{r.manifesto.titleAfter}<br />
+              {r.manifesto.titleLine2}
             </p>
             <p
               style={{
@@ -321,12 +254,7 @@ export default function RSE() {
               }}
               className="md:columns-2 md:gap-12"
             >
-              L'événementiel a longtemps tourné le dos à ses responsabilités. Plastique à usage
-              unique, lieux inaccessibles, gaspillage alimentaire, empreinte carbone ignorée. OSMOZ
-              fait le choix inverse : intégrer la durabilité dès la conception, sans sacrifier le
-              soin apporté à chaque détail. Nos espaces sont des lieux vivants, pensés pour durer,
-              pour les gens qui les habitent le temps d'une journée, et pour la ville qui les accueille
-              depuis toujours.
+              {r.manifesto.body}
             </p>
           </div>
         </div>
@@ -347,10 +275,10 @@ export default function RSE() {
             style={{ ...reveal, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '80px', flexWrap: 'wrap', gap: '24px' }}
           >
             <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#6b6860', fontWeight: 500 }}>
-              Nos engagements
+              {r.pillarsSection.kicker}
             </p>
             <h2 style={{ fontFamily: 'Playfair Display', fontWeight: 300, lineHeight: 1.1, color: '#01142a', fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)' }}>
-              Quatre piliers.<br />Des actions concrètes.
+              {r.pillarsSection.titleLine1}<br />{r.pillarsSection.titleLine2}
             </h2>
           </div>
 
@@ -359,9 +287,9 @@ export default function RSE() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
             style={{ gap: '2px', background: 'rgba(28,28,26,0.1)' }}
           >
-            {piliers.map((p, i) => (
+            {r.pillars.map((pillar, i) => (
               <div
-                key={p.number}
+                key={pillarNumbers[i]}
                 data-reveal
                 style={{
                   ...revealD(i * 0.1),
@@ -390,13 +318,13 @@ export default function RSE() {
                     transition: 'color 0.3s',
                   }}
                 >
-                  {p.number}
+                  {pillarNumbers[i]}
                 </span>
                 <p style={{ fontFamily: 'Playfair Display', fontSize: '22px', fontWeight: 400, color: '#01142a', marginBottom: '16px', lineHeight: 1.2 }}>
-                  {p.title}
+                  {pillar.title}
                 </p>
                 <p style={{ fontSize: '13px', lineHeight: 1.8, color: '#6b6860' }}>
-                  {p.desc}
+                  {pillar.desc}
                 </p>
               </div>
             ))}
@@ -406,7 +334,7 @@ export default function RSE() {
 
       {/* ── ACTIONS ──────────────────────────────────────────────────────────── */}
       <section style={{ borderTop: '1px solid rgba(28,28,26,0.08)' }}>
-        {actions.map((action, i) => (
+        {r.actions.map((action, i) => (
           <div
             key={action.index}
             className={`grid grid-cols-1 lg:grid-cols-2`}
@@ -415,7 +343,7 @@ export default function RSE() {
             {/* Visual panel — alternates left/right */}
             <div
               className={`relative flex items-center justify-center overflow-hidden ${i % 2 === 1 ? 'lg:order-2' : ''}`}
-              style={{ background: action.gradient, minHeight: '320px' }}
+              style={{ background: actionGradients[i], minHeight: '320px' }}
             >
               <span
                 style={{
@@ -542,7 +470,7 @@ export default function RSE() {
           }}
         >
           <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#862637', fontWeight: 500, marginBottom: '32px' }}>
-            Organiser un événement
+            {r.cta.kicker}
           </p>
           <h2
             style={{
@@ -554,13 +482,12 @@ export default function RSE() {
               fontSize: 'clamp(2.5rem, 4vw, 4rem)',
             }}
           >
-            Un événement<br />
-            mémorable <em className="italic" style={{ color: '#862637' }}>et</em><br />
-            responsable.
+            {r.cta.titleLine1}<br />
+            {r.cta.titleLine2Before}<em className="italic" style={{ color: '#862637' }}>{r.cta.titleLine2Em}</em><br />
+            {r.cta.titleLine3}
           </h2>
           <p style={{ fontSize: '15px', lineHeight: 1.9, color: '#6b6860', marginBottom: '48px', maxWidth: '460px', fontWeight: 300 }}>
-            Pas de concession sur l'expérience. Pas de concession sur les valeurs. Nos espaces sont
-            conçus pour les équipes qui cherchent mieux, et qui méritent les deux.
+            {r.cta.text}
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
@@ -578,7 +505,7 @@ export default function RSE() {
                 cursor: 'pointer',
               }}
             >
-              Demander un devis
+              {r.cta.quote}
             </button>
             <Link
               to={p('/spaces')}
@@ -594,7 +521,7 @@ export default function RSE() {
                 textDecoration: 'none',
               }}
             >
-              Voir nos espaces →
+              {r.cta.spaces}
             </Link>
           </div>
         </div>
@@ -615,20 +542,20 @@ export default function RSE() {
         >
           <style>{`.lg\\:border-l { border-left: 1px solid rgba(28,28,26,0.08) !important; }`}</style>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {engagements.map((item, i) => (
+            {r.commitments.map((item, i) => (
               <li
-                key={item.number}
+                key={commitmentNumbers[i]}
                 style={{
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: '20px',
                   paddingTop: '24px',
                   paddingBottom: '24px',
-                  borderBottom: i < engagements.length - 1 ? '1px solid rgba(28,28,26,0.08)' : 'none',
+                  borderBottom: i < r.commitments.length - 1 ? '1px solid rgba(28,28,26,0.08)' : 'none',
                 }}
               >
                 <span style={{ fontFamily: 'Playfair Display', fontSize: '36px', fontWeight: 300, color: 'rgba(28,28,26,0.12)', lineHeight: 1, flexShrink: 0, width: '48px' }}>
-                  {item.number}
+                  {commitmentNumbers[i]}
                 </span>
                 <div>
                   <p style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#01142a', fontWeight: 500, marginBottom: '4px' }}>

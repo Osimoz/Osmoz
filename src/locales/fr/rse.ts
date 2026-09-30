@@ -1,0 +1,86 @@
+// Page /rse (src/pages/RSE.tsx). Les dégradés et numéros restent dans la page.
+export const rse = {
+  hero: {
+    kicker: 'Osmoz Engagé · Notre démarche RSE',
+    titleLine1: "L'événementiel",
+    titleLine2Before: 'peut être ',
+    titleLine2Em: 'à la hauteur',
+    titleLine3: 'de ses ambitions.',
+    text: "Chez OSMOZ, nous croyons qu'un événement réussi ne laisse pas de traces, sauf dans les esprits.",
+    ctaPillars: 'Découvrir nos engagements',
+    ctaBook: 'Organiser un événement',
+    scroll: 'Défiler',
+    watermark: 'RSE',
+    badge: 'Démarche RSE · Paris',
+  },
+  manifesto: {
+    kicker: 'Notre manifeste',
+    titleBefore: 'Concevoir des événements ',
+    titleEm: 'à impact positif',
+    titleAfter: ',',
+    titleLine2: "sans compromis sur l'expérience.",
+    body: "L'événementiel a longtemps tourné le dos à ses responsabilités. Plastique à usage unique, lieux inaccessibles, gaspillage alimentaire, empreinte carbone ignorée. OSMOZ fait le choix inverse : intégrer la durabilité dès la conception, sans sacrifier le soin apporté à chaque détail. Nos espaces sont des lieux vivants, pensés pour durer, pour les gens qui les habitent le temps d'une journée, et pour la ville qui les accueille depuis toujours.",
+  },
+  pillarsSection: {
+    kicker: 'Nos engagements',
+    titleLine1: 'Quatre piliers.',
+    titleLine2: 'Des actions concrètes.',
+  },
+  pillars: [
+    { title: 'Zéro déchet opérationnel', desc: "Éliminer le plastique, structurer le tri, repenser chaque consommable. Rien n'est anodin." },
+    { title: 'Cuisine locale & responsable', desc: 'Des partenaires traiteurs engagés, des produits de saison, des circuits courts. La gastronomie sans compromis.' },
+    { title: 'Réhabilitation plutôt que construction', desc: "Redonner vie à des espaces existants. Réduire l'empreinte carbone dès la fondation." },
+    { title: 'Mobilité & installations sobres', desc: "Paris intra-muros. Transports en commun à portée. Éclairage LED. Filtration d'eau. Les détails techniques comptent aussi." },
+  ],
+  actions: [
+    {
+      index: 'Action 01',
+      word: 'Zéro',
+      tag: 'Tri sélectif intégré, tous nos espaces',
+      title: 'Tendre vers le zéro déchet',
+      body: "Nous avons banni le plastique à usage unique de l'ensemble de nos espaces. Chaque lieu est équipé de dispositifs de tri sélectif identifiés, et nous privilégions des alternatives durables pour tous les contenants, accessoires et consommables. Chaque détail compte, même les plus invisibles.",
+      tags: ['Plastique éliminé', 'Tri sélectif', 'Alternatives durables'],
+    },
+    {
+      index: 'Action 02',
+      word: 'Local',
+      tag: 'Produits de saison, filières engagées',
+      title: 'Une table qui respecte son territoire',
+      body: 'Nous collaborons exclusivement avec des traiteurs partageant nos engagements environnementaux. Produits de saison, approvisionnement local, filières biologiques ou certifiées HVE, réduction des emballages. Et parce que le gaspillage alimentaire est une question sérieuse, nous ajustons les quantités, redistribuons les surplus et encourageons les formats à emporter.',
+      tags: ['Saison', 'Circuit court', 'Bio / HVE', 'Anti-gaspillage'],
+    },
+    {
+      index: 'Action 03',
+      word: 'Réhabiliter',
+      tag: 'Patrimoine réhabilité, Paris',
+      title: 'Réhabiliter plutôt que construire',
+      body: "OSMOZ ne bâtit pas : il transforme. En valorisant des lieux existants, nous limitons l'artificialisation des sols et réduisons l'empreinte carbone liée à la construction. Nos espaces sont des héritages réactivés, déjà intégrés au tissu urbain, porteurs d'une histoire, prêts pour la prochaine.",
+      tags: ['Patrimoine', 'Empreinte réduite', 'Tissu urbain'],
+    },
+    {
+      index: 'Action 04',
+      word: 'Paris',
+      tag: 'Intra-muros, transports à portée',
+      title: 'Au cœur de Paris, pour de bonnes raisons',
+      body: "Nos espaces sont situés à Paris intra-muros, à proximité immédiate des transports en commun. Un choix stratégique : moins de déplacements longue distance, plus de mobilités douces, une logistique simplifiée. Nous sommes aussi équipés d'ampoules LED basse consommation et de systèmes de filtration d'eau pour éliminer le recours aux bouteilles plastiques.",
+      tags: ['Transports en commun', 'Éclairage LED', 'Filtration eau'],
+    },
+  ],
+  cta: {
+    kicker: 'Organiser un événement',
+    titleLine1: 'Un événement',
+    titleLine2Before: 'mémorable ',
+    titleLine2Em: 'et',
+    titleLine3: 'responsable.',
+    text: "Pas de concession sur l'expérience. Pas de concession sur les valeurs. Nos espaces sont conçus pour les équipes qui cherchent mieux, et qui méritent les deux.",
+    quote: 'Demander un devis',
+    spaces: 'Voir nos espaces →',
+  },
+  commitments: [
+    { title: "Espaces prêts à l'usage", desc: "Mobilier, audiovisuel, équipements : tout est déjà là. Moins de transport, moins d'impact." },
+    { title: 'Traçabilité & transparence', desc: 'Indicateurs de performance disponibles sur demande pour vos bilans RSE et rapports de durabilité.' },
+    { title: 'Un lieu authentique et responsable', desc: 'Chaque espace OSMOZ est pensé pour être à la fois beau, fonctionnel et aligné avec nos valeurs.' },
+  ],
+};
+
+export type RseDictionary = typeof rse;

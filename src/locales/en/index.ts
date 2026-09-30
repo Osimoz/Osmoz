@@ -5,6 +5,8 @@ import { spaces } from './spaces';
 import { contact } from './contact';
 import { reservation } from './reservation';
 import { faq } from './faq';
+import { rse } from './rse';
+import { legal, privacy } from './legal';
 
 export const en: Dictionary = {
   home,
@@ -13,6 +15,9 @@ export const en: Dictionary = {
   contact,
   reservation,
   faq,
+  rse,
+  legal,
+  privacy,
   lang: {
     fr: 'FR',
     en: 'EN',

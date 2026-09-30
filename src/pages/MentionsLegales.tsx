@@ -2,8 +2,19 @@ import SEO from '../components/SEO';
 import { useLocale } from '../i18n/context';
 import { Link } from 'react-router-dom';
 
+const EMAIL = 'contact@osmoz-space.com';
+const emailLink = <a href={`mailto:${EMAIL}`} className="text-[#862637] hover:text-[#01142a] transition-colors">{EMAIL}</a>;
+
+function SectionNumber({ n }: { n: string }) {
+  return <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">{n}</p>;
+}
+function SectionTitle({ children }: { children: string }) {
+  return <h2 className="text-lg font-semibold text-[#01142a] mb-4">{children}</h2>;
+}
+
 export default function MentionsLegales() {
-  const { p } = useLocale();
+  const { t, p } = useLocale();
+  const l = t.legal;
   return (
     <>
       <SEO route="legal" />
@@ -14,16 +25,16 @@ export default function MentionsLegales() {
           {/* Header */}
           <div className="max-w-2xl mb-16">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-4">
-              Informations légales
+              {l.kicker}
             </p>
             <h1
               className="font-light text-[#01142a] mb-5"
               style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
             >
-              Mentions Légales
+              {l.title}
             </h1>
             <p className="text-sm font-light text-gray-400">
-              Dernière mise à jour : mars 2026
+              {l.updated}
             </p>
           </div>
 
@@ -31,48 +42,46 @@ export default function MentionsLegales() {
           <div className="max-w-3xl space-y-12">
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">01</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Éditeur du site</h2>
+              <SectionNumber n="01" />
+              <SectionTitle>{l.publisher.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed">
-                Le site osmoz.work est édité par la société :
+                {l.publisher.intro}
               </p>
               <div className="mt-4 pl-5 border-l border-[#e5e5e5] space-y-1">
-                <p className="text-base font-normal text-[#01142a]">OSMOZ</p>
-                <p className="text-base font-light text-gray-600">Société par Actions Simplifiée (SAS)</p>
-                <p className="text-base font-light text-gray-600">Capital social : 3 000,00 €</p>
-                <p className="text-base font-light text-gray-600">Siège social : 19 avenue Rapp, 75007 Paris, France</p>
-                <p className="text-base font-light text-gray-600">SIREN : 930 149 273</p>
-                <p className="text-base font-light text-gray-600">RCS Paris</p>
-                <p className="text-base font-light text-gray-600">Numéro de TVA intracommunautaire : FR40930149273</p>
-                <p className="text-base font-light text-gray-600">Président : Edouard Courtois dit Duverger</p>
+                <p className="text-base font-normal text-[#01142a]">{l.publisher.company}</p>
+                <p className="text-base font-light text-gray-600">{l.publisher.form}</p>
+                <p className="text-base font-light text-gray-600">{l.publisher.capital}</p>
+                <p className="text-base font-light text-gray-600">{l.publisher.address}</p>
+                <p className="text-base font-light text-gray-600">{l.publisher.siren}</p>
+                <p className="text-base font-light text-gray-600">{l.publisher.rcs}</p>
+                <p className="text-base font-light text-gray-600">{l.publisher.vat}</p>
+                <p className="text-base font-light text-gray-600">{l.publisher.president}</p>
                 <p className="text-base font-light text-gray-600">
-                  Email :{' '}
-                  <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                    contact@osmoz-space.com
-                  </a>
+                  {l.publisher.emailLabel}{' '}
+                  {emailLink}
                 </p>
               </div>
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">02</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Directeur de la publication</h2>
+              <SectionNumber n="02" />
+              <SectionTitle>{l.director.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed">
-                Le directeur de la publication est Edouard Courtois dit Duverger, en sa qualité de Président de la société OSMOZ.
+                {l.director.text}
               </p>
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">03</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Hébergement</h2>
+              <SectionNumber n="03" />
+              <SectionTitle>{l.hosting.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed mb-5">
-                Le site est hébergé par :
+                {l.hosting.intro}
               </p>
               <div className="pl-5 border-l border-[#e5e5e5] space-y-1">
-                <p className="text-base font-normal text-[#01142a]">Netlify, Inc.</p>
-                <p className="text-base font-light text-gray-600">Adresse : 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis</p>
+                <p className="text-base font-normal text-[#01142a]">{l.hosting.name}</p>
+                <p className="text-base font-light text-gray-600">{l.hosting.address}</p>
                 <p className="text-base font-light text-gray-600">
-                  Site web :{' '}
+                  {l.hosting.websiteLabel}{' '}
                   <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" className="text-[#862637] hover:text-[#01142a] transition-colors">
                     https://www.netlify.com
                   </a>
@@ -81,79 +90,75 @@ export default function MentionsLegales() {
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">04</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Propriété intellectuelle</h2>
+              <SectionNumber n="04" />
+              <SectionTitle>{l.ip.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed">
-                L'ensemble des contenus présents sur ce site (textes, images, graphismes, logo, icônes, sons, logiciels, etc.) est la propriété exclusive de la société OSMOZ ou de ses partenaires. Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès écrit d'OSMOZ. Cette représentation ou reproduction, par quelque procédé que ce soit, constitue une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
+                {l.ip.text}
               </p>
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">05</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Protection des données personnelles</h2>
+              <SectionNumber n="05" />
+              <SectionTitle>{l.data.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed mb-4">
-                Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition concernant vos données personnelles.
+                {l.data.text1}
               </p>
               <p className="text-base font-light text-gray-600 leading-relaxed mb-4">
-                Pour exercer ces droits ou pour toute question relative au traitement de vos données, vous pouvez contacter OSMOZ à l'adresse suivante :{' '}
-                <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                  contact@osmoz-space.com
-                </a>
+                {l.data.text2Before}
+                {emailLink}
               </p>
               <p className="text-base font-light text-gray-600 leading-relaxed">
-                Pour plus d'informations, veuillez consulter notre{' '}
+                {l.data.text3Before}
                 <Link to={p('/politique-de-confidentialite')} className="text-[#862637] underline underline-offset-4 hover:text-[#01142a] transition-colors">
-                  Politique de Confidentialité
-                </Link>{' '}
-                accessible sur ce site.
+                  {l.data.text3Link}
+                </Link>
+                {l.data.text3After}
               </p>
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">06</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Cookies</h2>
+              <SectionNumber n="06" />
+              <SectionTitle>{l.cookies.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed">
-                Le site osmoz.work est susceptible d'utiliser des cookies afin d'améliorer l'expérience utilisateur. Conformément à la réglementation en vigueur, vous êtes informé de la présence de ces cookies lors de votre première visite et pouvez les accepter ou les refuser. Vous pouvez également configurer votre navigateur pour désactiver les cookies.
+                {l.cookies.text}
               </p>
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">07</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Liens hypertextes</h2>
+              <SectionNumber n="07" />
+              <SectionTitle>{l.links.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed">
-                Le site osmoz.work peut contenir des liens vers d'autres sites internet. OSMOZ ne peut être tenu responsable du contenu de ces sites tiers ni des dommages ou préjudices pouvant résulter de leur utilisation. La création de liens hypertextes vers le site osmoz.work est soumise à l'accord préalable et exprès d'OSMOZ.
+                {l.links.text}
               </p>
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">08</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Limitation de responsabilité</h2>
+              <SectionNumber n="08" />
+              <SectionTitle>{l.liability.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed">
-                OSMOZ s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, OSMOZ ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition. En conséquence, OSMOZ décline toute responsabilité pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur ce site, ainsi que pour tous dommages résultant d'une intrusion frauduleuse d'un tiers ayant entraîné une modification des informations mises à disposition sur le site.
+                {l.liability.text}
               </p>
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">09</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Droit applicable et juridiction compétente</h2>
+              <SectionNumber n="09" />
+              <SectionTitle>{l.law.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed">
-                Les présentes mentions légales sont soumises au droit français. En cas de litige et à défaut de résolution amiable, les tribunaux français seront seuls compétents.
+                {l.law.text}
               </p>
             </section>
 
             <section>
-              <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-3">10</p>
-              <h2 className="text-lg font-semibold text-[#01142a] mb-4">Contact</h2>
+              <SectionNumber n="10" />
+              <SectionTitle>{l.contact.title}</SectionTitle>
               <p className="text-base font-light text-gray-600 leading-relaxed mb-2">
-                Pour toute question relative au présent site ou pour nous contacter :
+                {l.contact.intro}
               </p>
               <div className="pl-5 border-l border-[#e5e5e5] space-y-1">
-                <p className="text-base font-light text-gray-600">OSMOZ, 19 avenue Rapp, 75007 Paris</p>
+                <p className="text-base font-light text-gray-600">{l.contact.address}</p>
                 <p className="text-base font-light text-gray-600">
-                  Email :{' '}
-                  <a href="mailto:contact@osmoz-space.com" className="text-[#862637] hover:text-[#01142a] transition-colors">
-                    contact@osmoz-space.com
-                  </a>
+                  {l.contact.emailLabel}{' '}
+                  {emailLink}
                 </p>
               </div>
             </section>
