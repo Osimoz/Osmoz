@@ -55,6 +55,11 @@ export const en: Dictionary = {
     legal: 'Legal notice',
     privacy: 'Privacy policy',
   },
+  errorBoundary: {
+    title: 'Something went wrong',
+    text: 'We’re sorry for the inconvenience. Please try again, or contact support if the problem persists.',
+    home: 'Back to home',
+  },
   notFound: {
     metaTitle: 'Page not found | OSMOZ',
     kicker: 'Error 404',

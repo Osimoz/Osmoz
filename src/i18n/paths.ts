@@ -23,6 +23,11 @@ export function pathFor(key: RouteKey, lang: Lang): string | undefined {
 
 const stripTrailingSlash = (p: string) => (p.length > 1 ? p.replace(/\/+$/, '') : p);
 
+/** Langue d'une URL, pour le code qui vit hors du Router (ErrorBoundary). */
+export function langFromPathname(pathname: string): Lang {
+  return pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'fr';
+}
+
 /** Clé de la route dont le chemin `lang` correspond exactement à `pathname`. */
 export function matchRouteKey(pathname: string, lang: Lang): RouteKey | null {
   const clean = stripTrailingSlash(pathname);

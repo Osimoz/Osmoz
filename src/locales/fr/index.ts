@@ -58,6 +58,11 @@ export const fr = {
     legal: 'Mentions légales',
     privacy: 'Politique de confidentialité',
   },
+  errorBoundary: {
+    title: 'Une erreur est survenue',
+    text: 'Nous nous excusons pour la gêne occasionnée. Veuillez réessayer ou contacter le support si le problème persiste.',
+    home: "Retour à l'accueil",
+  },
   notFound: {
     metaTitle: 'Page introuvable | OSMOZ',
     kicker: 'Erreur 404',

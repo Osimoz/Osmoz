@@ -1,4 +1,6 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
+import { dictionaries } from '../locales';
+import { langFromPathname, pathFor } from '../i18n/paths';
 
 interface Props {
   children: ReactNode;
@@ -29,23 +31,26 @@ export class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
+      // Hors Router et LocaleProvider (voir main.tsx) : langue lue dans l'URL.
+      const lang = langFromPathname(window.location.pathname);
+      const s = dictionaries[lang].errorBoundary;
       return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
           <div className="text-center p-8 max-w-md">
             <h1 className="text-2xl font-normal mb-4 text-gray-800">
-              Une erreur est survenue
+              {s.title}
             </h1>
             <p className="text-gray-600 mb-6 font-normal">
-              Nous nous excusons pour la gêne occasionnée. Veuillez réessayer ou contacter le support si le problème persiste.
+              {s.text}
             </p>
             <button
               onClick={() => {
                 this.setState({ hasError: false, error: null });
-                window.location.href = '/';
+                window.location.href = pathFor('home', lang) ?? '/';
               }}
               className="bg-black text-white px-6 py-3 rounded-lg text-sm tracking-widest font-normal hover:bg-white hover:text-black border border-black transition-all duration-300"
             >
-              Retour à l'accueil
+              {s.home}
             </button>
           </div>
         </div>
