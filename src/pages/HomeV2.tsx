@@ -157,10 +157,11 @@ export default function HomeV2() {
             {h.hero.kicker}
           </p>
           <h1
-            className="t-display t-display-hero text-white mb-6 max-w-3xl"
+            className="t-display t-display-hero text-white mb-4 max-w-3xl"
           >
             {h.hero.title}
           </h1>
+          <p className="t-quote text-white/85 text-xl sm:text-2xl mb-6">{t.brand.motto}</p>
           <p className="text-white/70 font-normal text-base sm:text-lg mb-10 max-w-xl leading-relaxed">
             {h.hero.line1}
             <br className="hidden sm:block" />

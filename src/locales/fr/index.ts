@@ -31,6 +31,11 @@ export const fr = {
   duplex,
   penthouse,
   experience,
+  // Signature de marque : en anglais dans les deux langues, à deux endroits
+  // seulement (hero de la home, pied de page).
+  brand: {
+    motto: 'Out of office. Into OSMOZ.',
+  },
   lang: {
     fr: 'FR',
     en: 'EN',

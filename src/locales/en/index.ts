@@ -28,6 +28,9 @@ export const en: Dictionary = {
   duplex,
   penthouse,
   experience,
+  brand: {
+    motto: 'Out of office. Into OSMOZ.',
+  },
   lang: {
     fr: 'FR',
     en: 'EN',
