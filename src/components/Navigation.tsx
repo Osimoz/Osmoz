@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { LogoHorizontal } from './Logo';
+import { LangPill } from './LangSwitch';
 import { useLocale } from '../i18n/context';
 
 export const Navigation = () => {
   const navigate = useNavigate();
-  const { t, p, alt } = useLocale();
+  const { t, p } = useLocale();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [aproposOpen, setAproposOpen] = useState(false);
@@ -55,7 +56,7 @@ export const Navigation = () => {
 
           {/* Desktop nav : à partir de lg. En dessous les liens ne tiennent
               pas sur une ligne, le menu burger prend le relais. */}
-          <div className="hidden lg:flex items-center gap-5 xl:gap-10">
+          <div className="hidden lg:flex items-center gap-4 min-[1120px]:gap-6 xl:gap-10">
             {[
               { to: '/', label: t.nav.home },
               { to: '/spaces', label: t.nav.spaces },
@@ -117,19 +118,8 @@ export const Navigation = () => {
               <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </Link>
 
-            {/* Sélecteur de langue : mène à la page équivalente dans l'autre langue */}
-            <Link
-              to={alt.to}
-              hrefLang={alt.lang}
-              lang={alt.lang}
-              aria-label={t.lang.switchAria}
-              className="relative group py-1"
-            >
-              <span className="text-[#01142a] font-normal text-xs tracking-[0.15em] uppercase transition-colors duration-200 group-hover:text-[#862637]">
-                {t.lang[alt.lang]}
-              </span>
-              <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#862637] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-            </Link>
+            {/* Sélecteur de langue : chaque langue mène à la page équivalente */}
+            <LangPill />
 
             <button
               onClick={handleReservationClick}
@@ -139,18 +129,21 @@ export const Navigation = () => {
             </button>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="lg:hidden p-3 -mr-1"
-            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
-            aria-expanded={open}
-            onClick={() => setOpen(v => !v)}
-          >
-            {open
-              ? <X className="h-5 w-5 text-[#01142a]" />
-              : <Menu className="h-5 w-5 text-[#01142a]" />
-            }
-          </button>
+          {/* Mobile : la pilule de langue reste dans la barre, à côté du burger */}
+          <div className="lg:hidden flex items-center gap-1">
+            <LangPill onNavigate={() => setOpen(false)} />
+            <button
+              className="p-3 -mr-1"
+              aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
+              aria-expanded={open}
+              onClick={() => setOpen(v => !v)}
+            >
+              {open
+                ? <X className="h-5 w-5 text-[#01142a]" />
+                : <Menu className="h-5 w-5 text-[#01142a]" />
+              }
+            </button>
+          </div>
         </div>
       </div>
 
@@ -192,16 +185,6 @@ export const Navigation = () => {
           </Link>
           <Link to={p('/contact')} onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150">
             {t.nav.contact}
-          </Link>
-          <Link
-            to={alt.to}
-            hrefLang={alt.lang}
-            lang={alt.lang}
-            aria-label={t.lang.switchAria}
-            onClick={() => setOpen(false)}
-            className="block px-4 py-3 rounded-xl text-[#01142a] font-normal text-sm tracking-[0.12em] uppercase hover:bg-white transition-colors duration-150"
-          >
-            {t.lang[alt.lang]}
           </Link>
           <div className="pt-2 pb-1 px-1">
             <button

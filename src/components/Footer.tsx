@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLocale } from '../i18n/context';
+import { LangTextLinks } from './LangSwitch';
 
 const socials = [
   {
@@ -88,6 +89,7 @@ export function Footer() {
             <Link to={p('/politique-de-confidentialite')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               {t.footer.privacy}
             </Link>
+            <LangTextLinks />
           </div>
 
         </div>

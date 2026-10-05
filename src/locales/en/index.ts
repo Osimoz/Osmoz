@@ -34,7 +34,9 @@ export const en: Dictionary = {
   lang: {
     fr: 'FR',
     en: 'EN',
-    switchAria: 'Passer en français',
+    label: 'Site language',
+    // Shown on the French pages, to visitors who may prefer English.
+    name: 'English',
   },
   nav: {
     home: 'Home',

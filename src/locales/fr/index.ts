@@ -39,7 +39,13 @@ export const fr = {
   lang: {
     fr: 'FR',
     en: 'EN',
-    switchAria: 'Switch to English',
+    // Intitulé du sélecteur de langue, lu par les lecteurs d'écran.
+    label: 'Langue du site',
+    // Ce qui suit présente le français à ceux qui ne sont pas sur la version
+    // française : nom de la langue dans les liens (pilule, pied de page) et
+    // bandeau affiché sur les pages anglaises. D'où le français ici, et
+    // l'anglais dans le dictionnaire anglais.
+    name: 'Français',
   },
   nav: {
     home: 'Accueil',
