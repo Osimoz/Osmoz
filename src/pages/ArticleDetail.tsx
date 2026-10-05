@@ -166,16 +166,14 @@ export default function ArticleDetail() {
           >
             {state.phase === 'error' ? state.message : "Cet article n'existe pas ou n'est plus disponible."}
           </h1>
-          <Link
+          <Link className="btn-label"
             to="/articles"
             style={{
               fontSize: '11px',
-              letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: '#862637',
               textDecoration: 'none',
-              fontWeight: 400,
-            }}
+              }}
           >
             ← Retour aux articles
           </Link>
@@ -230,16 +228,14 @@ export default function ArticleDetail() {
           color: '#1c1c1a',
         }}
       >
-        <Link
+        <Link className="btn-label"
           to="/articles"
           style={{
             display: 'inline-block',
             fontSize: '11px',
-            letterSpacing: '0.2em',
             textTransform: 'uppercase',
             color: '#862637',
             textDecoration: 'none',
-            fontWeight: 400,
             marginBottom: '40px',
           }}
         >
@@ -273,7 +269,7 @@ export default function ArticleDetail() {
         {article.meta_description && (
           <p
             style={{
-              fontSize: '17px',
+              fontSize: 'var(--text-body)',
               lineHeight: 1.7,
               color: '#6b6860',
               fontWeight: 300,
@@ -306,7 +302,7 @@ export default function ArticleDetail() {
           <div
             className="osmoz-article-body"
             style={{
-              fontSize: '16px',
+              fontSize: 'var(--text-body)',
               lineHeight: 1.8,
               color: '#1c1c1a',
               fontWeight: 400,
@@ -316,7 +312,7 @@ export default function ArticleDetail() {
         ) : (
           <p
             style={{
-              fontSize: '15px',
+              fontSize: 'var(--text-body)',
               lineHeight: 1.8,
               color: '#6b6860',
               fontWeight: 300,
@@ -327,16 +323,14 @@ export default function ArticleDetail() {
         )}
 
         <div style={{ marginTop: '64px', borderTop: '1px solid rgba(28,28,26,0.08)', paddingTop: '32px' }}>
-          <Link
+          <Link className="btn-label"
             to="/articles"
             style={{
               fontSize: '11px',
-              letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: '#862637',
               textDecoration: 'none',
-              fontWeight: 400,
-            }}
+              }}
           >
             ← Retour aux articles
           </Link>

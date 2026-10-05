@@ -21,7 +21,7 @@ export default function NewsletterSection() {
             <h2 className="t-serif text-h2" style={{ color: '#ffffff', marginBottom: '16px' }}>
               {n.headline}
             </h2>
-            <p style={{ fontSize: '14px', lineHeight: 1.9, color: 'rgba(255,255,255,0.85)', fontWeight: 300 }}>
+            <p style={{ fontSize: 'var(--text-small)', lineHeight: 1.9, color: 'rgba(255,255,255,0.85)', fontWeight: 300 }}>
               {n.description}
             </p>
           </div>

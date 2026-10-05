@@ -127,7 +127,7 @@ export default function Reservation() {
           <p className="text-sm font-light text-gray-500 leading-relaxed mb-8">
             {r.sent.textBefore}<strong className="font-normal text-[#01142a]">{r.sent.textStrong}</strong>{r.sent.textAfter}
           </p>
-          <a href={p('/')} className="inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] transition-all duration-300">
+          <a href={p('/')} className="btn-label inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs uppercase hover:bg-[#862637] transition-all duration-300">
             {r.sent.home}
           </a>
         </div>
@@ -151,7 +151,7 @@ export default function Reservation() {
       {/* Mobile sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t border-[#e5e5e5] px-4 py-3">
         <button type="button" onClick={handleSubmit} disabled={submitting}
-          className="w-full bg-[#862637] text-[#fee1d4] py-3.5 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60">
+          className="btn-label w-full bg-[#862637] text-[#fee1d4] py-3.5 rounded-xl text-xs uppercase hover:bg-[#01142a] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60">
           {submitting ? r.sending : r.submit}
           {!submitting && <ChevronRight className="h-3.5 w-3.5" />}
         </button>
@@ -342,7 +342,7 @@ export default function Reservation() {
                 {r.footer.requiredBefore}<span className="text-[#862637]">*</span>{r.footer.requiredAfter}
               </p>
               <button type="button" onClick={handleSubmit} disabled={submitting}
-                className="bg-[#862637] text-[#fee1d4] px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60">
+                className="btn-label bg-[#862637] text-[#fee1d4] px-8 py-3 rounded-xl text-xs uppercase hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60">
                 {submitting ? r.sending : r.submit}
                 {!submitting && <ChevronRight className="h-3.5 w-3.5" />}
               </button>

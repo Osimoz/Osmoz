@@ -83,7 +83,7 @@ export default function Experience() {
 
           <p
             style={{
-              fontSize: '15px',
+              fontSize: 'var(--text-body)',
               lineHeight: 1.8,
               color: '#6b6860',
               maxWidth: '420px',
@@ -97,15 +97,15 @@ export default function Experience() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
               onClick={() => document.getElementById('fleur')?.scrollIntoView({ behavior: 'smooth' })}
-              className="hover:bg-[#862637] transition-colors duration-300"
-              style={{ padding: '14px 32px', background: '#01142a', color: '#fafaf8', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 400, border: 'none', cursor: 'pointer' }}
+              className="btn-label hover:bg-[#862637] transition-colors duration-300"
+              style={{ padding: '14px 32px', background: '#01142a', color: '#fafaf8', fontSize: '11px', textTransform: 'uppercase', border: 'none', cursor: 'pointer' }}
             >
               {e.hero.ctaDiscover}
             </button>
             <button
               onClick={() => navigate(p('/reservation'))}
-              className="hover:text-[#01142a] transition-colors"
-              style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6b6860', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
+              className="btn-label hover:text-[#01142a] transition-colors"
+              style={{ fontSize: '11px', textTransform: 'uppercase', color: '#6b6860', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
             >
               {e.hero.ctaRequest} →
             </button>
@@ -149,7 +149,7 @@ export default function Experience() {
             </h2>
             <p
               className="font-light text-gray-500 md:columns-2 md:gap-12"
-              style={{ fontSize: '16px', lineHeight: 2 }}
+              style={{ fontSize: 'var(--text-body)', lineHeight: 2 }}
             >
               {e.intro.body}
             </p>
@@ -273,7 +273,7 @@ export default function Experience() {
                 {e.fleur.titleLine1}<br />
                 <em className="italic" style={{ color: '#862637' }}>{e.fleur.titleEm}</em>
               </h2>
-              <div style={{ fontSize: '15px', lineHeight: 2, color: '#6b6860', fontWeight: 300, maxWidth: '560px', marginBottom: '36px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ fontSize: 'var(--text-body)', lineHeight: 2, color: '#6b6860', fontWeight: 300, maxWidth: '560px', marginBottom: '36px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <p>
                   {e.fleur.p1}
                 </p>
@@ -323,7 +323,7 @@ export default function Experience() {
               >
                 {e.menusSection.title}
               </h2>
-              <p style={{ fontSize: '14px', color: '#9b9690', fontWeight: 300, letterSpacing: '0.02em' }}>
+              <p style={{ fontSize: 'var(--text-small)', color: '#9b9690', fontWeight: 300, letterSpacing: '0.02em' }}>
                 {e.menusSection.hint}
               </p>
             </div>
@@ -414,7 +414,7 @@ export default function Experience() {
                     <div style={{ paddingBottom: 'clamp(48px, 6vw, 80px)' }}>
 
                       {/* Intro */}
-                      <p style={{ fontSize: '15px', lineHeight: 1.9, color: '#6b6860', fontWeight: 300, marginBottom: '40px', maxWidth: '620px' }}>
+                      <p style={{ fontSize: 'var(--text-body)', lineHeight: 1.9, color: '#6b6860', fontWeight: 300, marginBottom: '40px', maxWidth: '620px' }}>
                         {menu.intro}
                       </p>
 
@@ -440,7 +440,7 @@ export default function Experience() {
                                 <li
                                   key={item}
                                   style={{
-                                    fontSize: '13px',
+                                    fontSize: 'var(--text-small)',
                                     color: '#01142a',
                                     fontWeight: 300,
                                     padding: '10px 0',
@@ -510,7 +510,7 @@ export default function Experience() {
                   <p style={{ fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#862637', marginBottom: '10px', fontWeight: 500 }}>
                     {m.temps}
                   </p>
-                  <p style={{ fontSize: '14px', lineHeight: 1.85, color: '#6b6860', fontWeight: 300, marginBottom: '16px' }}>
+                  <p style={{ fontSize: 'var(--text-small)', lineHeight: 1.85, color: '#6b6860', fontWeight: 300, marginBottom: '16px' }}>
                     {m.desc}
                   </p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -538,7 +538,7 @@ export default function Experience() {
               <h2 className="t-serif text-[#01142a]" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)', marginBottom: '16px' }}>
                 {e.activitiesSection.title}
               </h2>
-              <p style={{ fontSize: '14px', color: '#9b9690', fontWeight: 300, maxWidth: '520px', lineHeight: 1.8 }}>
+              <p style={{ fontSize: 'var(--text-small)', color: '#9b9690', fontWeight: 300, maxWidth: '520px', lineHeight: 1.8 }}>
                 {e.activitiesSection.text}
               </p>
             </div>
@@ -597,7 +597,7 @@ export default function Experience() {
                 <div style={{ display: 'grid', gridTemplateRows: openAct ? '1fr' : '0fr', transition: 'grid-template-rows 0.5s cubic-bezier(0.4,0,0.2,1)' }}>
                   <div style={{ overflow: 'hidden' }}>
                     <div style={{ paddingBottom: 'clamp(40px, 5vw, 72px)' }}>
-                      <p style={{ fontSize: '15px', lineHeight: 1.9, color: '#6b6860', fontWeight: 300, marginBottom: '36px', maxWidth: '580px' }}>
+                      <p style={{ fontSize: 'var(--text-body)', lineHeight: 1.9, color: '#6b6860', fontWeight: 300, marginBottom: '36px', maxWidth: '580px' }}>
                         {cat.intro}
                       </p>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0', borderTop: '1px solid rgba(28,28,26,0.07)' }}>
@@ -607,7 +607,7 @@ export default function Experience() {
                               <p className="t-quote" style={{ fontSize: 'clamp(0.95rem, 1.2vw, 1.1rem)', color: '#01142a', marginBottom: '8px' }}>
                                 {item.nom}
                               </p>
-                              <p style={{ fontSize: '13px', lineHeight: 1.75, color: '#6b6860', fontWeight: 300, maxWidth: '560px' }}>
+                              <p style={{ fontSize: 'var(--text-small)', lineHeight: 1.75, color: '#6b6860', fontWeight: 300, maxWidth: '560px' }}>
                                 {item.desc}
                               </p>
                             </div>
@@ -676,7 +676,7 @@ export default function Experience() {
               <h3 className="t-serif t-italic" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.35rem)', color: '#ffffff', marginBottom: '16px' }}>
                 {r.titre}
               </h3>
-              <p style={{ fontSize: '13px', fontWeight: 300, color: 'rgba(255,255,255,0.5)', lineHeight: 1.9 }}>
+              <p style={{ fontSize: 'var(--text-small)', fontWeight: 300, color: 'rgba(255,255,255,0.5)', lineHeight: 1.9 }}>
                 {r.desc}
               </p>
             </div>
@@ -706,21 +706,21 @@ export default function Experience() {
             {e.cta.titleBefore}
             <em className="italic" style={{ color: '#862637' }}>{e.cta.titleEm}</em>
           </h2>
-          <p style={{ fontSize: '15px', fontWeight: 300, color: '#6b6860', maxWidth: '400px', margin: '0 auto 48px', lineHeight: 1.9 }}>
+          <p style={{ fontSize: 'var(--text-body)', fontWeight: 300, color: '#6b6860', maxWidth: '400px', margin: '0 auto 48px', lineHeight: 1.9 }}>
             {e.cta.text}
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
               onClick={() => navigate(p('/reservation'))}
-              className="hover:bg-[#862637] transition-colors duration-300"
-              style={{ padding: '14px 36px', background: '#01142a', color: '#fafaf8', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 400, border: 'none', cursor: 'pointer' }}
+              className="btn-label hover:bg-[#862637] transition-colors duration-300"
+              style={{ padding: '14px 36px', background: '#01142a', color: '#fafaf8', fontSize: '11px', textTransform: 'uppercase', border: 'none', cursor: 'pointer' }}
             >
               {e.cta.request}
             </button>
             <button
               onClick={() => navigate(p('/contact'))}
-              className="hover:text-[#01142a] transition-colors"
-              style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6b6860', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
+              className="btn-label hover:text-[#01142a] transition-colors"
+              style={{ fontSize: '11px', textTransform: 'uppercase', color: '#6b6860', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
             >
               {e.cta.contact}
             </button>

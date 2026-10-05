@@ -132,7 +132,7 @@ export const Navigation = () => {
 
             <button
               onClick={handleReservationClick}
-              className="ml-2 bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-normal rounded-lg hover:bg-[#01142a] hover:text-white transition-all duration-300 border border-transparent"
+              className="btn-label ml-2 bg-[#862637] text-[#fee1d4] px-6 py-2.5 text-xs uppercase rounded-lg hover:bg-[#01142a] hover:text-white transition-all duration-300 border border-transparent"
             >
               {t.nav.book}
             </button>
@@ -205,7 +205,7 @@ export const Navigation = () => {
           <div className="pt-2 pb-1 px-1">
             <button
               onClick={(e) => { handleReservationClick(e); setOpen(false); }}
-              className="w-full bg-[#862637] text-[#fee1d4] px-4 py-3 text-xs tracking-[0.2em] uppercase font-normal rounded-xl hover:bg-[#01142a] transition-all duration-300"
+              className="btn-label w-full bg-[#862637] text-[#fee1d4] px-4 py-3 text-xs uppercase rounded-xl hover:bg-[#01142a] transition-all duration-300"
             >
               {t.nav.bookSpace}
             </button>

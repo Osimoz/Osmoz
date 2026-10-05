@@ -138,11 +138,11 @@ export default function NewsletterForm({
           <button
             type="submit"
             disabled={isSubmitting || isAlreadySubmitted}
-            className={`rounded-3xl px-6 py-4 text-xs tracking-[0.2em] uppercase text-[#fbfbf3] transition ${
-              status === 'success' ? 'bg-green-600 hover:bg-green-700' :
-              status === 'already_subscribed' ? 'bg-blue-600 hover:bg-blue-700' :
-              'bg-[#862637] hover:bg-[#01142a]'
-            } disabled:cursor-not-allowed disabled:opacity-60`}
+            className={`btn-label rounded-3xl px-6 py-4 text-xs uppercase text-[#fbfbf3] transition ${
+ status === 'success' ? 'bg-green-600 hover:bg-green-700' :
+ status === 'already_subscribed' ? 'bg-blue-600 hover:bg-blue-700' :
+ 'bg-[#862637] hover:bg-[#01142a]'
+ } disabled:cursor-not-allowed disabled:opacity-60`}
           >
             {isSubmitting ? n.sending : status === 'success' ? n.subscribed : status === 'already_subscribed' ? n.alreadySubscribedShort : finalSubmit}
           </button>

@@ -120,7 +120,7 @@ export default function NewsletterPopup() {
               {n.headline}
             </h2>
             <p style={{
-              fontSize: '13px',
+              fontSize: 'var(--text-small)',
               lineHeight: 1.8,
               color: '#6b6860',
               fontWeight: 300,

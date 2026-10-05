@@ -92,7 +92,7 @@ export default function Contact() {
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300"
+                    className="btn-label bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs uppercase hover:bg-[#01142a] hover:text-white transition-all duration-300"
                   >
                     {c.sent.again}
                   </button>
@@ -158,7 +158,7 @@ export default function Contact() {
                     type="button"
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="bg-[#862637] text-[#fee1d4] px-7 py-3.5 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60"
+                    className="btn-label bg-[#862637] text-[#fee1d4] px-7 py-3.5 rounded-xl text-xs uppercase hover:bg-[#01142a] hover:text-white transition-all duration-300 inline-flex items-center gap-2 disabled:opacity-60"
                   >
                     {isSubmitting ? c.form.sending : c.form.send}
                     <ArrowRight className="h-4 w-4" />
@@ -190,7 +190,7 @@ export default function Contact() {
                 </p>
                 <Link
                   to={p('/reservation')}
-                  className="inline-flex items-center gap-2 bg-[#01142a] text-white px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
+                  className="btn-label inline-flex items-center gap-2 bg-[#01142a] text-white px-6 py-3 rounded-xl text-xs uppercase hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
                 >
                   {c.book.button}
                   <ArrowRight className="h-3.5 w-3.5" />

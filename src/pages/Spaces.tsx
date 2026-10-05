@@ -126,7 +126,7 @@ export default function Spaces() {
                   </p>
 
                   {/* Meta row */}
-                  <div className="flex items-center gap-6 mb-10">
+                  <div className="tnum flex items-center gap-6 mb-10">
                     <div className="flex items-center gap-2 text-sm font-light text-[#01142a]">
                       <Users className="h-4 w-4 text-[#862637]" />
                       {item.capacity}
@@ -138,14 +138,14 @@ export default function Spaces() {
 
                   {/* CTAs */}
                   <div className="flex items-center gap-4 flex-wrap">
-                    <span className="inline-flex items-center gap-2 bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs tracking-[0.18em] uppercase font-normal group-hover:bg-[#01142a] group-hover:text-white transition-all duration-300">
+                    <span className="btn-label inline-flex items-center gap-2 bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs uppercase group-hover:bg-[#01142a] group-hover:text-white transition-all duration-300">
                       {s.discover}
                       <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                     <Link
                       to={p(`/reservation?space=${space.slug}`)}
                       onClick={e => e.stopPropagation()}
-                      className="text-xs font-normal tracking-[0.18em] uppercase text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors duration-200"
+                      className="btn-label text-xs uppercase text-[#01142a] underline underline-offset-4 hover:text-[#862637] transition-colors duration-200"
                     >
                       {s.book}
                     </Link>
@@ -171,7 +171,7 @@ export default function Spaces() {
             </div>
             <Link
               to={p('/contact')}
-              className="flex-shrink-0 border border-white/30 text-white px-8 py-4 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
+              className="btn-label flex-shrink-0 border border-white/30 text-white px-8 py-4 rounded-xl text-xs uppercase hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
             >
               {s.cta.button}
               <ArrowRight className="h-3.5 w-3.5" />

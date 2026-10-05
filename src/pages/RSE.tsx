@@ -102,7 +102,7 @@ export default function RSE() {
             data-reveal
             style={{
               ...revealD(0.3),
-              fontSize: '15px',
+              fontSize: 'var(--text-body)',
               lineHeight: 1.8,
               color: '#6b6860',
               maxWidth: '420px',
@@ -119,15 +119,13 @@ export default function RSE() {
           >
             <button
               onClick={() => document.getElementById('piliers')?.scrollIntoView({ behavior: 'smooth' })}
-              className="hover:bg-[#862637] transition-colors duration-300"
+              className="btn-label hover:bg-[#862637] transition-colors duration-300"
               style={{
                 padding: '14px 32px',
                 background: '#01142a',
                 color: '#fafaf8',
                 fontSize: '11px',
-                letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                fontWeight: 400,
                 border: 'none',
                 cursor: 'pointer',
               }}
@@ -136,10 +134,9 @@ export default function RSE() {
             </button>
             <button
               onClick={() => navigate(p('/reservation'))}
-              className="hover:text-[#01142a] transition-colors"
+              className="btn-label hover:text-[#01142a] transition-colors"
               style={{
                 fontSize: '11px',
-                letterSpacing: '0.15em',
                 textTransform: 'uppercase',
                 color: '#6b6860',
                 background: 'none',
@@ -237,7 +234,7 @@ export default function RSE() {
             </p>
             <p
               style={{
-                fontSize: '16px',
+                fontSize: 'var(--text-body)',
                 lineHeight: 2,
                 color: '#6b6860',
                 fontWeight: 300,
@@ -311,7 +308,7 @@ export default function RSE() {
                 <p className="t-serif" style={{ fontSize: '22px', color: '#01142a', marginBottom: '16px' }}>
                   {pillar.title}
                 </p>
-                <p style={{ fontSize: '13px', lineHeight: 1.8, color: '#6b6860' }}>
+                <p style={{ fontSize: 'var(--text-small)', lineHeight: 1.8, color: '#6b6860' }}>
                   {pillar.desc}
                 </p>
               </div>
@@ -406,7 +403,7 @@ export default function RSE() {
                 {action.title}
               </h3>
 
-              <p style={{ fontSize: '15px', lineHeight: 1.9, color: '#6b6860', marginBottom: '36px', maxWidth: '480px', fontWeight: 300 }}>
+              <p style={{ fontSize: 'var(--text-body)', lineHeight: 1.9, color: '#6b6860', marginBottom: '36px', maxWidth: '480px', fontWeight: 300 }}>
                 {action.body}
               </p>
 
@@ -465,21 +462,19 @@ export default function RSE() {
             {r.cta.titleLine2Before}<em className="italic" style={{ color: '#862637' }}>{r.cta.titleLine2Em}</em><br />
             {r.cta.titleLine3}
           </h2>
-          <p style={{ fontSize: '15px', lineHeight: 1.9, color: '#6b6860', marginBottom: '48px', maxWidth: '460px', fontWeight: 300 }}>
+          <p style={{ fontSize: 'var(--text-body)', lineHeight: 1.9, color: '#6b6860', marginBottom: '48px', maxWidth: '460px', fontWeight: 300 }}>
             {r.cta.text}
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
               onClick={() => navigate(p('/reservation'))}
-              className="hover:bg-[#862637] transition-colors duration-300"
+              className="btn-label hover:bg-[#862637] transition-colors duration-300"
               style={{
                 padding: '14px 32px',
                 background: '#01142a',
                 color: '#fafaf8',
                 fontSize: '11px',
-                letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                fontWeight: 400,
                 border: 'none',
                 cursor: 'pointer',
               }}
@@ -488,10 +483,9 @@ export default function RSE() {
             </button>
             <Link
               to={p('/spaces')}
-              className="hover:text-[#01142a] transition-colors"
+              className="btn-label hover:text-[#01142a] transition-colors"
               style={{
                 fontSize: '11px',
-                letterSpacing: '0.15em',
                 textTransform: 'uppercase',
                 color: '#6b6860',
                 display: 'flex',
@@ -540,7 +534,7 @@ export default function RSE() {
                   <p style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#01142a', fontWeight: 500, marginBottom: '4px' }}>
                     {item.title}
                   </p>
-                  <p style={{ fontSize: '13px', color: '#6b6860', lineHeight: 1.7, fontWeight: 300 }}>
+                  <p style={{ fontSize: 'var(--text-small)', color: '#6b6860', lineHeight: 1.7, fontWeight: 300 }}>
                     {item.desc}
                   </p>
                 </div>

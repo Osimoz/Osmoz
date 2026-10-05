@@ -169,7 +169,7 @@ export default function HomeV2() {
           <div>
             <button
               onClick={() => navigate(p('/reservation'))}
-              className="bg-[#862637] text-[#fee1d4] px-8 sm:px-10 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
+              className="btn-label bg-[#862637] text-[#fee1d4] px-8 sm:px-10 py-4 text-xs uppercase rounded-lg hover:bg-white hover:text-[#01142a] transition-all duration-300 inline-flex items-center gap-2"
             >
               {h.hero.cta}
               <ChevronRight className="h-3.5 w-3.5" />
@@ -221,7 +221,7 @@ export default function HomeV2() {
                   />
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white text-white text-xs tracking-[0.2em] uppercase px-6 py-3 rounded-lg">
+                    <span className="btn-label opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white text-white text-xs uppercase px-6 py-3 rounded-lg">
                       {h.spacesSection.view}
                     </span>
                   </div>
@@ -234,7 +234,7 @@ export default function HomeV2() {
                   >
                     {s.title}
                   </h3>
-                  <p className="text-sm font-light text-gray-500 mb-4">{s.stats}</p>
+                  <p className="tnum text-sm font-light text-gray-500 mb-4">{s.stats}</p>
                   <div className="flex flex-wrap gap-2">
                     {s.pills.map((pill) => (
                       <span
@@ -280,7 +280,7 @@ export default function HomeV2() {
                 </p>
                 <button
                   onClick={() => navigate(p('/contact'))}
-                  className="bg-[#862637] text-[#fee1d4] text-xs tracking-[0.2em] uppercase px-6 py-3 rounded-lg hover:bg-[#01142a] transition-all duration-300"
+                  className="btn-label bg-[#862637] text-[#fee1d4] text-xs uppercase px-6 py-3 rounded-lg hover:bg-[#01142a] transition-all duration-300"
                 >
                   {h.comingSoon.cta}
                 </button>
@@ -342,7 +342,7 @@ export default function HomeV2() {
           </p>
           <button
             onClick={() => navigate(p('/reservation'))}
-            className="bg-white text-[#01142a] px-10 sm:px-12 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
+            className="btn-label bg-white text-[#01142a] px-10 sm:px-12 py-4 text-xs uppercase rounded-lg hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
           >
             {h.ctaBand.cta}
           </button>
@@ -400,7 +400,7 @@ export default function HomeV2() {
           </h2>
           <button
             onClick={() => navigate(p('/reservation'))}
-            className="bg-[#862637] text-[#fee1d4] px-10 sm:px-12 py-4 text-xs tracking-[0.2em] uppercase rounded-lg hover:bg-[#01142a] transition-all duration-300"
+            className="btn-label bg-[#862637] text-[#fee1d4] px-10 sm:px-12 py-4 text-xs uppercase rounded-lg hover:bg-[#01142a] transition-all duration-300"
           >
             {h.finalCta.cta}
           </button>

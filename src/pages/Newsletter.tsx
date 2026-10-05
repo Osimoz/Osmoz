@@ -77,7 +77,7 @@ export default function Newsletter() {
 
           <p
             style={{
-              fontSize: '16px',
+              fontSize: 'var(--text-body)',
               lineHeight: 1.8,
               color: '#6b6860',
               maxWidth: '520px',
@@ -157,7 +157,7 @@ export default function Newsletter() {
                 {/* Description */}
                 <p
                   style={{
-                    fontSize: '14px',
+                    fontSize: 'var(--text-small)',
                     lineHeight: 1.8,
                     color: '#6b6860',
                     fontWeight: 300,
@@ -171,7 +171,7 @@ export default function Newsletter() {
                 {/* Contenu */}
                 <p
                   style={{
-                    fontSize: '13px',
+                    fontSize: 'var(--text-small)',
                     lineHeight: 1.7,
                     color: '#9b9690',
                     fontWeight: 300,
@@ -191,15 +191,13 @@ export default function Newsletter() {
                     alignItems: 'center',
                     gap: '8px',
                     fontSize: '11px',
-                    letterSpacing: '0.15em',
                     textTransform: 'uppercase',
                     color: '#862637',
                     textDecoration: 'none',
-                    fontWeight: 400,
                     marginTop: 'auto',
                     transition: 'gap 0.3s ease',
                   }}
-                  className="group"
+                  className="btn-label group"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.gap = '12px';
                   }}
@@ -248,15 +246,13 @@ export default function Newsletter() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button
               onClick={() => navigate('/reservation')}
-              className="hover:bg-[#fee1d4] transition-colors duration-300"
+              className="btn-label hover:bg-[#fee1d4] transition-colors duration-300"
               style={{
                 padding: '14px 36px',
                 background: '#fee1d4',
                 color: '#01142a',
                 fontSize: '11px',
-                letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                fontWeight: 400,
                 border: 'none',
                 cursor: 'pointer',
               }}
@@ -265,10 +261,9 @@ export default function Newsletter() {
             </button>
             <button
               onClick={() => navigate('/contact')}
-              className="hover:text-[#fee1d4] transition-colors"
+              className="btn-label hover:text-[#fee1d4] transition-colors"
               style={{
                 fontSize: '11px',
-                letterSpacing: '0.15em',
                 textTransform: 'uppercase',
                 color: '#fafaf8',
                 background: 'none',

@@ -41,13 +41,13 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to={p('/')}
-            className="inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] transition-all duration-300"
+            className="btn-label inline-block bg-[#01142a] text-white px-8 py-3 rounded-xl text-xs uppercase hover:bg-[#862637] transition-all duration-300"
           >
             {s.home}
           </Link>
           <Link
             to={p('/spaces')}
-            className="inline-block border border-[#01142a] text-[#01142a] px-8 py-3 rounded-xl text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#01142a] hover:text-white transition-all duration-300"
+            className="btn-label inline-block border border-[#01142a] text-[#01142a] px-8 py-3 rounded-xl text-xs uppercase hover:bg-[#01142a] hover:text-white transition-all duration-300"
           >
             {s.spaces}
           </Link>

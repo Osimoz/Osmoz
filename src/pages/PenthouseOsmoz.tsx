@@ -221,7 +221,7 @@ export default function PenthouseOsmoz() {
 
           <button
             onClick={() => navigate(p('/reservation?space=penthouse'))}
-            className="bg-white text-[#01142a] px-12 py-4 rounded-lg text-xs tracking-[0.2em] font-normal uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition-all duration-300"
+            className="btn-label bg-white text-[#01142a] px-12 py-4 rounded-lg text-xs uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition-all duration-300"
           >
             {v.book}
           </button>
@@ -235,7 +235,7 @@ export default function PenthouseOsmoz() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-6 text-xs font-light text-[#01142a] tracking-wide uppercase">
+          <div className="tnum flex items-center gap-6 text-xs font-light text-[#01142a] tracking-wide uppercase">
             <span className="flex items-center gap-1.5">
               <Maximize2 className="h-3 w-3" strokeWidth={1.5} />{h.stats.surface}
             </span>
@@ -248,7 +248,7 @@ export default function PenthouseOsmoz() {
           </div>
           <button
             onClick={() => navigate(p('/reservation?space=penthouse'))}
-            className="bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs tracking-widest font-normal uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
+            className="btn-label bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
             {v.quote}
           </button>
@@ -263,7 +263,7 @@ export default function PenthouseOsmoz() {
         </div>
         <button
           onClick={() => navigate(p('/reservation?space=penthouse'))}
-          className="bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs tracking-[0.2em] uppercase font-normal flex-1 max-w-[200px]"
+          className="btn-label bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-lg text-xs uppercase flex-1 max-w-[200px]"
         >
           {v.book}
         </button>
@@ -438,7 +438,7 @@ export default function PenthouseOsmoz() {
               </div>
               <button
                 onClick={() => navigate(p('/reservation?space=penthouse'))}
-                className="bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs tracking-[0.2em] uppercase font-normal hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
+                className="btn-label bg-white text-[#01142a] px-10 py-4 rounded-lg text-xs uppercase hover:bg-[#862637] hover:text-[#fee1d4] transition-all duration-300"
               >
                 {v.book}
               </button>
