@@ -15,7 +15,7 @@ export const spaces: SpacesDictionary = {
     loft: {
       title: 'Le Loft Osmoz',
       eyebrow: 'Le Marais · Paris 3rd',
-      description: 'A contemporary 120 m² loft in the heart of Le Marais. Clean volumes, natural light from above and modular furniture for meetings and workshops that stand out.',
+      description: 'A contemporary 110 m² loft in the heart of Le Marais. Clean volumes, natural light from above and modular furniture for meetings and workshops that stand out.',
       capacity: '25 people',
       price: 'From 649 €',
       tags: ['Meeting', 'Workshop', 'Off-site'],

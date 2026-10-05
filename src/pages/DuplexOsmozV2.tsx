@@ -118,8 +118,8 @@ export default function DuplexOsmozV2() {
     maximumAttendeeCapacity: 40,
     amenityFeature: d.jsonLd.amenities.map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
     offers: [
-      { '@type': 'Offer', ...d.jsonLd.offers[0], price: '1500', priceCurrency: 'EUR' },
-      { '@type': 'Offer', ...d.jsonLd.offers[1], price: '2500', priceCurrency: 'EUR' },
+      { '@type': 'Offer', ...d.jsonLd.offers[0], price: '1499', priceCurrency: 'EUR' },
+      { '@type': 'Offer', ...d.jsonLd.offers[1], price: '2499', priceCurrency: 'EUR' },
     ],
     telephone: '+33675186932',
     email: 'contact@osmoz-space.com',

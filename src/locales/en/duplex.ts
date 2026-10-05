@@ -74,14 +74,14 @@ export const duplex: DuplexDictionary = {
     description: 'Haussmann-style apartment of 300 m² over two floors in the heart of Paris’s 2nd arrondissement. Chic residential feel, wrought-iron staircase, period parquet. Ideal for off-sites, conferences, cocktail parties, executive dinners and team days for up to 40 people. Exclusive day hire for companies.',
     amenities: ['High-speed wifi', 'Connected screen', 'Flipchart', 'HDMI cable', 'Fitted kitchen', 'Two floors', 'Fully private'],
     offers: [
-      { name: 'Full day — under 15 people', description: 'Full-day private hire for up to 15 people' },
-      { name: 'Full day — over 15 people', description: 'Full-day private hire for 15 to 40 people' },
+      { name: 'Half day', description: 'Half-day private hire — 8:30am-12pm or 2pm-6pm' },
+      { name: 'Full day', description: 'Full-day private hire — 8:30am-6:30pm' },
     ],
     breadcrumb: 'Le Duplex',
     faq: [
       { question: 'How many people can Le Duplex OSMOZ host?', answer: 'Le Duplex Haussmannien OSMOZ hosts up to 40 people over 300 m² on two floors. The apartment is entirely private.' },
       { question: 'Where is Le Duplex OSMOZ?', answer: 'Le Duplex OSMOZ is at 146 rue Montmartre, in the heart of Paris’s 2nd arrondissement.' },
-      { question: 'How much does it cost to hire Le Duplex OSMOZ?', answer: 'Le Duplex OSMOZ is available from 1,500 € excl. VAT for a full day with up to 15 people, and 2,500 € excl. VAT above that. Tailored quote within 24 hours.' },
+      { question: 'How much does it cost to hire Le Duplex OSMOZ?', answer: 'Le Duplex OSMOZ is available from 1,499 € excl. VAT for a half day and 2,499 € excl. VAT for a full day. Tailored quote within 24 hours.' },
     ],
   },
 };

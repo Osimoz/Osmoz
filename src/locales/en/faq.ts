@@ -113,7 +113,7 @@ export const faq: FaqDictionary = {
             { text: 'Le Loft (Le Marais)', to: '/spaces/loft-osmoz' },
             ', 1,499 € excl. VAT for ',
             { text: 'Le Penthouse (La Défense)', to: '/spaces/penthouse-osmoz' },
-            ' and 1,999 € excl. VAT for ',
+            ' and 1,499 € excl. VAT for ',
             { text: 'Le Duplex Haussmannien (Paris 2nd)', to: '/spaces/duplex-osmoz' },
             '. For a full day (8:30am–6:30pm), expect 999 € to 2,499 € excl. VAT depending on the space. Catering, activities and extended hours are quoted as options.',
           ],

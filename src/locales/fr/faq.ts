@@ -120,7 +120,7 @@ export const faq: FaqDictionary = {
             { text: 'Le Loft (Marais)', to: '/spaces/loft-osmoz' },
             ', 1 499 € HT pour ',
             { text: 'Le Penthouse (La Défense)', to: '/spaces/penthouse-osmoz' },
-            ' et 1 999 € HT pour ',
+            ' et 1 499 € HT pour ',
             { text: 'Le Duplex Haussmannien (Paris 2e)', to: '/spaces/duplex-osmoz' },
             '. En journée complète (8 h 30 – 18 h 30), comptez de 999 € à 2 499 € HT selon le lieu. La restauration, les animations et les extensions horaires sont chiffrées en option, sur devis.',
           ],

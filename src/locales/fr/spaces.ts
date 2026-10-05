@@ -14,7 +14,7 @@ export const spaces = {
     loft: {
       title: 'Le Loft Osmoz',
       eyebrow: 'Marais · Paris 3e',
-      description: "Un loft contemporain de 120 m² au cœur du Marais. Volumes épurés, lumière zénithale et mobilier modulable pour vos réunions et ateliers d'exception.",
+      description: "Un loft contemporain de 110 m² au cœur du Marais. Volumes épurés, lumière zénithale et mobilier modulable pour vos réunions et ateliers d'exception.",
       capacity: '25 personnes',
       price: 'À partir de 649 €',
       tags: ['Réunion', 'Atelier', 'Séminaire'],

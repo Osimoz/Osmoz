@@ -74,14 +74,14 @@ export const duplex = {
     description: "Appartement haussmannien de 300m² sur deux étages au cœur du 2e arrondissement de Paris. Esprit résidentiel chic, escalier en ferronnerie, parquet ancien. Idéal pour séminaires, conférences, cocktails, dîners de direction et journées d'équipe jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",
     amenities: ['Wifi haut débit', 'Écran connecté', 'Paperboard', 'Câble HDMI', 'Cuisine équipée', 'Deux étages', 'Privatisation totale'],
     offers: [
-      { name: 'Journée — moins de 15 personnes', description: "Privatisation journée complète jusqu'à 15 personnes" },
-      { name: 'Journée — plus de 15 personnes', description: 'Privatisation journée complète de 15 à 40 personnes' },
+      { name: 'Demi-journée', description: 'Privatisation demi-journée — 08h30-12h ou 14h-18h' },
+      { name: 'Journée complète', description: 'Privatisation journée complète — 08h30-18h30' },
     ],
     breadcrumb: 'Le Duplex',
     faq: [
       { question: 'Combien de personnes peut accueillir Le Duplex OSMOZ ?', answer: "Le Duplex Haussmannien OSMOZ accueille jusqu'à 40 personnes sur 300m² répartis sur deux étages. L'appartement est entièrement privatisé." },
       { question: 'Où se trouve Le Duplex OSMOZ ?', answer: 'Le Duplex OSMOZ est situé au 146 rue Montmartre, Paris 2e, au cœur du 2e arrondissement de Paris.' },
-      { question: 'Quel est le tarif de location du Duplex OSMOZ ?', answer: "Le Duplex OSMOZ est disponible à partir de 1500€ HT pour une journée jusqu'à 15 personnes, et 2500€ HT au-delà. Devis personnalisé sous 24h." },
+      { question: 'Quel est le tarif de location du Duplex OSMOZ ?', answer: 'Le Duplex OSMOZ est disponible à partir de 1 499€ HT pour une demi-journée et 2 499€ HT pour une journée complète. Devis personnalisé sous 24h.' },
     ],
   },
 };
