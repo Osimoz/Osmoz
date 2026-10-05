@@ -40,7 +40,11 @@ export const Navigation = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      // Sous le bandeau de langue quand il est affiché (LangBanner publie sa
+      // hauteur). La transition liste ses propriétés pour que ce décalage
+      // soit immédiat et non animé.
+      style={{ top: 'var(--lang-banner-h, 0px)' }}
+      className={`fixed w-full z-50 transition-[background-color,border-color,box-shadow,backdrop-filter,-webkit-backdrop-filter] duration-500 ${
         scrolled
           ? 'bg-[#fbfbf3]/98 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.06)]'
           : 'bg-[#fbfbf3]/80 backdrop-blur-md border-b border-black/[0.04]'

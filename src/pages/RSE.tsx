@@ -212,7 +212,7 @@ export default function RSE() {
           <div
             data-reveal
             style={{ ...reveal }}
-            className="lg:sticky lg:top-28"
+            className="lg:sticky lg:top-[calc(7rem+var(--lang-banner-h,0px))]"
           >
             <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#6b6860', fontWeight: 500, paddingTop: '8px' }}>
               {r.manifesto.kicker}

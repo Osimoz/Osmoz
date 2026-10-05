@@ -46,6 +46,11 @@ export const fr = {
     // bandeau affiché sur les pages anglaises. D'où le français ici, et
     // l'anglais dans le dictionnaire anglais.
     name: 'Français',
+    banner: {
+      text: 'Ce site est aussi disponible en français.',
+      cta: 'Passer en français',
+      close: 'Fermer',
+    },
   },
   nav: {
     home: 'Accueil',

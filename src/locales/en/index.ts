@@ -37,6 +37,11 @@ export const en: Dictionary = {
     label: 'Site language',
     // Shown on the French pages, to visitors who may prefer English.
     name: 'English',
+    banner: {
+      text: 'This website is also available in English.',
+      cta: 'Switch to English',
+      close: 'Close',
+    },
   },
   nav: {
     home: 'Home',

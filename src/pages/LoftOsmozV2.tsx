@@ -198,7 +198,7 @@ export default function LoftOsmozV2() {
 
       {/* ── 2. STICKY STATS BAR ── */}
       <div
-        className={`fixed top-0 left-0 right-0 z-40 bg-[#fbfbf3] border-b border-[#e5e5e5] shadow-sm transition-all duration-300 ${
+        className={`fixed top-[var(--lang-banner-h,0px)] left-0 right-0 z-40 bg-[#fbfbf3] border-b border-[#e5e5e5] shadow-sm transition-all duration-300 ${
           isStatsVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
         }`}
       >

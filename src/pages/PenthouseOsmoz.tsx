@@ -230,7 +230,7 @@ export default function PenthouseOsmoz() {
 
       {/* ── 2. STICKY STATS BAR ── */}
       <div
-        className={`fixed top-0 left-0 right-0 z-40 bg-[#fbfbf3]/95 backdrop-blur-sm border-b border-[#e5e5e5] shadow-sm transition-all duration-500 ${
+        className={`fixed top-[var(--lang-banner-h,0px)] left-0 right-0 z-40 bg-[#fbfbf3]/95 backdrop-blur-sm border-b border-[#e5e5e5] shadow-sm transition-all duration-500 ${
           isStatsVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
         }`}
       >
