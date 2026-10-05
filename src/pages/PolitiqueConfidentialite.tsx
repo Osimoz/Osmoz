@@ -40,8 +40,7 @@ export default function PolitiqueConfidentialite() {
               {v.kicker}
             </p>
             <h1
-              className="font-light text-[#01142a] mb-5"
-              style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+              className="t-display text-h1 text-[#01142a] mb-5"
             >
               {v.title}
             </h1>

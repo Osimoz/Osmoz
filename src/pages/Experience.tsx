@@ -69,11 +69,8 @@ export default function Experience() {
             {e.hero.kicker}
           </p>
 
-          <h1
+          <h1 className="t-display t-display-hero"
             style={{
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
-              lineHeight: 1.05,
               fontSize: 'clamp(3rem, 5.5vw, 5.5rem)',
               color: '#01142a',
               marginBottom: '36px',
@@ -145,8 +142,7 @@ export default function Experience() {
           </p>
           <div className="max-w-3xl">
             <h2
-              className="font-light text-[#01142a] mb-10"
-              style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.7rem, 3vw, 2.6rem)', lineHeight: '1.3' }}
+              className="t-serif text-h2 text-[#01142a] mb-10"
             >
               {e.intro.titleBefore}
               <em className="italic text-[#862637]">{e.intro.titleEm}</em>
@@ -224,12 +220,9 @@ export default function Experience() {
             }}>
               {e.immersive.kicker}
             </p>
-            <h2
+            <h2 className="t-serif"
               style={{
-                fontFamily: 'Playfair Display',
-                fontWeight: 300,
                 fontSize: 'clamp(2.2rem, 5vw, 5rem)',
-                lineHeight: 1.1,
                 color: '#ffffff',
                 maxWidth: '800px',
                 marginBottom: '40px',
@@ -276,7 +269,7 @@ export default function Experience() {
               {e.fleur.kicker}
             </p>
             <div>
-              <h2 style={{ fontFamily: 'Playfair Display', fontWeight: 300, lineHeight: 1.15, color: '#01142a', marginBottom: '32px', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }}>
+              <h2 className="t-serif text-h2" style={{ color: '#01142a', marginBottom: '32px' }}>
                 {e.fleur.titleLine1}<br />
                 <em className="italic" style={{ color: '#862637' }}>{e.fleur.titleEm}</em>
               </h2>
@@ -325,8 +318,8 @@ export default function Experience() {
             </p>
             <div>
               <h2
-                className="font-light text-[#01142a]"
-                style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.6rem, 3vw, 2.8rem)', lineHeight: 1.2, marginBottom: '16px' }}
+                className="t-serif text-h2 text-[#01142a]"
+                style={{ marginBottom: '16px' }}
               >
                 {e.menusSection.title}
               </h2>
@@ -361,18 +354,14 @@ export default function Experience() {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 'clamp(20px, 3vw, 48px)', flex: 1 }}>
-                    <span style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(0.75rem, 1vw, 0.9rem)', fontWeight: 300, color: '#c8c4bc', letterSpacing: '0.05em', flexShrink: 0 }}>
+                    <span className="tnum" style={{ fontSize: 'clamp(0.75rem, 1vw, 0.9rem)', fontWeight: 300, color: '#c8c4bc', letterSpacing: '0.05em', flexShrink: 0 }}>
                       {menu.num}
                     </span>
                     <div>
-                      <h3
+                      <h3 className="t-serif t-italic"
                         style={{
-                          fontFamily: 'Playfair Display',
-                          fontWeight: 300,
                           fontSize: 'clamp(1.4rem, 3vw, 2.8rem)',
-                          lineHeight: 1.1,
                           color: open ? '#862637' : '#01142a',
-                          fontStyle: 'italic',
                           transition: 'color 0.3s ease',
                           margin: 0,
                         }}
@@ -495,7 +484,7 @@ export default function Experience() {
         <div style={{ padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 60px) clamp(56px, 7vw, 96px)' }}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-end">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">{e.momentsSection.kicker}</p>
-            <h2 className="font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)', lineHeight: 1.2 }}>
+            <h2 className="t-serif text-[#01142a]" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)' }}>
               {e.momentsSection.title}
             </h2>
           </div>
@@ -546,7 +535,7 @@ export default function Experience() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-end">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">{e.activitiesSection.kicker}</p>
             <div>
-              <h2 className="font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)', lineHeight: 1.2, marginBottom: '16px' }}>
+              <h2 className="t-serif text-[#01142a]" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)', marginBottom: '16px' }}>
                 {e.activitiesSection.title}
               </h2>
               <p style={{ fontSize: '14px', color: '#9b9690', fontWeight: 300, maxWidth: '520px', lineHeight: 1.8 }}>
@@ -580,11 +569,11 @@ export default function Experience() {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 'clamp(20px, 3vw, 48px)', flex: 1 }}>
-                    <span style={{ fontFamily: 'Playfair Display', fontSize: '0.85rem', fontWeight: 300, color: '#c8c4bc', letterSpacing: '0.05em', flexShrink: 0 }}>
+                    <span className="tnum" style={{ fontSize: '0.85rem', fontWeight: 300, color: '#c8c4bc', letterSpacing: '0.05em', flexShrink: 0 }}>
                       {cat.num}
                     </span>
                     <div>
-                      <h3 style={{ fontFamily: 'Playfair Display', fontWeight: 300, fontSize: 'clamp(1.3rem, 2.5vw, 2.4rem)', lineHeight: 1.1, color: openAct ? '#862637' : '#01142a', fontStyle: 'italic', transition: 'color 0.3s', margin: 0 }}>
+                      <h3 className="t-serif t-italic" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2.4rem)', color: openAct ? '#862637' : '#01142a', transition: 'color 0.3s', margin: 0 }}>
                         {cat.titre}
                       </h3>
                       <p style={{ fontSize: '9px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#9b9690', marginTop: '6px' }}>
@@ -615,7 +604,7 @@ export default function Experience() {
                         {cat.items.map((item) => (
                           <div key={item.nom} style={{ padding: 'clamp(20px, 2.5vw, 28px) 0', borderBottom: '1px solid rgba(28,28,26,0.07)', display: 'grid', gridTemplateColumns: '1fr auto', gap: '24px', alignItems: 'start' }}>
                             <div>
-                              <p style={{ fontFamily: 'Playfair Display', fontWeight: 400, fontSize: 'clamp(0.95rem, 1.2vw, 1.1rem)', color: '#01142a', marginBottom: '8px', fontStyle: 'italic' }}>
+                              <p className="t-quote" style={{ fontSize: 'clamp(0.95rem, 1.2vw, 1.1rem)', color: '#01142a', marginBottom: '8px' }}>
                                 {item.nom}
                               </p>
                               <p style={{ fontSize: '13px', lineHeight: 1.75, color: '#6b6860', fontWeight: 300, maxWidth: '560px' }}>
@@ -658,12 +647,8 @@ export default function Experience() {
           <p style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(254,225,212,0.5)', marginBottom: '32px' }}>
             {e.promise.kicker}
           </p>
-          <h2
+          <h2 className="t-serif text-h2"
             style={{
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
-              fontSize: 'clamp(1.6rem, 3.5vw, 3.2rem)',
-              lineHeight: 1.25,
               color: '#ffffff',
               maxWidth: '760px',
               margin: '0 auto',
@@ -685,10 +670,10 @@ export default function Experience() {
                 borderTop: '1px solid rgba(255,255,255,0.07)',
               }}
             >
-              <p style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 3vw, 2.8rem)', fontWeight: 300, color: 'rgba(254,225,212,0.15)', lineHeight: 1, marginBottom: '32px' }}>
+              <p className="t-display" style={{ fontSize: 'clamp(2rem, 3vw, 2.8rem)', color: 'rgba(254,225,212,0.15)', marginBottom: '32px' }}>
                 {reassuranceNumbers[i]}
               </p>
-              <h3 style={{ fontFamily: 'Playfair Display', fontWeight: 300, fontSize: 'clamp(1.1rem, 1.5vw, 1.35rem)', color: '#ffffff', lineHeight: 1.3, marginBottom: '16px', fontStyle: 'italic' }}>
+              <h3 className="t-serif t-italic" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.35rem)', color: '#ffffff', marginBottom: '16px' }}>
                 {r.titre}
               </h3>
               <p style={{ fontSize: '13px', fontWeight: 300, color: 'rgba(255,255,255,0.5)', lineHeight: 1.9 }}>
@@ -713,11 +698,9 @@ export default function Experience() {
             {e.cta.kicker}
           </p>
           <h2
-            className="mx-auto"
+            className="t-serif text-h2 mx-auto"
             style={{
-              fontFamily: 'Playfair Display', fontWeight: 300, lineHeight: 1.2,
-              color: '#01142a', fontSize: 'clamp(1.8rem, 3.5vw, 3.2rem)',
-              maxWidth: '600px', marginBottom: '24px',
+              color: '#01142a', maxWidth: '600px', marginBottom: '24px',
             }}
           >
             {e.cta.titleBefore}

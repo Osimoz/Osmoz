@@ -28,8 +28,7 @@ export default function MentionsLegales() {
               {l.kicker}
             </p>
             <h1
-              className="font-light text-[#01142a] mb-5"
-              style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+              className="t-display text-h1 text-[#01142a] mb-5"
             >
               {l.title}
             </h1>

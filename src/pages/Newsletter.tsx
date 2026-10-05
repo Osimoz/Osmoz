@@ -64,11 +64,8 @@ export default function Newsletter() {
             Nos insights
           </p>
 
-          <h1
+          <h1 className="t-display"
             style={{
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
-              lineHeight: 1.15,
               fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
               color: '#01142a',
               marginBottom: '36px',
@@ -121,9 +118,8 @@ export default function Newsletter() {
                 className="hover:shadow-lg hover:bg-white"
               >
                 {/* Numéro */}
-                <span
+                <span className="tnum"
                   style={{
-                    fontFamily: 'Playfair Display',
                     fontSize: '0.9rem',
                     fontWeight: 300,
                     color: '#c8c4bc',
@@ -134,12 +130,9 @@ export default function Newsletter() {
                 </span>
 
                 {/* Titre */}
-                <h3
+                <h3 className="t-serif"
                   style={{
-                    fontFamily: 'Playfair Display',
-                    fontWeight: 300,
                     fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
-                    lineHeight: 1.3,
                     color: '#01142a',
                     margin: 0,
                   }}
@@ -243,13 +236,9 @@ export default function Newsletter() {
           >
             Prêt à organiser votre événement ?
           </p>
-          <h2
+          <h2 className="t-serif text-h2"
             style={{
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
-              lineHeight: 1.2,
               color: '#ffffff',
-              fontSize: 'clamp(1.8rem, 3.5vw, 3rem)',
               marginBottom: '36px',
             }}
           >

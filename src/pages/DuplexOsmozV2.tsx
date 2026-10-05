@@ -184,8 +184,7 @@ export default function DuplexOsmozV2() {
             {d.kicker}
           </p>
           <h1
-            className="text-white font-light mb-4 leading-tight"
-            style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(3rem, 6vw, 5.5rem)' }}
+            className="t-display t-display-hero text-white mb-4"
           >
             {d.name}
           </h1>
@@ -244,7 +243,7 @@ export default function DuplexOsmozV2() {
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-[#e5e5e5] px-4 py-3 flex items-center justify-between gap-3 shadow-lg">
         <div>
           <p className="text-xs font-light text-gray-400 uppercase tracking-widest">{v.from}</p>
-          <p className="text-lg font-light text-[#01142a]" style={{ fontFamily: 'Playfair Display' }}>{d.price}</p>
+          <p className="t-figure text-lg text-[#01142a]">{d.price}</p>
         </div>
         <button
           onClick={() => navigate(p('/reservation?space=duplex'))}
@@ -263,8 +262,7 @@ export default function DuplexOsmozV2() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-start mb-8">
               <div>
                 <p
-                  className="text-2xl italic font-light text-[#01142a] mb-6 leading-loose"
-                  style={{ fontFamily: 'Playfair Display' }}
+                  className="t-quote text-2xl text-[#01142a] mb-6 leading-loose"
                 >
                   {d.intro.quote}
                 </p>
@@ -323,8 +321,7 @@ export default function DuplexOsmozV2() {
             <div className="mb-10">
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.configurationsKicker}</p>
               <h2
-                className="text-2xl font-normal text-[#01142a]"
-                style={{ fontFamily: 'Playfair Display' }}
+                className="t-serif text-h3 text-[#01142a]"
               >
                 {v.configurations.title}
               </h2>
@@ -360,8 +357,7 @@ export default function DuplexOsmozV2() {
               </div>
               <div>
                 <p
-                  className="text-5xl font-light text-[#01142a] mb-1 leading-none"
-                  style={{ fontFamily: 'Playfair Display' }}
+                  className="t-display tnum text-5xl text-[#01142a] mb-1"
                 >
                   {configurations[activeConfig].capacity}
                 </p>
@@ -380,8 +376,7 @@ export default function DuplexOsmozV2() {
             <div className="mb-10">
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.amenitiesKicker}</p>
               <h2
-                className="text-2xl font-normal text-[#01142a]"
-                style={{ fontFamily: 'Playfair Display' }}
+                className="t-serif text-h3 text-[#01142a]"
               >
                 {v.amenities.title}
               </h2>
@@ -418,8 +413,7 @@ export default function DuplexOsmozV2() {
             <div className="mb-10">
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.pricing.kicker}</p>
               <h2
-                className="text-2xl font-normal text-[#01142a]"
-                style={{ fontFamily: 'Playfair Display' }}
+                className="t-serif text-h3 text-[#01142a]"
               >
                 {v.pricing.title}
               </h2>
@@ -436,8 +430,7 @@ export default function DuplexOsmozV2() {
                 >
                   <p className="text-xs font-light uppercase tracking-widest text-gray-400 mb-3">{tarif.label}</p>
                   <p
-                    className="text-2xl font-light text-[#01142a] mb-2 group-hover:text-[#862637] transition-colors"
-                    style={{ fontFamily: 'Playfair Display' }}
+                    className="t-figure text-2xl text-[#01142a] mb-2 group-hover:text-[#862637] transition-colors"
                   >
                     {tarif.price}
                   </p>
@@ -452,7 +445,7 @@ export default function DuplexOsmozV2() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
                 <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">{v.from}</p>
-                <p className="text-white text-4xl font-light" style={{ fontFamily: 'Playfair Display' }}>{d.price}</p>
+                <p className="t-display tnum text-white text-4xl">{d.price}</p>
                 <p className="text-white/40 text-xs mt-1 font-light">{v.ctaBand.note}</p>
               </div>
               <button
@@ -490,8 +483,7 @@ export default function DuplexOsmozV2() {
             <div className="mb-10">
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.access.kicker}</p>
               <h2
-                className="text-2xl font-normal text-[#01142a]"
-                style={{ fontFamily: 'Playfair Display' }}
+                className="t-serif text-h3 text-[#01142a]"
               >
                 {v.access.title}
               </h2>
@@ -560,8 +552,7 @@ export default function DuplexOsmozV2() {
           <div className="mb-12">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.crossSellKicker}</p>
             <h2
-              className="text-2xl font-normal text-[#01142a]"
-              style={{ fontFamily: 'Playfair Display' }}
+              className="t-serif text-h3 text-[#01142a]"
             >
               {v.crossSell.title}
             </h2>
@@ -590,8 +581,7 @@ export default function DuplexOsmozV2() {
                 <div className="p-6 flex items-center justify-between">
                   <div>
                     <h3
-                      className="text-base font-normal text-[#01142a] mb-1"
-                      style={{ fontFamily: 'Playfair Display' }}
+                      className="t-serif text-base text-[#01142a] mb-1"
                     >
                       {o.title}
                     </h3>

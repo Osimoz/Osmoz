@@ -112,11 +112,8 @@ export default function NewsletterPopup() {
               <span style={{ display: 'inline-block', width: '24px', height: '1px', background: '#862637' }} />
               {n.kicker}
             </p>
-            <h2 style={{
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
+            <h2 className="t-serif" style={{
               fontSize: 'clamp(1.6rem, 3vw, 2.3rem)',
-              lineHeight: 1.2,
               color: '#01142a',
               marginBottom: '8px',
             }}>

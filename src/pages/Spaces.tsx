@@ -71,8 +71,7 @@ export default function Spaces() {
             {s.kicker}
           </p>
           <h1
-            className="font-light text-[#01142a] max-w-2xl mb-5"
-            style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+            className="t-display text-h1 text-[#01142a] max-w-2xl mb-5"
           >
             {s.title}
           </h1>
@@ -117,8 +116,8 @@ export default function Spaces() {
                     {item.eyebrow}
                   </p>
                   <h2
-                    className="font-light text-[#01142a] mb-5"
-                    style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}
+                    className="t-serif text-[#01142a] mb-5"
+                    style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}
                   >
                     {item.title}
                   </h2>
@@ -164,8 +163,8 @@ export default function Spaces() {
             <div>
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-white/40 mb-3">{s.cta.kicker}</p>
               <h3
-                className="font-light text-white max-w-md"
-                style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}
+                className="t-serif text-white max-w-md"
+                style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}
               >
                 {s.cta.title}
               </h3>

@@ -157,8 +157,7 @@ export default function HomeV2() {
             {h.hero.kicker}
           </p>
           <h1
-            className="text-white font-light leading-tight mb-6 max-w-3xl"
-            style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
+            className="t-display t-display-hero text-white mb-6 max-w-3xl"
           >
             {h.hero.title}
           </h1>
@@ -191,8 +190,7 @@ export default function HomeV2() {
               {h.spacesSection.kicker}
             </p>
             <h2
-              className="font-normal text-[#01142a] max-w-xl"
-              style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+              className="t-serif text-h2 text-[#01142a] max-w-xl"
             >
               {h.spacesSection.title}
             </h2>
@@ -232,8 +230,7 @@ export default function HomeV2() {
                 <div className="p-6">
                   <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">{s.tag}</p>
                   <h3
-                    className="text-xl font-normal text-[#01142a] mb-1"
-                    style={{ fontFamily: 'Playfair Display' }}
+                    className="t-serif text-xl text-[#01142a] mb-1"
                   >
                     {s.title}
                   </h3>
@@ -274,8 +271,7 @@ export default function HomeV2() {
               <div className="p-6">
                 <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">{h.comingSoon.tag}</p>
                 <h3
-                  className="text-xl font-normal text-[#01142a] mb-3"
-                  style={{ fontFamily: 'Playfair Display' }}
+                  className="t-serif text-xl text-[#01142a] mb-3"
                 >
                   {h.comingSoon.title}
                 </h3>
@@ -305,8 +301,7 @@ export default function HomeV2() {
               {h.useCasesSection.kicker}
             </p>
             <h2
-              className="font-normal text-[#01142a]"
-              style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+              className="t-serif text-h2 text-[#01142a]"
             >
               {h.useCasesSection.title}
             </h2>
@@ -322,8 +317,7 @@ export default function HomeV2() {
               >
                 <Icon className="h-6 w-6 text-[#862637] mb-6" strokeWidth={1.5} />
                 <h3
-                  className="text-lg font-normal text-[#01142a] mb-3"
-                  style={{ fontFamily: 'Playfair Display' }}
+                  className="t-serif text-lg text-[#01142a] mb-3"
                 >
                   {item.title}
                 </h3>
@@ -339,8 +333,7 @@ export default function HomeV2() {
       <section className="bg-[#01142a] py-24 sm:py-32 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
-            className="font-light italic text-white max-w-2xl mx-auto mb-4"
-            style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+            className="t-serif text-h2 text-white max-w-2xl mx-auto mb-4"
           >
             {h.ctaBand.title}
           </h2>
@@ -365,8 +358,7 @@ export default function HomeV2() {
               {h.how.kicker}
             </p>
             <h2
-              className="font-normal text-[#01142a]"
-              style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+              className="t-serif text-h2 text-[#01142a]"
             >
               {h.how.title}
             </h2>
@@ -383,8 +375,8 @@ export default function HomeV2() {
                 }`}
               >
                 <p
-                  className="font-light text-[#01142a]/10 leading-none mb-4"
-                  style={{ fontFamily: 'Playfair Display', fontSize: '5rem' }}
+                  className="t-display text-[#01142a]/10 mb-4"
+                  style={{ fontSize: '5rem' }}
                 >
                   {step.number}
                 </p>
@@ -401,8 +393,8 @@ export default function HomeV2() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 mb-4">{h.finalCta.kicker}</p>
           <h2
-            className="font-normal text-[#01142a] max-w-2xl mx-auto mb-10"
-            style={{ fontFamily: 'Playfair Display', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+            className="t-serif text-[#01142a] max-w-2xl mx-auto mb-10"
+            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
           >
             {h.finalCta.title}
           </h2>

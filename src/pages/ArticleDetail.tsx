@@ -157,12 +157,9 @@ export default function ArticleDetail() {
           >
             {state.phase === 'error' ? 'Erreur de chargement' : 'Article introuvable'}
           </p>
-          <h1
+          <h1 className="t-serif"
             style={{
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
               fontSize: 'clamp(2rem, 4vw, 3rem)',
-              lineHeight: 1.2,
               color: '#01142a',
               marginBottom: '32px',
             }}
@@ -264,12 +261,8 @@ export default function ArticleDetail() {
           </p>
         )}
 
-        <h1
+        <h1 className="t-serif text-h1"
           style={{
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: 300,
-            lineHeight: 1.15,
-            fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)',
             color: '#01142a',
             marginBottom: '40px',
           }}
@@ -354,8 +347,8 @@ export default function ArticleDetail() {
         <style>
           {`
             .osmoz-article-body h2 {
-              font-family: 'Playfair Display', serif;
-              font-weight: 300;
+              font-family: var(--font-serif);
+              font-weight: 400;
               font-size: clamp(1.5rem, 2.5vw, 2rem);
               line-height: 1.25;
               color: #01142a;
@@ -363,7 +356,7 @@ export default function ArticleDetail() {
               margin-bottom: 20px;
             }
             .osmoz-article-body h3 {
-              font-family: 'Playfair Display', serif;
+              font-family: var(--font-serif);
               font-weight: 400;
               font-size: clamp(1.2rem, 2vw, 1.4rem);
               line-height: 1.3;

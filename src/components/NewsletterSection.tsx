@@ -18,7 +18,7 @@ export default function NewsletterSection() {
               <span style={{ display: 'inline-block', width: '24px', height: '1px', background: 'rgba(254,225,212,0.4)' }} />
               {n.kicker}
             </p>
-            <h2 style={{ fontFamily: 'Playfair Display', fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.6rem)', lineHeight: 1.2, color: '#ffffff', marginBottom: '16px' }}>
+            <h2 className="t-serif text-h2" style={{ color: '#ffffff', marginBottom: '16px' }}>
               {n.headline}
             </h2>
             <p style={{ fontSize: '14px', lineHeight: 1.9, color: 'rgba(255,255,255,0.85)', fontWeight: 300 }}>

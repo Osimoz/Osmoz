@@ -29,12 +29,9 @@ export default function NotFound() {
         >
           {s.kicker}
         </p>
-        <h1
+        <h1 className="t-serif"
           style={{
-            fontFamily: 'Playfair Display',
-            fontWeight: 300,
             fontSize: 'clamp(2rem, 4vw, 3rem)',
-            lineHeight: 1.2,
             color: '#01142a',
             marginBottom: '32px',
           }}

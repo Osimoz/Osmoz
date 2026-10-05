@@ -84,13 +84,10 @@ export default function RSE() {
             {r.hero.kicker}
           </p>
 
-          <h1
+          <h1 className="t-display t-display-hero"
             data-reveal
             style={{
               ...revealD(0.15),
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
-              lineHeight: 1.05,
               fontSize: 'clamp(3rem, 5.5vw, 5.5rem)',
               color: '#01142a',
               marginBottom: '36px',
@@ -175,13 +172,10 @@ export default function RSE() {
           style={{ background: 'linear-gradient(135deg, #dce5df 0%, #cfdbcf 50%, #bfcfc0 100%)', opacity: 0, animation: 'fadeIn 1.2s ease 0.4s forwards' }}
         >
           <style>{`@keyframes fadeIn { to { opacity: 1; } }`}</style>
-          <span
+          <span className="t-display"
             style={{
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
               fontSize: 'clamp(120px, 16vw, 220px)',
               color: 'rgba(28,28,26,0.05)',
-              lineHeight: 1,
               userSelect: 'none',
               position: 'absolute',
               top: '50%',
@@ -230,11 +224,8 @@ export default function RSE() {
           </div>
 
           <div data-reveal style={revealD(0.1)}>
-            <p
+            <p className="t-serif"
               style={{
-                fontFamily: 'Playfair Display',
-                fontWeight: 300,
-                lineHeight: 1.3,
                 color: '#01142a',
                 fontSize: 'clamp(28px, 3.5vw, 48px)',
                 marginBottom: '48px',
@@ -277,7 +268,7 @@ export default function RSE() {
             <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#6b6860', fontWeight: 500 }}>
               {r.pillarsSection.kicker}
             </p>
-            <h2 style={{ fontFamily: 'Playfair Display', fontWeight: 300, lineHeight: 1.1, color: '#01142a', fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)' }}>
+            <h2 className="t-serif" style={{ color: '#01142a', fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)' }}>
               {r.pillarsSection.titleLine1}<br />{r.pillarsSection.titleLine2}
             </h2>
           </div>
@@ -306,13 +297,10 @@ export default function RSE() {
                   className="absolute bottom-0 left-0 right-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                   style={{ height: '2px', background: '#862637' }}
                 />
-                <span
+                <span className="t-display"
                   style={{
-                    fontFamily: 'Playfair Display',
                     fontSize: '72px',
-                    fontWeight: 300,
                     color: 'rgba(28,28,26,0.08)',
-                    lineHeight: 1,
                     display: 'block',
                     marginBottom: '32px',
                     transition: 'color 0.3s',
@@ -320,7 +308,7 @@ export default function RSE() {
                 >
                   {pillarNumbers[i]}
                 </span>
-                <p style={{ fontFamily: 'Playfair Display', fontSize: '22px', fontWeight: 400, color: '#01142a', marginBottom: '16px', lineHeight: 1.2 }}>
+                <p className="t-serif" style={{ fontSize: '22px', color: '#01142a', marginBottom: '16px' }}>
                   {pillar.title}
                 </p>
                 <p style={{ fontSize: '13px', lineHeight: 1.8, color: '#6b6860' }}>
@@ -345,13 +333,10 @@ export default function RSE() {
               className={`relative flex items-center justify-center overflow-hidden ${i % 2 === 1 ? 'lg:order-2' : ''}`}
               style={{ background: actionGradients[i], minHeight: '320px' }}
             >
-              <span
+              <span className="t-display"
                 style={{
-                  fontFamily: 'Playfair Display',
-                  fontWeight: 300,
                   fontSize: 'clamp(40px, 6vw, 90px)',
                   color: 'rgba(28,28,26,0.06)',
-                  lineHeight: 1,
                   position: 'absolute',
                   top: '50%',
                   left: '50%',
@@ -411,11 +396,8 @@ export default function RSE() {
                 {action.index}
               </div>
 
-              <h3
+              <h3 className="t-serif"
                 style={{
-                  fontFamily: 'Playfair Display',
-                  fontWeight: 300,
-                  lineHeight: 1.15,
                   color: '#01142a',
                   marginBottom: '28px',
                   fontSize: 'clamp(1.75rem, 2.8vw, 2.75rem)',
@@ -472,11 +454,8 @@ export default function RSE() {
           <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#862637', fontWeight: 500, marginBottom: '32px' }}>
             {r.cta.kicker}
           </p>
-          <h2
+          <h2 className="t-serif"
             style={{
-              fontFamily: 'Playfair Display',
-              fontWeight: 300,
-              lineHeight: 1.1,
               color: '#01142a',
               marginBottom: '32px',
               fontSize: 'clamp(2.5rem, 4vw, 4rem)',
@@ -554,7 +533,7 @@ export default function RSE() {
                   borderBottom: i < r.commitments.length - 1 ? '1px solid rgba(28,28,26,0.08)' : 'none',
                 }}
               >
-                <span style={{ fontFamily: 'Playfair Display', fontSize: '36px', fontWeight: 300, color: 'rgba(28,28,26,0.12)', lineHeight: 1, flexShrink: 0, width: '48px' }}>
+                <span className="t-display" style={{ fontSize: '36px', color: 'rgba(28,28,26,0.12)', flexShrink: 0, width: '48px' }}>
                   {commitmentNumbers[i]}
                 </span>
                 <div>
