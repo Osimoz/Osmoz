@@ -53,10 +53,13 @@ const BOT_UA =
   /bot|crawl|spider|slurp|lighthouse|headless|inspectiontool|googleother|mediapartners|facebookexternalhit|bingpreview|pingdom|ptst/i;
 
 /**
- * Faut-il proposer l'autre langue sur cette page ?
- * - page française : navigateur non francophone sans choix mémorisé, ou choix
- *   « en » déjà fait (arrivée par un lien direct : on propose, sans rediriger) ;
- * - page anglaise : navigateur francophone sans choix mémorisé, rien d'autre.
+ * Faut-il proposer l'autre langue sur cette page ? Même règle dans les deux
+ * sens :
+ * - le visiteur a choisi l'autre langue et arrive ici par un lien direct :
+ *   on la lui propose, sans jamais rediriger ;
+ * - il a choisi la langue de cette page : rien ;
+ * - aucun choix mémorisé : on se fie au navigateur (non francophone sur une
+ *   page française, francophone sur une page anglaise).
  */
 export function shouldSuggestLang(
   pageLang: Lang,
@@ -65,10 +68,7 @@ export function shouldSuggestLang(
   userAgent: string,
 ): boolean {
   if (BOT_UA.test(userAgent)) return false;
+  if (choice !== null) return choice !== pageLang;
   const french = browserLang.toLowerCase().startsWith('fr');
-  if (pageLang === 'fr') {
-    if (choice === 'en') return true;
-    return choice === null && browserLang !== '' && !french;
-  }
-  return choice === null && french;
+  return pageLang === 'fr' ? browserLang !== '' && !french : french;
 }

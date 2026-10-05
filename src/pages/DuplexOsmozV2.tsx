@@ -212,10 +212,12 @@ export default function DuplexOsmozV2() {
         </div>
       </section>
 
-      {/* ── 2. STICKY STATS BAR ── */}
+      {/* ── 2. STICKY STATS BAR ──
+          Calée sous le header (72px de haut, z-50) : elle glisse de derrière
+          lui et se pose juste en dessous. Masquée, elle ne capte aucun clic. */}
       <div
-        className={`fixed top-[var(--lang-banner-h,0px)] left-0 right-0 z-40 bg-[#fbfbf3]/95 backdrop-blur-sm border-b border-[#e5e5e5] shadow-sm transition-all duration-500 ${
-          isStatsVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+        className={`fixed top-[72px] left-0 right-0 z-40 bg-[#fbfbf3]/95 backdrop-blur-sm border-b border-[#e5e5e5] shadow-sm transition-all duration-500 ${
+          isStatsVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">

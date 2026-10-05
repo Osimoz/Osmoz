@@ -136,7 +136,7 @@ export default function Experience() {
         }}
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-start">
-          <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 lg:sticky lg:top-[calc(7rem+var(--lang-banner-h,0px))] pt-1">
+          <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 lg:sticky lg:top-28 pt-1">
             {e.intro.kicker}
           </p>
           <div className="max-w-3xl">
