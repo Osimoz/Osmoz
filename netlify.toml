@@ -79,15 +79,18 @@
 # ── English version ──────────────────────────────────────────────────
 # Les pages EN sont des fichiers plats pré-rendus (dist/en.html, dist/en/…).
 # Les articles n'existent qu'en français : /en/articles/* → 301 vers l'article FR.
+# La règle exacte passe AVANT la règle générique : sinon /en/articles est
+# attrapée par le motif /en/articles/* avec un :splat vide et part vers
+# /articles/ (slash final), ce qui ajoute une seconde redirection.
 [[redirects]]
-  from = "/en/articles/*"
-  to = "/articles/:splat"
+  from = "/en/articles"
+  to = "/articles"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/en/articles"
-  to = "/articles"
+  from = "/en/articles/*"
+  to = "/articles/:splat"
   status = 301
   force = true
 
