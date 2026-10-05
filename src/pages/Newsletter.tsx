@@ -64,7 +64,7 @@ export default function Newsletter() {
             Nos insights
           </p>
 
-          <h1 className="t-display"
+          <h1 className="t-h1"
             style={{
               fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
               color: '#01142a',
@@ -72,7 +72,7 @@ export default function Newsletter() {
             }}
           >
             Nos newsletters<br />
-            <em className="italic" style={{ color: '#862637' }}>pour réussir vos événements.</em>
+            <em style={{ color: '#862637' }}>pour réussir vos événements.</em>
           </h1>
 
           <p
@@ -130,7 +130,7 @@ export default function Newsletter() {
                 </span>
 
                 {/* Titre */}
-                <h3 className="t-serif"
+                <h3 className="t-h3"
                   style={{
                     fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
                     color: '#01142a',
@@ -234,14 +234,14 @@ export default function Newsletter() {
           >
             Prêt à organiser votre événement ?
           </p>
-          <h2 className="t-serif text-h2"
+          <h2 className="t-h2 text-h2"
             style={{
               color: '#ffffff',
               marginBottom: '36px',
             }}
           >
             Transformez vos idées<br />
-            <em className="italic" style={{ color: '#fee1d4' }}>en événements mémorables.</em>
+            <em style={{ color: '#fee1d4' }}>en événements mémorables.</em>
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button

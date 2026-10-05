@@ -60,7 +60,7 @@ export default function QuestionsFrequentes() {
           <div className="mb-14">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-4">{f.kicker}</p>
             <h1
-              className="t-display text-h1 text-[#01142a] mb-5"
+              className="t-h1 text-h1 text-[#01142a] mb-5"
             >
               {f.title}
             </h1>

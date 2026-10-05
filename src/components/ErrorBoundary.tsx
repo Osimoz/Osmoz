@@ -48,7 +48,7 @@ export class ErrorBoundary extends Component<Props, State> {
                 this.setState({ hasError: false, error: null });
                 window.location.href = pathFor('home', lang) ?? '/';
               }}
-              className="btn-label bg-black text-white px-6 py-3 rounded-lg text-sm hover:bg-white hover:text-black border border-black transition-all duration-300"
+              className="btn-label bg-black text-white px-6 py-3 rounded-lg text-xs uppercase hover:bg-white hover:text-black border border-black transition-all duration-300"
             >
               {s.home}
             </button>

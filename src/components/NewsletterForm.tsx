@@ -109,7 +109,7 @@ export default function NewsletterForm({
       {!hideHeader && (
         <div className="mb-8">
           <p className="text-xs uppercase tracking-[0.35em] text-[#862637] mb-4">{n.kicker}</p>
-          <h2 className="t-serif text-[#fbfbf3] text-3xl sm:text-4xl mb-4">
+          <h2 className="t-h2 text-[#fbfbf3] text-3xl sm:text-4xl mb-4">
             {finalHeadline}
           </h2>
           <p className="text-sm text-[#f5f5ef] max-w-2xl leading-relaxed">

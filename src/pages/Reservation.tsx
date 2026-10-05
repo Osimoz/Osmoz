@@ -121,7 +121,7 @@ export default function Reservation() {
           <div className="w-14 h-14 rounded-full bg-[#862637]/10 flex items-center justify-center mx-auto mb-5">
             <Check className="h-7 w-7 text-[#862637]" strokeWidth={1.5} />
           </div>
-          <h1 className="t-display text-[#01142a] mb-3" style={{ fontSize: 'clamp(2rem,4vw,2.4rem)' }}>
+          <h1 className="t-h1 text-[#01142a] mb-3" style={{ fontSize: 'clamp(2rem,4vw,2.4rem)' }}>
             {r.sent.title}
           </h1>
           <p className="text-sm font-light text-gray-500 leading-relaxed mb-8">
@@ -163,7 +163,7 @@ export default function Reservation() {
           {/* Header — ultra compact */}
           <div className="text-center mb-6">
             <p className="text-[10px] font-normal uppercase tracking-[0.3em] text-[#862637] mb-1.5">{r.header.kicker}</p>
-            <h1 className="t-display text-[#01142a]" style={{ fontSize: 'clamp(2rem,3.5vw,2.4rem)' }}>
+            <h1 className="t-h1 text-[#01142a]" style={{ fontSize: 'clamp(2rem,3.5vw,2.4rem)' }}>
               {r.header.title}
             </h1>
             <p className="text-xs font-light text-gray-400 mt-1">{r.header.subtitle}</p>

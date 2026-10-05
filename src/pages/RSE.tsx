@@ -84,17 +84,16 @@ export default function RSE() {
             {r.hero.kicker}
           </p>
 
-          <h1 className="t-display t-display-hero"
+          <h1 className="t-h1 text-hero"
             data-reveal
             style={{
               ...revealD(0.15),
-              fontSize: 'clamp(3rem, 5.5vw, 5.5rem)',
               color: '#01142a',
               marginBottom: '36px',
             }}
           >
             {r.hero.titleLine1}<br />
-            {r.hero.titleLine2Before}<em className="italic">{r.hero.titleLine2Em}</em><br />
+            {r.hero.titleLine2Before}<em>{r.hero.titleLine2Em}</em><br />
             {r.hero.titleLine3}
           </h1>
 
@@ -169,7 +168,7 @@ export default function RSE() {
           style={{ background: 'linear-gradient(135deg, #dce5df 0%, #cfdbcf 50%, #bfcfc0 100%)', opacity: 0, animation: 'fadeIn 1.2s ease 0.4s forwards' }}
         >
           <style>{`@keyframes fadeIn { to { opacity: 1; } }`}</style>
-          <span className="t-display"
+          <span className="t-key"
             style={{
               fontSize: 'clamp(120px, 16vw, 220px)',
               color: 'rgba(28,28,26,0.05)',
@@ -221,7 +220,7 @@ export default function RSE() {
           </div>
 
           <div data-reveal style={revealD(0.1)}>
-            <p className="t-serif"
+            <p className="t-h2"
               style={{
                 color: '#01142a',
                 fontSize: 'clamp(28px, 3.5vw, 48px)',
@@ -229,7 +228,7 @@ export default function RSE() {
               }}
             >
               {r.manifesto.titleBefore}
-              <em className="italic" style={{ color: '#862637' }}>{r.manifesto.titleEm}</em>{r.manifesto.titleAfter}<br />
+              <em style={{ color: '#862637' }}>{r.manifesto.titleEm}</em>{r.manifesto.titleAfter}<br />
               {r.manifesto.titleLine2}
             </p>
             <p
@@ -265,7 +264,7 @@ export default function RSE() {
             <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#6b6860', fontWeight: 500 }}>
               {r.pillarsSection.kicker}
             </p>
-            <h2 className="t-serif" style={{ color: '#01142a', fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)' }}>
+            <h2 className="t-h2" style={{ color: '#01142a', fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)' }}>
               {r.pillarsSection.titleLine1}<br />{r.pillarsSection.titleLine2}
             </h2>
           </div>
@@ -294,7 +293,7 @@ export default function RSE() {
                   className="absolute bottom-0 left-0 right-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                   style={{ height: '2px', background: '#862637' }}
                 />
-                <span className="t-display"
+                <span className="t-key"
                   style={{
                     fontSize: '72px',
                     color: 'rgba(28,28,26,0.08)',
@@ -305,7 +304,7 @@ export default function RSE() {
                 >
                   {pillarNumbers[i]}
                 </span>
-                <p className="t-serif" style={{ fontSize: '22px', color: '#01142a', marginBottom: '16px' }}>
+                <p className="t-h3" style={{ fontSize: '22px', color: '#01142a', marginBottom: '16px' }}>
                   {pillar.title}
                 </p>
                 <p style={{ fontSize: 'var(--text-small)', lineHeight: 1.8, color: '#6b6860' }}>
@@ -330,7 +329,7 @@ export default function RSE() {
               className={`relative flex items-center justify-center overflow-hidden ${i % 2 === 1 ? 'lg:order-2' : ''}`}
               style={{ background: actionGradients[i], minHeight: '320px' }}
             >
-              <span className="t-display"
+              <span className="t-key"
                 style={{
                   fontSize: 'clamp(40px, 6vw, 90px)',
                   color: 'rgba(28,28,26,0.06)',
@@ -393,7 +392,7 @@ export default function RSE() {
                 {action.index}
               </div>
 
-              <h3 className="t-serif"
+              <h3 className="t-h3"
                 style={{
                   color: '#01142a',
                   marginBottom: '28px',
@@ -451,7 +450,7 @@ export default function RSE() {
           <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#862637', fontWeight: 500, marginBottom: '32px' }}>
             {r.cta.kicker}
           </p>
-          <h2 className="t-serif"
+          <h2 className="t-h2"
             style={{
               color: '#01142a',
               marginBottom: '32px',
@@ -459,7 +458,7 @@ export default function RSE() {
             }}
           >
             {r.cta.titleLine1}<br />
-            {r.cta.titleLine2Before}<em className="italic" style={{ color: '#862637' }}>{r.cta.titleLine2Em}</em><br />
+            {r.cta.titleLine2Before}<em style={{ color: '#862637' }}>{r.cta.titleLine2Em}</em><br />
             {r.cta.titleLine3}
           </h2>
           <p style={{ fontSize: 'var(--text-body)', lineHeight: 1.9, color: '#6b6860', marginBottom: '48px', maxWidth: '460px', fontWeight: 300 }}>
@@ -527,7 +526,7 @@ export default function RSE() {
                   borderBottom: i < r.commitments.length - 1 ? '1px solid rgba(28,28,26,0.08)' : 'none',
                 }}
               >
-                <span className="t-display" style={{ fontSize: '36px', color: 'rgba(28,28,26,0.12)', flexShrink: 0, width: '48px' }}>
+                <span className="t-key" style={{ fontSize: '36px', color: 'rgba(28,28,26,0.12)', flexShrink: 0, width: '48px' }}>
                   {commitmentNumbers[i]}
                 </span>
                 <div>

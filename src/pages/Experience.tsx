@@ -69,15 +69,14 @@ export default function Experience() {
             {e.hero.kicker}
           </p>
 
-          <h1 className="t-display t-display-hero"
+          <h1 className="t-h1 text-hero"
             style={{
-              fontSize: 'clamp(3rem, 5.5vw, 5.5rem)',
               color: '#01142a',
               marginBottom: '36px',
             }}
           >
             {e.hero.titleLine1}<br />
-            <em className="italic">{e.hero.titleEm}</em><br />
+            <em>{e.hero.titleEm}</em><br />
             {e.hero.titleLine3}
           </h1>
 
@@ -142,10 +141,10 @@ export default function Experience() {
           </p>
           <div className="max-w-3xl">
             <h2
-              className="t-serif text-h2 text-[#01142a] mb-10"
+              className="t-h2 text-h2 text-[#01142a] mb-10"
             >
               {e.intro.titleBefore}
-              <em className="italic text-[#862637]">{e.intro.titleEm}</em>
+              <em className="text-[#862637]">{e.intro.titleEm}</em>
             </h2>
             <p
               className="font-light text-gray-500 md:columns-2 md:gap-12"
@@ -220,7 +219,7 @@ export default function Experience() {
             }}>
               {e.immersive.kicker}
             </p>
-            <h2 className="t-serif"
+            <h2 className="t-h2"
               style={{
                 fontSize: 'clamp(2.2rem, 5vw, 5rem)',
                 color: '#ffffff',
@@ -228,7 +227,7 @@ export default function Experience() {
                 marginBottom: '40px',
               }}
             >
-              {e.immersive.titleBefore}<em className="italic" style={{ color: '#fee1d4' }}>{e.immersive.titleEm}</em>{e.immersive.titleAfter}
+              {e.immersive.titleBefore}<em style={{ color: '#fee1d4' }}>{e.immersive.titleEm}</em>{e.immersive.titleAfter}
             </h2>
             <div style={{ width: '40px', height: '1px', background: 'rgba(254,225,212,0.4)', margin: '0 auto' }} />
           </div>
@@ -269,9 +268,9 @@ export default function Experience() {
               {e.fleur.kicker}
             </p>
             <div>
-              <h2 className="t-serif text-h2" style={{ color: '#01142a', marginBottom: '32px' }}>
+              <h2 className="t-h2 text-h2" style={{ color: '#01142a', marginBottom: '32px' }}>
                 {e.fleur.titleLine1}<br />
-                <em className="italic" style={{ color: '#862637' }}>{e.fleur.titleEm}</em>
+                <em style={{ color: '#862637' }}>{e.fleur.titleEm}</em>
               </h2>
               <div style={{ fontSize: 'var(--text-body)', lineHeight: 2, color: '#6b6860', fontWeight: 300, maxWidth: '560px', marginBottom: '36px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <p>
@@ -318,7 +317,7 @@ export default function Experience() {
             </p>
             <div>
               <h2
-                className="t-serif text-h2 text-[#01142a]"
+                className="t-h2 text-h2 text-[#01142a]"
                 style={{ marginBottom: '16px' }}
               >
                 {e.menusSection.title}
@@ -358,7 +357,7 @@ export default function Experience() {
                       {menu.num}
                     </span>
                     <div>
-                      <h3 className="t-serif t-italic"
+                      <h3 className="t-h3"
                         style={{
                           fontSize: 'clamp(1.4rem, 3vw, 2.8rem)',
                           color: open ? '#862637' : '#01142a',
@@ -484,7 +483,7 @@ export default function Experience() {
         <div style={{ padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 60px) clamp(56px, 7vw, 96px)' }}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-end">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">{e.momentsSection.kicker}</p>
-            <h2 className="t-serif text-[#01142a]" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)' }}>
+            <h2 className="t-h2 text-[#01142a]" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)' }}>
               {e.momentsSection.title}
             </h2>
           </div>
@@ -535,7 +534,7 @@ export default function Experience() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-12 lg:gap-20 items-end">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-gray-400 pt-1">{e.activitiesSection.kicker}</p>
             <div>
-              <h2 className="t-serif text-[#01142a]" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)', marginBottom: '16px' }}>
+              <h2 className="t-h2 text-[#01142a]" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)', marginBottom: '16px' }}>
                 {e.activitiesSection.title}
               </h2>
               <p style={{ fontSize: 'var(--text-small)', color: '#9b9690', fontWeight: 300, maxWidth: '520px', lineHeight: 1.8 }}>
@@ -573,7 +572,7 @@ export default function Experience() {
                       {cat.num}
                     </span>
                     <div>
-                      <h3 className="t-serif t-italic" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2.4rem)', color: openAct ? '#862637' : '#01142a', transition: 'color 0.3s', margin: 0 }}>
+                      <h3 className="t-h3" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2.4rem)', color: openAct ? '#862637' : '#01142a', transition: 'color 0.3s', margin: 0 }}>
                         {cat.titre}
                       </h3>
                       <p style={{ fontSize: '9px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#9b9690', marginTop: '6px' }}>
@@ -647,7 +646,7 @@ export default function Experience() {
           <p style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(254,225,212,0.5)', marginBottom: '32px' }}>
             {e.promise.kicker}
           </p>
-          <h2 className="t-serif text-h2"
+          <h2 className="t-h2 text-h2"
             style={{
               color: '#ffffff',
               maxWidth: '760px',
@@ -655,7 +654,7 @@ export default function Experience() {
             }}
           >
             {e.promise.titleBefore}
-            <em className="italic" style={{ color: '#fee1d4' }}>{e.promise.titleEm}</em>
+            <em style={{ color: '#fee1d4' }}>{e.promise.titleEm}</em>
           </h2>
         </div>
 
@@ -670,10 +669,10 @@ export default function Experience() {
                 borderTop: '1px solid rgba(255,255,255,0.07)',
               }}
             >
-              <p className="t-display" style={{ fontSize: 'clamp(2rem, 3vw, 2.8rem)', color: 'rgba(254,225,212,0.15)', marginBottom: '32px' }}>
+              <p className="t-key" style={{ fontSize: 'clamp(2rem, 3vw, 2.8rem)', color: 'rgba(254,225,212,0.15)', marginBottom: '32px' }}>
                 {reassuranceNumbers[i]}
               </p>
-              <h3 className="t-serif t-italic" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.35rem)', color: '#ffffff', marginBottom: '16px' }}>
+              <h3 className="t-h3" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.35rem)', color: '#ffffff', marginBottom: '16px' }}>
                 {r.titre}
               </h3>
               <p style={{ fontSize: 'var(--text-small)', fontWeight: 300, color: 'rgba(255,255,255,0.5)', lineHeight: 1.9 }}>
@@ -698,13 +697,13 @@ export default function Experience() {
             {e.cta.kicker}
           </p>
           <h2
-            className="t-serif text-h2 mx-auto"
+            className="t-h2 text-h2 mx-auto"
             style={{
               color: '#01142a', maxWidth: '600px', marginBottom: '24px',
             }}
           >
             {e.cta.titleBefore}
-            <em className="italic" style={{ color: '#862637' }}>{e.cta.titleEm}</em>
+            <em style={{ color: '#862637' }}>{e.cta.titleEm}</em>
           </h2>
           <p style={{ fontSize: 'var(--text-body)', fontWeight: 300, color: '#6b6860', maxWidth: '400px', margin: '0 auto 48px', lineHeight: 1.9 }}>
             {e.cta.text}

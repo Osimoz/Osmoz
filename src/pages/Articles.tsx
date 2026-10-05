@@ -184,7 +184,7 @@ export default function Articles() {
             L'actualité OSMOZ
           </p>
 
-          <h1 className="t-display"
+          <h1 className="t-h1"
             style={{
               fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
               color: '#01142a',
@@ -275,7 +275,7 @@ export default function Articles() {
             }}>
               L'actualité OSMOZ
             </p>
-            <h2 className="t-serif"
+            <h2 className="t-h2"
               style={{
                 fontSize: 'clamp(2.2rem, 5vw, 5rem)',
                 color: '#ffffff',
@@ -283,7 +283,7 @@ export default function Articles() {
                 marginBottom: '40px',
               }}
             >
-              Nos articles sur <em className="italic" style={{ color: '#fee1d4' }}>l'événementiel corporate</em>
+              Nos articles sur <em style={{ color: '#fee1d4' }}>l'événementiel corporate</em>
             </h2>
             <div style={{ width: '40px', height: '1px', background: 'rgba(254,225,212,0.4)', margin: '0 auto' }} />
           </div>
@@ -359,7 +359,7 @@ export default function Articles() {
                   </span>
 
                   {/* Titre */}
-                  <h3 className="t-serif"
+                  <h3 className="t-h3"
                     style={{
                       fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
                       color: '#01142a',
@@ -494,14 +494,14 @@ export default function Articles() {
           >
             Prêt à organiser votre événement ?
           </p>
-          <h2 className="t-serif text-h2"
+          <h2 className="t-h2 text-h2"
             style={{
               color: '#ffffff',
               marginBottom: '36px',
             }}
           >
             Transformez vos idées<br />
-            <em className="italic" style={{ color: '#fee1d4' }}>en événements mémorables.</em>
+            <em style={{ color: '#fee1d4' }}>en événements mémorables.</em>
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <button

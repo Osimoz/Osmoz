@@ -29,9 +29,8 @@ export default function NotFound() {
         >
           {s.kicker}
         </p>
-        <h1 className="t-serif"
+        <h1 className="t-h1 t-h1-long text-h1"
           style={{
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
             color: '#01142a',
             marginBottom: '32px',
           }}

@@ -168,7 +168,7 @@ export default function LoftOsmozV2() {
 
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-16 px-4 text-center">
           <h1
-            className="t-display t-display-hero text-white mb-3"
+            className="t-h1 text-hero text-white mb-3"
           >
             {l.name}
           </h1>
@@ -189,7 +189,7 @@ export default function LoftOsmozV2() {
 
           <button
             onClick={() => navigate(p('/reservation?space=loft'))}
-            className="btn-label bg-white text-[#01142a] px-10 py-3.5 rounded-lg text-sm hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition duration-300"
+            className="btn-label bg-white text-[#01142a] px-10 py-3.5 rounded-lg text-xs uppercase hover:bg-[#862637] hover:text-[#fee1d4] border border-white transition duration-300"
           >
             {v.book}
           </button>
@@ -210,7 +210,7 @@ export default function LoftOsmozV2() {
           </div>
           <button
             onClick={() => navigate(p('/reservation?space=loft'))}
-            className="btn-label bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
+            className="btn-label bg-[#862637] text-[#fee1d4] px-5 py-2 rounded-lg text-xs uppercase hover:bg-[#fee1d4] hover:text-[#862637] transition duration-300 whitespace-nowrap"
           >
             {v.quote}
           </button>
@@ -292,7 +292,7 @@ export default function LoftOsmozV2() {
           {/* ── 4. CONFIGURATIONS ── */}
           <section>
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.configurations.kicker}</p>
-            <h2 className="t-serif text-h3 text-[#01142a] mb-8">
+            <h2 className="t-h2 text-h3 text-[#01142a] mb-8">
               {v.configurations.title}
             </h2>
 
@@ -324,7 +324,7 @@ export default function LoftOsmozV2() {
                 />
               </div>
               <div>
-                <p className="t-display tnum text-[2rem] text-[#01142a] mb-1">
+                <p className="t-key text-[2rem] text-[#01142a] mb-1">
                   {configurations[activeConfig].capacity} {v.people}
                 </p>
                 <p className="text-sm font-light text-gray-500 mb-4 uppercase tracking-widest">
@@ -340,7 +340,7 @@ export default function LoftOsmozV2() {
           {/* ── 5. ÉQUIPEMENTS ── */}
           <section>
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.amenities.kicker}</p>
-            <h2 className="t-serif text-h3 text-[#01142a] mb-8">
+            <h2 className="t-h2 text-h3 text-[#01142a] mb-8">
               {v.amenities.title}
             </h2>
 
@@ -370,7 +370,7 @@ export default function LoftOsmozV2() {
           {/* ── 6. TARIFS ── */}
           <section>
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.pricing.kicker}</p>
-            <h2 className="t-serif text-h3 text-[#01142a] mb-2">
+            <h2 className="t-h2 text-h3 text-[#01142a] mb-2">
               {v.pricing.title}
             </h2>
             <p className="text-xs font-light text-gray-400 mb-8 uppercase tracking-widest">{v.pricing.note}</p>
@@ -395,7 +395,7 @@ export default function LoftOsmozV2() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
                 <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">{v.from}</p>
-                <p className="t-display tnum text-white text-4xl">{l.price}</p>
+                <p className="t-key text-white text-4xl">{l.price}</p>
                 <p className="text-white/40 text-xs mt-1 font-light">{v.ctaBand.note}</p>
               </div>
               <button
@@ -431,7 +431,7 @@ export default function LoftOsmozV2() {
           {/* ── 7. ACCÈS ── */}
           <section>
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.access.kicker}</p>
-            <h2 className="t-serif text-h3 text-[#01142a] mb-8">
+            <h2 className="t-h2 text-h3 text-[#01142a] mb-8">
               {v.access.title}
             </h2>
 
@@ -492,7 +492,7 @@ export default function LoftOsmozV2() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.crossSell.kicker}</p>
           <h2
-            className="t-serif text-h3 text-[#01142a] mb-10"
+            className="t-h2 text-h3 text-[#01142a] mb-10"
           >
             {v.crossSell.title}
           </h2>

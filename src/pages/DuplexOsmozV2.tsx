@@ -184,7 +184,7 @@ export default function DuplexOsmozV2() {
             {d.kicker}
           </p>
           <h1
-            className="t-display t-display-hero text-white mb-4"
+            className="t-h1 text-hero text-white mb-4"
           >
             {d.name}
           </h1>
@@ -321,7 +321,7 @@ export default function DuplexOsmozV2() {
             <div className="mb-10">
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.configurationsKicker}</p>
               <h2
-                className="t-serif text-h3 text-[#01142a]"
+                className="t-h2 text-h3 text-[#01142a]"
               >
                 {v.configurations.title}
               </h2>
@@ -357,7 +357,7 @@ export default function DuplexOsmozV2() {
               </div>
               <div>
                 <p
-                  className="t-display tnum text-5xl text-[#01142a] mb-1"
+                  className="t-key text-5xl text-[#01142a] mb-1"
                 >
                   {configurations[activeConfig].capacity}
                 </p>
@@ -376,7 +376,7 @@ export default function DuplexOsmozV2() {
             <div className="mb-10">
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.amenitiesKicker}</p>
               <h2
-                className="t-serif text-h3 text-[#01142a]"
+                className="t-h2 text-h3 text-[#01142a]"
               >
                 {v.amenities.title}
               </h2>
@@ -413,7 +413,7 @@ export default function DuplexOsmozV2() {
             <div className="mb-10">
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.pricing.kicker}</p>
               <h2
-                className="t-serif text-h3 text-[#01142a]"
+                className="t-h2 text-h3 text-[#01142a]"
               >
                 {v.pricing.title}
               </h2>
@@ -445,7 +445,7 @@ export default function DuplexOsmozV2() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
                 <p className="text-[#fee1d4]/60 text-xs uppercase tracking-[0.3em] mb-1">{v.from}</p>
-                <p className="t-display tnum text-white text-4xl">{d.price}</p>
+                <p className="t-key text-white text-4xl">{d.price}</p>
                 <p className="text-white/40 text-xs mt-1 font-light">{v.ctaBand.note}</p>
               </div>
               <button
@@ -483,7 +483,7 @@ export default function DuplexOsmozV2() {
             <div className="mb-10">
               <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{v.access.kicker}</p>
               <h2
-                className="t-serif text-h3 text-[#01142a]"
+                className="t-h2 text-h3 text-[#01142a]"
               >
                 {v.access.title}
               </h2>
@@ -552,7 +552,7 @@ export default function DuplexOsmozV2() {
           <div className="mb-12">
             <p className="text-xs font-normal uppercase tracking-[0.3em] text-[#862637] mb-2">{d.crossSellKicker}</p>
             <h2
-              className="t-serif text-h3 text-[#01142a]"
+              className="t-h2 text-h3 text-[#01142a]"
             >
               {v.crossSell.title}
             </h2>
@@ -581,7 +581,7 @@ export default function DuplexOsmozV2() {
                 <div className="p-6 flex items-center justify-between">
                   <div>
                     <h3
-                      className="t-serif text-base text-[#01142a] mb-1"
+                      className="t-h3 text-base text-[#01142a] mb-1"
                     >
                       {o.title}
                     </h3>

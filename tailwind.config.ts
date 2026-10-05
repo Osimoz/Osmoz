@@ -8,7 +8,6 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['var(--font-display)'],
         serif: ['var(--font-serif)'],
         sans: ['var(--font-sans)'],
       },

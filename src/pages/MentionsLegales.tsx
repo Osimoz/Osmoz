@@ -28,7 +28,7 @@ export default function MentionsLegales() {
               {l.kicker}
             </p>
             <h1
-              className="t-display text-h1 text-[#01142a] mb-5"
+              className="t-h1 text-h1 text-[#01142a] mb-5"
             >
               {l.title}
             </h1>
