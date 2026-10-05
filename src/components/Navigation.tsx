@@ -53,8 +53,9 @@ export const Navigation = () => {
             <LogoHorizontal color="#862637" />
           </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-10">
+          {/* Desktop nav : à partir de lg. En dessous les liens ne tiennent
+              pas sur une ligne, le menu burger prend le relais. */}
+          <div className="hidden lg:flex items-center gap-5 xl:gap-10">
             {[
               { to: '/', label: t.nav.home },
               { to: '/spaces', label: t.nav.spaces },
@@ -140,7 +141,7 @@ export const Navigation = () => {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-3 -mr-1"
+            className="lg:hidden p-3 -mr-1"
             aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={open}
             onClick={() => setOpen(v => !v)}
@@ -155,14 +156,14 @@ export const Navigation = () => {
 
       {/* Mobile overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-40`}
+        className={`lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-40`}
         onClick={() => setOpen(false)}
         aria-hidden="true"
       />
 
       {/* Mobile dropdown */}
       <div
-        className={`md:hidden absolute left-3 right-3 top-[76px] z-50 rounded-2xl border border-[#e5e5e5] bg-[#fbfbf3] shadow-xl transition-all duration-300 origin-top ${
+        className={`lg:hidden absolute left-3 right-3 top-[76px] z-50 rounded-2xl border border-[#e5e5e5] bg-[#fbfbf3] shadow-xl transition-all duration-300 origin-top ${
           open ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-95 pointer-events-none'
         }`}
       >
