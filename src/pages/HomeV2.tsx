@@ -163,7 +163,7 @@ export default function HomeV2() {
           </h1>
           <p className="t-quote text-white/85 text-xl sm:text-2xl mb-6">{t.brand.motto}</p>
           <p className="text-white/70 font-normal text-base sm:text-lg mb-10 max-w-xl leading-relaxed">
-            {h.hero.line1}
+            {h.hero.line1}{' '}
             <br className="hidden sm:block" />
             {h.hero.line2}
           </p>
