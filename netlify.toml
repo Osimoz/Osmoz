@@ -68,6 +68,14 @@
   status = 301
   force = true
 
+# ── Polices auto-hébergées ───────────────────────────────────────────
+# Les noms de fichiers ne sont pas hachés : renommer le fichier si son
+# contenu change.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # ── English version ──────────────────────────────────────────────────
 # Les pages EN sont des fichiers plats pré-rendus (dist/en.html, dist/en/…).
 # Les articles n'existent qu'en français : /en/articles/* → 301 vers l'article FR.

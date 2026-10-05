@@ -230,7 +230,6 @@ export default function ArticleDetail() {
         style={{
           maxWidth: '720px',
           padding: 'clamp(96px, 12vw, 160px) clamp(24px, 5vw, 60px) clamp(64px, 8vw, 120px)',
-          fontFamily: "'DM Sans', system-ui, sans-serif",
           color: '#1c1c1a',
         }}
       >
