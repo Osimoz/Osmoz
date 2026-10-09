@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import { useLocale } from '../i18n/context';
 import { useSearchParams } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
+import { sendBookingWebhook } from '../lib/bookingWebhook';
 
 const EMAILJS_SERVICE_ID = 'service_5dizo3p';
 const EMAILJS_TEMPLATE_ID = 'template_ffl7k88';
@@ -106,6 +107,27 @@ export default function Reservation() {
         await emailjsPromise;
       }
 
+      sendBookingWebhook({
+        source: 'site_reservation',
+        submitted_at: new Date().toISOString(),
+        lang,
+        page_url: window.location.href,
+        first_name: form.firstName.trim(),
+        last_name: form.lastName.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        company: form.company.trim(),
+        space_id: form.space,
+        space_label: (spaceIds as readonly string[]).includes(form.space) ? spaceLabel : '',
+        date: form.date,
+        time_slot_id: form.timeSlot,
+        time_slot_label: timeLabel,
+        time_slot_hours: timeHours,
+        guests: form.guests,
+        services: form.services,
+        comments: form.comments,
+        newsletter_opt_in: form.acceptNewsletter,
+      });
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
