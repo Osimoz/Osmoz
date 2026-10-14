@@ -42,7 +42,7 @@ export const home: HomeDictionary = {
     },
   },
   comingSoon: {
-    alt: 'Next Osmoz space – coming soon',
+    alt: 'The upcoming OSMOZ Bonne Nouvelle space, a bright lounge with ornate mouldings and tall windows',
     badge: 'Coming soon',
     tag: 'Paris · 2026',
     title: 'The next Osmoz space',

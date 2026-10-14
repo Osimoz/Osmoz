@@ -253,16 +253,15 @@ export default function HomeV2() {
 
             {/* Coming soon card */}
             <div className="rounded-2xl overflow-hidden border border-[#e5e5e5] bg-white">
-              {/* Image with blur + overlay */}
+              {/* Preview of the upcoming Bonne Nouvelle space */}
               <div className="relative aspect-[3/2] overflow-hidden">
                 <img
-                  src={u('images/Loft/2 Salon pleiniere 2.jpg')}
+                  src={u('images/bonne-nouvelle-osmoz.jpeg')}
                   alt={h.comingSoon.alt}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover blur-md scale-105"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-[#01142a]/70" />
                 {/* Badge */}
                 <span className="absolute top-4 right-4 bg-[#862637] text-[#fee1d4] text-xs px-3 py-1 rounded-full font-light tracking-wide">
                   {h.comingSoon.badge}

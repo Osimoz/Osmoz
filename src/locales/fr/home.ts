@@ -42,7 +42,7 @@ export const home = {
     },
   },
   comingSoon: {
-    alt: 'Prochain espace Osmoz – bientôt disponible',
+    alt: 'Le futur espace OSMOZ Bonne Nouvelle, salon lumineux avec moulures et grandes fenêtres',
     badge: 'Bientôt disponible',
     tag: 'Paris · 2026',
     title: 'Prochain espace Osmoz',
