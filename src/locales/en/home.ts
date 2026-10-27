@@ -14,7 +14,7 @@ export const home: HomeDictionary = {
   },
   spacesSection: {
     kicker: 'Our spaces',
-    title: 'Three spaces. One promise.',
+    title: 'Four spaces. One promise.',
     subtitle: 'Exclusive day hire for your team.',
     view: 'See the space',
   },
@@ -40,14 +40,13 @@ export const home: HomeDictionary = {
       pills: ['Meeting', 'Cocktail party', 'Off-site', 'Panoramic view'],
       alt: 'Le Penthouse Osmoz – panoramic space, La Défense, Puteaux',
     },
-  },
-  comingSoon: {
-    alt: 'The upcoming OSMOZ Bonne Nouvelle space, a bright lounge with ornate mouldings and tall windows',
-    badge: 'Coming soon',
-    tag: 'Paris · 2026',
-    title: 'The next Osmoz space',
-    text: 'A new space opens in 2026. Join the waiting list to hear about it first.',
-    cta: 'Be the first to know',
+    bonneNouvelle: {
+      tag: 'Bonne Nouvelle · Paris',
+      title: 'Bonne Nouvelle',
+      stats: '100 m² · up to 30 people',
+      pills: ['Meeting', 'Workshop', 'Cocktail party'],
+      alt: 'Main lounge of the OSMOZ Bonne Nouvelle space',
+    },
   },
   useCasesSection: {
     kicker: 'What it’s for',
@@ -80,7 +79,7 @@ export const home: HomeDictionary = {
     {
       number: '01',
       title: 'Choose your space',
-      description: 'Browse our three spaces in Paris and find the one that fits your team and your format.',
+      description: 'Browse our four spaces in Paris and find the one that fits your team and your format.',
     },
     {
       number: '02',
@@ -99,17 +98,18 @@ export const home: HomeDictionary = {
     cta: 'Book a space',
   },
   jsonLd: {
-    description: 'OSMOZ offers three authentic, welcoming private-hire spaces in Paris and La Défense, for companies only. Off-sites, board meetings, workshops, cocktail parties and film shoots. Le Loft (Le Marais, 110 m²), Le Duplex Haussmannien (Paris 2nd, 300 m²), Le Penthouse (La Défense, 150 m² + 350 m² garden).',
+    description: 'OSMOZ offers four private-hire spaces in Paris and La Défense for companies, including Bonne Nouvelle, a 100 m² Haussmann-style apartment for up to 30 people.',
     paymentAccepted: 'Bank transfer, credit card',
     offers: {
       loft: 'Private space of 110 m², Place des Vosges, Paris 3rd. Up to 25 people.',
       duplex: 'Haussmann-style apartment of 300 m², Paris 2nd. Up to 40 people.',
       penthouse: 'Penthouse of 150 m² + 350 m² garden, La Défense. Up to 40 people.',
+      bonneNouvelle: 'A 100 m² Haussmann-style apartment at 20 boulevard Poissonnière, Paris 9th. Up to 30 people.',
     },
     faq: [
       {
         question: 'What is OSMOZ?',
-        answer: 'OSMOZ is a Paris-based company that rents authentic private spaces to companies only. We have three spaces in Paris and La Défense: Le Loft in Le Marais (110 m², 25 people), Le Duplex Haussmannien in Paris 2nd (300 m², 40 people) and Le Penthouse in La Défense (150 m² + 350 m² rooftop, 40 people).',
+        answer: 'OSMOZ is a Paris-based company that rents authentic private spaces to companies only. We have four spaces: Le Loft in Le Marais, Le Duplex Haussmannien, Le Penthouse in La Défense and Bonne Nouvelle, a 100 m² Haussmann-style apartment at 20 boulevard Poissonnière, Paris 9th, for up to 30 people.',
       },
       {
         question: 'Is OSMOZ open to private individuals?',

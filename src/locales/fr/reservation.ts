@@ -30,6 +30,7 @@ export const reservation = {
     loft: { label: 'Loft Osmoz', sub: 'Marais · 25 pers.' },
     duplex: { label: 'Duplex Haussmannien', sub: 'Paris 2e · 40 pers.' },
     penthouse: { label: 'Le Penthouse', sub: 'La Défense · 40 pers.' },
+    bonneNouvelle: { label: 'Bonne Nouvelle', sub: 'Paris · 30 pers. max' },
   },
   timeSlots: {
     morning: { label: 'Matin', hours: '08h30–12h' },

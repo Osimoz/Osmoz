@@ -58,6 +58,16 @@ const SOURCES = [
   // Cartes "Découvrir nos autres espaces"
   'Duplex Haussmannien/1 Salon Normal 3.jpg',
   'Penthouse/2 - Salon.jpg',
+  // Page /spaces/bonne-nouvelle-osmoz : couverture, galerie et plan
+  'bonne-nouvelle-osmoz.jpeg',
+  'bonne-nouvelle-cocktail.webp',
+  'bonne-nouvelle-pleniere.webp',
+  'bonne-nouvelle-reunion-informelle.webp',
+  'bonne-nouvelle-salle-a-manger.webp',
+  'bonne-nouvelle-salle-reunion.webp',
+  'bonne-nouvelle-cuisine.webp',
+  'bonne-nouvelle-toilettes.webp',
+  'bonne-nouvelle-plan.webp',
 ];
 
 const force = process.argv.includes('--force');

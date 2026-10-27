@@ -10,6 +10,7 @@ import Spaces from './pages/Spaces';
 import LoftOsmozV2 from './pages/LoftOsmozV2';
 import DuplexOsmozV2 from './pages/DuplexOsmozV2';
 import PenthouseOsmoz from './pages/PenthouseOsmoz';
+import BonneNouvelle from './pages/BonneNouvelle';
 import Contact from './pages/Contact';
 import Reservation from './pages/Reservation';
 import QuestionsFrequentes from './pages/Questions-Frequentes';
@@ -29,6 +30,7 @@ const PAGES: Record<RouteKey, ReactElement> = {
   loft: <LoftOsmozV2 />,
   duplex: <DuplexOsmozV2 />,
   penthouse: <PenthouseOsmoz />,
+  bonneNouvelle: <BonneNouvelle />,
   contact: <Contact />,
   reservation: <Reservation />,
   faq: <QuestionsFrequentes />,

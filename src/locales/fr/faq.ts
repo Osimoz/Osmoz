@@ -50,24 +50,26 @@ export const faq: FaqDictionary = {
         },
         {
           question: "Est-il possible d'organiser un événement en soirée ou le week-end chez Osmoz ?",
-          answer: "Oui, les trois lieux Osmoz accueillent des événements en soirée jusqu'à 22 h, avec deux formules dédiées : « Soirée » (18 h 30 – 22 h) ou « Journée + soirée » (8 h 30 – 22 h). Les soirées sont idéales pour les cocktails d'entreprise, afterworks, dîners d'équipe ou lancements de produit. Les événements le week-end sont étudiés au cas par cas selon la disponibilité des lieux : précisez votre besoin dans la demande de devis et nous revenons sous 24 h.",
+          answer: "Oui, les quatre lieux Osmoz accueillent des événements en soirée jusqu'à 22 h, avec deux formules dédiées : « Soirée » (18 h 30 – 22 h) ou « Journée + soirée » (8 h 30 – 22 h). Les soirées sont idéales pour les cocktails d'entreprise, afterworks, dîners d'équipe ou lancements de produit. Les événements le week-end sont étudiés au cas par cas selon la disponibilité des lieux : précisez votre besoin dans la demande de devis et nous revenons sous 24 h.",
           rich: [
-            "Oui, les trois lieux Osmoz accueillent des événements en soirée jusqu'à 22 h, avec deux formules dédiées : « Soirée » (18 h 30 – 22 h) ou « Journée + soirée » (8 h 30 – 22 h). Les soirées sont idéales pour les cocktails d'entreprise, afterworks, dîners d'équipe ou lancements de produit. Les événements le week-end sont étudiés au cas par cas : précisez votre besoin dans votre ",
+            "Oui, les quatre lieux Osmoz accueillent des événements en soirée jusqu'à 22 h, avec deux formules dédiées : « Soirée » (18 h 30 – 22 h) ou « Journée + soirée » (8 h 30 – 22 h). Les soirées sont idéales pour les cocktails d'entreprise, afterworks, dîners d'équipe ou lancements de produit. Les événements le week-end sont étudiés au cas par cas : précisez votre besoin dans votre ",
             { text: 'demande de devis', to: '/reservation' },
             ' et nous revenons sous 24 h.',
           ],
         },
         {
           question: 'Peut-on tourner un film ou organiser un shooting photo dans un espace Osmoz ?',
-          answer: "Oui, les trois lieux Osmoz accueillent régulièrement des productions audiovisuelles : tournages publicitaires, captations vidéo, shootings mode ou corporate, podcasts filmés. Le Loft (Marais) offre une verrière et un mur en pierre très photogéniques, Le Duplex Haussmannien (Paris 2e) un escalier sculptural avec moulures et parquet, et Le Penthouse (La Défense) une vue panoramique sur Paris avec jardin suspendu. La privatisation exclusive à la journée garantit à votre équipe un accès complet, sans interférence avec d'autres réservations.",
+          answer: "Oui, les lieux Osmoz accueillent régulièrement des productions audiovisuelles : tournages publicitaires, captations vidéo, shootings mode ou corporate, podcasts filmés. Le Loft (Marais) offre une verrière et un mur en pierre très photogéniques, Le Duplex Haussmannien (Paris 2e) un escalier sculptural avec moulures et parquet, Le Penthouse (La Défense) une vue panoramique sur Paris avec jardin suspendu, et Bonne Nouvelle (Paris 9e) un salon haussmannien lumineux, idéal pour les journées presse, showrooms et shootings mode ou design. La privatisation exclusive à la journée garantit à votre équipe un accès complet, sans interférence avec d'autres réservations.",
           rich: [
-            'Oui, les trois lieux Osmoz accueillent régulièrement des productions audiovisuelles : tournages publicitaires, captations vidéo, shootings mode ou corporate, podcasts filmés. ',
+            'Oui, les lieux Osmoz accueillent régulièrement des productions audiovisuelles : tournages publicitaires, captations vidéo, shootings mode ou corporate, podcasts filmés. ',
             { text: 'Le Loft (Marais)', to: '/spaces/loft-osmoz' },
             ' offre une verrière et un mur en pierre très photogéniques, ',
             { text: 'Le Duplex Haussmannien (Paris 2e)', to: '/spaces/duplex-osmoz' },
-            ' un escalier sculptural avec moulures et parquet, et ',
+            ' un escalier sculptural avec moulures et parquet, ',
             { text: 'Le Penthouse (La Défense)', to: '/spaces/penthouse-osmoz' },
-            ' une vue panoramique sur Paris avec jardin suspendu.',
+            ' une vue panoramique sur Paris avec jardin suspendu, et ',
+            { text: 'Bonne Nouvelle (Paris 9e)', to: '/spaces/bonne-nouvelle-osmoz' },
+            ' un salon haussmannien lumineux, idéal pour les journées presse, showrooms et shootings mode ou design.',
           ],
         },
       ],
@@ -77,20 +79,22 @@ export const faq: FaqDictionary = {
       items: [
         {
           question: 'Combien de personnes peut-on accueillir dans les espaces Osmoz ?',
-          answer: "Les trois lieux Osmoz accueillent de 5 à 40 personnes selon l'adresse et le format. Le Loft dans le Marais privatise jusqu'à 25 personnes sur 110 m², Le Duplex Haussmannien à Paris 2e reçoit 40 personnes sur 300 m² et deux niveaux, et Le Penthouse à La Défense accueille 40 personnes sur 150 m² intérieurs plus 350 m² de jardin suspendu. Chaque espace propose plusieurs configurations (plénière, table en U, îlots, cocktail) pour s'adapter à votre format.",
+          answer: "Les quatre lieux Osmoz accueillent de 5 à 40 personnes selon l'adresse et le format. Le Loft dans le Marais privatise jusqu'à 25 personnes sur 110 m², Le Duplex Haussmannien à Paris 2e reçoit 40 personnes sur 300 m² et deux niveaux, Le Penthouse à La Défense accueille 40 personnes sur 150 m² intérieurs plus 350 m² de jardin suspendu, et Bonne Nouvelle (Paris 9e) jusqu'à 30 personnes sur 100 m². Chaque espace propose plusieurs configurations (plénière, table en U, îlots, cocktail) pour s'adapter à votre format.",
           rich: [
-            "Les trois lieux Osmoz accueillent de 5 à 40 personnes selon l'adresse et le format. ",
+            "Les quatre lieux Osmoz accueillent de 5 à 40 personnes selon l'adresse et le format. ",
             { text: 'Le Loft (Marais)', to: '/spaces/loft-osmoz' },
             " privatise jusqu'à 25 personnes sur 110 m², ",
             { text: 'Le Duplex Haussmannien (Paris 2e)', to: '/spaces/duplex-osmoz' },
-            ' reçoit 40 personnes sur 300 m² et deux niveaux, et ',
+            ' reçoit 40 personnes sur 300 m² et deux niveaux, ',
             { text: 'Le Penthouse (La Défense)', to: '/spaces/penthouse-osmoz' },
-            ' accueille 40 personnes sur 150 m² intérieurs plus 350 m² de jardin suspendu.',
+            ' accueille 40 personnes sur 150 m² intérieurs plus 350 m² de jardin suspendu, et ',
+            { text: 'Bonne Nouvelle (Paris 9e)', to: '/spaces/bonne-nouvelle-osmoz' },
+            " jusqu'à 30 personnes sur 100 m².",
           ],
         },
         {
           question: 'Dans quels quartiers de Paris se trouvent les espaces Osmoz ?',
-          answer: "Osmoz opère trois adresses choisies pour leur centralité : Le Loft au cœur du Marais (10 rue Roger Verlomme, Paris 3e, à deux pas de la Place des Vosges), Le Duplex Haussmannien dans le quartier Bourse-Montmartre (146 rue Montmartre, Paris 2e) et Le Penthouse à La Défense (Tour Cofonca, 6-8 rue Jean Jaurès, Puteaux). Ces trois localisations couvrent à la fois le cœur historique de Paris et le premier quartier d'affaires français.",
+          answer: "Osmoz opère quatre adresses choisies pour leur centralité : Le Loft au cœur du Marais (10 rue Roger Verlomme, Paris 3e, à deux pas de la Place des Vosges), Le Duplex Haussmannien dans le quartier Bourse-Montmartre (146 rue Montmartre, Paris 2e), Bonne Nouvelle sur les Grands Boulevards (20 boulevard Poissonnière, Paris 9e) et Le Penthouse à La Défense (Tour Cofonca, 6-8 rue Jean Jaurès, Puteaux). Ces quatre localisations couvrent à la fois le cœur historique de Paris et le premier quartier d'affaires français.",
         },
         {
           question: "Certains espaces Osmoz disposent-ils d'extérieurs ou d'une vue panoramique ?",
@@ -105,7 +109,7 @@ export const faq: FaqDictionary = {
         },
         {
           question: 'Les lieux Osmoz sont-ils accessibles aux personnes à mobilité réduite (PMR) et bien desservis par les transports ?',
-          answer: "Côté transports, les trois adresses sont à quelques minutes à pied d'un métro ou RER : Le Loft via Chemin Vert (ligne 8), Bastille (lignes 1, 5, 8) et Saint-Paul (ligne 1) ; Le Duplex via Bourse (ligne 3), Grands Boulevards (lignes 8, 9) et Sentier (ligne 3) ; Le Penthouse via La Défense – Grande Arche (ligne 1), RER A et tram T2. L'accessibilité PMR varie selon la configuration de chaque bâtiment : précisez ce besoin dans votre demande, nous vous orientons vers le lieu le plus adapté. Aucun parking privé, mais des parkings publics se trouvent à proximité immédiate.",
+          answer: "Côté transports, les quatre adresses sont à quelques minutes à pied d'un métro ou RER : Le Loft via Chemin Vert (ligne 8), Bastille (lignes 1, 5, 8) et Saint-Paul (ligne 1) ; Le Duplex via Bourse (ligne 3), Grands Boulevards (lignes 8, 9) et Sentier (ligne 3) ; Bonne Nouvelle via Grands Boulevards et Bonne Nouvelle (lignes 8, 9) ; Le Penthouse via La Défense – Grande Arche (ligne 1), RER A et tram T2. L'accessibilité PMR varie selon la configuration de chaque bâtiment : précisez ce besoin dans votre demande, nous vous orientons vers le lieu le plus adapté. Aucun parking privé, mais des parkings publics se trouvent à proximité immédiate.",
         },
       ],
     },
@@ -114,10 +118,12 @@ export const faq: FaqDictionary = {
       items: [
         {
           question: "Combien coûte la privatisation d'un lieu Osmoz pour un séminaire à Paris ?",
-          answer: "Les tarifs démarrent à 649 € HT la demi-journée pour Le Loft (Marais, jusqu'à 25 personnes), 1 499 € HT pour Le Penthouse (La Défense, jusqu'à 40 personnes) et 1 499 € HT pour Le Duplex Haussmannien (Paris 2e, jusqu'à 40 personnes). En journée complète (8 h 30 – 18 h 30), comptez de 999 € à 2 499 € HT selon le lieu. Ces tarifs correspondent à la location seule : la restauration, les animations de team building et les extensions horaires sont chiffrées en option, sur devis.",
+          answer: "Les tarifs démarrent à 649 € HT la demi-journée pour Le Loft (Marais, jusqu'à 25 personnes), 1 000 € HT pour Bonne Nouvelle (Paris 9e, jusqu'à 30 personnes), 1 499 € HT pour Le Penthouse (La Défense, jusqu'à 40 personnes) et 1 499 € HT pour Le Duplex Haussmannien (Paris 2e, jusqu'à 40 personnes). En journée complète (8 h 30 – 18 h 30), comptez de 999 € à 2 499 € HT selon le lieu. Ces tarifs correspondent à la location seule : la restauration, les animations de team building et les extensions horaires sont chiffrées en option, sur devis.",
           rich: [
             'Les tarifs démarrent à 649 € HT la demi-journée pour ',
             { text: 'Le Loft (Marais)', to: '/spaces/loft-osmoz' },
+            ', 1 000 € HT pour ',
+            { text: 'Bonne Nouvelle (Paris 9e)', to: '/spaces/bonne-nouvelle-osmoz' },
             ', 1 499 € HT pour ',
             { text: 'Le Penthouse (La Défense)', to: '/spaces/penthouse-osmoz' },
             ' et 1 499 € HT pour ',

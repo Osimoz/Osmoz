@@ -55,6 +55,7 @@ const galleryUrls = [
 const otherSpaces = [
   { key: 'duplex', image: u('images/Duplex Haussmannien/1 Salon Normal 3.jpg'), link: '/spaces/duplex-osmoz' },
   { key: 'penthouse', image: u('images/Penthouse/2 - Salon.jpg'), link: '/spaces/penthouse-osmoz' },
+  { key: 'bonneNouvelle', image: u('images/bonne-nouvelle-osmoz.jpeg'), link: '/spaces/bonne-nouvelle-osmoz' },
 ] as const;
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────

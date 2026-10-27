@@ -56,6 +56,7 @@ export const loft: LoftDictionary = {
   otherSpaces: {
     duplex: { title: 'Le Duplex Haussmannien', location: 'Montmartre, Paris 2nd', surface: '300 m²', capacity: '40 people' },
     penthouse: { title: 'Le Penthouse', location: 'La Défense, Puteaux', surface: '150 m²', capacity: '40 people' },
+    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9th', surface: '100 m²', capacity: 'Up to 30 people' },
   },
   jsonLd: {
     description: 'Private space of 110 m² a stone’s throw from Place des Vosges in Le Marais. Large bright glass roof, contemporary and warm atmosphere. Ideal for off-sites, board meetings, workshops, business lunches and film shoots. Exclusive day hire for companies.',

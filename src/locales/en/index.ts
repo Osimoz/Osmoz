@@ -11,6 +11,7 @@ import { venue } from './venue';
 import { loft } from './loft';
 import { duplex } from './duplex';
 import { penthouse } from './penthouse';
+import { bonneNouvelle } from './bonneNouvelle';
 import { experience } from './experience';
 
 export const en: Dictionary = {
@@ -27,6 +28,7 @@ export const en: Dictionary = {
   loft,
   duplex,
   penthouse,
+  bonneNouvelle,
   experience,
   brand: {
     motto: 'Out of office. Into OSMOZ.',
@@ -59,6 +61,7 @@ export const en: Dictionary = {
   },
   footer: {
     rights: 'All rights reserved.',
+    spaces: 'Our spaces',
     contact: 'Contact',
     faq: 'FAQ',
     csr: 'CSR',

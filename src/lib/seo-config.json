@@ -17,11 +17,11 @@
       },
       "fr": {
         "title": "OSMOZ, espaces privatifs authentiques à Paris",
-        "description": "Louez un espace privatif authentique à Paris pour vos réunions, séminaires et journées d'équipe. Trois lieux privatisables clé en main. Devis sous 24h."
+        "description": "Louez un espace privatif authentique à Paris pour vos réunions, séminaires et journées d'équipe. Quatre lieux privatisables clé en main. Devis sous 24h."
       },
       "en": {
         "title": "Private event space and venue hire in Paris, OSMOZ",
-        "description": "Three private event spaces in Paris for companies: meeting rooms, offsite venues and corporate event venues, hired exclusively by the day. Quote in 24h."
+        "description": "Four private event spaces in Paris for companies: meeting rooms, offsite venues and corporate event venues, hired exclusively by the day. Quote in 24h."
       },
       "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
     },
@@ -32,11 +32,11 @@
       },
       "fr": {
         "title": "Nos espaces privatifs à Paris et La Défense, OSMOZ",
-        "description": "Découvrez les espaces privatifs OSMOZ à Paris et La Défense pour vos réunions, séminaires et événements d'entreprise. Lieux authentiques clé en main. Devis 24h."
+        "description": "Quatre espaces OSMOZ à Paris et La Défense pour réunions, séminaires et événements d'entreprise. Lieux authentiques, devis sous 24h."
       },
       "en": {
         "title": "Private event spaces and meeting rooms in Paris, OSMOZ",
-        "description": "Compare three private event spaces in Paris and La Défense: meeting rooms and offsite venues for 5 to 40 people, hired exclusively by the day. Quote in 24h."
+        "description": "Compare four private event spaces in Paris and La Défense for meetings, off-sites and corporate events, hired exclusively by the day. Quote in 24h."
       },
       "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
     },
@@ -85,6 +85,21 @@
       },
       "image": "https://osmoz-space.com/images/Penthouse/2%20-%20Salon.jpg"
     },
+    "bonneNouvelle": {
+      "path": {
+        "fr": "/spaces/bonne-nouvelle-osmoz",
+        "en": "/en/spaces/bonne-nouvelle-osmoz"
+      },
+      "fr": {
+        "title": "Bonne Nouvelle OSMOZ, espace privatif à Paris",
+        "description": "Bonne Nouvelle OSMOZ : appartement haussmannien privatif de 100 m², jusqu’à 30 personnes, au 20 boulevard Poissonnière à Paris 9e."
+      },
+      "en": {
+        "title": "Bonne Nouvelle OSMOZ, private event space in Paris",
+        "description": "Bonne Nouvelle OSMOZ: a private 100 m² Haussmann-style apartment for up to 30 people at 20 boulevard Poissonnière, Paris 9th."
+      },
+      "image": "https://osmoz-space.com/images/bonne-nouvelle-osmoz.jpeg"
+    },
     "contact": {
       "path": {
         "fr": "/contact",
@@ -96,7 +111,7 @@
       },
       "en": {
         "title": "Contact OSMOZ: venue hire and event spaces in Paris",
-        "description": "Planning a meeting, an offsite or a corporate event in Paris? Contact OSMOZ for venue hire: three private event spaces and a tailored quote within 24h."
+        "description": "Planning a meeting or corporate event in Paris? Contact OSMOZ about four private event spaces and get a tailored quote within 24h."
       },
       "image": "https://osmoz-space.com/images/Loft/2%20Salon%20pleiniere%202.jpg"
     },

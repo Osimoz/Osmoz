@@ -14,6 +14,7 @@ import { venue } from './venue';
 import { loft } from './loft';
 import { duplex } from './duplex';
 import { penthouse } from './penthouse';
+import { bonneNouvelle } from './bonneNouvelle';
 import { experience } from './experience';
 
 export const fr = {
@@ -30,6 +31,7 @@ export const fr = {
   loft,
   duplex,
   penthouse,
+  bonneNouvelle,
   experience,
   // Signature de marque : en anglais dans les deux langues, à deux endroits
   // seulement (hero de la home, pied de page).
@@ -68,6 +70,7 @@ export const fr = {
   },
   footer: {
     rights: 'Tous droits réservés.',
+    spaces: 'Nos espaces',
     contact: 'Contact',
     faq: 'FAQ',
     csr: 'RSE',

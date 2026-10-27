@@ -12,10 +12,10 @@ const EMAILJS_TEMPLATE_ID = 'template_ffl7k88';
 const EMAILJS_PUBLIC_KEY = '1Q_BLfh61Y9oi6ls_';
 
 // Libellés dans t.reservation.spaces / t.reservation.timeSlots.
-const spaceIds = ['loft', 'duplex', 'penthouse'] as const;
+const spaceIds = ['loft', 'duplex', 'penthouse', 'bonneNouvelle'] as const;
 const timeSlotIds = ['morning', 'afternoon', 'fullday', 'evening'] as const;
 
-const guestOptions = ['1–10', '11–20', '21–30', '31–40', '41+'];
+const allGuestOptions = ['1–10', '11–20', '21–30', '31–40', '41+'];
 
 type F = {
   firstName: string; lastName: string; phone: string; email: string; company: string;
@@ -29,7 +29,8 @@ export default function Reservation() {
   const { t, p, lang } = useLocale();
   const r = t.reservation;
   const [searchParams] = useSearchParams();
-  const sp = ['loft','duplex','penthouse'].includes(searchParams.get('space') || '') ? searchParams.get('space')! : '';
+  const requestedSpace = searchParams.get('space') || '';
+  const sp = (spaceIds as readonly string[]).includes(requestedSpace) ? requestedSpace : '';
 
   const [form, setForm] = useState<F>({
     firstName:'', lastName:'', phone:'', email:'', company:'',
@@ -45,9 +46,14 @@ export default function Reservation() {
   useEffect(() => { if (sp) setForm(f => ({ ...f, space: sp })); }, [sp]);
 
   const set = (k: keyof F, v: string) => {
-    setForm(f => ({ ...f, [k]: v }));
+    setForm(f => ({
+      ...f,
+      [k]: v,
+      ...(k === 'space' && v === 'bonneNouvelle' && ['31–40', '41+'].includes(f.guests) ? { guests: '' } : {}),
+    }));
     setErrors(e => ({ ...e, [k]: undefined }));
   };
+  const guestOptions = form.space === 'bonneNouvelle' ? allGuestOptions.slice(0, 3) : allGuestOptions;
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     set(e.target.name as keyof F, e.target.value);
   const toggleService = (s: string) =>
@@ -255,7 +261,7 @@ export default function Reservation() {
               <div className="space-y-4 pt-5 sm:pt-0 sm:pl-0">
                 <p className="text-[10px] font-normal uppercase tracking-[0.25em] text-gray-300">{r.sections.event}</p>
 
-                {/* Espace — 3 compact text buttons */}
+                {/* Espace — one compact button per venue */}
                 <div>
                   <L t={r.fields.space} opt />
                   <div className="flex flex-col gap-1.5">

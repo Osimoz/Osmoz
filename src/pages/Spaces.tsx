@@ -12,6 +12,7 @@ const spaces = [
   { key: 'loft', id: 'loft-osmoz', slug: 'loft', image: u('images/Loft/7 Salon pleiniere 1.jpg') },
   { key: 'duplex', id: 'duplex-osmoz', slug: 'duplex', image: u('images/Duplex Haussmannien/webp/duplex-salon-01.webp') },
   { key: 'penthouse', id: 'penthouse-osmoz', slug: 'penthouse', image: u('images/Penthouse/1 - AI Modified View.jpg') },
+  { key: 'bonneNouvelle', id: 'bonne-nouvelle-osmoz', slug: 'bonneNouvelle', image: u('images/bonne-nouvelle-osmoz.jpeg') },
 ] as const;
 
 export default function Spaces() {
@@ -32,7 +33,7 @@ export default function Spaces() {
         '@type': 'ItemList',
         name: s.jsonLd.listName,
         description: s.jsonLd.listDescription,
-        numberOfItems: 3,
+        numberOfItems: 4,
         itemListElement: [
           {
             '@type': 'ListItem',
@@ -51,6 +52,12 @@ export default function Spaces() {
             position: 3,
             name: s.jsonLd.items.penthouse,
             url: abs('/spaces/penthouse-osmoz'),
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: s.jsonLd.items.bonneNouvelle,
+            url: abs('/spaces/bonne-nouvelle-osmoz'),
           },
         ],
       },
@@ -85,11 +92,7 @@ export default function Spaces() {
           {spaces.map((space, i) => {
             const item = s.items[space.key];
             return (
-            <Link
-              key={space.id}
-              to={p(`/spaces/${space.id}`)}
-              className="group block"
-            >
+            <div key={space.id} className="group block">
               <div className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-0 rounded-3xl overflow-hidden border border-[#e5e5e5] bg-white hover:shadow-2xl transition-all duration-500`}>
                 {/* Image */}
                 <div className="relative lg:w-[55%] aspect-[4/3] lg:aspect-auto overflow-hidden">
@@ -138,10 +141,10 @@ export default function Spaces() {
 
                   {/* CTAs */}
                   <div className="flex items-center gap-4 flex-wrap">
-                    <span className="btn-label inline-flex items-center gap-2 bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs uppercase group-hover:bg-[#01142a] group-hover:text-white transition-all duration-300">
+                    <Link to={p(`/spaces/${space.id}`)} className="btn-label inline-flex items-center gap-2 bg-[#862637] text-[#fee1d4] px-6 py-3 rounded-xl text-xs uppercase hover:bg-[#01142a] hover:text-white transition-all duration-300">
                       {s.discover}
                       <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
+                    </Link>
                     <Link
                       to={p(`/reservation?space=${space.slug}`)}
                       onClick={e => e.stopPropagation()}
@@ -152,7 +155,7 @@ export default function Spaces() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
             );
           })}
         </div>

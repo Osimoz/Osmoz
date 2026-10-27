@@ -43,24 +43,26 @@ export const faq: FaqDictionary = {
         },
         {
           question: 'Can we hold an event in the evening or at the weekend?',
-          answer: 'Yes. All three Osmoz spaces host evening events until 10pm, with two dedicated packages: “Evening” (6:30pm–10pm) or “Day + evening” (8:30am–10pm). Evenings are ideal for corporate cocktail parties, after-work drinks, team dinners or product launches. Weekend events are considered case by case depending on availability: tell us what you need in your quote request and we’ll get back to you within 24 hours.',
+          answer: 'Yes. All four Osmoz spaces host evening events until 10pm, with two dedicated packages: “Evening” (6:30pm–10pm) or “Day + evening” (8:30am–10pm). Evenings are ideal for corporate cocktail parties, after-work drinks, team dinners or product launches. Weekend events are considered case by case depending on availability: tell us what you need in your quote request and we’ll get back to you within 24 hours.',
           rich: [
-            'Yes. All three Osmoz spaces host evening events until 10pm, with two dedicated packages: “Evening” (6:30pm–10pm) or “Day + evening” (8:30am–10pm). Evenings are ideal for corporate cocktail parties, after-work drinks, team dinners or product launches. Weekend events are considered case by case: tell us what you need in your ',
+            'Yes. All four Osmoz spaces host evening events until 10pm, with two dedicated packages: “Evening” (6:30pm–10pm) or “Day + evening” (8:30am–10pm). Evenings are ideal for corporate cocktail parties, after-work drinks, team dinners or product launches. Weekend events are considered case by case: tell us what you need in your ',
             { text: 'quote request', to: '/reservation' },
             ' and we’ll get back to you within 24 hours.',
           ],
         },
         {
           question: 'Can we film or hold a photo shoot in an Osmoz space?',
-          answer: 'Yes. All three Osmoz spaces regularly host productions: commercials, video recordings, fashion or corporate shoots, filmed podcasts. Le Loft (Le Marais) has a very photogenic glass roof and stone wall, Le Duplex Haussmannien (Paris 2nd) a sculptural staircase with mouldings and parquet, and Le Penthouse (La Défense) a panoramic view over Paris with a hanging garden. Exclusive day hire gives your crew full access, with no interference from other bookings.',
+          answer: 'Yes. Osmoz spaces regularly host productions: commercials, video recordings, fashion or corporate shoots, filmed podcasts. Le Loft (Le Marais) has a very photogenic glass roof and stone wall, Le Duplex Haussmannien (Paris 2nd) a sculptural staircase with mouldings and parquet, Le Penthouse (La Défense) a panoramic view over Paris with a hanging garden, and Bonne Nouvelle (Paris 9th) a bright Haussmann living room, ideal for press days, showrooms and fashion or design shoots. Exclusive day hire gives your crew full access, with no interference from other bookings.',
           rich: [
-            'Yes. All three Osmoz spaces regularly host productions: commercials, video recordings, fashion or corporate shoots, filmed podcasts. ',
+            'Yes. Osmoz spaces regularly host productions: commercials, video recordings, fashion or corporate shoots, filmed podcasts. ',
             { text: 'Le Loft (Le Marais)', to: '/spaces/loft-osmoz' },
             ' has a very photogenic glass roof and stone wall, ',
             { text: 'Le Duplex Haussmannien (Paris 2nd)', to: '/spaces/duplex-osmoz' },
-            ' a sculptural staircase with mouldings and parquet, and ',
+            ' a sculptural staircase with mouldings and parquet, ',
             { text: 'Le Penthouse (La Défense)', to: '/spaces/penthouse-osmoz' },
-            ' a panoramic view over Paris with a hanging garden.',
+            ' a panoramic view over Paris with a hanging garden, and ',
+            { text: 'Bonne Nouvelle (Paris 9th)', to: '/spaces/bonne-nouvelle-osmoz' },
+            ' a bright Haussmann living room, ideal for press days, showrooms and fashion or design shoots.',
           ],
         },
       ],
@@ -70,20 +72,22 @@ export const faq: FaqDictionary = {
       items: [
         {
           question: 'How many people can Osmoz spaces host?',
-          answer: 'The three Osmoz spaces host from 5 to 40 people depending on the address and the format. Le Loft in Le Marais takes up to 25 people over 110 m², Le Duplex Haussmannien in Paris 2nd hosts 40 people over 300 m² on two levels, and Le Penthouse in La Défense hosts 40 people over 150 m² indoors plus a 350 m² hanging garden. Each space offers several layouts (plenary, U-shape, clusters, cocktail) to suit your format.',
+          answer: 'The four Osmoz spaces host from 5 to 40 people depending on the address and the format. Le Loft in Le Marais takes up to 25 people over 110 m², Le Duplex Haussmannien in Paris 2nd hosts 40 people over 300 m² on two levels, Le Penthouse in La Défense hosts 40 people over 150 m² indoors plus a 350 m² hanging garden, and Bonne Nouvelle (Paris 9th) takes up to 30 people over 100 m². Each space offers several layouts (plenary, U-shape, clusters, cocktail) to suit your format.',
           rich: [
-            'The three Osmoz spaces host from 5 to 40 people depending on the address and the format. ',
+            'The four Osmoz spaces host from 5 to 40 people depending on the address and the format. ',
             { text: 'Le Loft (Le Marais)', to: '/spaces/loft-osmoz' },
             ' takes up to 25 people over 110 m², ',
             { text: 'Le Duplex Haussmannien (Paris 2nd)', to: '/spaces/duplex-osmoz' },
-            ' hosts 40 people over 300 m² on two levels, and ',
+            ' hosts 40 people over 300 m² on two levels, ',
             { text: 'Le Penthouse (La Défense)', to: '/spaces/penthouse-osmoz' },
-            ' hosts 40 people over 150 m² indoors plus a 350 m² hanging garden.',
+            ' hosts 40 people over 150 m² indoors plus a 350 m² hanging garden, and ',
+            { text: 'Bonne Nouvelle (Paris 9th)', to: '/spaces/bonne-nouvelle-osmoz' },
+            ' takes up to 30 people over 100 m².',
           ],
         },
         {
           question: 'Where in Paris are the Osmoz spaces?',
-          answer: 'Osmoz runs three addresses chosen for how central they are: Le Loft in the heart of Le Marais (10 rue Roger Verlomme, Paris 3rd, a stone’s throw from Place des Vosges), Le Duplex Haussmannien in the Bourse–Montmartre district (146 rue Montmartre, Paris 2nd) and Le Penthouse in La Défense (Tour Cofonca, 6-8 rue Jean Jaurès, Puteaux). Together they cover both the historic heart of Paris and France’s leading business district.',
+          answer: 'Osmoz runs four addresses chosen for how central they are: Le Loft in the heart of Le Marais (10 rue Roger Verlomme, Paris 3rd, a stone’s throw from Place des Vosges), Le Duplex Haussmannien in the Bourse–Montmartre district (146 rue Montmartre, Paris 2nd), Bonne Nouvelle on the Grands Boulevards (20 boulevard Poissonnière, Paris 9th) and Le Penthouse in La Défense (Tour Cofonca, 6-8 rue Jean Jaurès, Puteaux). Together they cover both the historic heart of Paris and France’s leading business district.',
         },
         {
           question: 'Do any Osmoz spaces have outdoor areas or a panoramic view?',
@@ -98,7 +102,7 @@ export const faq: FaqDictionary = {
         },
         {
           question: 'Are Osmoz spaces wheelchair accessible and easy to reach by public transport?',
-          answer: 'On transport, all three addresses are a few minutes’ walk from a metro or RER station: Le Loft via Chemin Vert (line 8), Bastille (lines 1, 5, 8) and Saint-Paul (line 1); Le Duplex via Bourse (line 3), Grands Boulevards (lines 8, 9) and Sentier (line 3); Le Penthouse via La Défense – Grande Arche (line 1), RER A and tram T2. Wheelchair access depends on each building’s layout: mention this need in your request and we’ll point you to the most suitable space. There’s no private parking, but public car parks are right nearby.',
+          answer: 'On transport, all four addresses are a few minutes’ walk from a metro or RER station: Le Loft via Chemin Vert (line 8), Bastille (lines 1, 5, 8) and Saint-Paul (line 1); Le Duplex via Bourse (line 3), Grands Boulevards (lines 8, 9) and Sentier (line 3); Bonne Nouvelle via Grands Boulevards and Bonne Nouvelle (lines 8, 9); Le Penthouse via La Défense – Grande Arche (line 1), RER A and tram T2. Wheelchair access depends on each building’s layout: mention this need in your request and we’ll point you to the most suitable space. There’s no private parking, but public car parks are right nearby.',
         },
       ],
     },
@@ -107,10 +111,12 @@ export const faq: FaqDictionary = {
       items: [
         {
           question: 'How much does it cost to hire an Osmoz space for an off-site in Paris?',
-          answer: 'Prices start at 649 € excl. VAT for a half day at Le Loft (Le Marais, up to 25 people), 1,499 € excl. VAT for Le Penthouse (La Défense, up to 40 people) and 1,499 € excl. VAT for Le Duplex Haussmannien (Paris 2nd, up to 40 people). For a full day (8:30am–6:30pm), expect 999 € to 2,499 € excl. VAT depending on the space. These prices cover the hire only: catering, team-building activities and extended hours are quoted as options.',
+          answer: 'Prices start at 649 € excl. VAT for a half day at Le Loft (Le Marais, up to 25 people), 1,000 € excl. VAT for Bonne Nouvelle (Paris 9th, up to 30 people), 1,499 € excl. VAT for Le Penthouse (La Défense, up to 40 people) and 1,499 € excl. VAT for Le Duplex Haussmannien (Paris 2nd, up to 40 people). For a full day (8:30am–6:30pm), expect 999 € to 2,499 € excl. VAT depending on the space. These prices cover the hire only: catering, team-building activities and extended hours are quoted as options.',
           rich: [
             'Prices start at 649 € excl. VAT for a half day at ',
             { text: 'Le Loft (Le Marais)', to: '/spaces/loft-osmoz' },
+            ', 1,000 € excl. VAT for ',
+            { text: 'Bonne Nouvelle (Paris 9th)', to: '/spaces/bonne-nouvelle-osmoz' },
             ', 1,499 € excl. VAT for ',
             { text: 'Le Penthouse (La Défense)', to: '/spaces/penthouse-osmoz' },
             ' and 1,499 € excl. VAT for ',

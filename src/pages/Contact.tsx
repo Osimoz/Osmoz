@@ -16,12 +16,12 @@ export default function Contact() {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }, []);
 
-  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', message: '' });
+  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', space: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -40,11 +40,12 @@ export default function Contact() {
         company: '',
         // E-mail interne (équipe OSMOZ) : reste en français, marqué (EN) si la demande vient du site anglais.
         subject: lang === 'en' ? 'Message via page Contact (EN)' : 'Message via page Contact',
+        space: form.space || 'Non précisé',
         message: form.message,
         to_email: 'contact@osmoz-space.com',
       });
       setIsSubmitted(true);
-      setForm({ firstName: '', lastName: '', email: '', message: '' });
+      setForm({ firstName: '', lastName: '', email: '', space: '', message: '' });
     } catch {
       setError(c.form.errorSend);
     } finally {
@@ -136,6 +137,22 @@ export default function Contact() {
                       className="w-full bg-transparent border-0 border-b border-gray-200 px-0 py-2 text-base text-[#01142a] focus:border-[#862637] focus:ring-0 transition-colors"
                       style={{ outline: 'none', boxShadow: 'none' }}
                     />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label htmlFor="contact-space" className="block text-xs font-light uppercase tracking-[0.15em] text-gray-500">{c.form.space}</label>
+                    <select
+                      id="contact-space"
+                      name="space"
+                      value={form.space}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-0 border-b border-gray-200 px-0 py-2 text-base text-[#01142a] focus:border-[#862637] focus:ring-0 transition-colors"
+                    >
+                      <option value="">{c.form.anySpace}</option>
+                      {(['loft', 'duplex', 'penthouse', 'bonneNouvelle'] as const).map((space) => (
+                        <option key={space} value={space}>{c.form.spaces[space]}</option>
+                      ))}
+                    </select>
                   </div>
 
                   <div className="space-y-1.5">

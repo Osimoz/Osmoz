@@ -68,6 +68,7 @@ const photos: { file: string; room: Room; n?: number }[] = [
 const otherSpaces = [
   { key: 'loft', image: u('images/Loft/2 Salon pleiniere 2.jpg'), link: '/spaces/loft-osmoz' },
   { key: 'penthouse', image: u('images/Penthouse/2 - Salon.jpg'), link: '/spaces/penthouse-osmoz' },
+  { key: 'bonneNouvelle', image: u('images/bonne-nouvelle-osmoz.jpeg'), link: '/spaces/bonne-nouvelle-osmoz' },
 ] as const;
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────

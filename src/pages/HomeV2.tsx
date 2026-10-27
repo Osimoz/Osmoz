@@ -56,6 +56,7 @@ const spaces = [
   { key: 'loft', image: u('images/Loft/2 Salon pleiniere 2.jpg'), link: '/spaces/loft-osmoz' },
   { key: 'duplex', image: u('images/Duplex Haussmannien/webp/duplex-salon-01.webp'), link: '/spaces/duplex-osmoz' },
   { key: 'penthouse', image: u('images/Penthouse/2 - Salon.jpg'), link: '/spaces/penthouse-osmoz' },
+  { key: 'bonneNouvelle', image: u('images/bonne-nouvelle-osmoz.jpeg'), link: '/spaces/bonne-nouvelle-osmoz' },
 ] as const;
 
 // Une icône par cas d'usage, dans l'ordre de t.home.useCases.
@@ -112,6 +113,7 @@ export default function HomeV2() {
       { '@type': 'Offer', name: 'Le Loft OSMOZ', description: h.jsonLd.offers.loft, url: `https://osmoz-space.com${p('/spaces/loft-osmoz')}` },
       { '@type': 'Offer', name: 'Le Duplex Haussmannien OSMOZ', description: h.jsonLd.offers.duplex, url: `https://osmoz-space.com${p('/spaces/duplex-osmoz')}` },
       { '@type': 'Offer', name: 'Le Penthouse OSMOZ', description: h.jsonLd.offers.penthouse, url: `https://osmoz-space.com${p('/spaces/penthouse-osmoz')}` },
+      { '@type': 'Offer', name: 'Bonne Nouvelle OSMOZ', description: h.jsonLd.offers.bonneNouvelle, url: `https://osmoz-space.com${p('/spaces/bonne-nouvelle-osmoz')}` },
     ],
   };
 
@@ -251,41 +253,6 @@ export default function HomeV2() {
               );
             })}
 
-            {/* Coming soon card */}
-            <div className="rounded-2xl overflow-hidden border border-[#e5e5e5] bg-white">
-              {/* Preview of the upcoming Bonne Nouvelle space */}
-              <div className="relative aspect-[3/2] overflow-hidden">
-                <img
-                  src={u('images/bonne-nouvelle-osmoz.jpeg')}
-                  alt={h.comingSoon.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                />
-                {/* Badge */}
-                <span className="absolute top-4 right-4 bg-[#862637] text-[#fee1d4] text-xs px-3 py-1 rounded-full font-light tracking-wide">
-                  {h.comingSoon.badge}
-                </span>
-              </div>
-              {/* Content */}
-              <div className="p-6">
-                <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">{h.comingSoon.tag}</p>
-                <h3
-                  className="t-h3 text-xl text-[#01142a] mb-3"
-                >
-                  {h.comingSoon.title}
-                </h3>
-                <p className="text-sm font-light text-gray-500 mb-5 leading-relaxed">
-                  {h.comingSoon.text}
-                </p>
-                <button
-                  onClick={() => navigate(p('/contact'))}
-                  className="btn-label bg-[#862637] text-[#fee1d4] text-xs uppercase px-6 py-3 rounded-lg hover:bg-[#01142a] transition-all duration-300"
-                >
-                  {h.comingSoon.cta}
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>

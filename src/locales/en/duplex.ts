@@ -69,6 +69,7 @@ export const duplex: DuplexDictionary = {
   otherSpaces: {
     loft: { title: 'Le Loft', location: 'Le Marais, Paris 3rd', surface: '110 m²', capacity: '25 people' },
     penthouse: { title: 'Le Penthouse', location: 'La Défense, Puteaux', surface: '150 m²', capacity: '40 people' },
+    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9th', surface: '100 m²', capacity: 'Up to 30 people' },
   },
   jsonLd: {
     description: 'Haussmann-style apartment of 300 m² over two floors in the heart of Paris’s 2nd arrondissement. Chic residential feel, wrought-iron staircase, period parquet. Ideal for off-sites, conferences, cocktail parties, executive dinners and team days for up to 40 people. Exclusive day hire for companies.',

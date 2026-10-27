@@ -6,7 +6,7 @@ export const home = {
     alt: 'Logo client Osmoz',
   },
   hero: {
-    kicker: 'Paris · Marais · La Défense',
+    kicker: 'Paris · Bonne Nouvelle · Marais · La Défense',
     title: 'Vos lieux. Votre journée.',
     line1: 'Séminaires, réunions, workshops.',
     line2: 'Privatisation à la journée, exclusivement pour les entreprises.',
@@ -14,7 +14,7 @@ export const home = {
   },
   spacesSection: {
     kicker: 'Nos espaces',
-    title: 'Trois lieux. Une seule promesse.',
+    title: 'Quatre lieux. Une seule promesse.',
     subtitle: 'Privatisation exclusive à la journée pour vos équipes.',
     view: "Voir l'espace",
   },
@@ -40,14 +40,13 @@ export const home = {
       pills: ['Réunion', 'Cocktail', 'Séminaire', 'Vue panoramique'],
       alt: 'Le Penthouse Osmoz – espace panoramique La Défense Puteaux',
     },
-  },
-  comingSoon: {
-    alt: 'Le futur espace OSMOZ Bonne Nouvelle, salon lumineux avec moulures et grandes fenêtres',
-    badge: 'Bientôt disponible',
-    tag: 'Paris · 2026',
-    title: 'Prochain espace Osmoz',
-    text: "Un nouveau lieu arrive en 2026. Rejoignez la liste d'attente pour être les premiers informés.",
-    cta: 'Être prévenu en priorité',
+    bonneNouvelle: {
+      tag: 'Bonne Nouvelle · Paris',
+      title: 'Bonne Nouvelle',
+      stats: '100 m² · 30 personnes max',
+      pills: ['Réunion', 'Workshop', 'Cocktail'],
+      alt: 'Salon principal de l’espace Bonne Nouvelle OSMOZ',
+    },
   },
   useCasesSection: {
     kicker: 'Pour quels moments',
@@ -56,7 +55,7 @@ export const home = {
   useCases: [
     {
       title: 'Réunions & séminaires',
-      description: "De 5 à 40 personnes, dans un cadre qui sort de l'ordinaire. Mobilier modulable, équipements pro inclus.",
+      description: "Des lieux et des configurations variés, dans un cadre qui sort de l'ordinaire. Mobilier modulable, équipements pro inclus.",
     },
     {
       title: 'Ateliers & workshops',
@@ -80,7 +79,7 @@ export const home = {
     {
       number: '01',
       title: 'Choisissez votre espace',
-      description: 'Parcourez nos trois lieux à Paris et trouvez celui qui correspond à votre équipe et à votre format.',
+      description: 'Parcourez nos quatre lieux à Paris et trouvez celui qui correspond à votre équipe et à votre format.',
     },
     {
       number: '02',
@@ -100,17 +99,18 @@ export const home = {
   },
   // Données structurées (LocalBusiness + FAQPage) : même langue que la page.
   jsonLd: {
-    description: "OSMOZ propose trois espaces privatisables authentiques et chaleureux à Paris et La Défense pour les entreprises. Séminaires, réunions de direction, workshops, cocktails et tournages. Le Loft (Marais, 110m²), Le Duplex Haussmannien (Paris 2e, 300m²), Le Penthouse (La Défense, 150m² + jardin 350m²).",
+    description: "OSMOZ propose quatre espaces privatisables à Paris et La Défense pour les entreprises : Le Loft, Le Duplex Haussmannien, Le Penthouse et Bonne Nouvelle, appartement haussmannien de 100 m² pouvant accueillir jusqu'à 30 personnes.",
     paymentAccepted: 'Virement bancaire, Carte bancaire',
     offers: {
       loft: "Espace privatif 110m², Place des Vosges, Paris 3e. Jusqu'à 25 personnes.",
       duplex: "Appartement haussmannien 300m², Paris 2e. Jusqu'à 40 personnes.",
       penthouse: "Penthouse 150m² + jardin 350m², La Défense. Jusqu'à 40 personnes.",
+      bonneNouvelle: 'Appartement haussmannien de 100 m² au 20 boulevard Poissonnière, Paris 9e. Jusqu’à 30 personnes.',
     },
     faq: [
       {
         question: "Qu'est-ce qu'OSMOZ ?",
-        answer: "OSMOZ est une société parisienne spécialisée dans la location d'espaces privatifs authentiques exclusivement pour les entreprises. Nous proposons trois lieux à Paris et La Défense : Le Loft au Marais (110m², 25 personnes), Le Duplex Haussmannien Paris 2e (300m², 40 personnes) et Le Penthouse La Défense (150m² + rooftop 350m², 40 personnes).",
+        answer: "OSMOZ est une société parisienne spécialisée dans la location d'espaces privatifs authentiques exclusivement pour les entreprises. Nous proposons quatre lieux : Le Loft au Marais, Le Duplex Haussmannien, le Penthouse à La Défense et Bonne Nouvelle, appartement haussmannien de 100 m² au 20 boulevard Poissonnière, Paris 9e, jusqu'à 30 personnes.",
       },
       {
         question: 'OSMOZ est-il ouvert aux particuliers ?',

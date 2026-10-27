@@ -2,7 +2,7 @@ import type { SpacesDictionary } from '../fr/spaces';
 
 export const spaces: SpacesDictionary = {
   kicker: 'Our spaces',
-  title: 'Three spaces. One promise.',
+  title: 'Four spaces. One promise.',
   subtitle: 'Private, warm, authentic spaces where your team truly comes together.',
   discover: 'Discover',
   book: 'Book this space',
@@ -36,16 +36,25 @@ export const spaces: SpacesDictionary = {
       price: 'From 1,499 €',
       tags: ['Private hire', 'Event', 'Rooftop'],
     },
+    bonneNouvelle: {
+      title: 'Bonne Nouvelle',
+      eyebrow: 'Bonne Nouvelle · Paris',
+      description: 'A 100 m² Haussmann-style apartment with parquet floors, mouldings and natural light. A large lounge, meeting room, dining room and fitted kitchen, fully private for your event.',
+      capacity: 'Up to 30 people',
+      price: 'From 1,000 €',
+      tags: ['Cocktail party', 'Plenary', 'Informal meeting'],
+    },
   },
   jsonLd: {
     home: 'Home',
     spaces: 'Our spaces',
     listName: 'Authentic private spaces by OSMOZ in Paris',
-    listDescription: 'A selection of authentic private-hire spaces in Paris and La Défense for corporate events',
+    listDescription: 'Four authentic private-hire spaces in Paris and La Défense for corporate events.',
     items: {
       loft: 'Le Loft OSMOZ — Le Marais, Paris 3rd',
       duplex: 'Le Duplex Haussmannien OSMOZ — Paris 2nd',
       penthouse: 'Le Penthouse OSMOZ — La Défense, Puteaux',
+      bonneNouvelle: 'Bonne Nouvelle OSMOZ — Paris',
     },
   },
 };

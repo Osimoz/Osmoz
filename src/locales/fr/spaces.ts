@@ -1,7 +1,7 @@
 // Page /spaces (src/pages/Spaces.tsx).
 export const spaces = {
   kicker: 'Nos espaces',
-  title: 'Trois lieux. Une seule promesse.',
+  title: 'Quatre lieux. Une seule promesse.',
   subtitle: 'Des lieux privatifs, chaleureux et authentiques où vos équipes se retrouvent vraiment.',
   discover: 'Découvrir',
   book: 'Réserver ce lieu',
@@ -35,16 +35,25 @@ export const spaces = {
       price: 'À partir de 1 499 €',
       tags: ['Privatisation', 'Événement', 'Rooftop'],
     },
+    bonneNouvelle: {
+      title: 'Bonne Nouvelle',
+      eyebrow: 'Bonne Nouvelle · Paris',
+      description: 'Appartement haussmannien de 100 m² avec parquet, moulures et lumière naturelle. Grand salon, salle de réunion, salle à manger et cuisine équipée, entièrement privatisés pour vos événements.',
+      capacity: '30 personnes max',
+      price: 'À partir de 1 000 €',
+      tags: ['Cocktail', 'Plénière', 'Réunion informelle'],
+    },
   },
   jsonLd: {
     home: 'Accueil',
     spaces: 'Nos espaces',
     listName: 'Espaces privatifs authentiques OSMOZ à Paris',
-    listDescription: "Sélection d'espaces authentiques privatisables à Paris et La Défense pour événements corporate",
+    listDescription: "Quatre espaces authentiques privatisables à Paris et La Défense pour des événements d'entreprise.",
     items: {
       loft: 'Le Loft OSMOZ — Marais Paris 3e',
       duplex: 'Le Duplex Haussmannien OSMOZ — Paris 2e',
       penthouse: 'Le Penthouse OSMOZ — La Défense Puteaux',
+      bonneNouvelle: 'Bonne Nouvelle OSMOZ — Paris',
     },
   },
 };

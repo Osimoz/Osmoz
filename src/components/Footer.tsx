@@ -74,6 +74,9 @@ export function Footer() {
           </div>
 
           <div className="flex gap-6 flex-wrap justify-center">
+            <Link to={p('/spaces')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+              {t.footer.spaces}
+            </Link>
             <Link to={p('/contact')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               {t.footer.contact}
             </Link>
