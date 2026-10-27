@@ -41,7 +41,7 @@ export const spaces: SpacesDictionary = {
       title: 'Bonne Nouvelle',
       eyebrow: 'Bonne Nouvelle · Paris',
       description: 'A 100 m² Haussmann-style apartment with parquet floors, mouldings and natural light. A large lounge, meeting room, dining room and fitted kitchen, fully private for your event.',
-      capacity: 'Up to 30 people',
+      capacity: '30 people',
       price: 'From 1,000 €',
       tags: ['Cocktail party', 'Plenary', 'Informal meeting'],
     },

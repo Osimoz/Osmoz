@@ -44,7 +44,7 @@ export const home = {
     bonneNouvelle: {
       tag: 'Bonne Nouvelle · Paris',
       title: 'Bonne Nouvelle',
-      stats: '100 m² · 30 personnes max',
+      stats: '100 m² · 30 personnes',
       pills: ['Réunion', 'Workshop', 'Cocktail'],
       alt: 'Salon principal de l’espace Bonne Nouvelle OSMOZ',
     },

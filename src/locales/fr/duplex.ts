@@ -69,7 +69,7 @@ export const duplex = {
   otherSpaces: {
     loft: { title: 'Le Loft', location: 'Marais, Paris 3e', surface: '110 m²', capacity: '25 pers.' },
     penthouse: { title: 'Le Penthouse', location: 'La Défense, Puteaux', surface: '150 m²', capacity: '40 pers.' },
-    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9e', surface: '100 m²', capacity: '30 pers. max' },
+    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9e', surface: '100 m²', capacity: '30 pers.' },
   },
   jsonLd: {
     description: "Appartement haussmannien de 300m² sur deux étages au cœur du 2e arrondissement de Paris. Esprit résidentiel chic, escalier en ferronnerie, parquet ancien. Idéal pour séminaires, conférences, cocktails, dîners de direction et journées d'équipe jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",

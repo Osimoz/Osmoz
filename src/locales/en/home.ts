@@ -44,7 +44,7 @@ export const home: HomeDictionary = {
     bonneNouvelle: {
       tag: 'Bonne Nouvelle · Paris',
       title: 'Bonne Nouvelle',
-      stats: '100 m² · up to 30 people',
+      stats: '100 m² · 30 people',
       pills: ['Meeting', 'Workshop', 'Cocktail party'],
       alt: 'Main lounge of the OSMOZ Bonne Nouvelle space',
     },

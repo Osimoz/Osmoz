@@ -40,7 +40,7 @@ export const spaces = {
       title: 'Bonne Nouvelle',
       eyebrow: 'Bonne Nouvelle · Paris',
       description: 'Appartement haussmannien de 100 m² avec parquet, moulures et lumière naturelle. Grand salon, salle de réunion, salle à manger et cuisine équipée, entièrement privatisés pour vos événements.',
-      capacity: '30 personnes max',
+      capacity: '30 personnes',
       price: 'À partir de 1 000 €',
       tags: ['Cocktail', 'Plénière', 'Réunion informelle'],
     },

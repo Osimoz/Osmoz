@@ -52,7 +52,7 @@ export const penthouse: PenthouseDictionary = {
   otherSpaces: {
     loft: { title: 'Le Loft', location: 'Le Marais, Paris 3rd', surface: '110 m²', capacity: '25 people' },
     duplex: { title: 'Le Duplex Haussmannien', location: 'Montmartre, Paris 2nd', surface: '300 m²', capacity: '40 people' },
-    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9th', surface: '100 m²', capacity: 'Up to 30 people' },
+    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9th', surface: '100 m²', capacity: '30 people' },
   },
   jsonLd: {
     description: 'Penthouse of 150 m² with a 350 m² hanging garden on the top floor of a La Défense tower. Panoramic view over Paris and the Eiffel Tower, 70s aesthetic, confidential meeting room. Ideal for off-sites, cocktail parties, board meetings and outdoor events for up to 40 people. Exclusive day hire for companies.',

@@ -56,7 +56,7 @@ export const loft = {
   otherSpaces: {
     duplex: { title: 'Le Duplex Haussmannien', location: 'Montmartre, Paris 2e', surface: '300 m²', capacity: '40 pers.' },
     penthouse: { title: 'Le Penthouse', location: 'La Défense, Puteaux', surface: '150 m²', capacity: '40 pers.' },
-    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9e', surface: '100 m²', capacity: '30 pers. max' },
+    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9e', surface: '100 m²', capacity: '30 pers.' },
   },
   jsonLd: {
     description: "Espace privatif de 110m² situé à deux pas de la Place des Vosges dans le Marais. Grande verrière lumineuse, ambiance contemporaine et chaleureuse. Idéal pour séminaires, réunions de direction, workshops, déjeuners d'affaires et tournages. Privatisation exclusive à la journée pour les entreprises.",

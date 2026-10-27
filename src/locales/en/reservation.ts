@@ -30,7 +30,7 @@ export const reservation: ReservationDictionary = {
     loft: { label: 'Loft Osmoz', sub: 'Le Marais · 25 people' },
     duplex: { label: 'Duplex Haussmannien', sub: 'Paris 2nd · 40 people' },
     penthouse: { label: 'Le Penthouse', sub: 'La Défense · 40 people' },
-    bonneNouvelle: { label: 'Bonne Nouvelle', sub: 'Paris · up to 30 people' },
+    bonneNouvelle: { label: 'Bonne Nouvelle', sub: 'Paris 9th · 30 people' },
   },
   timeSlots: {
     morning: { label: 'Morning', hours: '8:30am–12pm' },

@@ -52,7 +52,7 @@ export const penthouse = {
   otherSpaces: {
     loft: { title: 'Le Loft', location: 'Marais, Paris 3e', surface: '110 m²', capacity: '25 pers.' },
     duplex: { title: 'Le Duplex Haussmannien', location: 'Montmartre, Paris 2e', surface: '300 m²', capacity: '40 pers.' },
-    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9e', surface: '100 m²', capacity: '30 pers. max' },
+    bonneNouvelle: { title: 'Bonne Nouvelle', location: 'Bonne Nouvelle, Paris 9e', surface: '100 m²', capacity: '30 pers.' },
   },
   jsonLd: {
     description: "Penthouse de 150m² avec jardin suspendu de 350m² au dernier étage d'une tour de La Défense. Vue panoramique sur Paris et la Tour Eiffel, esthétique 70's, salle de réunion confidentielle. Idéal pour séminaires, cocktails, réunions de direction et événements outdoor jusqu'à 40 personnes. Privatisation exclusive à la journée pour les entreprises.",
