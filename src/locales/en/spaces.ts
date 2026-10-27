@@ -5,6 +5,7 @@ export const spaces: SpacesDictionary = {
   title: 'Four spaces. One promise.',
   subtitle: 'Private, warm, authentic spaces where your team truly comes together.',
   discover: 'Discover',
+  newBadge: 'New',
   book: 'Book this space',
   cta: {
     kicker: 'Turnkey private hire',

@@ -171,6 +171,9 @@ export default function BonneNouvelle() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-16 px-4 text-center">
+          <span className="bg-[#862637] text-[#fee1d4] text-xs uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-5">
+            {l.newBadge}
+          </span>
           <h1
             className="t-h1 text-hero text-white mb-3"
           >

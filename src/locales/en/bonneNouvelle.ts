@@ -3,6 +3,7 @@ import type { BonneNouvelleDictionary } from '../fr/bonneNouvelle';
 export const bonneNouvelle: BonneNouvelleDictionary = {
   name: 'Bonne Nouvelle',
   location: 'Bonne Nouvelle · Paris 9th',
+  newBadge: 'New venue',
   heroAlt: 'Bright lounge at OSMOZ Bonne Nouvelle, with mouldings and tall windows',
   pills: ['100 m²', 'Up to 30 people', 'From 1,000 €'],
   stats: { surface: '100 m²', people: '30 people', address: '20 boulevard Poissonnière, Paris 9th' },

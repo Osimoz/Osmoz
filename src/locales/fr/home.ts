@@ -17,6 +17,7 @@ export const home = {
     title: 'Quatre lieux. Une seule promesse.',
     subtitle: 'Privatisation exclusive à la journée pour vos équipes.',
     view: "Voir l'espace",
+    newBadge: 'Nouveau',
   },
   spaces: {
     loft: {

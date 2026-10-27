@@ -3,6 +3,7 @@
 export const bonneNouvelle = {
   name: 'Bonne Nouvelle',
   location: 'Bonne Nouvelle · Paris 9e',
+  newBadge: 'Nouveau lieu',
   heroAlt: 'Salon lumineux de l’espace Bonne Nouvelle OSMOZ, avec moulures et fenêtres sur rue',
   pills: ['100 m²', '30 pers. max', 'À partir de 1 000€'],
   stats: { surface: '100 m²', people: '30 personnes', address: '20 boulevard Poissonnière, Paris 9e' },

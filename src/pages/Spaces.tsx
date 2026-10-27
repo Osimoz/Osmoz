@@ -15,6 +15,9 @@ const spaces = [
   { key: 'bonneNouvelle', id: 'bonne-nouvelle-osmoz', slug: 'bonneNouvelle', image: u('images/bonne-nouvelle-osmoz.jpeg') },
 ] as const;
 
+// Espaces récemment ouverts : badge « Nouveau » sur leur fiche.
+const newSpaces: readonly string[] = ['bonneNouvelle'];
+
 export default function Spaces() {
   const { t, p } = useLocale();
   const s = t.spaces;
@@ -105,6 +108,11 @@ export default function Spaces() {
                   />
                   {/* Tags */}
                   <div className="absolute top-5 left-5 flex gap-2 flex-wrap">
+                    {newSpaces.includes(space.key) && (
+                      <span className="bg-[#862637] text-[#fee1d4] text-[10px] font-normal uppercase tracking-[0.18em] px-3 py-1.5 rounded-full">
+                        {s.newBadge}
+                      </span>
+                    )}
                     {item.tags.map(tag => (
                       <span key={tag} className="bg-white/90 backdrop-blur-sm text-[#01142a] text-[10px] font-light uppercase tracking-[0.18em] px-3 py-1.5 rounded-full">
                         {tag}

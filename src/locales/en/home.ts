@@ -17,6 +17,7 @@ export const home: HomeDictionary = {
     title: 'Four spaces. One promise.',
     subtitle: 'Exclusive day hire for your team.',
     view: 'See the space',
+    newBadge: 'New',
   },
   spaces: {
     loft: {

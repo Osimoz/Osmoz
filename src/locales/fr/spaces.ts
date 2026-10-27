@@ -4,6 +4,7 @@ export const spaces = {
   title: 'Quatre lieux. Une seule promesse.',
   subtitle: 'Des lieux privatifs, chaleureux et authentiques où vos équipes se retrouvent vraiment.',
   discover: 'Découvrir',
+  newBadge: 'Nouveau',
   book: 'Réserver ce lieu',
   cta: {
     kicker: 'Privatisation clé en main',

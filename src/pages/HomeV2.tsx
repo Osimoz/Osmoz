@@ -59,6 +59,9 @@ const spaces = [
   { key: 'bonneNouvelle', image: u('images/bonne-nouvelle-osmoz.jpeg'), link: '/spaces/bonne-nouvelle-osmoz' },
 ] as const;
 
+// Espaces récemment ouverts : badge « Nouveau » sur leur carte.
+const newSpaces: readonly string[] = ['bonneNouvelle'];
+
 // Une icône par cas d'usage, dans l'ordre de t.home.useCases.
 const useCaseIcons = [Users, Lightbulb, UtensilsCrossed];
 
@@ -222,6 +225,11 @@ export default function HomeV2() {
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  {newSpaces.includes(space.key) && (
+                    <span className="absolute top-4 right-4 z-10 bg-[#862637] text-[#fee1d4] text-xs px-3 py-1 rounded-full font-light tracking-wide">
+                      {h.spacesSection.newBadge}
+                    </span>
+                  )}
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center">
                     <span className="btn-label opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white text-white text-xs uppercase px-6 py-3 rounded-lg">
