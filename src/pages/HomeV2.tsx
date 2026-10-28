@@ -188,7 +188,7 @@ export default function HomeV2() {
       <ClientLogos />
 
       {/* ── 4. SPACES ── */}
-      <section className="py-24 sm:py-32 bg-[#fbfbf3]">
+      <section className="pt-12 sm:pt-16 pb-24 sm:pb-32 bg-[#fbfbf3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-14 sm:mb-16">
