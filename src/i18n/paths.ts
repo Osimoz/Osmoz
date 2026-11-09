@@ -23,6 +23,15 @@ export function pathFor(key: RouteKey, lang: Lang): string | undefined {
 
 const stripTrailingSlash = (p: string) => (p.length > 1 ? p.replace(/\/+$/, '') : p);
 
+/**
+ * Pages de présentation (/presentation/<lieu>, /en/presentation/<lieu>) :
+ * envoyées par lien aux prospects à la place d'une plaquette PDF. Hors
+ * navigation et noindex (seo-config.json) ; sans popup newsletter.
+ */
+export function isPresentationPath(pathname: string): boolean {
+  return /^(\/en)?\/presentation(\/|$)/.test(pathname);
+}
+
 /** Langue d'une URL, pour le code qui vit hors du Router (ErrorBoundary). */
 export function langFromPathname(pathname: string): Lang {
   return pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'fr';

@@ -76,6 +76,20 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# ── Pages de présentation (hors navigation) ─────────────────────────
+# Envoyées par lien aux prospects à la place d'une plaquette PDF. Le HTML
+# porte déjà noindex (seo-config.json) ; l'en-tête couvre aussi les robots
+# qui ne lisent pas la page.
+[[headers]]
+  for = "/presentation/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/en/presentation/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # ── English version ──────────────────────────────────────────────────
 # Les pages EN sont des fichiers plats pré-rendus (dist/en.html, dist/en/…).
 # Les articles n'existent qu'en français : /en/articles/* → 301 vers l'article FR.

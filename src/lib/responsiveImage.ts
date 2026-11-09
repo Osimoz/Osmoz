@@ -15,11 +15,16 @@ export function variantUrl(url: string, width: number): string {
   return url.replace(/(\.[a-z0-9]+)$/i, `-w${width}$1`);
 }
 
-/** srcset complet : variantes générées + l'original comme candidat 1920w. */
-export function srcSet(url: string): string {
+/**
+ * srcset complet : variantes générées + l'original comme dernier candidat.
+ * Pour une source plus étroite que 1920 px, passer sa largeur réelle : seules
+ * les variantes plus petites qu'elle existent (le script ignore les autres),
+ * et l'original est annoncé à sa vraie largeur.
+ */
+export function srcSet(url: string, originalWidth: number = ORIGINAL_WIDTH): string {
   return [
-    ...RESPONSIVE_WIDTHS.map((w) => `${variantUrl(url, w)} ${w}w`),
-    `${url} ${ORIGINAL_WIDTH}w`,
+    ...RESPONSIVE_WIDTHS.filter((w) => w < originalWidth).map((w) => `${variantUrl(url, w)} ${w}w`),
+    `${url} ${originalWidth}w`,
   ].join(', ');
 }
 
