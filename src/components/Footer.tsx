@@ -41,7 +41,9 @@ const socials = [
   },
 ];
 
-export function Footer() {
+// minimal : sur une page de présentation (/presentation/*), seuls restent les
+// liens légaux et le sélecteur de langue ; le reste du site n'est pas proposé.
+export function Footer({ minimal = false }: { minimal?: boolean }) {
   const currentYear = new Date().getFullYear();
   const { t, p } = useLocale();
 
@@ -74,18 +76,22 @@ export function Footer() {
           </div>
 
           <div className="flex gap-6 flex-wrap justify-center">
-            <Link to={p('/spaces')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              {t.footer.spaces}
-            </Link>
-            <Link to={p('/contact')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              {t.footer.contact}
-            </Link>
-            <Link to={p('/questions-frequentes')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              {t.footer.faq}
-            </Link>
-            <Link to={p('/rse')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
-              {t.footer.csr}
-            </Link>
+            {!minimal && (
+              <>
+                <Link to={p('/spaces')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+                  {t.footer.spaces}
+                </Link>
+                <Link to={p('/contact')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+                  {t.footer.contact}
+                </Link>
+                <Link to={p('/questions-frequentes')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+                  {t.footer.faq}
+                </Link>
+                <Link to={p('/rse')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
+                  {t.footer.csr}
+                </Link>
+              </>
+            )}
             <Link to={p('/mentions-legales')} className="text-sm font-normal text-gray-400 hover:text-[#01142a] transition-colors">
               {t.footer.legal}
             </Link>

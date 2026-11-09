@@ -16,6 +16,7 @@ import { duplex } from './duplex';
 import { penthouse } from './penthouse';
 import { bonneNouvelle } from './bonneNouvelle';
 import { experience } from './experience';
+import { bonneNouvellePresentation } from './bonneNouvellePresentation';
 
 export const fr = {
   home,
@@ -33,6 +34,7 @@ export const fr = {
   penthouse,
   bonneNouvelle,
   experience,
+  bonneNouvellePresentation,
   // Signature de marque : en anglais dans les deux langues, à deux endroits
   // seulement (hero de la home, pied de page).
   brand: {

@@ -11,6 +11,7 @@ import LoftOsmozV2 from './pages/LoftOsmozV2';
 import DuplexOsmozV2 from './pages/DuplexOsmozV2';
 import PenthouseOsmoz from './pages/PenthouseOsmoz';
 import BonneNouvelle from './pages/BonneNouvelle';
+import BonneNouvellePresentation from './pages/BonneNouvellePresentation';
 import Contact from './pages/Contact';
 import Reservation from './pages/Reservation';
 import QuestionsFrequentes from './pages/Questions-Frequentes';
@@ -39,6 +40,8 @@ const PAGES: Record<RouteKey, ReactElement> = {
   rse: <RSE />,
   legal: <MentionsLegales />,
   privacy: <PolitiqueConfidentialite />,
+  // Présentation hors navigation (noindex, hors sitemap), envoyée par lien.
+  bonneNouvellePresentation: <BonneNouvellePresentation />,
 };
 
 // Envoie une page vue GA4 à chaque changement de route. Doit être DANS le

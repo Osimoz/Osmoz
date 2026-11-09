@@ -209,6 +209,22 @@
         "description": "OSMOZ privacy policy: how we collect, use and protect your personal data under the GDPR. Cookies, your rights and how to contact us."
       },
       "robots": "noindex, follow"
+    },
+    "bonneNouvellePresentation": {
+      "path": {
+        "fr": "/presentation/bonne-nouvelle-zvqm8",
+        "en": "/en/presentation/bonne-nouvelle-zvqm8"
+      },
+      "fr": {
+        "title": "Bonne Nouvelle OSMOZ, appartement haussmannien Paris 9e",
+        "description": "Bonne Nouvelle OSMOZ : appartement haussmannien de 100 m² entièrement privatisable, Paris 9e. Réunions, séminaires et déjeuners jusqu'à 30 personnes."
+      },
+      "en": {
+        "title": "Bonne Nouvelle OSMOZ, Haussmann apartment in Paris 9e",
+        "description": "Bonne Nouvelle OSMOZ: a 100 m² Haussmann apartment for exclusive hire on the Grands Boulevards, Paris 9e. Meetings, off-sites and lunches for up to 30 people."
+      },
+      "image": "https://osmoz-space.com/images/bonne-nouvelle/og-bonne-nouvelle.jpg",
+      "robots": "noindex, nofollow"
     }
   }
 }

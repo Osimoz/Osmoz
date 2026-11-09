@@ -13,6 +13,7 @@ import { duplex } from './duplex';
 import { penthouse } from './penthouse';
 import { bonneNouvelle } from './bonneNouvelle';
 import { experience } from './experience';
+import { bonneNouvellePresentation } from './bonneNouvellePresentation';
 
 export const en: Dictionary = {
   home,
@@ -30,6 +31,7 @@ export const en: Dictionary = {
   penthouse,
   bonneNouvelle,
   experience,
+  bonneNouvellePresentation,
   brand: {
     motto: 'Out of office. Into OSMOZ.',
   },
