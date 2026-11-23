@@ -35,6 +35,8 @@ const gallery = [
   { url: u('images/bonne-nouvelle-salle-a-manger-2.webp'), width: 1920 },
   { url: u('images/bonne-nouvelle-salle-a-manger-3.webp'), width: 1490 },
   { url: u('images/bonne-nouvelle-ambiance.webp'), width: 1644 },
+  { url: u('images/bonne-nouvelle-pleniere.webp'), width: 1920 },
+  { url: u('images/bonne-nouvelle-cocktail.webp'), width: 1920 },
 ];
 const gallerySrcSet = (i: number) => {
   const { url, width } = gallery[i];
@@ -50,8 +52,8 @@ const amenityIcons = [Wifi, Tv, Projector, Presentation, UtensilsCrossed];
 
 // `image` : index dans `gallery`.
 const configurations = [
-  { capacity: 30, image: 0 },
-  { capacity: 30, image: 6 },
+  { capacity: 30, image: 14 },
+  { capacity: 30, image: 15 },
   { capacity: 20, image: 4 },
   { capacity: 16, image: 2 },
   { capacity: 20, image: 3 },

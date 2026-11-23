@@ -28,6 +28,8 @@ export const bonneNouvelle = {
     { label: 'Salle à manger', alt: 'Grande table de la salle à manger de l’espace Bonne Nouvelle OSMOZ' },
     { label: 'Salle à manger', alt: 'Salle à manger lumineuse de l’espace Bonne Nouvelle OSMOZ' },
     { label: 'Ambiance', alt: 'Cheminée en marbre et toilettes de l’espace Bonne Nouvelle OSMOZ' },
+    { label: 'Plénière', alt: 'Salon de l’espace Bonne Nouvelle en format plénière, chaises face à l’écran' },
+    { label: 'Cocktail', alt: 'Salle à manger de l’espace Bonne Nouvelle en format cocktail' },
   ],
   configurations: [
     { label: 'Plénière', description: "Rangées de chaises face à l'écran dans le grand salon, pour présentations et formations." },

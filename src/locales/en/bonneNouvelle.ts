@@ -28,6 +28,8 @@ export const bonneNouvelle: BonneNouvelleDictionary = {
     { label: 'Dining room', alt: 'Large dining table of the OSMOZ Bonne Nouvelle space' },
     { label: 'Dining room', alt: 'Bright dining room of the OSMOZ Bonne Nouvelle space' },
     { label: 'Ambience', alt: 'Marble fireplace and restroom of the OSMOZ Bonne Nouvelle space' },
+    { label: 'Plenary', alt: 'Bonne Nouvelle lounge in a plenary layout, chairs facing the screen' },
+    { label: 'Cocktail party', alt: 'Bonne Nouvelle dining room arranged for a cocktail party' },
   ],
   configurations: [
     { label: 'Plenary', description: 'Rows of chairs facing the screen in the main lounge, for presentations and training sessions.' },

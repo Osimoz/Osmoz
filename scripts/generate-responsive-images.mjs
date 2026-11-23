@@ -73,6 +73,8 @@ const SOURCES = [
   'bonne-nouvelle-salle-a-manger-2.webp',
   'bonne-nouvelle-salle-a-manger-3.webp',
   'bonne-nouvelle-ambiance.webp',
+  'bonne-nouvelle-pleniere.webp',
+  'bonne-nouvelle-cocktail.webp',
   'bonne-nouvelle-plan.webp',
   // Page /presentation/bonne-nouvelle-… : hero + galerie + espaces + plan + table
   'bonne-nouvelle/salon-lounge.webp',
