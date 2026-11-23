@@ -76,14 +76,7 @@ const SOURCES = [
   'bonne-nouvelle-pleniere.webp',
   'bonne-nouvelle-cocktail.webp',
   'bonne-nouvelle-plan.webp',
-  // Page /presentation/bonne-nouvelle-… : hero + galerie + espaces + plan + table
-  'bonne-nouvelle/salon-lounge.webp',
-  'bonne-nouvelle/salon-reunion.webp',
-  'bonne-nouvelle/salon-conference.webp',
-  'bonne-nouvelle/salle-de-reunion.webp',
-  'bonne-nouvelle/salle-a-manger.webp',
-  'bonne-nouvelle/cuisine-petit-dejeuner.webp',
-  'bonne-nouvelle/cuisine-dejeuner.webp',
+  // Page /presentation/bonne-nouvelle-… : plan + table (les photos du lieu sont celles ci-dessus)
   'bonne-nouvelle/plan.webp',
   'bonne-nouvelle/cheffe-fleur.webp',
   'bonne-nouvelle/mosaique-plats.webp',

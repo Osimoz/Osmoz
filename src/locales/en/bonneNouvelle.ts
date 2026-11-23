@@ -33,7 +33,7 @@ export const bonneNouvelle: BonneNouvelleDictionary = {
   ],
   configurations: [
     { label: 'Plenary', description: 'Rows of chairs facing the screen in the main lounge, for presentations and training sessions.' },
-    { label: 'Cocktail party', description: 'Open lounge and fitted kitchen, for cocktail parties and after-work drinks.' },
+    { label: 'Cocktail party', description: 'Dining room and living room, for cocktail parties and after-work drinks.' },
     { label: 'Informal meeting', description: 'Sofas and armchairs in the lounge, for relaxed discussions.' },
     { label: 'Meeting room', description: 'A large table in a dedicated room, for committees and working sessions.' },
     { label: 'Lunch', description: 'The large dining room table, next to the open kitchen.' },

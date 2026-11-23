@@ -33,7 +33,7 @@ export const bonneNouvelle = {
   ],
   configurations: [
     { label: 'Plénière', description: "Rangées de chaises face à l'écran dans le grand salon, pour présentations et formations." },
-    { label: 'Cocktail', description: 'Grand salon ouvert et cuisine équipée, pour cocktails et afterworks.' },
+    { label: 'Cocktail', description: 'Salle à manger et salon, pour cocktails et afterworks.' },
     { label: 'Réunion informelle', description: 'Canapés et fauteuils du salon, pour échanger dans un cadre détendu.' },
     { label: 'Salle de réunion', description: 'Grande table dans une pièce dédiée, pour comités et réunions de travail.' },
     { label: 'Déjeuner', description: 'Grande table de la salle à manger, à côté de la cuisine ouverte.' },

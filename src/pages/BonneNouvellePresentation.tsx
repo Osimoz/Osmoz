@@ -23,25 +23,27 @@ const base = import.meta.env.BASE_URL;
 const u = (p: string) => encodeURI(`${base}${p.replace(/^\//, '')}`);
 const P = 'images/bonne-nouvelle/';
 
-// Visuels de la plaquette, avec leur largeur réelle : le srcset ne cite que
-// les variantes qui existent (scripts/generate-responsive-images.mjs).
+// Photos réelles du lieu (les mêmes que la page publique, dans public/images/),
+// avec leur largeur réelle : le srcset ne cite que les variantes qui existent
+// (scripts/generate-responsive-images.mjs). Plus aucun rendu 3D.
 // Les trois premiers forment la galerie ; tous alimentent la lightbox.
-type PhotoKey = 'salonLounge' | 'salonReunion' | 'salonConference' | 'salleReunion' | 'salleManger' | 'cuisinePetitDej' | 'cuisineDejeuner';
+type PhotoKey = 'salonLounge' | 'salonReunion' | 'salonConference' | 'salleReunion' | 'salleManger' | 'salleMangerCocktail' | 'cuisine' | 'cuisineIlot';
 const photos: { key: PhotoKey; file: string; width: number; height: number }[] = [
-  { key: 'salonReunion', file: 'salon-reunion.webp', width: 1610, height: 1255 },
-  { key: 'salonConference', file: 'salon-conference.webp', width: 1611, height: 1255 },
-  { key: 'salleReunion', file: 'salle-de-reunion.webp', width: 1379, height: 943 },
-  { key: 'salonLounge', file: 'salon-lounge.webp', width: 1086, height: 823 },
-  { key: 'salleManger', file: 'salle-a-manger.webp', width: 1536, height: 1024 },
-  { key: 'cuisinePetitDej', file: 'cuisine-petit-dejeuner.webp', width: 1655, height: 950 },
-  { key: 'cuisineDejeuner', file: 'cuisine-dejeuner.webp', width: 1637, height: 1255 },
+  { key: 'salonReunion', file: 'bonne-nouvelle-salon-2.webp', width: 1536, height: 1024 },
+  { key: 'salonConference', file: 'bonne-nouvelle-pleniere.webp', width: 1920, height: 1279 },
+  { key: 'salleMangerCocktail', file: 'bonne-nouvelle-cocktail.webp', width: 1920, height: 1279 },
+  { key: 'salonLounge', file: 'bonne-nouvelle-osmoz.jpeg', width: 1536, height: 1024 },
+  { key: 'salleReunion', file: 'bonne-nouvelle-salle-reunion-1.webp', width: 1920, height: 1280 },
+  { key: 'salleManger', file: 'bonne-nouvelle-salle-a-manger-1.webp', width: 1644, height: 1164 },
+  { key: 'cuisine', file: 'bonne-nouvelle-cuisine-1.webp', width: 1920, height: 1280 },
+  { key: 'cuisineIlot', file: 'bonne-nouvelle-cuisine-2.webp', width: 1920, height: 1280 },
 ];
 const GALLERY_COUNT = 3;
 const photoOf = (key: PhotoKey) => photos.find((p) => p.key === key)!;
 const indexOf = (key: PhotoKey) => photos.findIndex((p) => p.key === key);
 const imgAttrs = (key: PhotoKey) => {
   const { file, width } = photoOf(key);
-  const url = u(`${P}${file}`);
+  const url = u(`images/${file}`);
   return { src: url, srcSet: srcSet(url, width) };
 };
 
@@ -51,7 +53,7 @@ const roomPhotos: Record<(typeof roomKeys)[number], PhotoKey> = {
   salon: 'salonLounge',
   reunion: 'salleReunion',
   manger: 'salleManger',
-  cuisine: 'cuisinePetitDej',
+  cuisine: 'cuisine',
 };
 
 // Même ordre que t.bonneNouvellePresentation.formats.items / amenities.items.
