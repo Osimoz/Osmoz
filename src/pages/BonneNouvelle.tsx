@@ -21,14 +21,20 @@ const platforms = [
 // Galerie labellisée (libellés et alt dans t.bonneNouvelle.gallery, même ordre).
 // Les originaux font moins de 1920 px : on déclare leur vraie largeur dans le srcset.
 const gallery = [
-  { url: u('images/bonne-nouvelle-osmoz.jpeg'), width: 1086 },
-  { url: u('images/bonne-nouvelle-cocktail.webp'), width: 1920 },
-  { url: u('images/bonne-nouvelle-pleniere.webp'), width: 1920 },
-  { url: u('images/bonne-nouvelle-reunion-informelle.webp'), width: 1920 },
-  { url: u('images/bonne-nouvelle-salle-a-manger.webp'), width: 1536 },
-  { url: u('images/bonne-nouvelle-salle-reunion.webp'), width: 1379 },
-  { url: u('images/bonne-nouvelle-cuisine.webp'), width: 1655 },
-  { url: u('images/bonne-nouvelle-toilettes.webp'), width: 1734 },
+  { url: u('images/bonne-nouvelle-osmoz.jpeg'), width: 1536 },
+  { url: u('images/bonne-nouvelle-cuisine-1.webp'), width: 1920 },
+  { url: u('images/bonne-nouvelle-salle-reunion-1.webp'), width: 1920 },
+  { url: u('images/bonne-nouvelle-salle-a-manger-1.webp'), width: 1644 },
+  { url: u('images/bonne-nouvelle-salon-2.webp'), width: 1536 },
+  { url: u('images/bonne-nouvelle-salon-3.webp'), width: 1644 },
+  { url: u('images/bonne-nouvelle-cuisine-2.webp'), width: 1920 },
+  { url: u('images/bonne-nouvelle-cuisine-3.webp'), width: 1644 },
+  { url: u('images/bonne-nouvelle-cuisine-4.webp'), width: 1644 },
+  { url: u('images/bonne-nouvelle-salle-reunion-2.webp'), width: 1644 },
+  { url: u('images/bonne-nouvelle-salle-reunion-3.webp'), width: 1644 },
+  { url: u('images/bonne-nouvelle-salle-a-manger-2.webp'), width: 1920 },
+  { url: u('images/bonne-nouvelle-salle-a-manger-3.webp'), width: 1490 },
+  { url: u('images/bonne-nouvelle-ambiance.webp'), width: 1644 },
 ];
 const gallerySrcSet = (i: number) => {
   const { url, width } = gallery[i];
@@ -44,11 +50,11 @@ const amenityIcons = [Wifi, Tv, Projector, Presentation, UtensilsCrossed];
 
 // `image` : index dans `gallery`.
 const configurations = [
-  { capacity: 30, image: 2 },
-  { capacity: 30, image: 1 },
-  { capacity: 20, image: 3 },
-  { capacity: 16, image: 5 },
+  { capacity: 30, image: 0 },
+  { capacity: 30, image: 6 },
   { capacity: 20, image: 4 },
+  { capacity: 16, image: 2 },
+  { capacity: 20, image: 3 },
 ];
 
 const planUrl = u('images/bonne-nouvelle-plan.webp');
